@@ -1,0 +1,540 @@
+html{
+    overflow: auto;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-custom{
+    background-image: linear-gradient(to right, rgb(0, 180, 224), rgb(131, 241, 255));
+}
+
+.shadow-nav{
+    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
+}
+
+.profile-text{
+    color: white;
+    text-decoration: none;
+}
+
+.profile-text:hover{
+    text-decoration: none;
+    color: white;
+}
+
+
+.input{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    padding-left: 10px;
+    background-color: rgb(245, 252, 255);
+}
+
+footer .main-footer{	
+    padding: 20px 0;	
+    background-color: rgb(57, 199, 218);
+}
+
+.copyright{
+    text-align: center;
+    background-color: rgb(29,152,177);
+    color: #fff;
+    font-size: 12px;
+}
+
+.password{
+    margin-top: 30px;
+}
+
+.login-bg{
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    height: 500px;
+    padding: 20px 80px;
+    
+}
+
+.login-text{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 2  00;
+}
+
+.bg-cover{
+    height: 730px;
+    background: rgba(0, 174, 255);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+}
+
+.judul-text{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+}
+
+.login-judul{
+    font-size: 50px;
+}
+
+.login-input{
+    min-width: -webkit-fill-available;
+}
+
+.login-body{
+    text-align: left;
+}
+
+.center{
+    text-align: center;
+    vertical-align: center;
+}
+
+.navbar-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.wish-list:hover{
+    color: rgb(235, 235, 235);
+}
+
+.fixed{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.content{
+    width: 90%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+}
+
+.bg-img{
+    background-position: 100% 100%;
+    
+    background-repeat: no-repeat;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-item{
+    text-align: left;
+    font-size: 15px;
+    padding: 0px;
+    padding-bottom: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.content-border{
+    border: gray 1px solid;
+    border-radius: 7px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.content-width{
+    max-width: 1100px;
+}
+
+.content-height{
+    min-height: 1200px;
+}
+
+.input:focus {
+    color: rgb(255, 166, 57);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.144);
+}
+
+.icon-hw{
+    font-size: 1.33333em;
+    line-height: .75em;
+}
+
+.no-padding{
+    padding: 0 !important;
+}
+
+.no-border{
+    border: none !important;
+}
+
+::selection{
+    color: white;
+    background-color: rgb(58, 193, 255);
+}
+
+.footer-text{
+    margin-top: 10px;
+    color: white;
+}
+
+.footer-text-title{
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.flex-container {
+    padding: 0;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+  
+.justify-content-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.li-item{
+    text-decoration: none;
+    list-style: none;
+}
+
+.ul-item{
+    padding: 0;
+}
+
+.width-item{
+    width: 19%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.width-img{
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.author{
+    color: rgb(119, 119, 119);
+    margin-top: 2px;
+    margin-left: 5px;
+    font-weight: 200;
+}
+
+.rating{
+    margin-left: 5px;
+}
+
+div.item:hover{
+    border: 1px rgba(0, 0, 0, 0.08) solid;
+    box-shadow: 0 0 3px 0 rgba(99, 99, 99, 0.03), 0 0 3px 0 rgba(0, 0, 0, 0.03);
+    background-color: white;
+    border-radius: 3px;
+}
+
+p{
+    color: black;
+    margin-bottom: 2px;
+}
+
+.batas{
+    margin-top: 100px;
+}
+
+hr{
+    margin: 10px 0px !important;
+    background-color: rgb(175, 175, 175);
+}
+
+.nav-active{
+    font-weight: bold;
+    padding-bottom: 2px;
+    border-bottom: azure 1px solid;
+    color: #fff !important;
+}
+
+.signup-bg{
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    height: 600px;
+    padding: 20px 80px;
+}
+
+.content-title{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.content-link{
+    margin-top: 15px;
+    color: rgb(0, 217, 255);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.margin-top-detail{
+    margin-top: 70px;
+}
+
+.line{
+    background-color: rgb(223, 223, 223);
+}
+
+.flex-item div {
+    transition: all 0.2s ease;
+}
+
+.flex-item div:hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.btn-buy{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 15px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 5px 20px;
+    width: 140px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-buy:hover{
+    background-color: rgb(218, 142, 2);
+}
+
+.content-title-detail{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.btn-wishlist{
+    /* border-radius: 3px; */
+    font-family: 'Noto Sans', sans-serif;
+    background-color: rgb(0, 182, 182);
+    border: none;
+    font-size: 15px;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 5px 20px;
+    width: 140px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+}
+
+.btn-wishlist:hover{
+    background-color: rgb(0, 116, 116);
+}
+
+@media screen and (min-width: 771px) {
+.login-bg{
+    min-width: 400px;
+    max-width: 850px;
+}
+
+
+.signup-bg{
+    min-width: 400px;
+    max-width: 850px;    
+}
+    
+    p{
+        font-size: 12px;
+    }
+
+    .item-detail{
+        width: 20%;
+    }
+
+    .detail-title{
+        margin-top: 2px;
+        margin-left: 5px;
+        font-size: 32px;
+        font-weight: bold;
+    }  
+
+    .detail-author{
+        margin-left: 5px;
+        font-size: 20px;
+        color: rgb(80, 80, 80);
+    }
+
+    .detail-price{
+        color: rgb(255, 30, 30);
+        font-weight: 900;
+        font-size: 30px;
+    }
+
+    .detail-rating{
+        font-size: 18px;
+    }
+
+    .desc-detail{
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .detail{
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        color: rgb(0, 201, 228);
+    }
+    
+    .flex-item {
+        padding: 0px;
+        width:150px;
+        height: auto;
+        margin-top: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+    
+    }
+
+    .title{
+        margin-top: 2px;
+        margin-left: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 142px;
+    }    
+
+    .content-border{
+        margin-bottom: 50px;
+    }
+
+    .prof{
+        min-width: 150px;
+        padding: 5px 2px;
+        background-color: transparent;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 770px) {
+    .bg-cover{
+        padding: 130px 50px;
+    }
+
+    .login-judul{
+        font-size: 40px;
+    }
+
+    .login-bg{
+        padding: 35px;
+    }
+
+    .signup-bg{
+        padding: 35px;
+    }
+
+    p{
+        font-size: 10px;
+    }
+
+    .item-detail{
+        width: 40%;
+    }
+
+    .text {
+        display: block;
+        width: 40px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .title{
+        margin-top: 2px;
+        margin-left: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 70px;
+    }
+
+    .detail-title{
+        font-size: 20px;
+    }  
+    
+    .detail-author{
+        font-size: 12px;
+        color: rgb(90, 90, 90);
+    }
+
+    .detail{
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        font-size: 15px;
+        color: rgb(0, 201, 228);
+    }
+
+    .desc-detail{
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .detail-rating{
+        font-size: 12px;
+    }
+
+    .detail-price{
+        font-size: 15px;
+        color: rgb(250, 36, 36);
+        font-weight: bold;
+    }
+
+      .flex-item {
+        padding: 0px;
+        width: 75px;
+        margin: 2px;
+        height: auto;
+        margin-top: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+    }
+
+    .content-border{
+        margin-bottom: 30px;
+    }
+    
+    .prof{
+        background-color: transparent;
+        visibility: hidden;
+        position: absolute;
+    }
+  }
