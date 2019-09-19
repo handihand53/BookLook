@@ -4,10 +4,11 @@ html{
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: rgb(248, 248, 248);
 }
 
 .bg-custom{
-    background-image: linear-gradient(to right, rgb(0, 180, 224), rgb(131, 241, 255));
+    background-color: rgb(95, 218, 255);
 }
 
 .shadow-nav{
@@ -31,16 +32,23 @@ body{
     padding: 5px;
     padding-left: 10px;
     background-color: rgb(245, 252, 255);
+    z-index: 2;
+}
+
+a:hover{
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;  
 }
 
 footer .main-footer{	
     padding: 20px 0;	
-    background-color: rgb(57, 199, 218);
+    background-color: rgb(95, 218, 255);
 }
 
 .copyright{
     text-align: center;
-    background-color: rgb(29,152,177);
+    background-color: rgb(0, 125, 163);
     color: #fff;
     font-size: 12px;
 }
@@ -60,7 +68,7 @@ footer .main-footer{
 
 .login-text{
     font-family: 'Raleway', sans-serif;
-    font-weight: 2  00;
+    font-weight: 200;
 }
 
 .bg-cover{
@@ -132,31 +140,93 @@ footer .main-footer{
     display: inline-block;
 }
 
+a{
+    color: black;
+}
+
 .dropdown-item{
     text-align: left;
-    font-size: 15px;
-    padding: 0px;
-    padding-bottom: 5px;
+    font-size: 13px;
+    padding: 8px;
+    /* padding-bottom: 5px; */
+}
+
+.dropdown-item:hover{
+   background-color: rgb(223, 223, 223);
+}
+
+.box{
+    background-color: #fff;
+}
+
+.arrow-up{
+  width: 0; 
+  top: 50px;
+  margin-left: 30px;
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  /* position: absolute; */
+}
+
+button:active{
+    border-color: none;
+}
+
+.profile-mob{
+    right: 0;
 }
 
 .dropdown-content {
-    display: none;
+    /* display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 12px 16px;
-    z-index: 1;
+    z-index: 1; */
+
+    z-index: 99;
+    min-width: 150px;
+    width: 100%;
+    /* background-color: #f9f9f9; */
+    overflow:hidden;
+    max-height:0;
+    -webkit-transition:max-height 5s0ms ease;
+    -moz-transition:max-height 50ms ease;
+    -o-transition:max-height 50ms ease;
+    transition:max-height 50ms ease;
+    position: absolute;
 }
   
 .dropdown:hover .dropdown-content {
     display: block;
+    max-height:300px;
+}
+
+.btn-look{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 15px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 5px 20px;
+    width: 100px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+}
+
+.btn-look:hover{
+    background-color: rgb(218, 142, 2);
 }
 
 
 .content-border{
+    background-color: #fff;
     border: gray 1px solid;
-    border-radius: 7px;
+    border-radius: 2px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -165,7 +235,7 @@ footer .main-footer{
 }
 
 .content-height{
-    min-height: 1200px;
+    min-height: 10  00px;
 }
 
 .input:focus {
@@ -209,6 +279,7 @@ footer .main-footer{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    margin-bottom: 10px;
   }
   
 .justify-content-between{
@@ -225,10 +296,49 @@ footer .main-footer{
     padding: 0;
 }
 
+hr.myline{
+    margin: 2px !important;
+}
+
+.ul-keranjang{
+    padding: 10px;
+    margin: 0px;
+}
+
+.width-img-keranjang{
+    width: 100%;
+    margin: 1px;
+}
+
+.keranjang{
+    padding: 5px 20px;
+    font-size: 15px;
+}
+
+.itm-keranjang{
+    list-style: none;
+}
+
 .width-item{
     width: 19%;
     padding-left: 0px;
     padding-right: 0px;
+}
+
+.title-keranjang{
+    margin-top: 2px;
+    margin-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 190px;
+}    
+
+.price{
+    margin-top: 2px;
+    margin-left: 5px;
+    font-size: 20px;
+    color: rgb(255, 186, 82);
 }
 
 .width-img{
@@ -252,7 +362,7 @@ footer .main-footer{
 div.item:hover{
     border: 1px rgba(0, 0, 0, 0.08) solid;
     box-shadow: 0 0 3px 0 rgba(99, 99, 99, 0.03), 0 0 3px 0 rgba(0, 0, 0, 0.03);
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 3px;
 }
 
@@ -262,19 +372,34 @@ p{
 }
 
 .batas{
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 hr{
     margin: 10px 0px !important;
-    background-color: rgb(175, 175, 175);
+    background-color: rgba(175, 175, 175, 0.103);
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255) !important;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .nav-active{
     font-weight: bold;
     padding-bottom: 2px;
-    border-bottom: azure 1px solid;
     color: #fff !important;
+}
+
+.background-menu{
+    position: absolute;
+    top: 0px;
+    width:100%;
+    height: 450px;
+    background-image: url(assets/bg/vandan.jpg);
+    z-index: -99;
 }
 
 .signup-bg{
@@ -318,13 +443,14 @@ hr{
 .btn-buy{
     font-family: 'Noto Sans', sans-serif;
     background-color: orange;
-    font-size: 15px;
+    font-size: 12px;
     border: none;
     color: white;
     font-weight: 300;
     margin: 5px;
-    padding: 5px 20px;
-    width: 140px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
     box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
     /* border-radius: 3px; */
 }
@@ -344,12 +470,13 @@ hr{
     font-family: 'Noto Sans', sans-serif;
     background-color: rgb(0, 182, 182);
     border: none;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
     font-weight: 300;
     margin: 5px;
-    padding: 5px 20px;
-    width: 140px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
     box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
 }
 
@@ -358,6 +485,10 @@ hr{
 }
 
 @media screen and (min-width: 771px) {
+.dropdown-content {
+    top: 35px;
+}
+
 .login-bg{
     min-width: 400px;
     max-width: 850px;
@@ -380,24 +511,46 @@ hr{
     .detail-title{
         margin-top: 2px;
         margin-left: 5px;
-        font-size: 32px;
+        font-size: 15px;
+        font-weight: bold;
+    }  
+
+    .title-detail-keranjang{
+        margin-top: 2px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+        font-size: 20px;
         font-weight: bold;
     }  
 
     .detail-author{
         margin-left: 5px;
-        font-size: 20px;
-        color: rgb(80, 80, 80);
+        font-size: 13px;
+        color: rgb(81, 191, 255);
+    }
+
+    .author-keranjang{
+        margin-left: 5px;
+        font-size: 13px;
+        color: rgb(160, 160, 160);
     }
 
     .detail-price{
-        color: rgb(255, 30, 30);
+        color: rgb(0, 204, 255);
         font-weight: 900;
-        font-size: 30px;
+        font-size: 15px;
     }
 
-    .detail-rating{
-        font-size: 18px;
+    .delete-icon{
+        font-size: 20px;
+    }
+    
+    .price-keranjang{
+        margin-top: 2px;
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(255, 186, 82);
     }
 
     .desc-detail{
@@ -445,8 +598,16 @@ hr{
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 770px) {
+    .background-menu{
+        height: 330px;
+    }
     .bg-cover{
-        padding: 130px 50px;
+        padding: 30px 15px;
+    }
+
+    .judul-text{
+        font-size: 25px;
+        margin-bottom: 20px;
     }
 
     .login-judul{
@@ -459,6 +620,7 @@ hr{
 
     .signup-bg{
         padding: 35px;
+        height: 650px;
     }
 
     p{
@@ -487,7 +649,7 @@ hr{
     }
 
     .detail-title{
-        font-size: 20px;
+        font-size: 13px;
     }  
     
     .detail-author{
@@ -505,6 +667,11 @@ hr{
     .desc-detail{
         font-size: 12px;
         font-weight: bold;
+    }
+
+    .hide{
+        visibility: hidden;
+        position: absolute;
     }
 
     .detail-rating{
