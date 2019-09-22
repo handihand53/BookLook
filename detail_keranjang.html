@@ -51,11 +51,11 @@
                 <li class="nav-item">
                   <a class="nav-link nav-active" href="#">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="drop">
                     
                   <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i>
                       
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" >
                       <div>
                         <div class="arrow-up"></div>
                       </div>
@@ -274,18 +274,18 @@
     <script>
       var bg = document.getElementById("bg-black");
       var drop = document.getElementById("kategori");
-      var head = document.getElementById("head");
+      var drop_content = document.getElementById("drop");
 
       bg.addEventListener("mouseover", function(){
         bg.style.position ="unset";
       })
 
-      head.addEventListener("mouseover", function(){
+      drop_content.addEventListener("mouseout", function(){
         bg.style.position ="unset";
       })
 
       drop.addEventListener("mouseover", function(){
-        bg.style.position ="absolute";
+        bg.style.position ="fixed";
       });
     </script>
 </body>
