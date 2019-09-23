@@ -23,7 +23,7 @@
             <span class="navbar-toggler-icon" style="width: 25px;"></span>
           </button>  
           
-          <!-- Brand -->
+          <!-- Logo -->
             <a class="navbar-brand" href="index.html"><img src="assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
           
             <!-- Toggler/collapsibe Button -->
@@ -41,9 +41,6 @@
                   </div>
                 <div>
             </button>
-
-            
-            
           
             <!-- Navbar links -->
             <div class="collapse navbar-collapse col-lg-5 " id="collapsibleNavbar">
@@ -52,9 +49,7 @@
                   <a class="nav-link nav-active" href="#">Home</a>
                 </li>
                 <li class="nav-item" id="drop">
-                    
-                  <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i>
-                      
+                  <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i> 
                     <div class="dropdown-content" >
                       <div>
                         <div class="arrow-up"></div>
@@ -81,7 +76,7 @@
             </div>
             <div class="col-lg-5 float-right no-padding justify-content-between">
               <input class="input search" style="width: 82%; font-size: 13px;" type="text" placeholder="Search">
-              <div class="dropdown" style="margin: auto; margin-left: 10px;">
+              <div class="dropdown" id="drop-shop" style="margin: auto; margin-left: 10px;">
                   <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
                   <div class="dropdown-content profile-mob" style="top: 25px; min-width: 300px; overflow-y: scroll; background-color: #fff">
                       <div>
@@ -137,7 +132,7 @@
                   </div>
               </div>
               
-              <button class="prof no-border float-left">
+              <button class="prof no-border float-left" id="profile">
                   <div class="dropdown">
                       <a href="user.html" class="profile-text"><img class="navbar-icon" src="assets/logo/user.png" alt="">
                           Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> </a>
@@ -159,6 +154,9 @@
     </header>
     <br>
     <div class="batas"></div>
+
+    <!-- Main -->
+
     <main class="content content-width content-height">
         <div class="row">
           <div class="col-md-6">
@@ -233,6 +231,9 @@
             </div>
         </div>
     </main>
+
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="main-footer widgets-dark typo-light">
             <div class="container">
@@ -271,22 +272,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-      var bg = document.getElementById("bg-black");
-      var drop = document.getElementById("kategori");
-      var drop_content = document.getElementById("drop");
-
-      bg.addEventListener("mouseover", function(){
-        bg.style.position ="unset";
-      })
-
-      drop_content.addEventListener("mouseout", function(){
-        bg.style.position ="unset";
-      })
-
-      drop.addEventListener("mouseover", function(){
-        bg.style.position ="fixed";
-      });
-    </script>
+    <script src="js/background_blur.js"></script>
 </body>
 </html>
