@@ -15,6 +15,35 @@ body{
     box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
 }
 
+
+
+.market-bg{
+    background-image: url('../assets/bg/building.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.detail-keranjang{
+    border: none !important; 
+    border-top: 2px solid #33C8FF !important;  
+    position: sticky; 
+    position: -webkit-sticky; 
+    top: 70px;
+}
+
+.sticky{
+    position: sticky; 
+    position: -webkit-sticky; 
+    top: 70px;
+}
+
+.market{
+    height: 100px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
 .profile-text{
     color: white;
     text-decoration: none;
@@ -413,7 +442,7 @@ hr{
     top: 0px;
     width:100%;
     height: 450px;
-    background-image: url(assets/bg/vandan.jpg);
+    background-image: url('../assets/bg/vandan.jpg');
     z-index: -99;
 }
 
@@ -474,6 +503,26 @@ hr{
     background-color: rgb(218, 142, 2);
 }
 
+
+.btn-orange{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-orange:hover{
+    background-color: rgb(218, 142, 2);
+}
+
 .content-title-detail{
     font-size: 20px;
     font-weight: bold;
@@ -502,6 +551,24 @@ hr{
 @media screen and (min-width: 771px) {
 .dropdown-content {
     top: 35px;
+}
+
+.col-8-custom{
+    flex: 0 0 66.666667%; 
+    max-width: 66.666667%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-4-custom{
+    flex: 0 0 33.333333%; 
+    max-width: 33.333333%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .login-bg{
@@ -613,6 +680,12 @@ hr{
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 770px) {
+
+    .price-keranjang{
+        font-size: 17px;
+        color: rgb(255, 186, 82);
+    }
+
     .background-menu{
         height: 330px;
     }
@@ -636,6 +709,20 @@ hr{
     .signup-bg{
         padding: 35px;
         height: 650px;
+    }
+    
+    .col-4-custom{
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .col-8-custom{
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
     p{
