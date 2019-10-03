@@ -223,30 +223,29 @@ button:active{
 }
 
 .dropdown-content {
-    /* display: none;
-    position: absolute;
-    
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1; */
-
     z-index: 4;
     min-width: 150px;
     width: 100%;
-    /* background-color: #f9f9f9; */
     overflow:hidden;
     max-height:0;
-    -webkit-transition:max-height 5s0ms ease;
-    -moz-transition:max-height 50ms ease;
-    -o-transition:max-height 50ms ease;
-    transition:max-height 50ms ease;
     position: absolute;
 }
   
 .dropdown:hover .dropdown-content {
     display: block;
     max-height:300px;
+}
+
+option{
+    font-size: 12px;
+}
+
+select{
+    font-size: 12px;
+}
+
+.m-3-custom{
+    margin: 1rem!important;
 }
 
 .btn-look{
@@ -260,6 +259,10 @@ button:active{
     padding: 5px 20px;
     width: 100px;
     box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+}
+
+.f-13{
+    font-size: 13px;
 }
 
 .btn-look:hover{
@@ -325,6 +328,25 @@ button:active{
     justify-content: space-around;
     margin-bottom: 10px;
   }
+
+.flex-column{
+    flex-direction: column;
+    display: flex;
+}
+
+.d-table{
+    display:table;
+}
+
+  .flex-container-start {
+    padding: 0;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
   
 .justify-content-between{
     display: flex;
@@ -385,12 +407,66 @@ hr.myline{
     color: rgb(255, 186, 82);
 }
 
+label{
+    font-size:13px;
+    margin-top: 10px;
+}
+
 .width-img{
+    max-height: 220px;
     width: 100%;
     padding-left: 5px;
     padding-right: 5px;
 }
 
+.red{
+    color: red;
+}
+
+.input-file{
+    /* width: 20px; */
+    /* height: 0.1px; */
+    /* opacity: 100; */
+    display: block;
+    padding: 5px 10px;
+    background: rgb(67, 211, 255);
+    color: #fff;
+    font-size: 12px;
+    transition: all .4s;
+    cursor: pointer;
+    width: 120px;
+    margin: 0px;
+}
+
+.btn-blue{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: rgb(0, 225, 255);
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-blue:hover{
+    background-color: rgb(0, 189, 214);
+}
+
+.edit-input{
+    width: 100%;
+    font-size: 12px;
+}
+
+.file{
+    top: 0;
+    position: absolute;
+    opacity: 0;
+}
 
 .author{
     color: rgb(119, 119, 119);
@@ -419,6 +495,22 @@ p{
     margin-top: 70px;
 }
 
+.batas-2{
+    margin-top: 50px;
+}
+
+span .orange{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.orange{
+    color: rgb(255, 187, 61);
+}
+
+.orange:hover{
+    color: rgb(226, 147, 0);
+}
+
 hr{
     margin: 10px 0px !important;
     background-color: rgba(175, 175, 175, 0.103);
@@ -428,7 +520,6 @@ hr{
     cursor: pointer;
     color:rgb(255, 255, 255) !important;
     font-weight: bold;
-    transition: 0.3s;
 }
 
 .nav-active{
@@ -474,15 +565,6 @@ hr{
     background-color: rgb(223, 223, 223);
 }
 
-.flex-item div {
-    transition: all 0.2s ease;
-}
-
-.flex-item div:hover {
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
-}
 
 .btn-buy{
     font-family: 'Noto Sans', sans-serif;
@@ -549,9 +631,15 @@ hr{
 }
 
 @media screen and (min-width: 771px) {
+
+    .d-table{
+        max-width: 5%;
+    }
+
 .dropdown-content {
-    top: 35px;
+    top: 27px;
 }
+
 
 .col-8-custom{
     flex: 0 0 66.666667%; 
@@ -580,6 +668,10 @@ hr{
 .signup-bg{
     min-width: 400px;
     max-width: 850px;    
+}
+
+.search{
+    margin-right: 10px;  
 }
     
     p{
@@ -662,6 +754,7 @@ hr{
         margin-top: 2px;
         margin-left: 5px;
         overflow: hidden;
+        font-size: 16px;
         white-space: nowrap;
         text-overflow: ellipsis;
         width: 142px;
@@ -681,6 +774,13 @@ hr{
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 770px) {
 
+    .batas-2{
+        margin-top: 80px;
+    }
+    .m-3-custom{
+        margin: 5px !important;
+        max-width: 45%;
+    }
     .price-keranjang{
         font-size: 17px;
         color: rgb(255, 186, 82);

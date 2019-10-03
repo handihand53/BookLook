@@ -21,91 +21,77 @@
 <body>
   <div class="bg-black" id="bg-black"></div>
   <header class="fixed" >
-    <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav" >
-      <!-- Toggler/collapsibe Button -->
-      <button class="navbar-toggler no-border float-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon" style="width: 25px;"></span>
-      </button>  
-      
-      <!-- Logo -->
-        <a class="navbar-brand" href="index.html"><img src="assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
-      
+      <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav" >
         <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler no-border float-left" id="btn_profile">
-            <div class="dropdown"><img class="navbar-icon" src="assets/logo/user.png" alt="">
-              <div class="dropdown-content" style="right: 0;">
-                <div>
-                  <div class="arrow-up" style="margin-left: 130px;"></div>
-                </div>
-                <div class="box">
-                  <a href="user.html"><p class="dropdown-item">Profile1</p></a>
-                  <a href="shop.html"><p class="dropdown-item">Toko1</p></a>
-                  <a href="logout.html"><p class="dropdown-item">Log Out1</p></a>    
-                </div>
-              </div>
-            <div>
-        </button>
-      
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse col-lg-5 " id="collapsibleNavbar">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link nav-active" href="#">Home</a>
-            </li>
-            <li class="nav-item" id="drop">
-              <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i> 
-                <div class="dropdown-content" >
+        <button class="navbar-toggler no-border float-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon" style="width: 25px;"></span>
+        </button>  
+        
+        <!-- Logo -->
+          <a class="navbar-brand" href="index.html"><img src="assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
+        
+          <!-- Toggler/collapsibe Button -->
+          <button class="navbar-toggler no-border float-left" id="btn_profile">
+              <div class="dropdown"><img class="navbar-icon" src="assets/logo/user.png" alt="">
+                <div class="dropdown-content" style="right: 0;">
                   <div>
-                    <div class="arrow-up"></div>
-                  </div>
-                    <div class="box">
-                      <p class="dropdown-item">Anak</p>
-                      <p class="dropdown-item">Bisnis</p>
-                      <p class="dropdown-item">Kesehatan</p>
-                      <p class="dropdown-item">Masak</p>
-                      <p class="dropdown-item">Edukasi</p>
-                      <p class="dropdown-item">Kesenian</p>
-                      <p class="dropdown-item">Traveling</p>
-                    </div>
-                </div>
-              <div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Daftar Buku</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tentang</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-5 float-right no-padding justify-content-between">
-          <input class="input search" style="width: 82%; font-size: 13px;" type="text" placeholder="Search">
-          <div class="dropdown" id="drop-shop" style="margin: auto;">
-              <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
-              <div class="dropdown-content profile-mob" style="top: 25px; min-width: 300px; overflow-y: scroll; background-color: #fff">
-                  <div>
-                    <div class="arrow-up" style="margin-left: 285px;"></div>
+                    <div class="arrow-up" style="margin-left: 130px;"></div>
                   </div>
                   <div class="box">
-                    <p class="keranjang">Keranjang</p>
-                    <hr class="myline">
-                    <ul class="ul-keranjang">
-                      <li class="itm-keranjang">
-                        <div class="row">
-                          <div class="col-4">
-                            <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
-                          </div>
-                          <div class="col-8 no-padding">
-                              <h6 class="title-keranjang">DNA of a Christ Followers</h6>
-                              <p class="author">Daren Wride</p>
-                              <p class="author">Ini bagian SKU</p>
-                              <p class="price">Rp. 57.000</p>
-                              <p style="float: right; margin-right: 20px;"><i class="fa fa-trash" style="color: rgb(172, 172, 172);" aria-hidden="true"></i></p>
-                          </div>
-                        </div>
-                      </li>
-                      <hr>
-                      <li class="itm-keranjang">
+                    <a href="user.html"><p class="dropdown-item">Profile</p></a>
+                    <a href="shop.html"><p class="dropdown-item">Toko</p></a>
+                    <a href="wishlist.html"><p class="dropdown-item">Wishlist</p></a>
+                    <a href="logout.html"><p class="dropdown-item">Log Out</p></a>    
+                  </div>
+                </div>
+              <div>
+          </button>
+        
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse col-lg-5 " id="collapsibleNavbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item" id="drop">
+                <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i> 
+                  <div class="dropdown-content" >
+                    <div>
+                      <div class="arrow-up"></div>
+                    </div>
+                      <div class="box">
+                        <p class="dropdown-item">Anak</p>
+                        <p class="dropdown-item">Bisnis</p>
+                        <p class="dropdown-item">Kesehatan</p>
+                        <p class="dropdown-item">Masak</p>
+                        <p class="dropdown-item">Edukasi</p>
+                        <p class="dropdown-item">Kesenian</p>
+                        <p class="dropdown-item">Traveling</p>
+                      </div>
+                  </div>
+                <div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Daftar Buku</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tentang</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-5 float-right no-padding justify-content-between">
+            <input class="input search" style="width: 82%; font-size: 13px;" type="text" placeholder="Search">
+            <div class="dropdown" id="drop-shop" style="margin: auto;">
+                <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
+                <div class="dropdown-content profile-mob" style="top: 25px; min-width: 300px; overflow-y: scroll; background-color: #fff">
+                    <div>
+                      <div class="arrow-up" style="margin-left: 285px;"></div>
+                    </div>
+                    <div class="box">
+                      <p class="keranjang">Keranjang</p>
+                      <hr class="myline">
+                      <ul class="ul-keranjang">
+                        <li class="itm-keranjang">
                           <div class="row">
                             <div class="col-4">
                               <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
@@ -120,41 +106,59 @@
                           </div>
                         </li>
                         <hr>
-                        <li>
-                          <div class="row">
-                            <div class="col-6">
-                              <p>Total (2)</p>
-                              <p class="price">Rp. 114.000</p>    
+                        <li class="itm-keranjang">
+                            <div class="row">
+                              <div class="col-4">
+                                <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
+                              </div>
+                              <div class="col-8 no-padding">
+                                  <h6 class="title-keranjang">DNA of a Christ Followers</h6>
+                                  <p class="author">Daren Wride</p>
+                                  <p class="author">Ini bagian SKU</p>
+                                  <p class="price">Rp. 57.000</p>
+                                  <p style="float: right; margin-right: 20px;"><i class="fa fa-trash" style="color: rgb(172, 172, 172);" aria-hidden="true"></i></p>
+                              </div>
                             </div>
-                            <div class="col-6">
-                              <button class="btn-look">Lihat</button>
+                          </li>
+                          <hr>
+                          <li>
+                            <div class="row">
+                              <div class="col-6">
+                                <p>Total (2)</p>
+                                <p class="price">Rp. 114.000</p>    
+                              </div>
+                              <div class="col-6">
+                                <a href="detail_keranjang.html"><button class="btn-look">Lihat</button></a>
+                              </div>
                             </div>
-                          </div>
-                        </li>
-                    </ul>
-                  </div>
-              </div>
+                          </li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="prof no-border float-left" id="profile">
+                <div class="dropdown">
+                    <a href="user.html" class="profile-text">
+                      <img class="navbar-icon" src="assets/logo/user.png" alt="">
+                        Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> 
+                    </a>
+                    <div class="dropdown-content">
+                      <div>
+                        <div class="arrow-up"></div>
+                      </div>
+                      <div class="box">
+                        <a href="user.html"><p class="dropdown-item">Profile</p></a>
+                        <a href="shop.html"><p class="dropdown-item">Toko</p></a>
+                        <a href="wishlist.html"><p class="dropdown-item">Wishlist</p></a>
+                        <a href="logout.html"><p class="dropdown-item">Log Out</p></a>    
+                      </div>
+                    </div>
+                </div>
+            </button>
           </div>
           
-          <button class="prof no-border float-left" id="profile">
-              <div class="dropdown">
-                  <a href="user.html" class="profile-text"><img class="navbar-icon" src="assets/logo/user.png" alt="">
-                      Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> </a>
-                  <div class="dropdown-content">
-                    <div>
-                      <div class="arrow-up"></div>
-                    </div>
-                    <div class="box">
-                      <a href="user.html"><p class="dropdown-item">Profile</p></a>
-                      <a href="shop.html"><p class="dropdown-item">Toko</p></a>
-                      <a href="logout.html"><p class="dropdown-item">Log Out</p></a>    
-                    </div>
-                  </div>
-              </div>
-          </button>
-        </div>
-        
-    </nav>
+      </nav>
   </header>
     <br>
     <div class="batas"></div>
@@ -171,8 +175,8 @@
         <div class="bg-white-custom pt-5 center">
           <div class="content-border p-2 shadow-card no-border">
             <h3 class="mt-5">Handi Hermawan</h3>
-            <p>Biodata</p>
-            <p class="pl-5 pr-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores unde ab, exercitationem nostrum est expedita nemo quisquam perferendis sequi recusandae quibusdam, sed, illo necessitatibus rerum fugiat distinctio facilis modi. Ratione.</p>
+            <p class="f-13"><b>Biodata</b></p>
+            <p class="pl-3 pr-3 f-13">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores unde ab, exercitationem nostrum est expedita nemo quisquam perferendis sequi recusandae quibusdam, sed, illo necessitatibus rerum fugiat distinctio facilis modi. Ratione.</p>
             <button class="btn-orange m-3">Edit Profile</button>
           </div>
         </div>
@@ -181,7 +185,7 @@
         <div class="bg-white-custom col-8-custom">
             <div class="content-border p-4 shadow-card no-border">
               <span class="float-left ml-3 content-title">Buku Anda</span>
-              <span class="float-right mr-3 content-link"><a href="">Lebih Banyak</a></span>
+              <span class="float-right mr-3 content-link"><a href="mybook.html">Lebih Banyak</a></span>
               <br>
               <div>
                 <ul class="flex-container">
@@ -249,12 +253,34 @@
           </div>
 
           <div class="bg-white-custom col-4-custom">
-              <div class="content-border p-2 sticky market-bg shadow-card no-border market">
-                <button class="btn-orange" >Market ku</button>
+              <div class="content-border p-2 sticky market-bg shadow-card no-border market center">      
+                <button name="button" data-toggle="modal" data-target="#marketkuModal" class="btn-orange" >Market ku</button>
               </div>
           </div>
-
         </div>
+
+      <!-- Button trigger modal -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Konfirmasi</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Anda belum buka toko, apakah anda mau buka toko ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
+              <a href="open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
