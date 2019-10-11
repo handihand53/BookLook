@@ -413,10 +413,12 @@ label{
 }
 
 .width-img{
+    max-width: 150px;
     max-height: 220px;
     width: 100%;
     padding-left: 5px;
     padding-right: 5px;
+    min-width: 60px;
 }
 
 .red{
@@ -632,9 +634,9 @@ hr{
 
 @media screen and (min-width: 771px) {
 
-    .d-table{
-        max-width: 5%;
-    }
+.d-table{
+    max-width: 5%;
+}
 
 .dropdown-content {
     top: 27px;
@@ -679,6 +681,7 @@ hr{
     }
 
     .item-detail{
+        min-width: 150px;
         width: 20%;
     }
 
@@ -830,6 +833,7 @@ hr{
     }
 
     .item-detail{
+        min-width: 150px;
         width: 40%;
     }
 
