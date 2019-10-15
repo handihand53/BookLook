@@ -54,6 +54,9 @@ body{
     color: white;
 }
 
+.text-prof-market{
+    margin-top: auto; margin-bottom: auto;
+}
 
 .input{
     border-radius: 5px;
@@ -246,6 +249,10 @@ select{
 
 .m-3-custom{
     margin: 1rem!important;
+}
+
+.m-1-custom{
+    margin: 5px !important;
 }
 
 .btn-look{
@@ -468,6 +475,7 @@ label{
     top: 0;
     position: absolute;
     opacity: 0;
+    left: 0;
 }
 
 .author{
@@ -608,9 +616,12 @@ hr{
 }
 
 .content-title-detail{
-    font-size: 20px;
+    font-size: 12px;
     font-weight: bold;
-    margin: 5px;
+}
+
+.content-description-detail{
+    font-size: 13px;
 }
 
 .btn-wishlist{
@@ -646,6 +657,24 @@ hr{
 .col-8-custom{
     flex: 0 0 66.666667%; 
     max-width: 66.666667%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-10-custom{
+    flex: 0 0 83.333334%; 
+    max-width: 83.333334%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-12-custom{
+    flex: 0 0 100%; 
+    max-width: 100%;
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -764,7 +793,7 @@ hr{
     }    
 
     .content-border{
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     .prof{
@@ -776,6 +805,21 @@ hr{
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 770px) {
+    .title-detail{
+        font-size: 20px;
+    }
+
+    .author{
+        font-size: 10px;
+        color: rgb(119, 119, 119);
+        margin-top: 2px;
+        margin-left: 5px;
+        font-weight: 200;
+    }
+
+    .back-text{
+        font-size: 14px;
+    }
 
     .batas-2{
         margin-top: 80px;
@@ -784,6 +828,12 @@ hr{
         margin: 5px !important;
         max-width: 45%;
     }
+
+    .m-1-custom{
+        margin: 5px !important;
+        max-width: 45%;
+    }
+
     .price-keranjang{
         font-size: 17px;
         color: rgb(255, 186, 82);
@@ -828,7 +878,12 @@ hr{
         padding-left: 15px;
     }
 
-    p{
+    .col-10-custom{
+        position: relative;
+        width: 100%;
+    }
+
+f    p{
         font-size: 10px;
     }
 
@@ -846,12 +901,14 @@ hr{
       }
 
       .title{
+        font-size: 12px;
         margin-top: 2px;
         margin-left: 5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        width: 70px;
+        width: auto;
+        max-width: 120px;
     }
 
     .detail-title{

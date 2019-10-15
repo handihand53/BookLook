@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BookLook</title>
     <!-- logo web -->
     <link href="assets/logo/bl.png" rel="icon">
@@ -142,8 +143,10 @@
             
             <button class="prof no-border float-left" id="profile">
                 <div class="dropdown">
-                    <a href="user.html" class="profile-text"><img class="navbar-icon" src="assets/logo/user.png" alt="">
-                        Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> </a>
+                    <a href="user.html" class="profile-text">
+                      <img class="navbar-icon" src="assets/logo/user.png" alt="">
+                        Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> 
+                    </a>
                     <div class="dropdown-content">
                       <div>
                         <div class="arrow-up"></div>
@@ -163,92 +166,136 @@
       </nav>
   </header>
     <br>
-    <div class="batas-2"></div>
+    <div class="batas"></div>
+    <section class="background-menu bg-cover" style="background-image: url(assets/bg/vandan.jpg); height: 200px;">
+    <div></div>
+    </section>
     <main class="content content-width content-height">
-      <div class="bg-white-custom">
-            <div class="p-3">
-              <div style="color: orange">
-                <h3>Buku Anda</h3>
-              </div>
-              <div class="">
-                   Urut berdasarkan
-                  <select class="center" name="" id="">
-                    <option value="">A - Z</option>
-                    <option value="a">Z - A</option>
-                    <option value="b">Tanggal Beli</option>
-                  </select>
-              </div>
+      <div>
+        <div style="position: absolute; left: 50%;">
+            <div style="position: relative; left: -50%;">
+                <img src="assets/else/dummy-profile.png" alt="" width="100px" style="border-radius: 50px;">        
+            </div>
+          </div>
+        <div class="bg-white-custom pt-5 center">
+          <div class="content-border p-2 shadow-card no-border">
+            <h3 class="mt-5">@kiki_shop357</h3>
+            <p class="pl-3 pr-3 f-13">Penjual buku terlengkap sejagad raya sejak tahun 2015</p>
+            <a href="edit-toko.html"><button class="btn-orange m-3">Edit Toko</button></a>
+          </div>
+        </div>
+      </div>
+
+      <div>
+          <div class="row">
+                <div class="bg-white-custom col-4-custom">
+                    <div class="content-border p-2 shadow-card no-border justify-content-between">
+                        <span class="text-prof-market">21 buku</span>
+                        <a href="tambah_buku.html"><button class="btn-orange" >Tambah</button></a>
+                    </div>
+                </div>
+
+                <div class="bg-white-custom col-4-custom">
+                    <div class="content-border p-2 shadow-card no-border justify-content-between">
+                        <span class="text-prof-market">Pemberitahuan Pesanan</span>
+                        <a href="pemberitahuan_toko.html"><button class="btn-orange">Cek</button></a>
+                    </div>
+                </div>
+
+                <div class="bg-white-custom col-4-custom">
+                    <div class="content-border p-2 shadow-card no-border justify-content-between">
+                        <span class="text-prof-market">History Order</span>
+                        <a href="history_penjualan.html"><button class="btn-orange">Lihat</button></a>
+                    </div>
+                </div>
+
+          </div>
+      </div>
+      
+        <div class="bg-white-custom col-12-custom" style="margin: auto;">
+          <div class="bg-white-custom">
+            Buku yang anda jual
+
+            <span class="float-right mr-3 content-link"><a href="mybook_store.html">Lebih Banyak</a></span>
               <div>
                 <ul class="flex-container-start">
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
-                      <img src="assets/img/sample 2.jpg" alt="" class="width-img">
+                      <img src="assets/img/sample 1.jpg" alt="" class="width-img">
                       <p class="title">Piece Of Pie</p>
                       <p class="author">Laura Palmer</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <a href="detail-buku.html"><button class="btn-orange center" style="width: 95%;">Detail</button></a>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 14.jpg" alt="" class="width-img">
                       <p class="title">The Weight Of Ink</p>
                       <p class="author">Rachel Kadish</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 6.jpg" alt="" class="width-img">
                       <p class="title">Lie Down With Dogs</p>
                       <p class="author">Hailey Edwards</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 10.jpg" alt="" class="width-img">
                       <p class="title">DNA of a Christ Followers</p>
                       <p class="author">Daren Wride</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 2.jpg" alt="" class="width-img">
                       <p class="title">Piece Of Pie</p>
                       <p class="author">Laura Palmer</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 14.jpg" alt="" class="width-img">
                       <p class="title">The Weight Of Ink</p>
                       <p class="author">Rachel Kadish</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 6.jpg" alt="" class="width-img">
                       <p class="title">Lie Down With Dogs</p>
                       <p class="author">Hailey Edwards</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
+                  <li class="content-border shadow-card no-border p-2 m-1-custom d-table">
                     <div class="flex-column">
                       <img src="assets/img/sample 10.jpg" alt="" class="width-img">
                       <p class="title">DNA of a Christ Followers</p>
                       <p class="author">Daren Wride</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
+                      <p class="price-keranjang">Rp. 57.000</p>
+                      <button class="btn-orange center" style="width: 95%;">Detail</button>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          
+     
     </main>
 
     <footer class="footer">
@@ -292,4 +339,4 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/background_blur.js"></script>
 </body>
-</html> 
+</html>

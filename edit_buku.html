@@ -142,8 +142,10 @@
             
             <button class="prof no-border float-left" id="profile">
                 <div class="dropdown">
-                    <a href="user.html" class="profile-text"><img class="navbar-icon" src="assets/logo/user.png" alt="">
-                        Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> </a>
+                    <a href="user.html" class="profile-text">
+                      <img class="navbar-icon" src="assets/logo/user.png" alt="">
+                        Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> 
+                    </a>
                     <div class="dropdown-content">
                       <div>
                         <div class="arrow-up"></div>
@@ -163,99 +165,116 @@
       </nav>
   </header>
     <br>
-    <div class="batas-2"></div>
+    <div class="batas"></div>
+    <div></div>
+    </section>
     <main class="content content-width content-height">
-      <div class="bg-white-custom">
-            <div class="p-3">
-              <div style="color: orange">
-                <h3>Buku Anda</h3>
-              </div>
-              <div class="">
-                   Urut berdasarkan
-                  <select class="center" name="" id="">
-                    <option value="">A - Z</option>
-                    <option value="a">Z - A</option>
-                    <option value="b">Tanggal Beli</option>
-                  </select>
-              </div>
-              <div>
-                <ul class="flex-container-start">
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 2.jpg" alt="" class="width-img">
-                      <p class="title">Piece Of Pie</p>
-                      <p class="author">Laura Palmer</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 14.jpg" alt="" class="width-img">
-                      <p class="title">The Weight Of Ink</p>
-                      <p class="author">Rachel Kadish</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 6.jpg" alt="" class="width-img">
-                      <p class="title">Lie Down With Dogs</p>
-                      <p class="author">Hailey Edwards</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 10.jpg" alt="" class="width-img">
-                      <p class="title">DNA of a Christ Followers</p>
-                      <p class="author">Daren Wride</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 2.jpg" alt="" class="width-img">
-                      <p class="title">Piece Of Pie</p>
-                      <p class="author">Laura Palmer</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 14.jpg" alt="" class="width-img">
-                      <p class="title">The Weight Of Ink</p>
-                      <p class="author">Rachel Kadish</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 6.jpg" alt="" class="width-img">
-                      <p class="title">Lie Down With Dogs</p>
-                      <p class="author">Hailey Edwards</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                  <li class="content-border shadow-card no-border p-2 m-3-custom d-table">
-                    <div class="flex-column">
-                      <img src="assets/img/sample 10.jpg" alt="" class="width-img">
-                      <p class="title">DNA of a Christ Followers</p>
-                      <p class="author">Daren Wride</p>
-                      <button class="btn-orange center" style="width: 95%;">Baca</button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    
+    <b style="color: orange;">Edit Buku</b>
+    <br><br>
+
+      <div class="content-border p-2 shadow-card no-border">
+        <div class="p-4">
           
+          <form action="">
+            <br>
+            <img src="assets/img/sample 5.png" alt="" id="img" onchange="readURL(this)" width="100px">
+            <br>
+            <label for="">Foto Buku</label>
+            <input type="file" class="file" id="upload">
+            <label for="" class="input-file" id="input"><b>Select a file . . .</b></label>
+            <p id="file-name"></p>
+            <label for="">Judul</label><br>
+            <input class="edit-input" required placeholder="Judul Buku" type="text" value="Talk Like Ted"><br>
+            <label for="">Penulis</label><br>
+            <input class="edit-input" required placeholder="Penulis" type="text" value="Carmine Gallo"><br>
+            <label for="">Penerbit</label><br>
+            <input class="edit-input" required placeholder="Penerbit" type="text" value="PT. Gramedia"><br>
+            <label for="">Kategori</label><br>
+            <select required name="" id="">
+                <option value="Pilih">Pilih</option>
+                <option value="Anak">Anak</option>
+                <option value="Komik">Komik</option>
+                <option value="Novel">Novel</option>
+            </select><br>
+            <label for="">SKU</label><br>
+            <input required placeholder="SKU" disabled name="a" id="b" style="width: 5%; font-size: 12px; min-width: 50px;"></input> - 
+            <input required placeholder="Kode SKU" name="a" id="b" style="width: 93%; font-size: 12px;"></input>
+            <br>
+
+            <label for="">Tanggal Terbit</label><br>
+        
+            <select required name="" id="">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+
+            <select required name="" id="">
+                    <option value="1">Januari</option>
+                    <option value="2">Februari</option>
+                    <option value="3">Maret</option>
+                    <option value="4">April</option>
+                    <option value="5">Mei</option>
+                    <option value="6">Juni</option>
+                    <option value="7">July</option>
+                    <option value="8">Agustus</option>
+                    <option value="9">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
+
+            <select required name="" id="tahun">
+            </select><br>
+
+            <label for="">Harga</label><br>
+            <input class="edit-input" required placeholder="Harga" type="text" value="70.000"><br>
+
+            <label for="">Deskripsi</label><br>
+            <textarea class="edit-input" required placeholder="Deskripsi" type="text" rows="10">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam odio ullam adipisci alias eveniet, qui iste reprehenderit modi obcaecati cum ut nesciunt rem dolores expedita, dolorem, nisi consectetur at omnis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim incidunt optio alias laudantium possimus dolorem distinctio. Laudantium at aliquam vero assumenda inventore ullam consequatur iste, sunt facere illum aperiam recusandae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur consectetur molestias ex doloremque sapiente aliquam vel laudantium soluta maiores debitis numquam iure voluptatum provident, sunt aperiam optio laboriosam modi magni! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur rerum incidunt magnam doloremque et atque veritatis quisquam fugit sequi ducimus laborum quo, placeat unde id. Tempora adipisci praesentium maiores nobis!</textarea>
+
+            <button class="btn-orange float-right" >Perbarui</button>
+            
+          </form>
+          <a href="store.html"><button class="btn-blue float-right" >Batal</button></a>
+          <br><br>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
         <div class="main-footer widgets-dark typo-light">
             <div class="container">
               <div class="row">
-                
                 <div class="col-sm-3">
                   <div class="widget subscribe no-box">
                     <a class="navbar-brand" href="#"><img src="assets/logo/logo_white.png" alt="BookLook" height="35px" class="d-inline-block align-top"></a>
@@ -291,5 +310,34 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/background_blur.js"></script>
+    <script>
+         $(document).ready(function(){
+            $('input[id="upload"]').change(function(file){
+                var fileName = file.target.files[0].name;
+                var reader = new FileReader();
+                reader.readAsDataURL(event.srcElement.files[0]);
+                var me = this;
+                reader.onload = function () {
+                    var fileContent = reader.result;
+                    console.log(fileContent);
+                    $('#img').attr('src',fileContent);
+                }
+                $('p[id="file-name"]').html(fileName + ' has been selected.');
+            });
+
+            var fileInput  = document.querySelector( "#input" );
+
+            fileInput.addEventListener("click", function(event){
+              document.querySelector("#upload").click();
+              console.log("click");
+            });
+
+            for(var i=1;i<80;i++){
+                var year = 1980+i;
+                $('select[id="tahun"]').append("<option value='"+year+"'>"+year+"</option>");
+            }
+        });
+
+    </script>
 </body>
-</html> 
+</html>
