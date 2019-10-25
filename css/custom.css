@@ -89,6 +89,15 @@ footer .main-footer{
     margin-top: 30px;
 }
 
+.admin-login-bg{
+    min-width: 200px;
+    max-width: 850px;
+    background-color: #fff;
+    width: 100%;
+    margin: auto;
+    padding: 20px 80px;
+}
+
 .login-bg{
     background-color: #fff;
     width: 100%;
@@ -103,9 +112,50 @@ footer .main-footer{
     font-weight: 200;
 }
 
+.li-active{
+    color: white;
+    background-color: black ;
+}
+
+.list-color{
+    color: rgb(109, 109, 109);
+}
+
+.list-color:hover{
+    color: #fff;
+    font-weight: 100;
+}
+
+.dashboard-title{   
+    color: white;
+    font-weight: 500;
+}
+
+.side-bar{
+    background-color: #212529;
+    min-height: 717px;
+    color: white;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 .bg-cover{
     height: 730px;
-    background: rgba(0, 174, 255);
+    background: rgb(93, 204, 255);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.bg-custom-admin{
+    background-color: #343a40 !important;
+}
+
+.bg-cover-admin{
+    height: 730px;
+    background-color: rgb(48, 73, 85);
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
@@ -189,6 +239,15 @@ footer .main-footer{
 
 a{
     color: black;
+}
+
+a.link-list{
+    color: white;
+}
+
+a.link-list:hover{
+    color: #fff;
+    font-weight: 200;
 }
 
 .dropdown-item{
@@ -284,6 +343,13 @@ select{
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
 }
 
+.content-border-admin{
+    background-color: #fff;
+    border: gray 1px solid;
+    border-radius: 2px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
 .content-width{
     max-width: 1100px;
 }
@@ -354,6 +420,10 @@ select{
     justify-content: flex-start;
     margin-bottom: 10px;
   }
+
+.justify-content-center{
+    justify-content:center;
+}
   
 .justify-content-between{
     display: flex;
@@ -807,6 +877,10 @@ hr{
   @media screen and (max-width: 770px) {
     .title-detail{
         font-size: 20px;
+    }
+
+    .admin-login-bg{
+        padding: 30px;
     }
 
     .author{
