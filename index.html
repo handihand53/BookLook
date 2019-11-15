@@ -15,6 +15,7 @@
      <link rel="stylesheet" href="css/custom.css">
 
      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+     
 </head>
 <body>
     <div class="bg-black" id="bg-black"></div>
@@ -35,12 +36,8 @@
                     <div>
                       <div class="arrow-up" style="margin-left: 130px;"></div>
                     </div>
-                    <div class="box">
-                      <a href="user.html"><p class="dropdown-item">Profile</p></a>
-                      <a href="store.html"><p class="dropdown-item">Toko</p></a>
-                      <a href="transaksi.html"><p class="dropdown-item">Transaksi</p></a>
-                      <a href="wishlist.html"><p class="dropdown-item">Wishlist</p></a>
-                      <a href="logout.html"><p class="dropdown-item">Log Out</p></a>    
+                    <div class="box border-radius-7" id="profile-item-mobile">
+                      <img src="assets/else/loading.gif"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
                     </div>
                   </div>
                 <div>
@@ -82,84 +79,40 @@
               <input class="input search" style="width: 82%; font-size: 13px;" type="text" placeholder="Search">
               <div class="dropdown" id="drop-shop" style="margin: auto;">
                   <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
-                  <div class="dropdown-content profile-mob" style="top: 25px; min-width: 300px; overflow-y: scroll; background-color: #fff">
+                  
+                  <div class="dropdown-content profile-mob" id="item-desk" style="top: 25px; min-width: 300px; overflow-y: auto; background-color: #fff">
                       <div>
-                        <div class="arrow-up" style="margin-left: 285px;"></div>
+                        <div class="arrow-up" style="margin-left: 190px;"></div>
                       </div>
-                      <div class="box">
-                        <p class="keranjang">Keranjang</p>
-                        <hr class="myline">
-                        <ul class="ul-keranjang">
-                          <li class="itm-keranjang">
-                            <div class="row">
-                              <div class="col-4">
-                                <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
-                              </div>
-                              <div class="col-8 no-padding">
-                                  <h6 class="title-keranjang">DNA of a Christ Followers</h6>
-                                  <p class="author">Daren Wride</p>
-                                  <p class="author">Ini bagian SKU</p>
-                                  <p class="price">Rp. 57.000</p>
-                                  <p style="float: right; margin-right: 20px;"><i class="fa fa-trash" style="color: rgb(172, 172, 172);" aria-hidden="true"></i></p>
-                              </div>
-                            </div>
-                          </li>
-                          <hr>
-                          <li class="itm-keranjang">
-                              <div class="row">
-                                <div class="col-4">
-                                  <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
-                                </div>
-                                <div class="col-8 no-padding">
-                                    <h6 class="title-keranjang">DNA of a Christ Followers</h6>
-                                    <p class="author">Daren Wride</p>
-                                    <p class="author">Ini bagian SKU</p>
-                                    <p class="price">Rp. 57.000</p>
-                                    <p style="float: right; margin-right: 20px;"><i class="fa fa-trash" style="color: rgb(172, 172, 172);" aria-hidden="true"></i></p>
-                                </div>
-                              </div>
-                            </li>
-                            <hr>
-                            <li>
-                              <div class="row">
-                                <div class="col-6">
-                                  <p>Total (2)</p>
-                                  <p class="price">Rp. 114.000</p>    
-                                </div>
-                                <div class="col-6">
-                                  <a href="detail_keranjang.html"><button class="btn-look">Lihat</button></a>
-                                </div>
-                              </div>
-                            </li>
-                        </ul>
+                      <div class="box cart-bg" id="cart-item">
+                        <img src="assets/else/loading.gif"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
                       </div>
                   </div>
               </div>
               
-              <button class="prof no-border float-left" id="profile">
-                  <div class="dropdown">
-                      <a href="user.html" class="profile-text"><img class="navbar-icon" src="assets/logo/user.png" alt="">
-                          Hi, Handi<i class="fa fa-fw fa-chevron-down"></i> </a>
-                      <div class="dropdown-content">
+              <span class="prof no-border float-left" id="profile">
+                  <div class="dropdown" style="color: white;">
+                     <img class="navbar-icon" src="assets/logo/user.png" alt="">
+                        Hi, <span id="name">Handi</span><i class="fa fa-fw fa-chevron-down"></i>
+                    <div class="dropdown-content">
                         <div>
-                          <div class="arrow-up"></div>
+                            <div class="arrow-up"></div>
                         </div>
-                        <div class="box">
-                          <a href="user.html"><p class="dropdown-item">Profile</p></a>
-                          <a href="store.html"><p class="dropdown-item">Toko</p></a>
-                          <a href="transaksi.html"><p class="dropdown-item">Transaksi</p></a>
-                          <a href="wishlist.html"><p class="dropdown-item">Wishlist</p></a>
-                          <a href="logout.html"><p class="dropdown-item">Log Out</p></a>    
+                        <div class="box border-radius-7 profile-unlogin-bg" id="profile-item">
+                            <img src="assets/else/loading.gif"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
                         </div>
-                      </div>
+                    </div>
                   </div>
-              </button>
+                </span>
             </div>
         </nav>
     </header>
     <br>
+    <div class="bg-index"></div>
+      
+    </div>
     <div class="batas"></div>
-    <section class="background-menu bg-cover" style="background-image: url(assets/bg/vandan.jpg)">
+    <section class="background-menu bg-cover">
     <div></div>
     </section>
     <main class="content content-width content-height">
@@ -369,5 +322,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/background_blur.js"></script>
+    <script src="js/views/services/index.js"></script>
+    <script>
+      // alert(localStorage.getItem("token"));
+    </script>
 </body>
 </html>
