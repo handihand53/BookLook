@@ -165,37 +165,32 @@
       </nav>
   </header>
     <br>
-    <div class="bg-index" style="height: 1000px"></div>
+    <div class="bg-index" style="height: -webkit-fill-available;"></div>
     <div class="batas" ></div>
     <section class="background-menu bg-cover">
       <div></div>
     </section>
-    <main class="content content-width content-height" style="max-width: 800px;">
+    <main class="content content-width content-height">
       
       <div class="content-border p-2 shadow-card no-border">
         <div class="p-4">
-
-            <b>Edit Profile</b>
+          
+          <form action="">
+            <b>Edit Toko</b>
             <br><br>
-            <img id="img" src="assets/else/dummy-profile.png" alt="" width="100px">
+            <img src="assets/else/dummy-profile.png" alt="" id="img" width="100px" onchange="readURL(this)">
             <br>
-            <input type="file" class="file" id="upload">
+            <label for="">Foto Toko</label>
             <label for="" class="input-file" id="input"><b>Select a file . . .</b></label>
             <p id="file-name"></p>
-            <label for="">Nama Pengguna</label><br>
-            <input id="username" class="edit-input" disabled placeholder="Name Pengguna" type="text"><br>
-            <label for="">Nama Lengkap</label><br>
-            <input id="fullName" class="edit-input" required placeholder="Name Lengkap" type="text"><br>
-            <label for="">Kata Sandi</label><br>
-            <input id="password" class="edit-input" required placeholder="Kata sandi" type="password"><br>
-            <label for="">Email</label><br>
-            <input id="email" class="edit-input" required placeholder="Email" type="email"><br>
-            <label for="">Biodata</label><br>
-            <textarea id="biodata" class="edit-input" required placeholder="Biodata" name="" id=""></textarea>
+            <input type="file" class="file" id="upload">
+            <label for="">Deskripsi</label><br>
+            <textarea class="edit-input" required placeholder="Biodata" name="" id=""></textarea>
 
             <button class="btn-orange float-right" >Perbarui</button>
             
-          <a href="user.html"><button class="btn-blue float-right" >Batal</button></a>
+          </form>
+          <a href="store.html"><button class="btn-blue float-right" >Batal</button></a>
           <br><br>
         </div>
       </div>
@@ -240,7 +235,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/background_blur.js"></script>
-    <script src="js/views/services/profile/editProfile.js"></script>
     <script>
         $(document).ready(function(){
             $('input[id="upload"]').change(function(file){
@@ -253,7 +247,7 @@
                     console.log(fileContent);
                     $('#img').attr('src',fileContent);
                 }
-                $('p[id="file-name"]').html(fileName+  ' has been selected.');
+                $('p[id="file-name"]').html(fileName + ' has been selected.');
             });
 
             var fileInput  = document.querySelector( "#input" );

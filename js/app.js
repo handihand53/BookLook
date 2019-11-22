@@ -1,26 +1,35 @@
-$(window).load(function() {
-    console.log(localStorage.getItem("token")) 
+import footer from './content/footer.js'
+import header from './content/header.js'
+
+
+
+
+$(window).load(function () {
+    $("#header").html(header);
+    $("#footer").html(footer);
+    console.log(localStorage.getItem("token"))
     localStorage.removeItem("token");
-    let dropHtml ="";
+    let dropHtml = "";
+    let cartHtml = "";
     $.ajax({
-      type: "GET",
-      contentType: "application/json",
-      url: "http://127.0.0.1:8080/api/users",
-      dataType: 'json',
-      timeout: 600000,
-      headers: {
-        'Authorization': `Bearer ` + localStorage.getItem("token"),
-      },
-      success: function (data) {
-        $("#name").html(data.name.substring(0,7))
-      },
-      failure: function(errMsg) {
-        console.log(errMsg); 
-      }
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/users",
+        dataType: 'json',
+        timeout: 600000,
+        headers: {
+            'Authorization': `Bearer ` + localStorage.getItem("token"),
+        },
+        success: function (data) {
+            $("#name").html(data.name.substring(0, 7))
+        },
+        failure: function (errMsg) {
+            console.log(errMsg);
+        }
     });
 
 
-    if(localStorage.getItem("token")!=null){
+    if (localStorage.getItem("token") != null) {
         dropHtml = `
             <a href="user.html"><p class="dropdown-item">Profile</p></a>
             <a href="store.html"><p class="dropdown-item">Toko</p></a>
@@ -36,7 +45,7 @@ $(window).load(function() {
                           <li class="itm-keranjang">
                             <div class="row">
                               <div class="col-4">
-                                <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
+                                <img src="../assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
                               </div>
                               <div class="col-8 no-padding">
                                   <h6 class="title-keranjang">DNA of a Christ Followers</h6>
@@ -51,7 +60,7 @@ $(window).load(function() {
                           <li class="itm-keranjang">
                               <div class="row">
                                 <div class="col-4">
-                                  <img src="assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
+                                  <img src="../assets/img/sample 14.jpg" alt="" class="width-img-keranjang">
                                 </div>
                                 <div class="col-8 no-padding">
                                     <h6 class="title-keranjang">DNA of a Christ Followers</h6>
@@ -75,13 +84,13 @@ $(window).load(function() {
                               </div>
                             </li>
                         </ul>`
-    $("#profile-item-mobile").css("border-radius", "0px")
-    $("#profile-item").css("border-radius", "0px")
-    $("#cart-item").removeClass('cart-bg')
-    }else{
+        $("#profile-item-mobile").css("border-radius", "0px")
+        $("#profile-item").css("border-radius", "0px")
+        $("#cart-item").removeClass('cart-bg')
+    } else {
         $("#name").html("Tamu");
         dropHtml = `
-            <img src="assets/else/not-login.png"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
+            <img src="../assets/else/not-login.png"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
             <p class="center t14 m-1" >Mohon maaf anda belum login</p>
             <div class="center">
             <a href="login.html"><button class="btn-orange">Login</button></a>
@@ -99,20 +108,10 @@ $(window).load(function() {
             `;
         $("#item-desk").css("min-width", "220px");
         $("#item-desk").css("border-radius", "7px");
+        $("#profile-item").html(dropHtml);
+        $("#profile-item-mobile").html(dropHtml);
+        $("#cart-item").html(cartHtml);
     }
 
-    $("#profile-item").html(dropHtml);
-    $("#profile-item-mobile").html(dropHtml);
-    $("#cart-item").html(cartHtml);
-    $("#logout").click(function(){
-      localStorage.removeItem("token");
-      console.log("klik")
-      location.reload();
-    })
 
-    // function logout(){
-    //   localStorage.removeItem("token");
-    //   console.log("klik")
-    //   location.reload();
-    // }    
 });

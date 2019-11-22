@@ -1,0 +1,245 @@
+.bg-black {
+    z-index: 2;
+    position: none;
+    display: block;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.width-img {
+    max-width: 150px;
+    max-height: 220px;
+    margin-left: 20px;
+    width: 85%;
+    padding-left: 3px;
+    padding-right: 5px;
+    min-width: 60px;
+}
+
+.ul-keranjang {
+    padding: 10px;
+    margin: 0px;
+}
+
+.batas {
+    margin-top: 70px;
+}
+
+.itm-keranjang {
+    list-style: none;
+}
+
+.content {
+    width: 90%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+}
+
+.content-title {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.content-width {
+    max-width: 1100px;
+}
+
+.content-height {
+    min-height: 700px;
+}
+
+.content-border {
+    background-color: #fff;
+    border: gray 1px solid;
+    border-radius: 2px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.detail-keranjang {
+    border: none !important;
+    border-top: 2px solid #33C8FF !important;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 70px;
+}
+
+.align-item-center {
+    display: flex;
+    align-items: center;
+}
+
+.btn-buy {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+    /* position: absolute; */
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    height: 17px;
+    width: 17px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked~.checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.btn-buy:hover {
+    background-color: rgb(218, 142, 2);
+}
+
+h6 {
+    margin-bottom: 5px !important;
+    margin-left: 0px !important;
+}
+
+.delete-icon {
+    color: rgb(172, 172, 172);
+    font-size: 20px;
+}
+
+p {
+    margin: 0px !important;
+    padding: none !important;
+}
+
+.delete-icon:hover {
+    color: rgb(0, 165, 211);
+    cursor: pointer;
+}
+
+@media screen and (min-width: 771px) {
+    .content-border {
+        margin-bottom: 30px;
+    }
+
+    .title-detail-keranjang {
+        margin-top: 2px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .author-keranjang {
+        margin-left: 5px;
+        font-size: 13px;
+        color: rgb(160, 160, 160);
+    }
+
+    .price-keranjang {
+        margin-top: 2px;
+        margin-left: 5px;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgb(255, 186, 82);
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .content-border {
+        margin-bottom: 30px;
+    }
+
+    .title-detail-keranjang {
+        margin-top: 2px;
+        margin-bottom: 20px;
+        margin-left: 5px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .author-keranjang{
+        color: rgb(155, 155, 155);
+        font-size: 12px;
+    }
+
+    .price-keranjang {
+        font-size: 17px;
+        font-weight: bold;
+        color: rgb(255, 186, 82);
+    }
+}

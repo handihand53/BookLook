@@ -1,0 +1,266 @@
+.bg-custom{
+    background-color: rgb(95, 218, 255);
+}
+
+p{
+    color: black;
+}
+
+.justify-content-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ul-keranjang{
+    padding: 10px;
+    margin: 0px;
+}
+
+.width-img-keranjang{
+    width: 100%;
+    margin: 1px;
+}
+
+.itm-keranjang{
+    list-style: none;
+}
+
+hr.myline{
+    margin: 2px !important;
+}
+
+.shadow-nav{
+    border-top: 3px rgb(0, 89, 124) solid;
+    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
+}
+
+.input{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    padding-left: 10px;
+    background-color: rgb(245, 252, 255);
+    z-index: 2;
+}
+
+.center{
+    text-align: center;
+    vertical-align: center;
+}
+
+.input:focus {
+    color: rgb(255, 166, 57);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.144);
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.t14{
+    font-size: 14px;
+}
+
+.keranjang{
+    padding: 5px 20px;
+    font-size: 15px;
+}
+
+.no-border{
+    border: none !important;
+}
+
+.btn-orange{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-orange:hover{
+    background-color: rgb(218, 142, 2);
+}
+
+.btn-blue{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: rgb(0, 162, 255);
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-blue:hover{
+    background-color: rgb(0, 141, 223);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    max-height:300px;
+}
+
+.navbar-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.dropdown-content {
+    z-index: 4;
+    min-width: 150px;
+    width: 100%;
+    overflow:hidden;
+    max-height:0;
+    position: absolute;
+}
+
+.arrow-up{
+    width: 0; 
+    top: 50px;
+    margin-left: 30px;
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid white;
+    /* position: absolute; */
+}
+
+.border-radius-7{
+    border-radius: 7px;
+}
+
+.box{
+    background-color: #fff;
+}
+
+.author{
+    color: rgb(119, 119, 119);
+    margin-top: 2px;
+    margin-left: 5px;
+    font-weight: 200;
+}
+
+.no-padding{
+    padding: 0 !important;
+}
+
+.title-keranjang{
+    margin-top: 2px;
+    margin-left: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 190px;
+}    
+
+.dropdown-item{
+    text-align: left;
+    font-size: 13px;
+    padding: 8px;
+    /* padding-bottom: 5px; */
+}
+
+.dropdown-item:hover{
+   background-color: rgb(223, 223, 223);
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color:rgb(255, 255, 255) !important;
+    font-weight: bold;
+}
+
+.nav-active{
+    font-weight: bold;
+    padding-bottom: 2px;
+    color: #fff !important;
+}
+
+.profile-mob{
+    right: 0;
+}
+
+.cart-bg{
+    background-image: url('../assets/else/peopleWithItems.png');
+    background-size: cover;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+
+.wish-list:hover{
+    color: rgb(235, 235, 235);
+}
+
+.price{
+    margin-top: 2px;
+    margin-left: 5px;
+    font-size: 20px;
+    color: rgb(255, 186, 82);
+}
+
+.btn-look{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 15px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 5px 20px;
+    width: 100px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+}
+
+.btn-look:hover{
+    background-color: rgb(218, 142, 2);
+}
+
+@media screen and (min-width: 771px) {   
+    .dropdown-content {
+        top: 27px;
+    }
+
+    .prof{
+        min-width: 150px;
+        padding: 5px 2px;
+        background-color: transparent;
+    }
+
+    .search{
+        margin-right: 10px;  
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .prof{
+        background-color: transparent;
+        visibility: hidden;
+        position: absolute;
+    }
+
+    .author{
+        font-size: 10px;
+        color: rgb(119, 119, 119);
+        margin-top: 2px;
+        margin-left: 5px;
+        font-weight: 200;
+    }
+}

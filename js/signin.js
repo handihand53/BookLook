@@ -39,7 +39,6 @@ $(document).ready(function() {
                     var token = data.accessToken;
                     var type = data.tokenType;
                     localStorage.setItem("token", token);
-                    console.log(localStorage.getItem("token"));
                     window.location.assign("http://127.0.0.1:8081/index");
                 },
                 failure: function(errMsg) {

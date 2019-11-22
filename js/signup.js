@@ -2,30 +2,30 @@ $(document).ready(function() {
     document.getElementById("name").addEventListener("input", function(){
         console.log("asd")
         if(document.getElementById("name").value=="")
-          $("#name").addClass("login-input-false")
+          $("#name").addClass("signup-input-false")
         else
-          $("#name").removeClass("login-input-false")
+          $("#name").removeClass("signup-input-false")
       });
       
     document.getElementById("username").addEventListener("input", function(){
     if(document.getElementById("username").value=="")
-        $("#username").addClass("login-input-false")
+        $("#username").addClass("signup-input-false")
     else
-        $("#username").removeClass("login-input-false")
+        $("#username").removeClass("signup-input-false")
     });
 
     document.getElementById("email").addEventListener("input", function(){
     if(document.getElementById("email").value=="")
-        $("#email").addClass("login-input-false")
+        $("#email").addClass("signup-input-false")
     else
-        $("#email").removeClass("login-input-false")
+        $("#email").removeClass("signup-input-false")
     });
 
     document.getElementById("password").addEventListener("input", function(){
         if(document.getElementById("password").value=="")
-            $("#password").addClass("login-input-false")
+            $("#password").addClass("signup-input-false")
         else
-            $("#password").removeClass("login-input-false")
+            $("#password").removeClass("signup-input-false")
         });
 
     $("#daftar").click(function(){
@@ -35,14 +35,14 @@ $(document).ready(function() {
         var password = $("#password").val();
 
         if(nama==""){
-            $("#name").addClass("login-input-false")
+            $("#name").addClass("signup-input-false")
         }
         if(username=="")
-            $("#username").addClass("login-input-false")
+            $("#username").addClass("signup-input-false")
             
-        if(email=="") $("#email").addClass("login-input-false")
+        if(email=="") $("#email").addClass("signup-input-false")
             
-        if(password=="") $("#password").addClass("login-input-false")
+        if(password=="") $("#password").addClass("signup-input-false")
         
         if(nama=="" || password=="" || email=="" || username=="")
             $("#msg").html('<b><i class="fa fa-window-close" aria-hidden="true"></i> Silahkan isi semua field terlebih dahulu!</b>')

@@ -1,0 +1,156 @@
+.content {
+    width: 90%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+}
+
+.content-width {
+    max-width: 1100px;
+}
+
+.content-height {
+    min-height: 500px;
+}
+
+.detail-pemesanan{
+    color: rgb(0, 119, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status{
+    color:rgb(155, 155, 155);
+}
+
+.status-pemesanan{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(27, 27, 27);
+}
+
+.pembayaran-success{
+    color: rgb(0, 73, 0);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tgl-pemesanan{
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.nama-pemesan{
+    color: rgb(0, 119, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.no-pemesanan{
+    color: rgb(0, 174, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.red{
+    color: red;
+}
+
+.title-user{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(0, 170, 255);
+}
+
+.profile-input{
+    width: 90%;
+    padding: 8px;
+    border:0.7px solid rgba(128, 128, 128, 0.211);
+    font-size: 12px;
+}
+
+.profile-input:focus{
+    border: transparent 1px solid;
+    box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
+}
+
+.profile-edit{
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.change-password{
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(0, 153, 255);
+}
+
+.change-password:hover{
+    color: rgb(0, 115, 192);
+}
+
+.ul-item{
+    padding:0px;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.li-item {
+    border-left: 3px solid rgb(255, 255, 255);
+    font-size: 12px;
+    list-style: none;
+    border-bottom: 0.05px rgb(216, 216, 216) solid;
+    padding: 8px 0px 12px 45px;
+}
+
+.active-sidebar{
+    border-left: 3px solid rgb(0, 187, 255);
+    color: rgb(0, 162, 255);
+}
+
+.active-sidebar{
+    border-left: 3px solid rgb(0, 187, 255);
+}
+
+.li-item:hover{
+    border-left: 3px solid rgb(0, 187, 255);
+    cursor: pointer;
+}
+
+p{
+    margin: 0px;
+}
+
+.center {
+    text-align: center;
+    vertical-align: center;
+}
+
+.batas {
+    margin-top: 70px;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.bg-black {
+    z-index: 4;
+    position: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+ }

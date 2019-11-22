@@ -1,0 +1,316 @@
+.content {
+    width: 90%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+}
+
+.content-width {
+    max-width: 1100px;
+}
+
+.content-height {
+    min-height: 500px;
+}
+
+.detail-pemesanan {
+    color: rgb(0, 119, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status {
+    color: rgb(155, 155, 155);
+}
+
+.status-pemesanan {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(27, 27, 27);
+}
+
+.pembayaran-success {
+    color: rgb(0, 73, 0);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tgl-pemesanan {
+    color: black;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.nama-pemesan {
+    color: rgb(0, 119, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.no-pemesanan {
+    color: rgb(0, 174, 255);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.title-user {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(0, 170, 255);
+}
+
+.profile-input {
+    width: 90%;
+    padding: 8px;
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
+    font-size: 12px;
+}
+
+.profile-input:focus {
+    border: transparent 1px solid;
+    box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
+}
+
+.profile-edit {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.change-password {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(0, 153, 255);
+}
+
+.change-password:hover {
+    color: rgb(0, 115, 192);
+}
+
+.ul-item {
+    padding: 0px;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.li-item {
+    border-left: 3px solid rgb(255, 255, 255);
+    font-size: 12px;
+    list-style: none;
+    border-bottom: 0.05px rgb(216, 216, 216) solid;
+    padding: 8px 0px 12px 45px;
+}
+
+.active-sidebar {
+    border-left: 3px solid rgb(0, 187, 255);
+    color: rgb(0, 162, 255);
+}
+
+.active-sidebar {
+    border-left: 3px solid rgb(0, 187, 255);
+}
+
+.li-item:hover {
+    border-left: 3px solid rgb(0, 187, 255);
+    cursor: pointer;
+}
+
+.detail-content {
+    font-size: 12px;
+    font-weight: 500;
+    color: black;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.col-3-custom {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 25%;
+    max-width: 22%;
+    margin-top: 20px;
+}
+
+.border-bottom-gray {
+    border-bottom: 0.7px solid #b8b8b8;
+    padding-bottom: 20px;
+}
+
+p {
+    margin: 0px;
+}
+
+.orange {
+    font-weight: bold;
+    color: rgb(255, 166, 0);
+}
+
+.border-bottom-gray {
+    border-bottom: 0.7px solid #b8b8b8;
+    padding-bottom: 20px;
+}
+
+.detail-head {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(148, 148, 148);
+}
+
+.center {
+    text-align: center;
+    vertical-align: center;
+}
+
+.batas {
+    margin-top: 70px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.title-content {
+    border-bottom: 1px solid rgb(187, 187, 187);
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(0, 170, 255);
+}
+
+.bc {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.bc-item:hover {
+    color: rgb(30, 119, 253);
+    cursor: pointer;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+.border-radius-4 {
+    border-radius: 4px;
+}
+
+.width-img {
+    max-width: 180px;
+    max-height: 220px;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    min-width: 60px;
+}
+
+.col-9-custom {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 70%;
+    max-width: 70%;
+    margin-top: 20px;
+}
+
+.btn-proses{
+    width: 200px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 162, 255);
+    padding: 5px;
+}
+
+.btn-proses:hover{
+    background-color: rgb(0, 131, 207);
+}
+
+.bg-black {
+    z-index: 4;
+    position: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.deskripsi-content {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    /* word-wrap: break-word; */
+    overflow: auto;
+    max-height: 6em;
+    line-height: 25px;
+}
+
+.price-detail{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.deskripsi {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.publish-book{
+    color: rgb(110, 110, 110);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.author-book {
+    font-weight: 500;
+    font-size: 15px;
+    color: orange;
+}
+
+.title-book {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.shadow-card {
+    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
+}
+
+@media screen and (max-width: 770px) {
+    .col-9-custom {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-top: 20px;
+    }
+
+    .col-3-custom {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
