@@ -96,17 +96,9 @@ a:hover{
     background-color: rgb(218, 142, 2);
 }
 
-.li-item {
-    border-left: 3px solid rgb(255, 255, 255);
-    font-size: 12px;
-    list-style: none;
-    border-bottom: 0.05px rgb(216, 216, 216) solid;
-    padding: 8px 0px 12px 45px;
-}
-
-.active-sidebar{
-    border-left: 3px solid rgb(0, 187, 255);
-    color: rgb(0, 162, 255);
+p{
+    padding: 0;
+    margin: 0;
 }
 
 .author-book{
@@ -115,14 +107,6 @@ a:hover{
     color: orange;
 }
 
-.li-item:hover {
-    border-left: 3px solid rgb(0, 187, 255);
-    cursor: pointer;
-}
-
-p {
-    margin: 0px;
-}
 
 .center {
     text-align: center;
@@ -154,6 +138,47 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.ul-item{
+    padding:0px;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.li-item {
+    font-size: 14px;
+    list-style: none;
+    font-weight: 500;
+    border-bottom: 0.05px rgb(216, 216, 216) solid;
+    padding: 8px 15px 12px 15px;
+}
+
+.active-sidebar{
+    color: rgb(0, 162, 255);
+    font-weight: bold;
+    border-bottom: solid rgb(0, 162, 255) 3px; 
+}
+
+
+.li-item:hover{
+    cursor: pointer;
+    border-bottom: solid rgb(0, 162, 255) 3px; 
+}
+
+ul li{
+    display: inline-table;
+}
+
+.mlr-auto{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (min-width: 771px) {

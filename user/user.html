@@ -29,7 +29,7 @@
       <div class="col-md-3">
         <img src="../assets/else/signature.png" class="mb-3" alt="">
         <div>
-          <h5>Handi Hermawan</h5>
+          <h5 id="displayName"></h5>
           <h6 class="status">Member</h6>
         </div>
 
@@ -44,7 +44,7 @@
             <a href="wishlist.html">
               <li class="li-item">Wishlist</li>
             </a>
-            <li class="li-item" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
+            <li class="li-item" id="market" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
             <a href="transaksi.html">
               <li class="li-item">Transaksi</li>
             </a>
@@ -58,21 +58,26 @@
         <div>
           <label class="profile-edit" for="nama">Nama Lengkap<span class="red">*</span> </label>
           <br>
-          <input class="profile-input" type="text" name="nama"><br>
+          <input id="nama-lengkap" class="profile-input" type="text" name="nama"><br>
           <div id="errorMsgNama"></div>
           <br>
-          <label class="profile-edit" for="nama">Nama Pengguna<span class="red">*</span> </label>
+          <!-- <label class="profile-edit" for="nama">Nama Pengguna<span class="red">*</span> </label>
           <br>
-          <input class="profile-input" type="text" disabled name="nama">
-          <br><br>
+          <input id="nama-pengguna" class="profile-input" type="text" disabled name="nama"> -->
+          <!-- <br><br> -->
           <label class="profile-edit" for="nama">Email<span class="red">*</span> </label>
           <br>
-          <input class="profile-input" type="text" name="nama">
+          <input id="email-prof" class="profile-input" type="email" name="nama">
           <div id="errorMsgEmail"></div>
           <br>
-          <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
+          <label class="profile-edit" for="nama">Nomor Telepon<span class="red">*</span> </label>
           <br>
-          <textarea class="profile-input" type="text" name="nama" heigh=></textarea><br>
+          <input id="nomor-prof" class="profile-input" type="number" min="0" placeholder="087123456789" name="nama">
+          <div id="errorMsgEmail"></div>
+          <br>
+          <!-- <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
+          <br>
+          <textarea id="biodata-profile" class="profile-input" type="text" name="nama" heigh=></textarea><br> -->
           <label class="change-password" for="">Opsi : Ubah Kata Sandi</label>
           <br>
           <button class="btn-orange">Simpan</button>
@@ -113,7 +118,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>
   <script type="module" src="../js/app.js"></script>
-  <script src="../js/views/services/profile/profile.js"></script>
+  <script type="module" src="../js/views/services/profile/profile.js"></script>
 </body>
 
 </html>

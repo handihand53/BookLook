@@ -19,7 +19,26 @@
 
 .login-text{
     font-family: 'Raleway', sans-serif;
-    font-weight: 200;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.login-input{
+    width: 100%;
+    padding: 8px;
+    border:0.7px solid rgba(128, 128, 128, 0.411);
+    font-size: 16px;
+}
+
+.login-input:focus{
+    border: transparent 1px solid;
+    box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
+}
+
+.login-fail{
+    font-size: 14px;
+    font-weight: 100;
+    color: rgb(231, 33, 33);
 }
 
 .bg-cover{
@@ -133,7 +152,7 @@ a:hover{
 
     .login-bg{
         /* min-width: 400px; */
-        max-width: 300px;
+        /* max-width: 300px; */
     }
 
     .judul-text{

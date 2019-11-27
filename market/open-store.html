@@ -44,41 +44,38 @@
         <div>
           <label class="profile-edit" for="nama">Nama Toko<span class="red">*</span> </label>
           <br>
-          <input class="profile-input" type="text" name="nama">
-          <div id="errorMsgNama"></div>
+          <input id="storeName" class="profile-input" type="text" name="nama">
+          <div class="error" id="errorMsgNama"></div>
           <br>
           <label class="profile-edit" for="nama">SKU<span class="red">*</span> </label>
           <br>
-          <input class="profile-input" type="text" name="nama">
-          <div id="errorMsgEmail"></div>
+          <input id="storeSku" class="profile-input" type="text" name="sku">
+          <div class="error" id="errorMsgSku"></div>
           <br>
-          <label class="profile-edit" for="nama">Biodata Toko<span class="red">*</span> </label>
+          <label class="profile-edit" for="nama">Deskripsi Toko<span class="red">*</span> </label>
           <br>
-          <textarea class="profile-input" type="text" name="nama" heigh=></textarea><br>
+          <textarea id="storeBio" class="profile-input" type="text" name="nama"></textarea><br>
+          <div class="error" id="errorMsgBio"></div>
           <br>
-          <button class="btn-orange">Daftar</button>
-          
+          <button id="daftar" class="btn-orange">Daftar</button>
+          <a href="/user/user.html"><button id="kembali" class="btn-blue">Kembali</button></a>
         </div>
       </div>
     </div>
-
+    <button hidden id="clk" data-toggle="modal" data-target="#marketkuModal"></button>
     <!-- Modal -->
     <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Konfirmasi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Anda belum buka toko, apakah anda mau buka toko ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
-            <a href="../market/open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+          <div class="col-12">
+            <div class="center modal-container"></div>
+            <div class="center modal-text">
+                <span class="modal-txt">Market Registered.</span><br>
+                <span class="modal-txt">Please wait we will redirect your page. . .</span>
+                <!-- <br>
+                <button class="btn-modal">Cek Sekarang</button> -->
+            </div>
           </div>
         </div>
       </div>
@@ -94,7 +91,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>
   <script type="module" src="../js/app.js"></script>
-  <script src="../js/views/services/profile/profile.js"></script>
+  <script type="module" src="../js/views/services/market/createMarket.js"></script>
 </body>
 
 </html>

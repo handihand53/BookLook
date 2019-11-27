@@ -1,32 +1,50 @@
-$(document).ready(function() {
-    if(localStorage.getItem("token")!=null) window.location.replace("http://127.0.0.1:8081/index");
-    // localStorage.removeItem("token");
-    $("#masuk").click(function(){
-        
+import { setCookie, getCookie, checkCookie } from './cookies.js';
+
+$(document).ready(function () {
+    // if(localStorage.getItem("token")!=null) window.location.replace("user/index.html");
+    // console.log(getCookie("token"));
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+
+    function validate() {
+        var email = $("#username").val();
+
+        if (validateEmail(email)) {
+            console.log("valid");
+            return true;
+        } else {
+            $("#login-fail").html('Format Email salah')
+            console.log("invalid")
+        }
+        return false;
+    }
+
+    $("#masuk").click(function () {
+        $("#login-fail").html("");
+
+        if (!validate()) {
+            return;
+        };
+
         var username = $("#username").val();
         var password = $("#password").val();
-        if(username=="" && password ==""){
-            $("#msg").html('<b><i class="fa fa-window-close" aria-hidden="true"></i> Username atau password tidak boleh kosong</b>;') 
-            $("#username").addClass("login-input-false")
-            $("#password").addClass("login-input-false")
-        }else if(username==""){
-            $("#msg").html('<b><i class="fa fa-window-close" aria-hidden="true"></i> Username tidak boleh kosong</b>') 
-            $("#username").addClass("login-input-false")
-            $("#password").removeClass("login-input-false")
-        }else if(password==""){
-            $("#msg").html('<b><i class="fa fa-window-close" aria-hidden="true"></i> Password tidak boleh kosong</b>') 
-            $("#username").removeClass("login-input-false")
-            $("#password").addClass("login-input-false")
-        }
-        else{
-
-        
-            var data = { 
-                "usernameOrEmail" : username,
-                "password" : password
+        if (username == "" && password == "") {
+            $("#login-fail").html(`
+            <ul>
+                <li>Alamat email harus di isi</li>
+                <li>Kata sandi harus di isi</li>
+            </ul>`)
+        } else if (username == "") {
+            $("#login-fail").html('Alamat email harus diisi')
+        } else if (password == "") {
+            $("#login-fail").html('Password harus diisi')
+        } else {
+            var data = {
+                "usernameOrEmail": username,
+                "password": password
             };
-
-            console.log(JSON.stringify(data));
 
             $.ajax({
                 type: "POST",
@@ -38,11 +56,13 @@ $(document).ready(function() {
                 success: function (data) {
                     var token = data.accessToken;
                     var type = data.tokenType;
-                    localStorage.setItem("token", token);
-                    window.location.assign("http://127.0.0.1:8081/index");
+                    setCookie("token", token, 1);
+                    window.location.assign("user/index.html");
                 },
-                failure: function(errMsg) {
-                    console.log(errMsg); 
+                error: function (errMsg) {
+                    console.log(errMsg)
+                    if (errMsg.responseJSON.status == 400)
+                        $("#login-fail").html('Email atau password salah, Silahkan coba lagi')
                 }
             });
         }

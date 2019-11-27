@@ -2,7 +2,7 @@
     /* height: 730px; */
     background-repeat: no-repeat;
     background-size: 70%;
-    height: 750px;
+    height: auto;
     padding-top: 50px;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,11 +10,23 @@
     padding-bottom: 100px;
 }
 
+.signup-input{
+    width: 100%;
+    padding: 8px;
+    border:0.7px solid rgba(128, 128, 128, 0.411);
+    font-size: 16px;
+}
+
+.signup-input:focus{
+    border: transparent 1px solid;
+    box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
+}
+
 .signup-bg{
     background-color: #fff;
     width: 100%;
     margin: auto;
-    height: 600px;
+    height: auto;
     padding: 20px 80px;
 }
 
@@ -77,14 +89,27 @@
     background-color: rgb(218, 142, 2);
 }
 
-.signup-input{
-    min-width: -webkit-fill-available;
-    padding: 5px;
+.red{
+    font-weight: bold;
+    font-size: 15px;
+    color:red;
+}
+
+.signup-fail{
+    
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(231, 33, 33);
 }
 
 .signup-input-false{
     color: rgb(255, 31, 31);
     border: 1.5px rgb(255, 31, 31) solid;
+}
+
+.hint{
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .signup-judul{
@@ -118,14 +143,20 @@
 }
 
 @media screen and (max-width: 770px) {
+    .hint{
+        font-size: 12px;
+        font-weight: bold;
+    }
+    
     .signup-bg{
         padding: 35px;
+        height: auto;
     }
 
     .bg-cover{
         padding: 30px 15px;
         background-size: 600%;
-        height: 750px;
+        height: auto;
     }
 
     .judul-text{

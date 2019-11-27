@@ -34,18 +34,15 @@
               <h6 id="msg" style="color: red;"></h6>
               <div class="login-body">
                   <label>Nama Pengguna / Email</label>
-                  <input type="text" class="login-input" id="username" placeholder="Nama Pengguna" required>
+                  <input type="text" class="login-input" id="username" placeholder="Nama Pengguna" required><br><br>  
                   <label class="password">Kata Sandi</label>
                   <input type="password" id="password" class="login-input" placeholder="Kata Sandi" required>
-                  <br>
-                  <br>
+                  <span class="login-fail" id="login-fail"></span>
               </div>
               <button class="btn-masuk" id="masuk">Masuk</button>
               <div>
                 <br>
                 Lupa kata sandi ?
-                <br>
-                <br>
                 Belum punya akun ? <a href="signup.html"><span class="orange bold">Daftar</span></a>
               </div>
             </div>
@@ -66,6 +63,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/signin.js"></script>
+    <script type="module" src="js/signin.js"></script>
 </body>
 </html>
