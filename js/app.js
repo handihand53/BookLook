@@ -29,13 +29,35 @@ $(window).load(function () {
     }
   });
 
+  addCategory();
+function addCategory(){
+  $.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:8080/api/categories/",
+    Accept: "application/json",
+    contentType: "application/json",
+    dataType: 'json',
+    timeout: 600000,
+    success: function (data) {
+      for (let s of data) {
+        let html = `<a href="/market/category.html?kategori=`+s.categoryName+`"><p class="dropdown-item">`+s.categoryName+`</p>`;
+        $("#categoryBox").append(html);
+        
+      }
+    },
+    failure: function (errMsg) {
+      console.log(errMsg);
+    }
+  });
+}
+
   function headerSuccess() {
     dropHtml = `
       <a href="/user/user.html"><p class="dropdown-item" id="prof">Profile</p></a>
       <a href="/market/store.html"><p class="dropdown-item">Toko</p></a>
       <a href="/user/transaksi.html"><p class="dropdown-item">Transaksi</p></a>
       <a href="/user/wishlist.html"><p class="dropdown-item">Wishlist</p></a>
-      <p class="dropdown-item" id="logout">Log Out</p>
+      <p class="dropdown-item" id="logout">Keluar</p>
   `;
 
     cartHtml = `
@@ -79,7 +101,7 @@ $(window).load(function () {
                             <p class="price">Rp. 114.000</p>    
                           </div>
                           <div class="col-6">
-                            <a href="detail_keranjang.html"><button class="btn-look">Lihat</button></a>
+                            <a href="/user/detail_keranjang.html"><button class="btn-look">Lihat</button></a>
                           </div>
                         </div>
                       </li>

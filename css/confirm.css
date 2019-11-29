@@ -131,6 +131,17 @@ footer {
     height:fit-content;
 }
 
+
+.modal-container{
+    height: 70px;
+    background-image: url(../assets/else/checked.png);
+    background-size: 70px 70px;
+    padding-top: 70px;  
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
 .btn-bayar{
     width: 100%;
     border: none;

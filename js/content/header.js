@@ -79,27 +79,7 @@ let header =`
       </span>
   </div>
 </nav>`;
-addCategory();
-function addCategory(){
-  $.ajax({
-    type: "GET",
-    url: "http://127.0.0.1:8080/api/categories/",
-    Accept: "application/json",
-    contentType: "application/json",
-    dataType: 'json',
-    timeout: 600000,
-    success: function (data) {
-      for (let s of data) {
-        let html = `<a href="/market/category.html?kategori=`+s.categoryName+`"><p class="dropdown-item">`+s.categoryName+`</p>`;
-        $("#categoryBox").append(html);
-        
-      }
-    },
-    failure: function (errMsg) {
-      console.log(errMsg);
-    }
-  });
-}
+
 
 
 export default header;
