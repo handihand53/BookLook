@@ -26,72 +26,70 @@
 
   <main class="content content-width content-height">
     <div class="mb-5">
-        <div class="row">
-          <div class="col-md-3 ">
-            <div class="row">
-              <div class="col-5">
-                <img src="../assets/else/signature.png" class="mb-3" alt="" width="100%">
-              </div>
-              <div class="col-6">
-                <h5 id="marketName"></h5>
-                <h6 class="status">Toko</h6>
-              </div>
+      <div class="row">
+        <div class="col-md-3 ">
+          <div class="row">
+            <div class="col-5">
+              <img src="../assets/else/signature.png" class="mb-3" alt="" width="100%">
+            </div>
+            <div class="col-6">
+              <h5 id="marketName"></h5>
+              <h6 class="status">Toko</h6>
             </div>
           </div>
-          <div class="col-md-8">
-            <ul class="ul-item">
-              <a href="pemberitahuan_toko.html">
-                <li class="li-item">Pemberitahuan Pesanan</li>
-              </a>
-              <a href="store.html">
-                <li class="li-item">Profile</li>
-              </a>
-              <a href="tambah_buku.html">
-                <li class="li-item active-sidebar">Tambah Produk</li>
-              </a>
-              <a href="mybook_store.html">
-                <li class="li-item">Produk</li>
-              </a>
-              <a href="history_penjualan.html">
-                <li class="li-item">History</li>
-              </a>
-              <li class="li-item">Keluar</li>
-            </ul>
-          </div>
         </div>
+        <div class="col-md-8">
+          <ul class="ul-item">
+            <a href="pemberitahuan_toko.html">
+              <li class="li-item">Pemberitahuan Pesanan</li>
+            </a>
+            <a href="store.html">
+              <li class="li-item">Profile</li>
+            </a>
+            <a href="tambah_buku.html">
+              <li class="li-item active-sidebar">Tambah Produk</li>
+            </a>
+            <a href="mybook_store.html">
+              <li class="li-item">Produk</li>
+            </a>
+            <a href="history_penjualan.html">
+              <li class="li-item">History</li>
+            </a>
+            <li class="li-item">Keluar</li>
+          </ul>
+        </div>
+      </div>
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
           <div class="title-user">Tambah Produk</div>
           <br>
-          <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
-          <img src="" alt="" id="img" width="100px" onchange="readURL(this)">
-          <input type="file" class="file" id="upload"><br>
-          <label class="input-file" id="input"><b>Upload Foto . . . </b></label>
-          <p id="file-name"></p>
-          <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-          <input id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku" type="text"><br>
+          <!-- <form id="book-form"> -->
+            <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
+            <img src="" alt="" id="img" width="100px" onchange="readURL(this)">
+            <input type="file" class="file" id="upload"><br>
+            <label class="input-file" id="input"><b>Upload Foto . . . </b></label>
+            <p id="file-name"></p>
+            <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
+            <input id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku" type="text"><br>
 
-          <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-          <input id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis" type="text"><br>
+            <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
+            <input id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis" type="text"><br>
 
-          <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-          <input id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit" type="text"><br>
+            <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
+            <input id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit" type="text"><br>
 
-          <label class="tambah-buku-edit">Kategori<span class="red">*</span></label><br>
-          <select id="ketegoriBuku" class="tambah-buku-input" required name="" id="">
-            <option value="Pilih" selected hidden disabled>Pilih</option>
-            <option value="Anak">Anak</option>
-            <option value="Komik">Komik</option>
-            <option value="Novel">Novel</option>
-          </select><br>
+            <label class="tambah-buku-edit">Kategori<span class="red">*</span></label><br>
+            <select id="ketegoriBuku" class="tambah-buku-input" required>
+              <option value="Pilih" selected hidden disabled>Pilih</option>
+            </select><br>
 
-          <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
-          <input id="skuToko" required placeholder="SKU" disabled name="a" id="marketSku"></input> -
-          <input id="skuBuku" required placeholder="Kode SKU" name="a" id="b" class="tambah-buku-input"></input>
-          <br>
+            <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
+            <input id="skuToko" required placeholder="SKU" disabled id="marketSku"></input> -
+            <input id="skuBuku" required placeholder="Kode SKU" id="b" class="tambah-buku-input"></input>
+            <br>
 
-          <!-- <label class="tambah-buku-edit">Tanggal Terbit<span class="red">*</span></label><br>
+            <!-- <label class="tambah-buku-edit">Tanggal Terbit<span class="red">*</span></label><br>
 
           <select class="tanggal-edit" required id="">
             <option value="1">1</option>
@@ -145,14 +143,16 @@
           <select class="tanggal-edit" required id="tahun">
           </select><br> -->
 
-          <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-          <input id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101" type="number" min="0"><br>
+            <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
+            <input id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101" type="number"
+              min="0"><br>
 
-          <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-          <textarea id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi" type="text" rows="3"></textarea>
+            <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
+            <textarea id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
+              rows="3"></textarea>
 
-          <button id="addBook" class="btn-orange">Tambah</button>
-
+            <button id="addBook" class="btn-orange">Tambah</button>
+          <!-- </form> -->
 
         </div>
       </div>

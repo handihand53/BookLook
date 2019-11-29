@@ -37,7 +37,7 @@ $(window).load(function () {
     var me = this;
     reader.onload = function () {
       var fileContent = reader.result;
-      console.log(fileContent);
+      // console.log(fileContent);
       $('#img').attr('src', fileContent);
     }
     $('p[id="file-name"]').html(fileName + ' has been selected.');
@@ -54,6 +54,7 @@ $(window).load(function () {
     var year = 1980 + i;
     $('select[id="tahun"]').append("<option value='" + year + "'>" + year + "</option>");
   }
+
   $.ajax({
     type: "GET",
     contentType: "application/json",
@@ -64,10 +65,9 @@ $(window).load(function () {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
-      console.log(data);
       if (data.marketId != null) {
         $("#marketName").html(data.marketName)
-        $("#marketSku").val(data.marketSKU)
+        $("#skuToko").val(data.marketSKU)
       }
     },
     failure: function (errMsg) {
@@ -76,6 +76,7 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
+    // console.log($("#book-form").serialize())
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
@@ -83,34 +84,69 @@ $(window).load(function () {
     var skuBuku = $("#skuToko").val() + $("#skuBuku").val()
     var hargaBuku = $("#hargaBuku").val()
     var deskripsiBuku = $("#deskripsiBuku").val()
-    // var judulBuku = $("#judulBuku").val()
-    // var judulBuku = $("#judulBuku").val()
-    // var judulBuku = $("#judulBuku").val()
-    // var judulBuku = $("#judulBuku").val()
+    var judulBuku = $("#judulBuku").val()
+    var fotoBuku = $("#upload").val()
 
     var data = {
-      "marketName": storeName,
-      "marketSKU": storeSku,
-      "marketBio": storeBio
+      "title": judulBuku,
+      "description": deskripsiBuku,
+      "author": penulisBuku,
+      "publisher": penerbitBuku,
+      "sku": skuBuku,
+      "price": hargaBuku,
+      "picture": fotoBuku,
+      "categories": kategoriBuku
     };
-
-    console.log(JSON.stringify(data));
-
+    
     $.ajax({
       type: "POST",
       contentType: "application/json",
-      url: "http://127.0.0.1:8080/api/users",
+      url: "http://127.0.0.1:8080/api/products/create",
       data: JSON.stringify(data),
       dataType: 'json',
       timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
-      success: function (data) {},
+      success: function (msg) {
+        console.log("sukses")
+      },
       failure: function (errMsg) {
         console.log(errMsg);
       }
     });
   })
+
+  function submitForm(form) {
+    var url = form.attr("action");
+    var formData = {};
+    $(form).find("input[name]").each(function (index, node) {
+      formData[node.name] = node.value;
+    });
+    $.post(url, formData).done(function (data) {
+      alert(data);
+    });
+  }
+
+  $.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:8080/api/categories/",
+    Accept: "application/json",
+    contentType: "application/json",
+    dataType: 'json',
+    timeout: 600000,
+    success: function (data) {
+      for (let s of data) {
+        let html = `
+        <option value=` + s.categortyId + `>` + s.categoryName + `</option>
+        `;
+        $("#ketegoriBuku").append(html);
+
+      }
+    },
+    failure: function (errMsg) {
+      console.log(errMsg);
+    }
+  });
 
 });

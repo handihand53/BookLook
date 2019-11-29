@@ -6,7 +6,7 @@ let header =`
 </button>  
 
 <!-- Logo -->
-  <a class="navbar-brand" href="index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
+  <a class="navbar-brand" href="/user/index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler no-border float-left" id="btn_profile">
@@ -34,14 +34,8 @@ let header =`
             <div>
               <div class="arrow-up"></div>
             </div>
-              <div class="box">
-                <p class="dropdown-item">Anak</p>
-                <p class="dropdown-item">Bisnis</p>
-                <p class="dropdown-item">Kesehatan</p>
-                <p class="dropdown-item">Masak</p>
-                <p class="dropdown-item">Edukasi</p>
-                <p class="dropdown-item">Kesenian</p>
-                <p class="dropdown-item">Traveling</p>
+              <div class="box" id="categoryBox">
+                
               </div>
           </div>
         <div>
@@ -85,6 +79,27 @@ let header =`
       </span>
   </div>
 </nav>`;
+addCategory();
+function addCategory(){
+  $.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:8080/api/categories/",
+    Accept: "application/json",
+    contentType: "application/json",
+    dataType: 'json',
+    timeout: 600000,
+    success: function (data) {
+      for (let s of data) {
+        let html = `<a href="/market/category.html?kategori=`+s.categoryName+`"><p class="dropdown-item">`+s.categoryName+`</p>`;
+        $("#categoryBox").append(html);
+        
+      }
+    },
+    failure: function (errMsg) {
+      console.log(errMsg);
+    }
+  });
+}
 
 
 export default header;

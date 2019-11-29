@@ -29,7 +29,6 @@ $(window).load(function () {
     }
   });
 
-
   function headerSuccess() {
     dropHtml = `
       <a href="/user/user.html"><p class="dropdown-item" id="prof">Profile</p></a>
@@ -125,4 +124,6 @@ $(window).load(function () {
     localStorage.removeItem("token");
     window.location.reload();
   });
+
+
 });
