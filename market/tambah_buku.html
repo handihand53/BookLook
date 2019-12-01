@@ -18,12 +18,13 @@
 </head>
 
 <body>
+  
+  <div class="loading hide" id="loading"></div>
   <div class="bg-black" id="bg-black"></div>
   <header class="fixed" id="header" style="z-index: 100;">
   </header>
   <br>
   <div class="batas"></div>
-
   <main class="content content-width content-height">
     <div class="mb-5">
       <div class="row">
@@ -62,31 +63,33 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
+          
           <div class="title-user">Tambah Produk</div>
+          
           <br>
-          <!-- <form id="book-form"> -->
+          <form id="book-form">
             <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
             <img src="" alt="" id="img" width="100px" onchange="readURL(this)">
-            <input type="file" class="file" id="upload"><br>
+            <input name="fileUri" required type="file" class="file" id="upload"><br>
             <label class="input-file" id="input"><b>Upload Foto . . . </b></label>
             <p id="file-name"></p>
             <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-            <input id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku" type="text"><br>
+            <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku" type="text"><br>
 
             <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-            <input id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis" type="text"><br>
+            <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis" type="text"><br>
 
             <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-            <input id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit" type="text"><br>
+            <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit" type="text"><br>
 
             <label class="tambah-buku-edit">Kategori<span class="red">*</span></label><br>
-            <select id="ketegoriBuku" class="tambah-buku-input" required>
+            <select name="categories " id="ketegoriBuku" class="tambah-buku-input" required>
               <option value="Pilih" selected hidden disabled>Pilih</option>
             </select><br>
 
             <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
-            <input id="skuToko" required placeholder="SKU" disabled id="marketSku"></input> -
-            <input id="skuBuku" required placeholder="Kode SKU" id="b" class="tambah-buku-input"></input>
+            <input class="sku" id="skuToko" required placeholder="SKU" disabled id="marketSku"></input> -
+            <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
             <br>
 
             <!-- <label class="tambah-buku-edit">Tanggal Terbit<span class="red">*</span></label><br>
@@ -144,20 +147,34 @@
           </select><br> -->
 
             <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-            <input id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101" type="number"
+            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101" type="number"
               min="0"><br>
 
             <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-            <textarea id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
+            <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
               rows="3"></textarea>
-
             <button id="addBook" class="btn-orange">Tambah</button>
-          <!-- </form> -->
+        </form>
 
         </div>
       </div>
     </div>
     <br>
+    <button hidden id="show" data-toggle="modal" data-target="#marketkuModal"></button>
+    <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="col-12">
+            <div class="center modal-container"></div>
+            <div class="center modal-text">
+                <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="footer" id="footer">

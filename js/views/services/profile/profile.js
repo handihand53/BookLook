@@ -19,15 +19,15 @@ $(window).load(function() {
           'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            
+          $("#loading").removeClass("loading");
           $("#displayName").html(data.name);
           $("#nama-lengkap").val(data.name);
           $("#email-prof").val(data.email)
           $("#nomor-prof").val(data.numberPhone)
         //   $("#biodata-profile").val(data.biodata)
         },
-        failure: function(errMsg) {
-          console.log(errMsg); 
+        error: function(errMsg) {
+          window.location.replace("/404.html")
         }
       });
 

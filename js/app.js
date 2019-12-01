@@ -7,8 +7,9 @@ import {
 } from './cookies.js'
 
 $(window).load(function () {
-  $("#header").html(header);
+
   $("#footer").html(footer);
+  $("#header").html(header);  
   let dropHtml = "";
   let cartHtml = "";
   $.ajax({

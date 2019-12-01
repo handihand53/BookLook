@@ -61,7 +61,7 @@ $(document).ready(function () {
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
-                    if (errMsg.responseJSON.status == 400)
+                    if (errMsg.responseJSON.status == 401)
                         $("#login-fail").html('Email atau password salah, Silahkan coba lagi')
                 }
             });
