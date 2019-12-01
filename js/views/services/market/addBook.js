@@ -5,6 +5,10 @@ import {
 } from '../../../cookies.js'
 
 $(window).load(function () {
+  $("#book-form").submit(function (e) {
+    e.preventDefault();
+  });
+
   var _URL = window.URL || window.webkitURL;
   $('input[id="upload"]').change(function (file2) {
 
@@ -76,57 +80,47 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
-    // console.log($("#book-form").serialize())
+    console.log($("#book-form").serialize())
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
     var kategoriBuku = $("#kategoriBuku").val()
-    var skuBuku = $("#skuToko").val() + $("#skuBuku").val()
+    var skuBuku = $("#skuBuku").val()
     var hargaBuku = $("#hargaBuku").val()
     var deskripsiBuku = $("#deskripsiBuku").val()
-    var judulBuku = $("#judulBuku").val()
-    var fotoBuku = $("#upload").val()
 
-    var data = {
-      "title": judulBuku,
-      "description": deskripsiBuku,
-      "author": penulisBuku,
-      "publisher": penerbitBuku,
-      "sku": skuBuku,
-      "price": hargaBuku,
-      "picture": fotoBuku,
-      "categories": kategoriBuku
-    };
-    
+    var pict = $("#upload").get(0).files[0];
+
+    var fd = new FormData();
+    fd.append('picture', pict)
+    fd.append('title', judulBuku)
+    fd.append('description', deskripsiBuku)
+    fd.append('author', penulisBuku)
+    fd.append('publisher', penerbitBuku)
+    fd.append('sku', skuBuku)
+    fd.append('categories', kategoriBuku)
+    fd.append('price', hargaBuku)
     $.ajax({
-      type: "POST",
-      contentType: "application/json",
-      url: "http://127.0.0.1:8080/api/products/create",
-      data: JSON.stringify(data),
-      dataType: 'json',
-      timeout: 600000,
+      url: 'http://127.0.0.1:8080/api/products/create',
+      data: fd,
+      processData: false,
+      contentType: false,
+      type: 'POST',
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
-      success: function (msg) {
-        console.log("sukses")
+      beforeSend: function () {
+        $("#loading").css("visibility", "visible");
       },
-      failure: function (errMsg) {
-        console.log(errMsg);
+      success: function (data) {
+        $("#show").click()
+        $("#loading").css("visibility", "hidden");
+      },
+      error: function (data) {
+        $("#loading").css("visibility", "hidden");
       }
     });
   })
-
-  function submitForm(form) {
-    var url = form.attr("action");
-    var formData = {};
-    $(form).find("input[name]").each(function (index, node) {
-      formData[node.name] = node.value;
-    });
-    $.post(url, formData).done(function (data) {
-      alert(data);
-    });
-  }
 
   $.ajax({
     type: "GET",
@@ -138,7 +132,7 @@ $(window).load(function () {
     success: function (data) {
       for (let s of data) {
         let html = `
-        <option value=` + s.categortyId + `>` + s.categoryName + `</option>
+        <option value=` + s.categoryName + `>` + s.categoryName + `</option>
         `;
         $("#ketegoriBuku").append(html);
 

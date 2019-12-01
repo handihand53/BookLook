@@ -135,9 +135,34 @@ hr.myline{
 .arrow-up{
     width: 0; 
     top: 50px;
-    margin-left: 30px;
+    /* right: 100px; */
+    /* margin-left: 100px; */
     height: 0; 
-    border-left: 5px solid transparent;
+    border-left: 5px solid rgba(255, 0, 0, 0);
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid white;
+    /* position: absolute; */
+}
+
+.arrow-up-prof{
+    width: 0; 
+    top: 50px;
+    /* right: 100px; */
+    /* margin-left: 100px; */
+    height: 0; 
+    border-left: 5px solid rgba(255, 0, 0, 0);
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid white;
+    /* position: absolute; */
+}
+
+.arrow-up-kategori{
+    width: 0; 
+    top: 50px;
+    /* right: 100px; */
+    /* margin-left: 100px; */
+    height: 0; 
+    border-left: 5px solid rgba(255, 0, 0, 0);
     border-right: 5px solid transparent;
     border-bottom: 5px solid white;
     /* position: absolute; */
@@ -198,6 +223,13 @@ hr.myline{
     right: 0;
 }
 
+.mlr-auto{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
 .cart-bg{
     background-image: url('../assets/else/peopleWithItems.png');
     background-size: cover;
@@ -238,6 +270,11 @@ hr.myline{
         top: 27px;
     }
 
+    .col-9-custom{
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
     .prof{
         min-width: 150px;
         padding: 5px 2px;
@@ -246,6 +283,18 @@ hr.myline{
 
     .search{
         margin-right: 10px;  
+    }
+    .arrow-up{
+        margin-left: auto;
+        margin-right: 5px;
+    }
+
+    .arrow-up-prof{
+        margin-left: 50px;
+    }
+
+    .arrow-up-kategori{
+        margin-left: 20px;
     }
 }
 
@@ -256,6 +305,10 @@ hr.myline{
         position: absolute;
     }
 
+    .cst-padding{
+        padding-left: 4px;
+    }
+
     .author{
         font-size: 10px;
         color: rgb(119, 119, 119);
@@ -263,4 +316,16 @@ hr.myline{
         margin-left: 5px;
         font-weight: 200;
     }
+
+    .col-9-custom{
+        max-width: 100%;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .arrow-up{
+        margin-left: auto;
+        margin-right: 15px;
+    }
+    
 }

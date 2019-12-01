@@ -14,14 +14,14 @@ let footer = `
                 <div class="widget no-box">
                     <h5 class="widget-title"><span class="footer-text-title">Daftar Sekarang !</span></h5>
                     <p class="footer-text">Dapatkan semua buku secara mudah dan instan dengan cara mendaftar sekarang juga.</p>
-                    <a class="footer-text" href="#." target="_blank">Daftar sekarang</a>
+                    <a class="footer-text orange" href="#." target="_blank">Daftar sekarang</a>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="widget no-box">
-                    <h5 class="widget-title" ><span class="footer-text-title">Contact Us</span></h5>
-                    <p><a href="" title="glorythemes" class="footer-text">booklook@mail.com</a></p>
-                    <p>Phone +62 213 231 3214</p>
+                    <h5 class="widget-title"><span class="footer-text-title">Contact Us</span></h5>
+                    <p><a href="" class="footer-text">booklook@mail.com</a></p>
+                    <p class="footer-text">Phone +62 213 231 3214</p>
                 </div>
             </div>
         </div>

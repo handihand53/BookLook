@@ -1,7 +1,7 @@
 $(window).load(function () {
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
-    console.log(urlParams.kategori.toString())
+    // console.log(urlParams.kategori.toString())
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
             queryEnd   = url.indexOf("#") + 1 || url.length + 1,
@@ -21,7 +21,11 @@ $(window).load(function () {
         }
         return parms;
     }
-
+    if (typeof urlParams == 'undefined')
+      urlParams={
+        "kategori": ""
+      };
+      
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -29,11 +33,41 @@ $(window).load(function () {
         dataType: 'json',
         timeout: 600000,
         success: function (data) {
-          console.log(data);
-          console.log("sukses")
+          if(data.length!=0)
+            listBook(data);
+          else
+            $("main").addClass("bg-product")
+          $(".cat-name").html(urlParams.kategori.toString());
         },
-        failure: function(errMsg) {
+        error: function(errMsg) {
+          $("main").addClass("bg-product")
             console.log(errMsg); 
         }
     });
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0
+      })
+    function listBook(data){
+        var html;
+        for(let i=0;i<data.length;i++){
+            html=`
+            <div class="col-3-custom">
+                  <div class="content-border shadow-card no-border border-radius-4">
+                    <img src="`+data[i].productPhoto+`" alt="" class="width-img">
+                    <div class="p-2">
+                      <p class="title-book">`+data[i].title+`</p>
+                      <p class="author-book">`+data[i].author+`</p>
+                      <p class="price-store">Rp. `+formatter.format(data[i].price).substr(3,data[i].price.length)+`</p>
+                      <a href="book.html"><button class="btn-detail">Lihat  </button></a>
+                    </div>
+                  </div>
+                </div>
+                `;
+            $("#content").append(html);
+        }
+        
+    }
 });
