@@ -33,6 +33,13 @@
     color: red;
 }
 
+.maximg {
+    width: auto;
+    height: auto;
+    max-width: 135px;
+    max-height: 135px;
+}
+
 .bc{
     font-weight: bold;
     font-size: 12px;

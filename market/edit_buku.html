@@ -32,7 +32,7 @@
         <div class="col-md-3">
           <div class="row">
             <div class="col-5">
-              <img src="../assets/else/signature.png" class="mb-3" alt="" width="100%">
+              <img id="display" class="mb-3" alt="" width="100%">
             </div>
             <div class="col-6">
               <h5>Handi Hermawan</h5>
@@ -66,7 +66,8 @@
         <div class="col-md-9">
           <div class="bc">
             <span class="bc-item">Home</span> >
-            <span class="bc-item">Produk</span> >
+            <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
+            <a href="detail-buku.html"><span class="bc-item">Detail Buku</span></a> >
             <span class="bc-item">Edit Buku</span>
           </div>
           <div class="title-user">Tambah Produk</div>
@@ -192,34 +193,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>
   <script src="../js/app.js" type="module"></script>
-  <script>
-    $(document).ready(function () {
-      $('input[id="upload"]').change(function (file) {
-        var fileName = file.target.files[0].name;
-        var reader = new FileReader();
-        reader.readAsDataURL(event.srcElement.files[0]);
-        var me = this;
-        reader.onload = function () {
-          var fileContent = reader.result;
-          console.log(fileContent);
-          $('#img').attr('src', fileContent);
-        }
-        $('p[id="file-name"]').html(fileName + ' has been selected.');
-      });
-
-      var fileInput = document.querySelector("#input");
-
-      fileInput.addEventListener("click", function (event) {
-        document.querySelector("#upload").click();
-        console.log("click");
-      });
-
-      for (var i = 1; i < 80; i++) {
-        var year = 1980 + i;
-        $('select[id="tahun"]').append("<option value='" + year + "'>" + year + "</option>");
-      }
-    });
-  </script>
+  <script src="../js/views/services/market/editBook.js" type="module"></script>
 </body>
 
 </html>

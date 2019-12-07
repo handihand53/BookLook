@@ -19,6 +19,10 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                if (data.userPhoto == null)
+                    $('#img').attr('src', "../assets/else/signature.png");
+                else
+                    $('#img').attr('src', data.userPhoto);
                 $("#loading").removeClass("loading");
                 $("#displayName").html(data.name);
             },
@@ -50,7 +54,7 @@ $(window).load(function () {
             "oldPassword": oldPass,
             "newPassword": newPass
         }
-        
+
         $.ajax({
             type: "PUT",
             contentType: "application/json",

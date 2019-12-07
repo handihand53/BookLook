@@ -165,6 +165,13 @@ p {
     background-image: url("../assets/gif/loading3.gif");
 }
 
+.maximg {
+    width: auto;
+    height: auto;
+    max-width: 135px;
+    max-height: 135px;
+}
+
 .no-pemesanan{
     color: rgb(0, 174, 255);
     font-size: 13px;

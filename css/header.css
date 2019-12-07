@@ -57,6 +57,10 @@ hr.myline{
     font-weight: bold;
 }
 
+a{
+    text-decoration: none!important;
+}
+
 .t14{
     font-size: 14px;
 }

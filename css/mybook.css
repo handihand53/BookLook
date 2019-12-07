@@ -55,6 +55,14 @@
     min-width: 60px;
 }
 
+
+.maximg {
+    width: auto;
+    height: auto;
+    max-width: 135px;
+    max-height: 135px;
+}
+
 .loading{
     z-index: 99999;
     position: fixed;
