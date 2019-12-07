@@ -1,8 +1,3 @@
-import {
-  setCookie,
-  getCookie,
-  checkCookie
-} from '../../../cookies.js'
 $(window).load(function () {
   var urlString = window.location.href;
   var urlParams = parseURLParams(urlString);
