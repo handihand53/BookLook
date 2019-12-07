@@ -41,9 +41,8 @@ function addCategory(){
     timeout: 600000,
     success: function (data) {
       for (let s of data) {
-        let html = `<a href="/market/category.html?kategori=`+s.categoryName+`"><p class="dropdown-item">`+s.categoryName+`</p>`;
+        let html = `<a href="/market/category.html?kategori=`+s.categoryName+`"><p class="dropdown-item drop-active">`+s.categoryName+`</p>`;
         $("#categoryBox").append(html);
-        
       }
     },
     failure: function (errMsg) {
@@ -54,11 +53,11 @@ function addCategory(){
 
   function headerSuccess() {
     dropHtml = `
-      <a href="/user/user.html"><p class="dropdown-item" id="prof">Profile</p></a>
-      <a href="/market/store.html"><p class="dropdown-item">Toko</p></a>
-      <a href="/user/transaksi.html"><p class="dropdown-item">Transaksi</p></a>
-      <a href="/user/wishlist.html"><p class="dropdown-item">Wishlist</p></a>
-      <p class="dropdown-item" id="logout">Keluar</p>
+      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>
+      <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>
+      <a href="/user/transaksi.html"><p class="dropdown-item drop-active blue"><i class="far fa-credit-card"></i> Transaksi</p></a>
+      <a href="/user/wishlist.html"><p class="dropdown-item drop-active blue"><i class="fas fa-shopping-bag"></i> Wishlist</p></a>
+      <p class="dropdown-item drop-active blue" id="logout"><i class="fas fa-sign-out-alt"></i> Keluar</p>
   `;
 
     cartHtml = `
@@ -127,7 +126,7 @@ function addCategory(){
         <p class="p-3 keranjang bold"> Keranjang Anda kosong.</p>
         <div class="center">
             <p class="t14 p-2">Waah keranjang kamu kosong nih, isi yuk!</p>
-            <button class="btn-orange">Belanja</button>
+            <a href="/login.html"><button class="btn-orange">Belanja</button></a>
             <br>
             <br>
         </div>

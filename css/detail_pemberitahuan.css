@@ -18,6 +18,17 @@
     min-height: 500px;
 }
 
+.loading{
+    z-index: 99999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../assets/gif/loading3.gif");
+}
+
 .bold{
     font-weight: bold;
 }

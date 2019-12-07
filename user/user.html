@@ -19,108 +19,125 @@
 
 <body>
   <div class="loading hide" id="loading"></div>
-  <div class="bg-black" id="bg-black"></div>
-  <header class="fixed" id="header" style="z-index: 100;">
+  <div class="bg-black" id="bg-black" style="top: 0px"></div>
+  <header class="fixed" id="header" style="z-index: 100; top: 0px;">
     <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav"></nav>
   </header>
-  <br>
-  <div class="batas"></div>
 
-  <main class="content content-width content-height">
-    <div class="row">
-      <div class="col-md-3">
-        <img src="../assets/else/signature.png" class="mb-3" alt="">
-        <div>
-          <h5 id="displayName"></h5>
-          <h6 class="status">Member</h6>
+    <div class="batas"></div>
+
+    <main class="content content-width content-height">
+      <div class="row">
+        <div class="col-md-3">
+          <img id="img" class="maximg" class="mb-1" alt="">
+          <input class="file" type="file" id="upload-photo">
+          <div>
+            <h5 id="displayName"></h5>
+            <h6 class="status">Member</h6>
+          </div>
+
+          <div>
+            <ul class="ul-item">
+              <a>
+                <li class="li-item active-sidebar">Profile</li>
+              </a>
+              <a href="mybook.html">
+                <li class="li-item">Bukuku</li>
+              </a>
+              <a href="wishlist.html">
+                <li class="li-item">Wishlist</li>
+              </a>
+              <li class="li-item" id="market" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
+              <a href="transaksi.html">
+                <li class="li-item">Transaksi</li>
+              </a>
+              <li class="li-item">Keluar</li>
+            </ul>
+          </div>
+
         </div>
-
-        <div>
-          <ul class="ul-item">
-            <a>
-              <li class="li-item active-sidebar">Profile</li>
-            </a>
-            <a href="mybook.html">
-              <li class="li-item">Bukuku</li>
-            </a>
-            <a href="wishlist.html">
-              <li class="li-item">Wishlist</li>
-            </a>
-            <li class="li-item" id="market" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
-            <a href="transaksi.html">
-              <li class="li-item">Transaksi</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="col-md-9">
-        <div class="title-user">Profile</div>
-        <div>
-          <label class="profile-edit" for="nama">Nama Lengkap<span class="red">*</span> </label>
-          <br>
-          <input id="nama-lengkap" class="profile-input" type="text" name="nama"><br>
-          <div id="errorMsgNama"></div>
-          <br>
-          <!-- <label class="profile-edit" for="nama">Nama Pengguna<span class="red">*</span> </label>
-          <br>
-          <input id="nama-pengguna" class="profile-input" type="text" disabled name="nama"> -->
-          <!-- <br><br> -->
-          <label class="profile-edit" for="nama">Email<span class="red">*</span> </label>
-          <br>
-          <input id="email-prof" class="profile-input" type="email" name="nama">
-          <div id="errorMsgEmail"></div>
-          <br>
-          <label class="profile-edit" for="nama">Nomor Telepon<span class="red">*</span> </label>
-          <br>
-          <input id="nomor-prof" class="profile-input" type="number" min="0" placeholder="087123456789" name="nama">
-          <div id="errorMsgEmail"></div>
-          <br>
-          <!-- <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
+        <div class="col-md-9">
+          <div class="title-user">Profile</div>
+          <div>
+            <label class="profile-edit" for="nama">Nama Pengguna<span class="red">*</span> </label>
+            <br>
+            <input id="nama-pengguna" class="profile-input" type="text" disabled name="nama">
+            <br>
+            <label class="profile-edit" for="nama">Nama Lengkap<span class="red">*</span> </label>
+            <br>
+            <input id="nama-lengkap" class="profile-input" type="text" name="nama">
+            <br>
+            <label class="profile-edit" for="nama">Email<span class="red">*</span> </label>
+            <br>
+            <input id="email-prof" class="profile-input" type="email" name="nama">
+            <br>
+            <label class="profile-edit" for="nama">Nomor Telepon<span class="red">*</span> </label>
+            <br>
+            <input id="nomor-prof" class="profile-input" type="number" min="0" placeholder="087123456789" name="nama">
+            <label class="numphone">Contoh : 082123456789</label><br>
+            <!-- <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
           <br>
           <textarea id="biodata-profile" class="profile-input" type="text" name="nama" heigh=></textarea><br> -->
-          <label class="change-password" for="">Opsi : Ubah Kata Sandi</label>
-          <br>
-          <button class="btn-orange">Simpan</button>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Konfirmasi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Anda belum buka toko, apakah anda mau buka toko ?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
-            <a href="../market/open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+            <label class="change-password" for="">Opsi : </label>
+            <br>
+            <a href="edit-photo.html"><button class="btn-blue">Ubah Foto</button></a>
+            <a href="change-password.html"><button class="btn-blue">Ubah Kata Sandi</button></a><br>
+            <button class="btn-save" id="save">Simpan</button>
           </div>
         </div>
       </div>
-    </div>
-    <br>
-  </main>
 
-  <footer class="footer" id="footer">
-  </footer>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/background_blur.js"></script>
-  <script type="module" src="../js/app.js"></script>
-  <script type="module" src="../js/views/services/profile/profile.js"></script>
+      <input type="button" id="editProf" data-toggle="modal" data-target="#editProfile" hidden>
+
+      <!-- Modal -->
+      <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Konfirmasi</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Anda belum buka toko, apakah anda mau buka toko ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
+              <a href="../market/open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfile"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body center">
+              <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
+              <br>
+              <div class="prof" id="modalMsgEdit">Perubahan profile berhasil disimpan</div>
+              <label class="prof-ok" data-dismiss="modal">OK</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+    </main>
+
+    <footer class="footer" id="footer">
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/background_blur.js"></script>
+    <script type="module" src="../js/app.js"></script>
+    <script type="module" src="../js/views/services/profile/profile.js"></script>
 </body>
 
 </html>

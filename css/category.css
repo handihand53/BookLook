@@ -56,7 +56,12 @@
     margin-top: 20px;
 }
 
+
+
 .title-book{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
     font-weight: 500;
 }
 
@@ -209,6 +214,16 @@ ul li{
         width: 142px;
         font-weight: 700;
     }
+
+    .col-custom{
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+
+    .hide{
+        visibility: hidden;
+        position: absolute;
+    }
 }
 
 @media screen and (max-width: 770px) {
@@ -225,6 +240,12 @@ ul li{
         font-weight: bold;
     }
 
+    .col-custom{
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 5px;
+    }
+
     .col-3-custom{
         position: relative;
         width: 400px;
@@ -232,5 +253,11 @@ ul li{
         padding-left: 15px;
         flex: 0 0 50%;
         max-width: 50%;
+        /* height: fit-content; */
+    }
+
+    .hide2{
+        visibility: hidden;
+        position: absolute;
     }
 }

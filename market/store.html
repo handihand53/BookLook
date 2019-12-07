@@ -18,6 +18,7 @@
 </head>
 
 <body>
+  <div class="loading hide" id="loading"></div>
   <div class="bg-black" id="bg-black"></div>
   <header class="fixed" id="header" style="z-index: 100;">
   </header>
@@ -30,7 +31,7 @@
         <div class="col-md-3 ">
           <div class="row">
             <div class="col-5">
-              <img src="../assets/else/signature.png" class="mb-3" alt="" width="100%">
+              <img id="display"class="mb-3" alt="" width="100%">
             </div>
             <div class="col-6">
               <h5 id="marketName"></h5>
@@ -60,8 +61,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
+        <div class="col-md-9 mrl-auto">
           <div class="title-user">Profile</div>
           <div>
             <label class="profile-edit" for="nama">Nama Market<span class="red">*</span> </label>
@@ -76,13 +76,32 @@
             <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
             <br>
             <textarea id="marketBio" class="profile-input" type="text" name="nama" heigh=></textarea><br>
-            <label class="change-password" for="">Opsi : Ubah Kata Sandi</label>
             <br>
-            <button class="btn-orange">Simpan</button>
+            <label class="change-password" for="">Opsi : </label>
+            <br>
+            <a href="edit-photo.html"><button class="btn-blue">Ubah Foto</button></a><br>
+            <button id="save" class="btn-save">Simpan</button>
           </div>
         </div>
       </div>
     </div>
+
+    <input type="button" id="editProf" data-toggle="modal" data-target="#editMarket" hidden>
+
+    <div class="modal fade" id="editMarket" tabindex="-1" role="dialog" aria-labelledby="editMarket"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body center">
+            <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
+            <br>
+            <div class="prof" id="modalMsgEdit">Perubahan profile berhasil disimpan</div>
+            <label class="prof-ok" data-dismiss="modal">OK</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
   </main>
 
   <footer class="footer" id="footer">

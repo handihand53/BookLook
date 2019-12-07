@@ -10,7 +10,7 @@
     max-width: 1100px;
 }
 
-.loading{
+.loading {
     z-index: 99999;
     position: fixed;
     width: 100%;
@@ -25,56 +25,174 @@
     min-height: 500px;
 }
 
-.status{
-    color:rgb(155, 155, 155);
+.status {
+    color: rgb(155, 155, 155);
 }
 
-.red{
+.red {
     color: red;
 }
 
-.title-user{
+.title-user {
     font-size: 25px;
     font-weight: 600;
     color: rgb(0, 170, 255);
 }
 
-.profile-input{
+.profile-input {
     width: 90%;
     padding: 8px;
-    border:0.7px solid rgba(128, 128, 128, 0.211);
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
     font-size: 12px;
 }
 
-.profile-input:focus{
+.profile-input:focus {
     border: transparent 1px solid;
     box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
 }
 
-.profile-edit{
+.profile-edit {
     font-size: 12px;
     font-weight: 700;
 }
 
-.change-password{
+.change-password {
     font-size: 12px;
     font-weight: 500;
     color: rgb(0, 153, 255);
 }
 
-.change-password:hover{
-    color: rgb(0, 115, 192);
+.ul-item {
+    padding: 0px;
 }
 
-.ul-item{
-    padding:0px;
+.numphone {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgb(191, 191, 191);
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+.maximg {
+    width: auto;
+    height: auto;
+    max-width: 135px;
+    max-height: 135px;
+}
+
+.btn-blue {
+    font-family: 'Noto Sans', sans-serif;
+    border: 1px solid rgb(0, 179, 255) !important;
+    background: transparent !important;
+    font-size: 12px;
+    border: none;
+    color: rgb(0, 179, 255) !important;
+    font-weight: 300;
+    margin: 5px 0px !important;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-blue:hover {
+    background: rgb(0, 179, 255) !important;
+    color: white !important;
+}
+
+.input-file {
+    /* display: block; */
+    padding: 5px 10px;
+    background: rgb(67, 211, 255);
+    color: #fff;
+    font-size: 12px;
+    transition: all .4s;
+    cursor: pointer;
+    width: 150px;
+    text-align: center;
+    /* margin: 0px; */
+}
+
+.file-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.file {
+    /* top: 100px; */
+    position: absolute;
+    opacity: 0;
+    left: 0;
+}
+
+.btn-save {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 176, 29) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-save:hover {
+    background-color: rgb(247, 140, 0) !important;
+}
+
+.file {
+    position: absolute;
+    visibility: hidden;
+}
+
+.f14 {
+    font-size: 50px;
+    color: rgb(13, 205, 248);
+}
+
+.f14-red {
+    font-size: 70px;
+    color: rgb(255, 65, 90);
+}
+
+.prof {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.prof {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.change-photo {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(0, 153, 255);
+}
+
+.bc {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.bc-item:hover {
+    color: rgb(30, 119, 253);
+    cursor: pointer;
+}
+
+.change-photo:hover {
+    cursor: pointer !important;
+    color: rgb(0, 115, 192);
+}
+
+a:hover {
     text-decoration: none;
 }
 
@@ -86,21 +204,21 @@ a:hover{
     padding: 8px 0px 12px 45px;
 }
 
-.active-sidebar{
+.active-sidebar {
     border-left: 3px solid rgb(0, 187, 255);
     color: rgb(0, 162, 255);
 }
 
-.active-sidebar{
+.active-sidebar {
     border-left: 3px solid rgb(0, 187, 255);
 }
 
-.li-item:hover{
+.li-item:hover {
     border-left: 3px solid rgb(0, 187, 255);
     cursor: pointer;
 }
 
-p{
+p {
     margin: 0px;
 }
 
@@ -128,4 +246,4 @@ p{
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.9);
- }
+}

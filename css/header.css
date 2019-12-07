@@ -30,8 +30,8 @@ hr.myline{
 }
 
 .shadow-nav{
-    border-top: 3px rgb(0, 89, 124) solid;
-    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
+    border-top: 2px rgb(0, 183, 255) solid;
+    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.15);
 }
 
 .input{
@@ -212,11 +212,20 @@ hr.myline{
     color:rgb(255, 255, 255) !important;
     font-weight: bold;
 }
+/* 
+.top{
+    font-size: 10px;
+    background-color: rgb(0, 59, 59);;
+} */
 
 .nav-active{
     font-weight: bold;
     padding-bottom: 2px;
     color: #fff !important;
+}
+
+.right{
+    text-align: right;
 }
 
 .profile-mob{
@@ -228,7 +237,19 @@ hr.myline{
     margin-right: auto;
 }
 
+.blue:hover{
+    color: rgb(0, 140, 255)!important;
+}
 
+.drop-active:hover{
+    border-left: rgb(0, 140, 255) 4px solid;
+}
+
+.drop-active{
+    color: rgb(43, 43, 43) !important;
+    border-left: transparent 4px solid;
+    font-weight: 500; 
+}
 
 .cart-bg{
     background-image: url('../assets/else/peopleWithItems.png');

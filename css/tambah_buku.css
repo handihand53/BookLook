@@ -6,6 +6,36 @@
     z-index: -1;
 }
 
+.errMsg{
+    font-size: 12px;
+    color: rgb(255, 92, 92);
+    visibility: hidden;
+    font-weight: 500;
+}
+
+.show{
+    visibility: visible;
+}
+
+.file-name{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-org{
+    border: none;
+    font-size: 14px;
+    padding: 5px 20px;
+    margin-top: 20px;
+    width: 200px;
+    color: white;
+    background-color: orange;
+}
+
+.btn-org:hover{
+    background-color: rgb(221, 144, 0);
+}
+
 .content-width {
     max-width: 1100px;
 }
@@ -36,20 +66,25 @@
     background-position: center;
     padding-bottom: 50px;
 }
+/* 
+.hide{
+    visibility: hidden;
+    position: absolute;
+} */
 
 .loading{
     z-index: 99999;
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.377);
+    background: rgba(0, 0, 0);
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../assets/gif/loading3.gif");
 }
 
 .hide{
-    visibility: hidden;
+    visibility: visible44;
 }
 
 .title-user{

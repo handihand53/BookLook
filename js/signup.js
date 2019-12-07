@@ -13,44 +13,79 @@ $(document).ready(function () {
             console.log("valid");
             return true;
         } else {
-            $("#login-fail").html('Format Email salah')
+            $("#login-fail").append('Format Email salah')
             console.log("invalid")
         }
         return false;
     }
 
+    var numRegex="//d+";
+
     var nama
     var username
     var email
     var password
+    var phoneNumber
     $("#daftar").click(function () {
         $("#login-fail").html("");
         nama = $("#name").val();
         username = $("#username").val();
         email = $("#email").val();
         password = $("#password").val();
+        phoneNumber = $("#phoneNumber").val();
+        var cek=true;
+        
 
-        if (nama == "") $("#login-fail").append(`<li>Nama harus di isi</li>`)
-        else if (nama.length < 4) $("#login-fail").append(`<li>Panjang nama lengkap tidak valid</li>`)
-        if (username == "") $("#login-fail").append(`<li>Nama Pengguna harus di isi</li>`)
-        else if (username.length < 3) $("#login-fail").append(`<li>Panjang nama pengguna tidak valid</li>`)
-        if (email == "") $("#login-fail").append(`<li>Email harus di isi</li>`)
+        if (nama == "") {
+            $("#login-fail").append(`<li>Nama harus di isi</li>`)
+            cek=false;
+            console.log ("kosong");
+        }
+        else if (nama.length < 4) {
+            $("#login-fail").append(`<li>Panjang nama lengkap tidak valid</li>`)
+            cek=false;
+        }
 
-        if (password == "") $("#login-fail").append(`<li>Kata sandi harus di isi</li>`)
-        else if (password.length < 6 || password.length > 20)
+        if (username == "") {
+            $("#login-fail").append(`<li>Nama Pengguna harus di isi</li>`)
+            cek=false;
+        }
+        else if (username.length < 3) {
+            $("#login-fail").append(`<li>Panjang nama pengguna tidak valid</li>`)
+            cek=false;
+        }
+
+        if (email == "") {
+            $("#login-fail").append(`<li>Email harus di isi</li>`)
+            cek=false;
+        }
+        if (password == ""){
+            $("#login-fail").append(`<li>Kata sandi harus di isi</li>`)
+            cek = false;
+        } else if (password.length < 6 || password.length > 20){
             $("#login-fail").append(`<li>Panjang password tidak valid</li>`)
-        else {
-            if (!validate()) {
-                return;
-            };
+            cek=false;
+        }
+
+        if(phoneNumber == ""){
+            $("#login-fail").append(`<li>No telepon harus di isi</li>`)
+            cek = false;
+        }else if(phoneNumber.matches(numRegex)){
+            cek=false;
+        }
+        
+        if (!validate()) {
+            return;
+        };
+
+        if(cek){
             var data = {
                 "name": nama,
                 "username": username,
                 "email": email,
-                "password": password
+                "password": password,
+                "phoneNumber": phoneNumber
             };
-
-            console.log(JSON.stringify(data));
 
             $.ajax({
                 type: "POST",

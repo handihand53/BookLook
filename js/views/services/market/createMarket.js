@@ -3,8 +3,48 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
+
 $(document).ready(function () {
-    // console.log(getCookie("token"))
+
+    function checkMarket() {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/markets",
+            dataType: 'json',
+            timeout: 600000,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                return true;
+            },
+            error: function (errMsg) {
+                return false;
+            }
+        });
+    }
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/users",
+        dataType: 'json',
+        timeout: 600000,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (checkMarket) {
+                window.location.replace("/market/store.html")
+            }
+        },
+        error: function (errMsg) {
+            window.location.replace("/404.html")
+        }
+    });
+
+
     $("#daftar").click(function () {
         $(".error").each(function () {
             $(this).html("");

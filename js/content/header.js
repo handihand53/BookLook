@@ -9,28 +9,19 @@ let header = `
 <!-- Logo -->
   <a class="navbar-brand" href="/user/index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
 
-  
-
   <!-- Navbar links -->
   <div class="collapse navbar-collapse " id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link nav-active" href="#">Home</a>
-      </li>
       <li class="nav-item" id="drop">
         <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i> 
           <div class="dropdown-content" >
             <div>
               <div class="arrow-up-kategori"></div>
             </div>
-              <div class="box" id="categoryBox">
-                
-              </div>
+            <div class="box" id="categoryBox">
+            </div>
           </div>
         <div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Daftar Buku</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Tentang</a>

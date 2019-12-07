@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  
+
   <div class="loading hide" id="loading"></div>
   <div class="bg-black" id="bg-black"></div>
   <header class="fixed" id="header" style="z-index: 100;">
@@ -31,7 +31,7 @@
         <div class="col-md-3 ">
           <div class="row">
             <div class="col-5">
-              <img src="../assets/else/signature.png" class="mb-3" alt="" width="100%">
+              <img id="display" class="mb-3" alt="" width="100%">
             </div>
             <div class="col-6">
               <h5 id="marketName"></h5>
@@ -63,34 +63,52 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
-          
+
           <div class="title-user">Tambah Produk</div>
-          
+
           <br>
           <form id="book-form">
             <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
             <img src="" alt="" id="img" width="100px" onchange="readURL(this)">
-            <input name="fileUri" required type="file" class="file" id="upload"><br>
-            <label class="input-file" id="input"><b>Upload Foto . . . </b></label>
-            <p id="file-name"></p>
+            <input name="fileUri" required type="file" class="file" id="upload-photo"><br><br>
+            <label class="input-file" id="input"><b>Unggah Foto</b></label>
+            <p id="photo-name" class="file-name"></p>
+
+            <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
+            <input name="fileUri" required type="file" class="file" id="upload-file">
+            <label class="input-file" id="input2"><b>Unggah berkas</b></label>
+            <p id="file-name" class="file-name"></p>
+            <br>
             <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-            <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku" type="text"><br>
+            <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
+              type="text"><br>
+            <p id="judul" class="errMsg">Judul buku tidak boleh kosong</p>
 
             <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-            <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis" type="text"><br>
+            <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis"
+              type="text"><br>
+            <p id="penulis" class="errMsg">Penulis buku tidak boleh kosong</p>
 
             <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-            <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit" type="text"><br>
+            <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit"
+              type="text"><br>
+            <p id="penerbit" class="errMsg">Penerbit buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">Kategori<span class="red">*</span></label><br>
-            <select name="categories " id="ketegoriBuku" class="tambah-buku-input" required>
-              <option value="Pilih" selected hidden disabled>Pilih</option>
+            <label class="tambah-buku-edit">Kategori 1<span class="red">*</span></label><br>
+            <select name="categories " id="kategoriBuku1" class="tambah-buku-input" required>
+              <option value="" selected hidden disabled>Pilih</option>
+            </select><br>
+            <p id="kat" class="errMsg">Kategori buku tidak boleh kosong</p>
+
+            <label class="tambah-buku-edit">Kategori 2<span class="red">*</span></label><br>
+            <select name="categories " id="kategoriBuku2" class="tambah-buku-input">
+              <option value="" selected hidden disabled>Pilih</option>
             </select><br>
 
             <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
             <input class="sku" id="skuToko" required placeholder="SKU" disabled id="marketSku"></input> -
             <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
-            <br>
+            <p id="SKU" class="errMsg">Kode SKU tidak boleh kosong</p>
 
             <!-- <label class="tambah-buku-edit">Tanggal Terbit<span class="red">*</span></label><br>
 
@@ -147,14 +165,15 @@
           </select><br> -->
 
             <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101" type="number"
-              min="0"><br>
-
+            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101"
+              type="number" min="0"><br>
+            <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
             <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-            <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
-              rows="3"></textarea>
-            <button id="addBook" class="btn-orange">Tambah</button>
-        </form>
+            <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
+              type="text" rows="3"></textarea>
+            <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
+            <button id="addBook" class="btn-org">Tambah</button>
+          </form>
 
         </div>
       </div>
@@ -168,8 +187,8 @@
           <div class="col-12">
             <div class="center modal-container"></div>
             <div class="center modal-text">
-                <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
-                <br>
+              <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
+              <br>
             </div>
           </div>
         </div>
