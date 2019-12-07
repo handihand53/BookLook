@@ -16,15 +16,16 @@ $(window).load(function () {
         },
         success: function (data) {
             if (data.marketId != null) {
+                $("#loading").css("visibility", "hidden");
+                $("#marketName").html(data.marketName)
                 if (data.marketPhoto == null)
                     $('#display').attr('src', "../assets/else/signature.png");
                 else
                     $('#display').attr('src', data.marketPhoto);
-                $("#loading").css("visibility", "hidden");
-                $("#marketName").html(data.marketName)
             }
         },
         error: function (errMsg) {
+            console.log(errMsg);
             window.location.replace("/404.html")
         }
     });

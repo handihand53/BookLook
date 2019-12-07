@@ -22,7 +22,6 @@ $(window).load(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        // src=
         if(data.userPhoto==null)
           $('#img').attr('src', "../assets/else/signature.png");
         else

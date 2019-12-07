@@ -14,7 +14,7 @@ let footer = `
                 <div class="widget no-box">
                     <h5 class="widget-title"><span class="footer-text-title">Daftar Sekarang !</span></h5>
                     <p class="footer-text">Dapatkan semua buku secara mudah dan instan dengan cara mendaftar sekarang juga.</p>
-                    <a class="footer-text orange" href="#." target="_blank">Daftar sekarang</a>
+                    <a class="footer-text gray" href="#." target="_blank">Daftar sekarang</a>
                 </div>
             </div>
             <div class="col-sm-3">
