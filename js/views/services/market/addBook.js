@@ -143,6 +143,7 @@ $(window).load(function () {
     var skuBuku = $("#skuBuku").val()
     var hargaBuku = $("#hargaBuku").val()
     var deskripsiBuku = $("#deskripsiBuku").val()
+    var isbn = $("#isbnBuku").val()
     var pict = $("#upload-photo").get(0).files[0];
     var file = $("#upload-file").get(0).files[0];
     var kategori;
@@ -191,6 +192,12 @@ $(window).load(function () {
     } else
       $("#desc").removeClass("show");
 
+    if (isbn == "") {
+      stats = false;
+      $("#isbnErr").addClass("show");
+    } else
+      $("#isbnErr").removeClass("show");
+
     if (kategoriBuku2 != kategoriBuku1) {
       if (kategoriBuku2 == null)
         kategori = kategoriBuku1;
@@ -210,6 +217,7 @@ $(window).load(function () {
     fd.append('categories', kategori)
     fd.append('price', hargaBuku)
     fd.append('book', file)
+    fd.append('isbn', isbn)
 
     if (stats)
       $.ajax({

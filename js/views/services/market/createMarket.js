@@ -17,10 +17,10 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                return true;
+                window.location.replace("/market/store.html")
             },
             error: function (errMsg) {
-                return false;
+                $("#loading").css("visibility", "hidden");
             }
         });
     }
@@ -35,12 +35,10 @@ $(document).ready(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            if (checkMarket) {
-                window.location.replace("/market/store.html")
-            }
+            checkMarket()
         },
         error: function (errMsg) {
-            window.location.replace("/404.html")
+            
         }
     });
 

@@ -70,7 +70,7 @@ $(document).ready(function () {
         if(phoneNumber == ""){
             $("#login-fail").append(`<li>No telepon harus di isi</li>`)
             cek = false;
-        }else if(phoneNumber.matches(numRegex)){
+        }else if(phoneNumber.match(numRegex)){
             cek=false;
         }
         
@@ -84,7 +84,7 @@ $(document).ready(function () {
                 "username": username,
                 "email": email,
                 "password": password,
-                "phoneNumber": phoneNumber
+                "numberPhone": phoneNumber
             };
 
             $.ajax({

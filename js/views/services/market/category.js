@@ -1,3 +1,8 @@
+import {
+  setCookie,
+  getCookie,
+  checkCookie
+} from '../../../cookies.js'
 $(window).load(function () {
   var urlString = window.location.href;
   var urlParams = parseURLParams(urlString);
@@ -27,10 +32,11 @@ $(window).load(function () {
       "kategori": ""
     };
 
+    console.log(urlParams.kategori.toString())
   $.ajax({
     type: "GET",
     contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/products/" + urlParams.kategori.toString(),
+    url: "http://127.0.0.1:8080/api/products/category/" + urlParams.kategori.toString(),
     dataType: 'json',
     timeout: 600000,
     success: function (data) {
@@ -41,6 +47,7 @@ $(window).load(function () {
       $(".cat-name").html(urlParams.kategori.toString());
     },
     error: function (errMsg) {
+      console.log(errMsg)
       $("main").addClass("bg-product")
     }
   });
@@ -52,6 +59,7 @@ $(window).load(function () {
   })
 
   function listBook(data) {
+    console.log(data)
     var html;
     var html2;
     for (let i = 0; i < data.length; i++) {
@@ -63,7 +71,7 @@ $(window).load(function () {
                   <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
                   <p class="author-book">` + data[i].author + `</p>
                   <p class="price-store">Rp. ` + formatter.format(data[i].price).substr(3, data[i].price.length) + `</p>
-                  <a href="book.html"><button class="btn-detail">Lihat  </button></a>
+                  <a href="book.html?sku=`+data[i].sku+`"><button class="btn-detail">Lihat  </button></a>
                 </div>
               </div>
             </div>
@@ -78,7 +86,7 @@ $(window).load(function () {
                     <p class="author-book">Manusia</p>
                     <p class="price-store">` + data[i].author + `</p>
                     <p class="price-store">Rp. ` + formatter.format(data[i].price).substr(3, data[i].price.length) + `</p>
-                    <a href="book.html"><button class="btn-detail">Lihat  </button></a>
+                    <a href="book.html?sku=`+data[i].sku+`"><button class="btn-detail">Lihat  </button></a>
                   </div>
                 </div>
               </div>
