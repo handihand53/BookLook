@@ -27,11 +27,11 @@
   <main class="content content-width content-height">
     <div class="row">
       <div class="content-border no-border p-2 col-md-8 mlr-auto">
-        <div class="judul-utama p-2">Legal Upheaval</div>
+        <div class="judul-utama p-2" id="title"></div>
         <hr>
         <div class="row p-2">
           <div class="col-md-4">
-            <img src="../assets/img/sample 16.jpg" alt="" class="width-img">
+            <img id="bookimg" alt="" class="width-img">
           </div>
           <div class="col-md-7">
 
@@ -39,8 +39,7 @@
               <div class="col-md-6 sub-list">
                 Author
               </div>
-              <div class="col-md-6 sub-list blue">
-                Michele Destefano
+              <div class="col-md-6 sub-list blue" id="author">
               </div>
             </div>
 
@@ -48,8 +47,7 @@
               <div class="col-md-6 sub-list">
                 Penerbit
               </div>
-              <div class="col-md-6 sub-list blue">
-                PT. Gramedia
+              <div class="col-md-6 sub-list blue" id="publisher">
               </div>
             </div>
 
@@ -57,8 +55,15 @@
               <div class="col-md-6 sub-list">
                 SKU
               </div>
-              <div class="col-md-6 sub-list-sku orange">
-                SKW-2302-1222
+              <div class="col-md-6 sub-list-sku orange" id="sku">
+              </div>
+            </div>
+
+            <div class="row border-bot">
+              <div class="col-md-6 sub-list">
+                ISBN
+              </div>
+              <div class="col-md-6 sub-list-sku orange" id="isbn">
               </div>
             </div>
 
@@ -66,8 +71,7 @@
               <div class="col-md-6 sub-list">
                 Harga
               </div>
-              <div class="col-md-6 price-list orange">
-                Rp 4.500.000
+              <div class="col-md-6 price-list orange" id="price">
               </div>
             </div>
 
@@ -75,11 +79,9 @@
             <button id="wishlist" class="btn-blue mlr-auto">Wishlist</button>
 
           </div>
-          <p class="pl-3 mt-1 deskripsi-tag">Deskripsi</p>
-          <p class="pl-3 deskripsi">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem
-            exercitationem similique iste, omnis provident quis inventore ab quas, accusantium non atque sapiente quasi
-            dicta doloremque obcaecati praesentium voluptatem fugiat?</p>
         </div>
+        <p class="pl-3 mt-1 deskripsi-tag">Deskripsi</p>
+        <p class="pl-3 deskripsi" id="deskripsi"></p>
       </div>
 
       <div class="content-border no-border p-3 col-md-3 mlr-auto mt fit">
@@ -87,8 +89,7 @@
           Dijual oleh
         </div>
 
-        <div class="penjual">
-          Fu Store
+        <div class="penjual" id="marketSeller">
         </div>
       </div>
     </div>

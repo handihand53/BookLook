@@ -31,14 +31,20 @@ $(window).load(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8080/api/products/" + urlParams.sku.toString(),
+        url: "http://127.0.0.1:8080/api/products/" + urlParams._i.toString(),
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log("sukses")
-            console.log(data)
-            // productId = data.;
+            productId = data.product.productId;
+            $("#marketSeller").html(data.marketName);
+            $("#sku").html(data.product.sku);
+            $("#price").html(data.product.price);
+            $("#author").html(data.product.author);
+            $("#publisher").html(data.product.publisher);
+            $("#deskripsi").html(data.product.description);
+            $("#bookimg").attr("src", data.product.productPhoto);
+            $("#title").html(data.product.title)
         },
         error: function (errMsg) {
             console.log(errMsg)
@@ -74,7 +80,7 @@ $(window).load(function () {
               'Authorization': `Bearer ` + getCookie("token"),
           },
         success: function (data) {
-          console.log("sukses")
+          console.log(data)
         },
         error: function (errMsg) {
           console.log(errMsg)
@@ -89,7 +95,7 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log("sukses")
+            console.log(data)
         },
         error: function (errMsg) {
             console.log(errMsg)
@@ -97,7 +103,7 @@ $(window).load(function () {
     });
 
     $("#wishlist").click(function () {
-        var data = "19bf2543-2f03-4ac0-982f-ad4f36325e3a";
+        var data = productId;
         $.ajax({
             type: "POST",
             contentType: "application/json",

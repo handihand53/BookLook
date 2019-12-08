@@ -20,6 +20,10 @@
     color: rgb(255, 174, 0);
 }
 
+.width-img{
+    max-width: 100%;
+}
+
 .sub-list-sku {
     font-size: 14px;
     font-weight: bold;
