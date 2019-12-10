@@ -30,103 +30,9 @@
     <!-- Main -->
 
     <main class="content content-width content-height">
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="bg-white-custom">
-                    <div class="content-border p-3 shadow-card no-border">
-                        <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
-                            <input type="checkbox" id="main-checkbox">
-                            <span class="checkmark" style="top: 20px;"></span>
-                        </label>
-                        <span class="ml-3">Pilih Semua Buku</span>
-                    </div>
-                </div>
-                <div class="bg-white-custom">
-                    <div class="content-border p-2 shadow-card no-border">
-                        <span class="float-left ml-3 content-title">Keranjang anda</span>
-                        <br><br>
-                        <div>
-                            <ul class="ul-keranjang">
-                                <li class="itm-keranjang">
-                                    <div class="row">
-                                        <div class="col-4 align-item-center" style="padding-right: 0;">
-                                            <label class="container-checkbox center">
-                                                <input type="checkbox" class="check">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <img src="../assets/img/sample 13.jpg" alt="" class="width-img"
-                                                style="margin-left: 20px;">
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="title-detail-keranjang">DNA of a Christ Followers</h6>
-                                            <p class="author-keranjang">Daren Wride</p>
-                                            <p class="author-keranjang">Ini bagian SKU</p>
-                                            <p class="price-keranjang">Rp. 57.000</p>
-                                            <p style="float: right; margin-right: 20px;"><i
-                                                    class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <hr>
-                                <li class="itm-keranjang">
-                                    <div class="row">
-                                        <div class="col-4 align-item-center" style="padding-right: 0;">
-                                            <label class="container-checkbox center">
-                                                <input type="checkbox" class="check">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <img src="../assets/img/sample 13.jpg" alt="" class="width-img">
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="title-detail-keranjang">DNA of a Christ Followers</h6>
-                                            <p class="author-keranjang">Daren Wride</p>
-                                            <p class="author-keranjang">Ini bagian SKU</p>
-                                            <p class="price-keranjang">Rp. 57.000</p>
-                                            <p style="float: right; margin-right: 20px;"><i
-                                                    class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <hr>
-                                <li class="itm-keranjang">
-                                    <div class="row">
-                                        <div class="col-4 align-item-center" style="padding-right: 0;">
-                                            <label class="container-checkbox center">
-                                                <input type="checkbox" class="check">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <img src="../assets/img/sample 13.jpg" alt="" class="width-img">
-                                        </div>
-                                        <div class="col-8">
-                                            <h6 class="title-detail-keranjang">DNA of a Christ Followers</h6>
-                                            <p class="author-keranjang">Daren Wride</p>
-                                            <p class="author-keranjang">Ini bagian SKU</p>
-                                            <p class="price-keranjang">Rp. 57.000</p>
-                                            <p style="float: right; margin-right: 20px;"><i
-                                                    class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="col-md-6">
-                <div class="content-border p-2 shadow-card detail-keranjang">
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <p>Total Belanja (3)</p>
-                            <p class="price-keranjang">Rp. 171.000</p>
-                        </div>
-                        <div>
-                            <a href="/market/confirmation-page.html"><button class="btn-buy">Bayar</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="keranjang-title-full">Keranjang</div>
+        <div class="row" id="main-content">
+            
         </div>
     </main>
 
@@ -138,8 +44,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/background_blur.js"></script>
-    <script src="../js/views/services/detail_keranjang.js"></script>
-    <script type="module" src="../js/views/services/profile/profile.js"></script>
+    <script type="module" src="../js/views/services/detail_keranjang.js"></script>
+    <script src="../js/deleteBuckets.js"></script>
 </body>
 
 </html>

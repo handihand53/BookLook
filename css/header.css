@@ -68,10 +68,34 @@ a{
 .keranjang{
     padding: 5px 20px;
     font-size: 15px;
+    font-weight: 700;
+    color: rgb(0, 21, 30);
+}
+
+.t12{
+    font-size: 12px;
 }
 
 .no-border{
     border: none !important;
+}
+
+.bg-blank-keranjang{
+    background-image: url('../assets/bg/bucket-empty.png');
+    background-size: 150px 150px;
+    background-position: center;
+    height: 150px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+}
+
+.bg-blank-wishlist{
+    background-image: url('../assets/bg/belakang.png');
+    background-size: 150px 150px;
+    background-position: center;
+    height: 150px;
+    min-width: 100%;
+    background-repeat: no-repeat;
 }
 
 .btn-orange{
@@ -180,11 +204,69 @@ a{
     background-color: #fff;
 }
 
-.author{
-    color: rgb(119, 119, 119);
+.title-keranjang-header{
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px!important;
+}
+
+.author-header{
+    color: rgb(245, 135, 46);
+    margin: 0px;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+}
+
+.sku-header{
+    color: rgb(137, 123, 112);
+    margin: 0px;
     margin-top: 2px;
-    margin-left: 5px;
-    font-weight: 200;
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;   
+}
+
+.isbn-header{
+    color: rgb(137, 123, 112);
+    margin: 0px;
+    margin-top: 2px;
+    font-weight: 500;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.price-header{
+    color: rgb(0, 157, 255);
+    margin: 0px;
+    margin-top: 2px;
+    font-weight: 500;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.trash-hov-profile{
+    color: rgb(194, 194, 194);
+}
+
+.orange{
+    color: rgb(255, 146, 4);
+}
+
+.trash-hov-profile:hover{
+    cursor: pointer;
+    color: rgb(144, 144, 144);
 }
 
 .no-padding{
