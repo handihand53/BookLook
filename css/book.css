@@ -20,6 +20,20 @@
     color: rgb(255, 174, 0);
 }
 
+.f14{
+    font-size: 30px;
+    color: rgb(0, 130, 211);
+}
+
+.prof{
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.prof-ok{
+    font-size: 12px;
+}
+
 .width-img{
     max-width: 100%;
 }

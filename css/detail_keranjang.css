@@ -14,6 +14,16 @@
     /* Black w/ opacity */
 }
 
+.bg-blank{
+    background-image: url('../assets/bg/bucket-empty.png');
+    background-size: 280px 280px;
+    background-position: center;
+    height: 100%;
+    min-height: 500px;
+    min-width: 100%;
+    background-repeat: no-repeat;
+}
+
 .loading{
     z-index: 99999;
     position: fixed;
@@ -62,6 +72,12 @@
     z-index: -1;
 }
 
+.keranjang-title-full{
+    font-size: 30px;
+    font-weight: 500;
+    color: #2196F3;
+}
+
 .content-title {
     font-weight: 500;
     font-size: 20px;
@@ -76,7 +92,7 @@
 }
 
 .content-height {
-    min-height: 700px;
+    min-height: auto;
 }
 
 .content-border {

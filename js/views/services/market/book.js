@@ -3,11 +3,14 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
+
+
 $(window).load(function () {
 
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
     var productId;
+
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
             queryEnd = url.indexOf("#") + 1 || url.length + 1,
@@ -39,7 +42,7 @@ $(window).load(function () {
             productId = data.product.productId;
             $("#marketSeller").html(data.marketName);
             $("#sku").html(data.product.sku);
-            $("#price").html(data.product.price);
+            $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
             $("#author").html(data.product.author);
             $("#publisher").html(data.product.publisher);
             $("#deskripsi").html(data.product.description);
@@ -52,7 +55,9 @@ $(window).load(function () {
     });
 
     $("#buy").click(function () {
-        var data = productId;
+        var data = {
+            "productId": productId
+        }
         $.ajax({
             type: "POST",
             contentType: "application/json",
@@ -62,9 +67,10 @@ $(window).load(function () {
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
-            data: data,
+            data: JSON.stringify(data),
             success: function (data) {
-                console.log("sukses")
+                getBuckets()
+                $("#modalInfo").click()
             },
             error: function (errMsg) {
                 console.log(errMsg)
@@ -72,38 +78,11 @@ $(window).load(function () {
         });
     })
 
-    $.ajax({
-        type: "GET",
-        url: "http://127.0.0.1:8080/api/buckets/",
-        timeout: 600000,
-        headers: {
-              'Authorization': `Bearer ` + getCookie("token"),
-          },
-        success: function (data) {
-          console.log(data)
-        },
-        error: function (errMsg) {
-          console.log(errMsg)
-        }
-      });
-
-    $.ajax({
-        type: "GET",
-        url: "http://127.0.0.1:8080/api/wishlists/",
-        timeout: 600000,
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            console.log(data)
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
-        }
-    });
-
     $("#wishlist").click(function () {
-        var data = productId;
+        var data = {
+            "productId": productId
+        }
+        
         $.ajax({
             type: "POST",
             contentType: "application/json",
@@ -113,14 +92,82 @@ $(window).load(function () {
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
-            data: data,
+            data: JSON.stringify(data),
             success: function (data) {
-                console.log("sukses")
+                $("#modalInfo").click()
             },
             error: function (errMsg) {
                 console.log(errMsg)
             }
         });
     })
+
+    function getBuckets() {
+        $.ajax({
+          type: "GET",
+          url: "http://127.0.0.1:8080/api/buckets/",
+          timeout: 600000,
+          async: false,
+          headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+          },
+          success: function (data) {
+            $("#keranjang").html("")
+            if (data.length != 0) {
+              var tot = 0;
+              for (var i = 0; i < data.length; i++) {
+                var html = `
+              <li class="itm-keranjang">
+                <div class="row">
+                  <div class="col-4">
+                    <img src="` + data[i].productPhoto + `" alt="" class="width-img-keranjang">
+                  </div>
+                  <div class="col-8 no-padding">
+                      <h6 class="title-keranjang-header">` + data[i].title + `</h6>
+                      <p class="author-header">` + data[i].author + `</p>
+                      <p class="sku-header">` + data[i].sku + `</p>
+                      <p class="isbn-header">` + data[i].isbn + `</p>
+                      <div class="row">
+                        <p class="price-header col-10">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p style="col-2 trash-bucket" data-id="` + data[i].productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                      </div>
+                  </div>
+                </div>
+              </li>
+              <hr>
+              `
+                $("#keranjang").append(html);
+                tot += data[i].price;
+              }
+    
+              var total = `<li>
+              <div class="row">
+                <div class="col-6">
+                  <p>Total (<span class="bold-header">` + data.length + `</span>)</p>
+                  <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>    
+                </div>
+                <div class="col-6">
+                  <a href="/user/detail_keranjang.html"><button class="btn-look">Lihat</button></a>
+                </div>
+              </div>
+            </li>`
+              $("#keranjang").append(total)
+            } else {
+              $("#keranjang").html(`
+                <div class="bg-blank-keranjang"></div>
+                <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>
+                <div class="center">
+                  <p class="t12">Waah keranjang kamu kosong nih, ayo isi buat nambah koleksi buku kamu!</p>
+                </div>
+              `);
+            }
+          },
+          error: function (errMsg) {
+            console.log(errMsg)
+          }
+    
+        });
+    
+      }
 
 });

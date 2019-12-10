@@ -18,7 +18,7 @@
     color: rgb(155, 155, 155);
 }
 
-.bg-product{
+.bg-product {
     background-image: url('../assets/bg/no\ product.png');
     background-size: 320px 320px;
     background-position: center;
@@ -30,23 +30,23 @@
     color: red;
 }
 
-.price-store{
+.price-store {
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
 }
 
-.bc{
+.bc {
     font-weight: bold;
     font-size: 12px;
 }
 
-.bc-item:hover{
+.bc-item:hover {
     color: rgb(30, 119, 253);
     cursor: pointer;
 }
 
-.col-3-custom{
+.col-3-custom {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -58,10 +58,10 @@
 
 
 
-.title-book{
+.title-book {
     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-weight: 500;
 }
 
@@ -84,7 +84,7 @@
     min-width: 60px;
 }
 
-.shadow-card{
+.shadow-card {
     box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
 }
 
@@ -92,11 +92,11 @@
     padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -119,15 +119,18 @@ a:hover{
     background-color: rgb(218, 142, 2);
 }
 
-p{
+p {
     padding: 0;
     margin: 0;
 }
 
-.author-book{
+.author-book {
     font-weight: 500;
     font-size: 14px;
     color: orange;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -157,21 +160,21 @@ p{
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.ul-item{
-    padding:0px;
+.ul-item {
+    padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -183,23 +186,23 @@ a:hover{
     padding: 8px 15px 12px 15px;
 }
 
-.active-sidebar{
+.active-sidebar {
     color: rgb(0, 162, 255);
     font-weight: bold;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
 
-.li-item:hover{
+.li-item:hover {
     cursor: pointer;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
-ul li{
+ul li {
     display: inline-table;
 }
 
-.mlr-auto{
+.mlr-auto {
     margin-left: auto;
     margin-right: auto;
 }
@@ -215,12 +218,12 @@ ul li{
         font-weight: 700;
     }
 
-    .col-custom{
+    .col-custom {
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
 
-    .hide{
+    .hide {
         visibility: hidden;
         position: absolute;
     }
@@ -240,13 +243,13 @@ ul li{
         font-weight: bold;
     }
 
-    .col-custom{
+    .col-custom {
         flex: 0 0 50%;
         max-width: 50%;
         padding: 5px;
     }
 
-    .col-3-custom{
+    .col-3-custom {
         position: relative;
         width: 400px;
         padding-right: 15px;
@@ -256,7 +259,7 @@ ul li{
         /* height: fit-content; */
     }
 
-    .hide2{
+    .hide2 {
         visibility: hidden;
         position: absolute;
     }

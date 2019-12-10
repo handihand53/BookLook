@@ -48,11 +48,11 @@ let header = `
     <div class="dropdown float-right" id="drop-shop" style="margin: auto; padding: 8px;">
     <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
         
-    <div class=" right-6 dropdown-content profile-mob" id="item-desk" style="top: 38px; min-width: 300px; overflow-y: auto;">
+    <div class="border-radius-7 right-6 dropdown-content profile-mob" id="item-desk" style="top: 38px; min-width: 300px; overflow-y: auto;">
     <div>
     <div class="arrow-up"></div>
   </div>
-            <div class="box   cart-bg" id="cart-item">
+            <div class="box cart-bg border-radius-7" id="cart-item">
               <img src="../assets/else/loading.gif"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
             </div>
         </div>
@@ -72,7 +72,9 @@ let header = `
       <span>
   </button>
   </div>
-</nav>`;
+</nav>
+<div id="modal"></div>
+`;
 
 
 
