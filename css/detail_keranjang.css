@@ -95,6 +95,10 @@
     min-height: auto;
 }
 
+#main-content{
+    min-height: 500px;
+}
+
 .content-border {
     background-color: #fff;
     border: gray 1px solid;
@@ -108,6 +112,14 @@
     position: sticky;
     position: -webkit-sticky;
     top: 70px;
+}
+
+.detail-keranjang2 {
+    border: none !important;
+    border-top: 2px solid #33C8FF !important;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 260px;
 }
 
 .align-item-center {
@@ -198,6 +210,13 @@
     background-color: rgb(218, 142, 2);
 }
 
+.b-bot{
+    border-bottom: rgba(204, 204, 204, 0.626) 0.7px solid;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
 h6 {
     margin-bottom: 5px !important;
     margin-left: 0px !important;
@@ -208,14 +227,46 @@ h6 {
     font-size: 20px;
 }
 
+.market-text{
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #33C8FF;
+}
+
+.market-text:hover{
+    text-decoration: underline;
+    color: #2196F3;
+}
+
+.trash-keranjang{
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+}
+
 p {
     margin: 0px !important;
     padding: none !important;
 }
 
+.pay{
+    width: 100%;
+    padding: 5px;
+    color: white;
+    background-color: rgb(238, 168, 39);
+    border: none;
+}
+
 .delete-icon:hover {
     color: rgb(0, 165, 211);
     cursor: pointer;
+}
+
+.price-pembelian {
+    font-size: 15px;
+    color: rgb(54, 54, 54);
 }
 
 @media screen and (min-width: 771px) {
@@ -239,8 +290,7 @@ p {
 
     .price-keranjang {
         margin-top: 2px;
-        margin-left: 5px;
-        font-size: 20px;
+        font-size: 15px;
         font-weight: bold;
         color: rgb(255, 186, 82);
     }

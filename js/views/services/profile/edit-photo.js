@@ -39,55 +39,50 @@ $(window).load(function () {
     })
 
     $('input[id="upload-photo"]').change(function (file2) {
+        if ($("#upload-photo").get(0).files[0] == null) {
+            $("#img-display").attr("src", "")
+        } else {
+            var _URL = window.URL || window.webkitURL
+            var fileExtension = ['jpeg', 'jpg', 'png'];
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Only formats are allowed : " + fileExtension.join(', '));
+                return;
+            }
 
-        var _URL = window.URL || window.webkitURL
-        var fileExtension = ['jpeg', 'jpg', 'png'];
-        if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-            alert("Only formats are allowed : " + fileExtension.join(', '));
-            return;
+            var fileName = file2.target.files[0].name;
+            var reader = new FileReader();
+            reader.readAsDataURL(event.srcElement.files[0]);
+            // var me = this;
+            reader.onload = function () {
+                var fileContent = reader.result;
+                $('#img-display').attr('src', fileContent);
+            }
         }
-
-        var file = $(this)[0].files[0];
-
-        var img = new Image();
-        var imgwidth = 0;
-        var imgheight = 0;
-        var maxwidth = 600;
-        var maxheight = 900;
-
-        img.src = _URL.createObjectURL(file);
-        img.onload = function () {
-            imgwidth = this.width;
-            imgheight = this.height;
-            // if(imgwidth>maxwidth && imgheight>maxheight){
-            //   alert("Ukuran Foto tidak valid")
-            // }
-            console.log(imgwidth);
-            console.log(imgheight);
-        }
-
-        var fileName = file2.target.files[0].name;
-        var reader = new FileReader();
-        reader.readAsDataURL(event.srcElement.files[0]);
-        // var me = this;
-        reader.onload = function () {
-            var fileContent = reader.result;
-            $('#img-display').attr('src', fileContent);
-        }
-
-        $('#photo-name').html(fileName + ' has been selected.');
 
     });
+
+
+
 
     $("#save").click(function () {
         var pict = $("#upload-photo").get(0).files[0];
         var fd = new FormData();
-        fd.append('picture', pict);
-
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
+        var dateTime = date + '' + time;
+        var berkasName = dateTime + pict.name
+        fd.append('picture', pict, berkasName);
+        console.log(pict)
         if (pict == null) {
             $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
             $("#modalMsgEdit").html(`Foto masih kosong`);
             $("#editProf").click();
+        } else {
+            $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+            $("#modalMsgEdit").html(`Perubahan profile berhasil disimpan`);
+            $("#editProf").click();
+
         }
 
         $.ajax({

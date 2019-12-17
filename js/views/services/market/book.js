@@ -40,7 +40,7 @@ $(window).load(function () {
         },
         success: function (data) {
             productId = data.product.productId;
-            $("#marketSeller").html(data.marketName);
+            $("#marketSeller").html(`<a class="market-link" href="/market/market-page.html?id=`+data.marketId+`"><u>`+data.marketName+`</u></a>`);
             $("#sku").html(data.product.sku);
             $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
             $("#author").html(data.product.author);
@@ -120,16 +120,16 @@ $(window).load(function () {
               <li class="itm-keranjang">
                 <div class="row">
                   <div class="col-4">
-                    <img src="` + data[i].productPhoto + `" alt="" class="width-img-keranjang">
+                    <img src="` + data[i].product.productPhoto + `" alt="" class="width-img-keranjang">
                   </div>
                   <div class="col-8 no-padding">
-                      <h6 class="title-keranjang-header">` + data[i].title + `</h6>
-                      <p class="author-header">` + data[i].author + `</p>
-                      <p class="sku-header">` + data[i].sku + `</p>
-                      <p class="isbn-header">` + data[i].isbn + `</p>
+                      <h6 class="title-keranjang-header">` + data[i].product.title + `</h6>
+                      <p class="author-header">` + data[i].product.author + `</p>
+                      <p class="sku-header">` + data[i].product.sku + `</p>
+                      <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
-                        <p class="price-header col-10">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                        <p style="col-2 trash-bucket" data-id="` + data[i].productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ $(window).load(function () {
               <hr>
               `
                 $("#keranjang").append(html);
-                tot += data[i].price;
+                tot += data[i].product.price;
               }
     
               var total = `<li>

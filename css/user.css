@@ -83,7 +83,7 @@ a {
     max-height: 135px;
 }
 
-.btn-blue {
+.btn-edit {
     font-family: 'Noto Sans', sans-serif;
     border: 1px solid rgb(0, 179, 255) !important;
     background: transparent !important;
@@ -98,10 +98,31 @@ a {
     box-shadow: none !important;
 }
 
-.btn-blue:hover {
-    background: rgb(0, 179, 255) !important;
+.btn-edit:hover {
+    background: rgb(0, 132, 247)!important;
     color: white !important;
 }
+
+.btn-blue {
+    margin-left: 0px!important;
+    text-align: center;
+    transition: all .4s;
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(29, 168, 255) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-blue:hover {
+    background-color: rgb(0, 132, 247)!important;
+} 
 
 .input-file {
     /* display: block; */
