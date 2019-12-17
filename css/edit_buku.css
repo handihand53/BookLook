@@ -137,6 +137,20 @@ ul li{
     margin-right: auto;
 }
 
+.sku{
+    width: 20%;
+    padding: 8px;
+    border:0.7px solid rgba(128, 128, 128, 0.211);
+    font-size: 12px;
+}
+
+.sku-input{
+    width: 68%;
+    padding: 8px;
+    border:0.7px solid rgba(128, 128, 128, 0.211);
+    font-size: 12px;
+}
+
 p{
     margin: 0px;
 }
@@ -164,6 +178,74 @@ p{
     position: fixed;
     width: 100%;
     z-index: 3;
+}
+
+
+.btn-blue {
+    font-family: 'Noto Sans', sans-serif;
+    border: 1px solid rgb(0, 179, 255) !important;
+    background: transparent !important;
+    font-size: 12px;
+    border: none;
+    color: rgb(0, 179, 255) !important;
+    font-weight: 300;
+    margin: 5px 0px !important;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-blue:hover {
+    background: rgb(0, 132, 247)!important;
+    color: white !important;
+}
+
+.opsi{
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(0, 153, 255);
+}
+
+.f14{
+    font-size: 30px;
+    color: rgb(0, 130, 211);
+}
+
+.f14-red{
+    font-size: 30px;
+    color: rgb(211, 0, 35);
+}
+
+.prof{
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.prof-ok{
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+
+.btn-save {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 176, 29) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-save:hover {
+    background-color: rgb(247, 140, 0) !important;
 }
 
 .bg-black {

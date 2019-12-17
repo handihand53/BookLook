@@ -19,7 +19,7 @@ function bindDeleteData(data_id) {
       $("#main-content").html("")
       refreshBuckets()
       getB()
-      bindDeleteData()
+      // bindDeleteData(data);
     },
     error: function (errMsg) {
       console.log(errMsg)
@@ -92,16 +92,16 @@ function refreshBuckets() {
           <li class="itm-keranjang">
             <div class="row">
               <div class="col-4">
-                <img src="` + data[i].productPhoto + `" alt="" class="width-img-keranjang">
+                <img src="` + data[i].product.productPhoto + `" alt="" class="width-img-keranjang">
               </div>
               <div class="col-8 no-padding">
-                  <h6 class="title-keranjang-header">` + data[i].title + `</h6>
-                  <p class="author-header">` + data[i].author + `</p>
-                  <p class="sku-header">` + data[i].sku + `</p>
-                  <p class="isbn-header">` + data[i].isbn + `</p>
+                  <h6 class="title-keranjang-header">` + data[i].product.title + `</h6>
+                  <p class="author-header">` + data[i].product.author + `</p>
+                  <p class="sku-header">` + data[i].product.sku + `</p>
+                  <p class="isbn-header">` + data[i].product.isbn + `</p>
                   <div class="row">
-                    <p class="price-header col-10">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                    <p style="col-2 trash-bucket" data-id="` + data[i].productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                    <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                    <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                   </div>
               </div>
             </div>
@@ -109,7 +109,7 @@ function refreshBuckets() {
           <hr>
           `
           $("#keranjang").append(html);
-          tot += data[i].price;
+          tot += data[i].product.price;
         }
 
         var total = `<li>
@@ -185,22 +185,22 @@ function getB() {
                                             <input type="checkbox" class="check">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <img src="` + data[i].productPhoto + `" alt="" class="width-img"
+                                        <img src="` + data[i].product.productPhoto + `" alt="" class="width-img"
                                             style="margin-left: 20px;">
                                     </div>
                                     <div class="col-8">
-                                        <h6 class="title-detail-keranjang">` + data[i].title + `</h6>
-                                        <p class="author-keranjang">` + data[i].author + `</p>
-                                        <p class="author-keranjang">` + data[i].sku + `</p>
-                                        <p class="author-keranjang">` + data[i].isbn + `</p>
-                                        <p class="price-keranjang">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                                        <p class="trash-keranjang" s="Sa" data-id="` + data[i].productId + `" style="float: right; margin-right: 20px;"><i class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
+                                        <h6 class="title-detail-keranjang">` + data[i].product.title + `</h6>
+                                        <p class="author-keranjang">` + data[i].product.author + `</p>
+                                        <p class="author-keranjang">` + data[i].product.sku + `</p>
+                                        <p class="author-keranjang">` + data[i].product.isbn + `</p>
+                                        <p class="price-keranjang">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                                        <p class="trash-keranjang" s="Sa" data-id="` + data[i].product.productId + `" style="float: right; margin-right: 20px;"><i class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
                                     </div>
                                 </div>
                             </li>
                             <hr>
                         `
-          tot += data[i].price;
+          tot += data[i].product.price;
           $("#main-keranjang").append(html)
         }
         var total = `<div class="col-md-6">

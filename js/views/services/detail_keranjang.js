@@ -40,69 +40,80 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                console.log(data)
                 if (data.length != 0) {
                     var head = `
-                <div class="col-md-6">
-                <div class="bg-white-custom">
-                    <div class="content-border p-3 shadow-card no-border">
-                        <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
-                            <input type="checkbox" id="main-checkbox">
-                            <span class="checkmark" style="top: 20px;"></span>
-                        </label>
-                        <span class="ml-3">Pilih Semua Buku</span>
-                    </div>
-                </div>
-                <div class="bg-white-custom">
-                    <div class="content-border p-2 shadow-card no-border">
-                        <span class="float-left ml-3 content-title">Keranjang anda</span>
-                        <br><br>
-                        <div>
-                            <ul class="ul-keranjang" id="main-keranjang">
-                            </ul>
-                            </div>
+                    <div class="col-md-6">
+                    <div class="bg-white-custom">
+                        <div class="content-border p-3 shadow-card no-border">
+                            <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
+                                <input type="checkbox" id="main-checkbox">
+                                <span class="checkmark" style="top: 20px;"></span>
+                            </label>
+                            <span class="ml-3">Pilih Semua Buku</span>
                         </div>
                     </div>
-                </div>`
+                    <div id="main-keranjang">
+                    </div>
+                </div>
+                `
                     $("#main-content").append(head);
                     var tot = 0;
                     for (var i = 0; i < data.length; i++) {
+                        
                         var html = `
-                                <li class="itm-keranjang">
+                        <div class="bg-white-custom">
+                    <div class="content-border p-2 shadow-card no-border mb-3">
+                    
+                            <label class="container-checkbox center">
+                                <input type="checkbox" class="check" style="position:absolute">
+                                <span style="margin-top: -4px;" class="checkmark"></span>
+                            </label>
+                            <span class="market-text">`+ data[i].marketName+`</span>
+                            <hr>
+                                <li class="itm-keranjang mb-3">
                                     <div class="row">
                                         <div class="col-4 align-item-center" style="padding-right: 0;">
-                                            <label class="container-checkbox center">
-                                                <input type="checkbox" class="check">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <img src="` + data[i].productPhoto + `" alt="" class="width-img"
-                                                style="margin-left: 20px;">
+                                            <img src="` + data[i].product.productPhoto + `" alt="" class="width-img">
                                         </div>
                                         <div class="col-8">
-                                            <h6 class="title-detail-keranjang">` + data[i].title + `</h6>
-                                            <p class="author-keranjang">` + data[i].author + `</p>
-                                            <p class="author-keranjang">` + data[i].sku + `</p>
-                                            <p class="author-keranjang">` + data[i].isbn + `</p>
-                                            <p class="price-keranjang">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                                            <p class="trash-keranjang" s="Sa" data-id="` + data[i].productId + `" style="float: right; margin-right: 20px;"><i class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
+                                            <h6 class="title-detail-keranjang" title="` + data[i].product.title + `">` + data[i].product.title + `</h6>
+                                            <p class="author-keranjang">` + data[i].product.author + `</p>
+                                            <p class="author-keranjang">` + data[i].product.sku + `</p>
+                                            <p class="author-keranjang">` + data[i].product.isbn + `</p>
+                                            <p class="price-keranjang">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                                            <p class="trash-keranjang" data-id="` + data[i].product.productId + `" style="float: right; margin-right: 20px;"><i class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
                                         </div>
                                     </div>
                                 </li>
-                                <hr>
+                                </div>
+                            </div>
                             `
-                        tot += data[i].price;
+                        tot += data[i].product.price;
                         $("#main-keranjang").append(html)
                     }
-                    var total = `<div class="col-md-6">
+                    var total = `
+        <div class="col-md-6">
             <div class="content-border p-2 shadow-card detail-keranjang">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div>
-                        <p>Total Belanja (<b>` + data.length + `</b>)</p>
-                        <p class="price-keranjang">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                <div class="b-bot">
+                    <p>Rincian</p>
+                </div>
+                <div>
+                    <div class="row mt-3">
+                        <div class="col-6 price-pembelian">Total Pembelian </div>
+                        <div class="col-6 center price-pembelian">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</div>
                     </div>
-                    <div>
-                        <a href="/market/confirmation-page.html"><button class="btn-buy">Bayar</button></a>
+                    <hr>
+                    <div class="row mb-3">
+                        <div class="col-6">Total Pembayaran </div>
+                        <div class="col-6 center price-keranjang">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</div>
                     </div>
                 </div>
+                
+            </div>
+
+            <div class="content-border p-2 shadow-card detail-keranjang2">
+                <button class="pay">Bayar Sekarang</button>
             </div>
         </div>`;
                     $("#main-content").append(total);
@@ -179,16 +190,16 @@ $(window).load(function () {
               <li class="itm-keranjang">
                 <div class="row">
                   <div class="col-4">
-                    <img src="` + data[i].productPhoto + `" alt="" class="width-img-keranjang">
+                    <img src="` + data[i].product.productPhoto + `" alt="" class="width-img-keranjang">
                   </div>
                   <div class="col-8 no-padding">
-                      <h6 class="title-keranjang-header">` + data[i].title + `</h6>
-                      <p class="author-header">` + data[i].author + `</p>
-                      <p class="sku-header">` + data[i].sku + `</p>
-                      <p class="isbn-header">` + data[i].isbn + `</p>
+                      <h6 class="title-keranjang-header">` + data[i].product.title + `</h6>
+                      <p class="author-header">` + data[i].product.author + `</p>
+                      <p class="sku-header">` + data[i].product.sku + `</p>
+                      <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
-                        <p class="price-header col-10">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                        <p style="col-2 trash-bucket" data-id="` + data[i].productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>
                 </div>
@@ -196,7 +207,7 @@ $(window).load(function () {
               <hr>
               `
                         $("#keranjang").append(html);
-                        tot += data[i].price;
+                        tot += data[i].product.price;
                     }
 
                     var total = `<li>

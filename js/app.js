@@ -129,16 +129,16 @@ $(document).ready(function () {
           <li class="itm-keranjang">
             <div class="row">
               <div class="col-4">
-                <img src="` + data[i].productPhoto + `" alt="" class="width-img-keranjang">
+                <img src="` + data[i].product.productPhoto + `" alt="" class="width-img-keranjang">
               </div>
               <div class="col-8 no-padding">
-                  <h6 class="title-keranjang-header" title="` + data[i].title + `">` + data[i].title + `</h6>
-                  <p class="author-header" title="`+ data[i].author +`">` + data[i].author + `</p>
-                  <p class="sku-header">` + data[i].sku + `</p>
-                  <p class="isbn-header">` + data[i].isbn + `</p>
+                  <h6 class="title-keranjang-header" title="` + data[i].product.title + `">` + data[i].product.title + `</h6>
+                  <p class="author-header" title="`+ data[i].product.author +`">` + data[i].product.author + `</p>
+                  <p class="sku-header">` + data[i].product.sku + `</p>
+                  <p class="isbn-header">` + data[i].product.isbn + `</p>
                   <div class="row">
-                    <p class="price-header col-10">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
-                    <p class="trash-buckets" data-id="` + data[i].productId + `" id="` + data[i].productId + `" onclick="bindDeleteData(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                    <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                    <p class="trash-buckets" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteData(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                   </div>
               </div>
             </div>
@@ -146,9 +146,8 @@ $(document).ready(function () {
           <hr>
           `
             $("#keranjang").append(html);
-            tot += data[i].price;
+            tot += data[i].product.price;
           }
-
           var total = `<li>
           <div class="row">
             <div class="col-6">

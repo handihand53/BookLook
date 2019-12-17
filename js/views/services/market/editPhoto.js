@@ -43,25 +43,6 @@ $(window).load(function () {
             return;
         }
 
-        var file = $(this)[0].files[0];
-
-        var img = new Image();
-        var imgwidth = 0;
-        var imgheight = 0;
-        var maxwidth = 600;
-        var maxheight = 900;
-
-        img.src = _URL.createObjectURL(file);
-        img.onload = function () {
-            imgwidth = this.width;
-            imgheight = this.height;
-            // if(imgwidth>maxwidth && imgheight>maxheight){
-            //   alert("Ukuran Foto tidak valid")
-            // }
-            console.log(imgwidth);
-            console.log(imgheight);
-        }
-
         var fileName = file2.target.files[0].name;
         var reader = new FileReader();
         reader.readAsDataURL(event.srcElement.files[0]);
@@ -71,15 +52,20 @@ $(window).load(function () {
             $('#img-display').attr('src', fileContent);
         }
 
-        $('#photo-name').html(fileName + ' has been selected.');
+        // $('#photo-name').html(fileName + ' has been selected.');
 
     });
 
     $("#save").click(function () {
         var pict = $("#upload-photo").get(0).files[0];
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
+        var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
+        var dateTime = date + '' + time;
+        var berkasName = dateTime + pict.name
         var fd = new FormData();
         console.log(pict)
-        fd.append('picture', pict);
+        fd.append('picture', pict, berkasName);
 
         if (pict == null) {
             $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
@@ -105,7 +91,7 @@ $(window).load(function () {
             }
         });
     })
-    
+
 
 
 });

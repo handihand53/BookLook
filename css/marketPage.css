@@ -38,13 +38,21 @@
     margin-top: 20px;
 }
 
-.sticky{
+/* .sticky{
     position: fixed !important;
     top: 100px;
+} */
+
+.mrl-auto{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .title-book{
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .title-content {
@@ -110,6 +118,9 @@ p{
     font-weight: 500;
     font-size: 14px;
     color: orange;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Market | BookLook</title>
+    <title>Edit Foto Buku | BookLook</title>
     <!-- logo web -->
     <link href="../assets/logo/bl.png" rel="icon">
     <!-- Bootstrap CSS -->
@@ -45,13 +45,13 @@
                             <li class="li-item">Pemberitahuan Pesanan</li>
                         </a>
                         <a>
-                            <li class="li-item active-sidebar">Profile</li>
+                            <li class="li-item">Profile</li>
                         </a>
                         <a href="tambah_buku.html">
                             <li class="li-item">Tambah Produk</li>
                         </a>
                         <a href="mybook_store.html">
-                            <li class="li-item">Produk</li>
+                            <li class="li-item active-sidebar">Produk</li>
                         </a>
                         <a href="history_penjualan.html">
                             <li class="li-item">History</li>
@@ -64,15 +64,15 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-9">
                     <div class="bc">
-                        <a href="/user/index.html"><span class="bc-item">Home</span></a> >
-                        <a href="store.html"><span class="bc-item">Profile</span></a> >
-                        <span class="bc-item">Ubah Foto</span>
+                        <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
+                        <a id="detail-book"><span class="bc-item">Detail Buku</span></a> >
+                        <a id="edit-book"><span class="bc-item">Edit Buku</span></a>>
+                        <span class="bc-item">Edit Foto Buku</span>
                     </div>
                     <div class="title-user">Ubah Foto</div>
-
-                    <img src="" alt="" id="img-display" width="100px" onchange="readURL(this)">
-                    <input name="fileUri" required type="file" class="file" id="upload-photo"><br>
-                    <label class="input-file" id="input"><b>Unggah Foto</b></label><br>
+                    <img src="" id="img" width="100px" onchange="readURL(this)">
+                    <input name="fileUri" required type="file" style="top: -500px; position: absolute;" class="file" id="upload-photo"><br>
+                    <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label><br>
                     <span id="photo-name" class="file-name"></span>
 
                     <div>
@@ -91,7 +91,7 @@
                     <div class="modal-body center">
                         <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
                         <br>
-                        <div class="prof" id="modalMsgEdit">Perubahan profile berhasil disimpan</div>
+                        <div class="prof" id="modalMsgEdit">Perubahan foto berhasil disimpan</div>
                         <label class="prof-ok" data-dismiss="modal">OK</label>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/background_blur.js"></script>
     <script type="module" src="../js/app.js"></script>
-    <script type="module" src="../js/views/services/market/editPhoto.js"></script>
+    <script type="module" src="../js/views/services/market/editBookPhoto.js"></script>
     <script src="../js/deleteBuckets.js"></script>
 </body>
 

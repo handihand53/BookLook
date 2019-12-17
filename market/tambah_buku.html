@@ -65,19 +65,19 @@
 
           <div class="title-user">Tambah Produk</div>
 
-          <br>
+          
           <form id="book-form">
             <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
-            <img src="" alt="" id="img" width="100px" onchange="readURL(this)">
-            <input name="fileUri" required type="file" class="file" id="upload-photo"><br><br>
-            <label class="input-file" id="input"><b>Unggah Foto</b></label>
+            <img alt="" id="img" width="100px" onchange="readURL(this)">
+            <br>
+            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;" id="upload-photo">
+            <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label>
             <p id="photo-name" class="file-name"></p>
-
             <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
-            <input name="fileUri" required type="file" class="file" id="upload-file">
+            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;" id="upload-file">
             <label class="input-file" id="input2"><b>Unggah berkas</b></label>
             <p id="file-name" class="file-name"></p>
-            <br>
+          
             <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
             <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
               type="text"><br>
@@ -114,60 +114,7 @@
             <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
             <p id="SKU" class="errMsg">Kode SKU tidak boleh kosong</p>
 
-            <!-- <label class="tambah-buku-edit">Tanggal Terbit<span class="red">*</span></label><br>
-
-          <select class="tanggal-edit" required id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-          </select>
-
-          <select class="tanggal-edit" required id="">
-            <option value="1">Januari</option>
-            <option value="2">Februari</option>
-            <option value="3">Maret</option>
-            <option value="4">April</option>
-            <option value="5">Mei</option>
-            <option value="6">Juni</option>
-            <option value="7">July</option>
-            <option value="8">Agustus</option>
-            <option value="9">September</option>
-            <option value="10">Oktober</option>
-            <option value="11">November</option>
-            <option value="12">Desember</option>
-          </select>
-
-          <select class="tanggal-edit" required id="tahun">
-          </select><br> -->
-
+         
             <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
             <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101"
               type="number" min="0"><br>
@@ -176,7 +123,7 @@
             <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
               type="text" rows="3"></textarea>
             <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
-            <button id="addBook" class="btn-org">Tambah</button>
+            <button id="addBook" class="btn-save">Tambah</button>
           </form>
 
         </div>
