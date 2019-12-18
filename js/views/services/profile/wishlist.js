@@ -58,7 +58,7 @@ $(window).load(function () {
                         <div class="p-2">
                             <p class="title-book" title="` + data[i].product.title + `">` + data[i].product.title + `</p>
                             <p class="author-book" title="` + data[i].product.author + `">` + data[i].product.author + `</p>
-                            <p class="price-book">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                            <p class="price-book">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                             <button class="btn-tambah t" data-id="` + data[i].product.productId + `">Beli</button>
                         </div>
                         </div>
@@ -162,7 +162,7 @@ $(window).load(function () {
                       <p class="sku-header">` + data[i].product.sku + `</p>
                       <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
-                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                         <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>

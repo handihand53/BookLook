@@ -16,70 +16,20 @@
     <header class="fixed">
         <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav">
             <div class="col-7 center">
-                <a class="left" href="/user/index.html"><img src="../assets/logo/logo_blue.png" alt="BookLook" height="27px"
-                        class="d-inline-block align-top"></a>
+                <a class="left" href="/user/index.html"><img src="../assets/logo/logo_blue.png" alt="BookLook"
+                        height="27px" class="d-inline-block align-top"></a>
                 <span class="confirm-text float-right">Konfirmasi Pemesanan</span>
             </div>
         </nav>
     </header>
 
     <body>
-        <br><br><br> <br> <br>
+        <br><br><br>
         <div class="content">
-            <!-- <div class="col-8 row">
-                <div class="mrl-auto"> -->
             <div class="row col-md-9 mrl-auto flex-wrap no-padding">
-                <div class="content-border shadow-card no-border border-radius-4 col-md-6-custom">
-                    <div class="judul-utama p-2">
-                        <span>Legal Upheaval</span>
-                        <span class="blue float-right">Fu Store</span>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="../assets/img/sample 16.jpg" alt="" class="width-img">
-                        </div>
-                        <div class="col-7 no-padding mobile">
-
-                            <div class="row border-bot">
-                                <div class="col-md-6 sub-list">
-                                    Author
-                                </div>
-                                <div class="col-md-6 sub-list blue">
-                                    Michele Destefano
-                                </div>
-                            </div>
-
-                            <div class="row border-bot">
-                                <div class="col-md-6 sub-list">
-                                    Penerbit
-                                </div>
-                                <div class="col-md-6 sub-list blue">
-                                    PT. Gramedia
-                                </div>
-                            </div>
-
-                            <div class="row border-bot">
-                                <div class="col-md-6 sub-list">
-                                    SKU
-                                </div>
-                                <div class="col-md-6 sub-list-sku orange">
-                                    SKW-2302-1222
-                                </div>
-                            </div>
-
-                            <div class="row border-bot">
-                                <div class="col-md-6 sub-list">
-                                    Harga
-                                </div>
-                                <div class="col-md-6 price-list orange">
-                                    Rp 4.500.000
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-6-custom" id="book-confirm">
+                           
                 </div>
-
                 <div class="col-md-3-custom">
                     <div class="content-border shadow-card no-border border-radius-4  p-2 fit-height">
                         <div class="judul-utama">Rincian</div>
@@ -89,7 +39,7 @@
                                 Total Belanja
                             </div>
                             <div class="col-6 sub-list blue right no-margin">
-                                Rp. 4.500.000
+                                Rp. <span class="totPrice"></span>
                             </div>
                         </div>
                         <div class="row pr-2 pl-2">
@@ -106,7 +56,7 @@
                                 Total Pembayaran
                             </div>
                             <div class="col-6 sub-list blue right no-margin">
-                                Rp. 4.500.000
+                                Rp. <span class="totPrice"></span>
                             </div>
                         </div>
                     </div>
@@ -116,14 +66,16 @@
                                 Jumlah
                             </div>
                             <div class="col-6 sub-list blue right no-margin">
-                                Rp. 4.500.000
+                                Rp. <span class="totPrice"></span>
                             </div>
                         </div>
-                        <button class="btn-bayar" data-toggle="modal" data-target="#marketkuModal">Bayar</button>
+                        <button class="btn-bayar"id="bayar">Bayar</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <input id="modalBayar" data-toggle="modal" data-target="#marketkuModal" hidden>
         <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -134,22 +86,22 @@
                             <span class="modal-txt">Transaksi berhasil!</span><br>
                             <span class="modal-txt">Silahkan lengkapi pembayaran anda</span>
                             <br><br>
-                            <!-- <br>
-                <button class="btn-modal">Cek Sekarang</button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
+    <br>
     <footer class="footer">
         <div class="copyright mrl-auto col-7">
             &copy; 2019 All right reserved
         </div>
     </footer>
-     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="module" src="../js/views/services/market/confirmationPage.js"></script>
 </body>
 
 </html>

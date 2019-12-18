@@ -233,6 +233,7 @@ h6 {
     font-size: 14px;
     font-weight: bold;
     color: #33C8FF;
+    cursor: pointer;
 }
 
 .market-text:hover{
@@ -255,8 +256,12 @@ p {
     width: 100%;
     padding: 5px;
     color: white;
-    background-color: rgb(238, 168, 39);
+    background-color: rgb(255, 166, 0);
     border: none;
+}
+
+.pay:hover{
+    background-color: rgb(255, 151, 41  );
 }
 
 .delete-icon:hover {

@@ -60,16 +60,16 @@ $(window).load(function () {
                     $("#main-content").append(head);
                     var tot = 0;
                     for (var i = 0; i < data.length; i++) {
-                        
+
                         var html = `
                         <div class="bg-white-custom">
                     <div class="content-border p-2 shadow-card no-border mb-3">
                     
                             <label class="container-checkbox center">
-                                <input type="checkbox" class="check" style="position:absolute">
+                                <input data-id="`+ data[i].product.productId+`" type="checkbox" class="check" style="position:absolute">
                                 <span style="margin-top: -4px;" class="checkmark"></span>
                             </label>
-                            <span class="market-text">`+ data[i].marketName+`</span>
+                            <a href="/market/market-page.html?id=` + data[i].marketId + `"><span class="market-text">` + data[i].marketName + `</span></a>
                             <hr>
                                 <li class="itm-keranjang mb-3">
                                     <div class="row">
@@ -81,7 +81,7 @@ $(window).load(function () {
                                             <p class="author-keranjang">` + data[i].product.author + `</p>
                                             <p class="author-keranjang">` + data[i].product.sku + `</p>
                                             <p class="author-keranjang">` + data[i].product.isbn + `</p>
-                                            <p class="price-keranjang">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                                            <p class="price-keranjang">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                                             <p class="trash-keranjang" data-id="` + data[i].product.productId + `" style="float: right; margin-right: 20px;"><i class="fa fa-trash delete-icon" aria-hidden="true"></i></p>
                                         </div>
                                     </div>
@@ -101,19 +101,19 @@ $(window).load(function () {
                 <div>
                     <div class="row mt-3">
                         <div class="col-6 price-pembelian">Total Pembelian </div>
-                        <div class="col-6 center price-pembelian">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</div>
+                        <div class="col-6 center price-pembelian">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</div>
                     </div>
                     <hr>
                     <div class="row mb-3">
                         <div class="col-6">Total Pembayaran </div>
-                        <div class="col-6 center price-keranjang">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</div>
+                        <div class="col-6 center price-keranjang">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</div>
                     </div>
                 </div>
                 
             </div>
 
             <div class="content-border p-2 shadow-card detail-keranjang2">
-                <button class="pay">Bayar Sekarang</button>
+                <button class="pay" id="pay">Bayar Sekarang</button>
             </div>
         </div>`;
                     $("#main-content").append(total);
@@ -198,7 +198,7 @@ $(window).load(function () {
                       <p class="sku-header">` + data[i].product.sku + `</p>
                       <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
-                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                         <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>
@@ -214,7 +214,7 @@ $(window).load(function () {
               <div class="row">
                 <div class="col-6">
                   <p>Total (<span class="bold-header">` + data.length + `</span>)</p>
-                  <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>    
+                  <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>    
                 </div>
                 <div class="col-6">
                   <a href="/user/detail_keranjang.html"><button class="btn-look">Lihat</button></a>
@@ -239,5 +239,23 @@ $(window).load(function () {
         });
 
     }
+
+    var data_book = {
+        products : []
+    }
+
+    $("#pay").click(function () {
+        data_book = {
+            products : []
+        }
+        $(".check").each(function () {
+            let status = $(this).prop("checked");
+            if (status)
+                data_book.products.push($(this).data("id"))
+        })
+        console.log(data_book)
+        localStorage.setItem('dataBook', JSON.stringify(data_book));
+        location.href="/market/confirmation-page.html";
+    })
 
 });

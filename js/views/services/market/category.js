@@ -45,12 +45,6 @@ $(window).load(function () {
     }
   });
 
-  const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'IDR',
-    minimumFractionDigits: 0
-  })
-
   function listBook(data) {
     var html;
     var html2;
@@ -62,7 +56,7 @@ $(window).load(function () {
                 <div class="p-2">
                   <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
                   <p class="author-book">` + data[i].author + `</p>
-                  <p class="price-store">Rp. ` + formatter.format(data[i].price).substr(3, data[i].price.length) + `</p>
+                  <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                   <a href="book.html?_i=`+data[i].productId+`"><button class="btn-detail">Lihat  </button></a>
                 </div>
               </div>
@@ -77,7 +71,7 @@ $(window).load(function () {
                     <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
                     <p class="author-book">Manusia</p>
                     <p class="price-store">` + data[i].author + `</p>
-                    <p class="price-store">Rp. ` + formatter.format(data[i].price).substr(3, data[i].price.length) + `</p>
+                    <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                     <a href="book.html?_i=`+data[i].productId+`"><button class="btn-detail">Lihat  </button></a>
                   </div>
                 </div>

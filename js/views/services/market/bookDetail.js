@@ -79,7 +79,7 @@ $(window).load(function () {
                 <p class="publish-book">`+data.product.sku+`</p>
                 <p class="deskripsi">Deskripsi</p>
                 <p class="deskripsi-content mb-4">`+data.product.description+`</p>
-                <p class="price-detail orange">Rp. `+data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')+`</p>
+                <p class="price-detail orange">Rp. `+data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '')+`</p>
                 <br>
                 <a href="edit_buku.html?_i=`+data.product.productId+`"><button class="btn-edit">Edit</button></a>
               </div>

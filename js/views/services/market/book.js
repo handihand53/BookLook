@@ -42,7 +42,7 @@ $(window).load(function () {
             productId = data.product.productId;
             $("#marketSeller").html(`<a class="market-link" href="/market/market-page.html?id=`+data.marketId+`"><u>`+data.marketName+`</u></a>`);
             $("#sku").html(data.product.sku);
-            $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+            $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''));
             $("#author").html(data.product.author);
             $("#publisher").html(data.product.publisher);
             $("#deskripsi").html(data.product.description);
@@ -128,7 +128,7 @@ $(window).load(function () {
                       <p class="sku-header">` + data[i].product.sku + `</p>
                       <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
-                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                        <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                         <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>
@@ -144,7 +144,7 @@ $(window).load(function () {
               <div class="row">
                 <div class="col-6">
                   <p>Total (<span class="bold-header">` + data.length + `</span>)</p>
-                  <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>    
+                  <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>    
                 </div>
                 <div class="col-6">
                   <a href="/user/detail_keranjang.html"><button class="btn-look">Lihat</button></a>

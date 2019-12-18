@@ -137,7 +137,7 @@ $(document).ready(function () {
                   <p class="sku-header">` + data[i].product.sku + `</p>
                   <p class="isbn-header">` + data[i].product.isbn + `</p>
                   <div class="row">
-                    <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>
+                    <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                     <p class="trash-buckets" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteData(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                   </div>
               </div>
@@ -152,7 +152,7 @@ $(document).ready(function () {
           <div class="row">
             <div class="col-6">
               <p>Total (<span class="bold-header">` + data.length + `</span>)</p>
-              <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,') + `</p>    
+              <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>    
             </div>
             <div class="col-6">
               <a href="/user/detail_keranjang.html"><button class="btn-look">Lihat</button></a>

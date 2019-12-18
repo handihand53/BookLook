@@ -49,7 +49,7 @@ $(window).load(function () {
                             <div class="p-2">
                             <p class="title-book" title="`+data[i].title+`">`+data[i].title+`</p>
                             <p class="author-book">`+data[i].author+`</p>
-                            <p class="price-store">Rp. `+data[i].price+`</p>
+                            <p class="price-store">Rp. `+data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '')+`</p>
                             <a href="detail-buku.html?_i=`+data[i].productId+`"><button class="btn-detail">Detail</button></a>
                             </div>
                         </div>

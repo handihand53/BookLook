@@ -131,6 +131,9 @@ footer {
     height:fit-content;
 }
 
+.gray{
+    color: rgb(147, 147, 147);
+}
 
 .modal-container{
     height: 70px;
@@ -140,6 +143,18 @@ footer {
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 50px;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.link{
+    font-weight:400;
+}
+
+.link:hover{
+    color: rgb(0, 115, 255);
 }
 
 .btn-bayar{
