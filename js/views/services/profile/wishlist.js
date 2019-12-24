@@ -52,7 +52,7 @@ $(window).load(function () {
                 if (data.length != 0) {
                     for (let i = 0; i < data.length; i++) {
                         var html = `
-                    <div class="col-3-custom">
+                    <div class="col-3-custom max-min">
                         <div class="content-border shadow-card no-border border-radius-4">
                         <img src="` + data[i].product.productPhoto + `" alt="" class="width-img">
                         <div class="p-2">
@@ -164,7 +164,7 @@ $(window).load(function () {
                       <p class="isbn-header">` + data[i].product.isbn + `</p>
                       <div class="row">
                         <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                        <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                        <p class="trash-buckets" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteData(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                       </div>
                   </div>
                 </div>

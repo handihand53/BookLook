@@ -44,7 +44,7 @@
                         <a href="pemberitahuan_toko.html">
                             <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
                         </a>
-                        <a>
+                        <a href="store.html">
                             <li class="li-item">Profile</li>
                         </a>
                         <a href="tambah_buku.html">
@@ -73,6 +73,7 @@
                    <input name="fileUri" required type="file" style="top: -500px; position: absolute;" class="file" id="upload-file"><br>
                     <label class="input-file mt-2" id="input"><b>Unggah File</b></label><br>
                     <span id="file-name" class="file-name"></span>
+                    <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 200mb</p>
 
                     <div>
                         <button id="save" class="btn-save mt-2">Simpan</button>
@@ -97,22 +98,7 @@
             </div>
         </div>
         <br>
-    
-        <input type="button" id="editProf" data-toggle="modal" data-target="#editProfile" hidden>
 
-        <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfile"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body center">
-                <div id="icon"> </div>
-                <br>
-                <div class="prof" id="modalMsgEdit"></div>
-                <label class="prof-ok" data-dismiss="modal">OK</label>
-              </div>
-            </div>
-          </div>
-        </div>
         <br>
     </main>
 

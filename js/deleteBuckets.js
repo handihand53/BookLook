@@ -4,6 +4,17 @@ function bindDeleteData(data_id) {
     "productId": id
   }
 
+  try {
+    if (id == urlParams._i) {
+      $("#buy").removeClass("btn-already")
+      $("#buy").addClass("btn-buy")
+      $("#buy").html("Beli")
+      $("#buy").attr("disabled", false)
+    }
+  } catch (error) {
+    
+  }
+  
   $.ajax({
     type: "DELETE",
     contentType: "application/json",
@@ -19,7 +30,6 @@ function bindDeleteData(data_id) {
       $("#main-content").html("")
       refreshBuckets()
       getB()
-      // bindDeleteData(data);
     },
     error: function (errMsg) {
       console.log(errMsg)
@@ -27,35 +37,55 @@ function bindDeleteData(data_id) {
   });
 }
 
-
-
-function bindListener() {
-  $(".trash-bucket").click(function () {
-    var id = $(this).data(id);
-    var data2 = {
-      "productId": id.id
+function bindDeleteWishlist(data_id) {
+  var id = data_id
+  var data = {
+    "productId": id
+  }
+  
+  $.ajax({
+    type: "DELETE",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/wishlists/delete",
+    data: JSON.stringify(data),
+    dataType: 'json',
+    cache: false,
+    timeout: 600000,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (msg) {
+      $("#main-content").html("")
+      getWishlist()
+    },
+    error: function (errMsg) {
+      console.log(errMsg)
     }
-    $.ajax({
-      type: "DELETE",
-      contentType: "application/json",
-      url: "http://127.0.0.1:8080/api/buckets/delete",
-      data: JSON.stringify(data),
-      dataType: 'json',
-      cache: false,
-      timeout: 600000,
-      headers: {
-        'Authorization': `Bearer ` + getCookie("token"),
-      },
-      data: JSON.stringify(data2),
-      success: function (data) {
-        deleteWishlist(data2);
-        $("#modalInfo").click()
-      },
-      error: function (errMsg) {
-        console.log(errMsg)
-      }
-    });
-  })
+  });
+}
+
+var urlString = window.location.href;
+var urlParams = parseURLParams(urlString);
+
+function parseURLParams(url) {
+  var queryStart = url.indexOf("?") + 1,
+    queryEnd = url.indexOf("#") + 1 || url.length + 1,
+    query = url.slice(queryStart, queryEnd - 1),
+    pairs = query.replace(/\+/g, " ").split("&"),
+    parms = {},
+    i, n, v, nv;
+
+  if (query === url || query === "") return;
+
+  for (i = 0; i < pairs.length; i++) {
+    nv = pairs[i].split("=", 2);
+    n = decodeURIComponent(nv[0]);
+    v = decodeURIComponent(nv[1]);
+
+    if (!parms.hasOwnProperty(n)) parms[n] = [];
+    parms[n].push(nv.length === 2 ? v : null);
+  }
+  return parms;
 }
 
 function getCookie(cname) {
@@ -101,7 +131,7 @@ function refreshBuckets() {
                   <p class="isbn-header">` + data[i].product.isbn + `</p>
                   <div class="row">
                     <p class="price-header col-10">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                    <p style="col-2 trash-bucket" data-id="` + data[i].product.productId + `"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                    <p class="trash-buckets" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteData(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                   </div>
               </div>
             </div>
@@ -226,5 +256,57 @@ function getB() {
     error: function (errMsg) {
       console.log(errMsg)
     }
+  });
+}
+
+function getWishlist() {
+  $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/wishlists",
+      dataType: 'json',
+      timeout: 600000,
+      async: false,
+      headers: {
+          'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+          $("#wishlist-item").html("")
+          if (data.length != 0) {
+              for (let i = 0; i < data.length; i++) {
+                  var html = `
+              <div class="col-3-custom">
+                  <div class="content-border shadow-card no-border border-radius-4">
+                  <img src="` + data[i].product.productPhoto + `" alt="" class="width-img">
+                  <div class="p-2">
+                      <p class="title-book" title="` + data[i].product.title + `">` + data[i].product.title + `</p>
+                      <p class="author-book" title="` + data[i].product.author + `">` + data[i].product.author + `</p>
+                      <p class="price-book">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                      <p class="trash-wishlist" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteWishlist(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
+                      <button class="btn-tambah t" data-id="` + data[i].product.productId + `">Beli</button>
+                  </div>
+                  </div>
+              </div>
+              `
+                  $("#wishlist-item").append(html);
+                  bindListener();
+              }
+
+          } else {
+              $("#wishlist-item").removeClass("flex-row")
+              $("#wishlist-item").html(`
+              <div style="margin-top: 90px; margin-bottom: 100px;">
+                  <div class="bg-blank-wishlist"></div>
+                      <p class="p-1 keranjang bold center">Wishlist Kamu masih kosong.</p>
+                  <div class="center">
+                      <p class="t12">Ayo <a class="alink" href="/user/"><u>belanja</u></a> sekarang!</p>
+                  </div>
+              </div>
+              `);
+          }
+      },
+      error: function (errMsg) {
+          window.location.replace("/404.html")
+      }
   });
 }

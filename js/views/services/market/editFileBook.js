@@ -8,7 +8,7 @@ $(window).load(function () {
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
-
+    var fileName=""
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
             queryEnd = url.indexOf("#") + 1 || url.length + 1,
@@ -65,16 +65,22 @@ $(window).load(function () {
         var _URL = window.URL || window.webkitURL
         var photoInput = document.querySelector("#input");
         if ($("#upload-file").get(0).files[0] == null) {
-            $("#img").attr("src", "")
+            $("#file-name").html("")
         } else {
-
             var fileExtension = ['pdf'];
             if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                alert("Only formats are allowed : " + fileExtension.join(', '));
+                alert("Format file yang diperbolehkan : " + fileExtension.join(', '));
                 return;
             }
+            fileName = file2.target.files[0].name;
 
-            var fileName = file2.target.files[0].name;
+            var maxSize = 200 * 1024 * 1024;
+            if (file2.target.files[0].size > maxSize) {
+                alert("Ukuran File terlalu besar")
+                $("#file-name").html("")
+                fileName=""
+                return
+            }
             $("#file-name").html(fileName)
         }
     });
@@ -86,17 +92,18 @@ $(window).load(function () {
 
     $("#save").click(function () {
         var berkas = $("#upload-file").get(0).files[0];
+        if (berkas == null || fileName=="")  {
+            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+            $("#modalMsgEdit").html(`File masih kosong`);
+            $("#editProf").click();
+            return
+        }
+        
         var berkasName = dateTime + berkas.name
 
         var fd = new FormData();
         fd.append('book', berkas, berkasName);
         fd.append('productId', urlParams._i[0])
-
-        if (berkas == null) {
-            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
-            $("#modalMsgEdit").html(`Foto masih kosong`);
-            $("#editProf").click();
-        }
 
         $.ajax({
             type: "PUT",
@@ -109,7 +116,8 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
+                $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+                $("#modalMsgEdit").html(`Perubahan file berhasil disimpan`);
                 $("#editProf").click();
             },
             error: function (errMsg) {

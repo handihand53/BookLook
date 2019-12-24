@@ -227,6 +227,11 @@ p {
     flex-wrap: wrap;
 }
 
+.max-min {
+    max-width: 150px;
+    min-width: 150px;
+}
+
 @media screen and (min-width: 771px) {
     .title {
         margin-left: 5px;
@@ -237,9 +242,18 @@ p {
         width: 142px;
         font-weight: 700;
     }
+
+    .max-min {
+        max-width: 180px;
+        min-width: 150px;
+    }
 }
 
 @media screen and (max-width: 770px) {
+    .max-min {
+        max-width: 180px!important;
+        min-width: 155px;
+    }
 
     .title {
         font-size: 12px;

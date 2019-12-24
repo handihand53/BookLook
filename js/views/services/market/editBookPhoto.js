@@ -8,6 +8,7 @@ $(window).load(function () {
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
+    var fileName="";
 
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
@@ -69,7 +70,7 @@ $(window).load(function () {
         } else {
             var fileExtension = ['jpeg', 'jpg', 'png'];
             if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-                alert("Only formats are allowed : " + fileExtension.join(', '));
+                alert("Format foto yang diperbolehkan : " + fileExtension.join(', '));
                 return;
             }
 
@@ -82,6 +83,7 @@ $(window).load(function () {
             var imgheight = 0;
             var maxwidth = 600;
             var maxheight = 900;
+            fileName = file2.target.files[0].name;
 
             img.src = _URL.createObjectURL(file);
             img.onload = function () {
@@ -90,11 +92,11 @@ $(window).load(function () {
                 if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth / imgheight > 0.7 || imgwidth / imgheight < 0.6) {
                     alert("Ukuran Foto tidak valid")
                     $("#img").attr("src", "");
+                    fileName=""
                     return
                 }
             }
 
-            var fileName = file2.target.files[0].name;
             var reader = new FileReader();
             reader.readAsDataURL(event.srcElement.files[0]);
             // var me = this;
@@ -111,17 +113,19 @@ $(window).load(function () {
     var dateTime = date + '' + time;
 
     $("#save").click(function () {
-        var berkasName = dateTime + pict.name
         var pict = $("#upload-photo").get(0).files[0];
-        var fd = new FormData();
-        fd.append('picture', pict, berkasName);
-        fd.append('productId', urlParams._i[0])
 
-        if (pict == null) {
+        if (pict == null || fileName=="") {
             $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
             $("#modalMsgEdit").html(`Foto masih kosong`);
             $("#editProf").click();
+            return
         }
+
+        var berkasName = dateTime + pict.name
+        var fd = new FormData();
+        fd.append('picture', pict, berkasName);
+        fd.append('productId', urlParams._i[0])
 
         $.ajax({
             type: "PUT",
@@ -135,6 +139,8 @@ $(window).load(function () {
             },
             success: function (data) {
                 console.log(data)
+                $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+                $("#modalMsgEdit").html(`Perubahan foto berhasil disimpan`);
                 $("#editProf").click();
             },
             error: function (errMsg) {

@@ -73,12 +73,15 @@
             <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
               id="upload-photo">
             <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label>
-            <p id="photo-name" class="file-name"></p>
+            <p id="fot" class="errMsg">Foto buku tidak boleh kosong</p>
+            <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran rasio foto buku harus 2:3</p>
             <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
             <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
               id="upload-file">
             <label class="input-file" id="input2"><b>Unggah berkas</b></label>
             <p id="file-name" class="file-name"></p>
+            <p id="fil" class="errMsg">File buku tidak boleh kosong</p>
+            <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 200mb</p>
 
             <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
             <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
@@ -115,7 +118,7 @@
             <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
             <p id="SKU" class="errMsg">Kode SKU tidak boleh kosong</p>
 
-
+            <br>
             <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
             <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101"
               type="number" min="0"><br>
@@ -126,8 +129,8 @@
             <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
             <p class="tambah-buku-edit"><span class="red">*</span> Judul, ISBN, Penulis, Penerbit, Kategori, SKU Tidak
               bisa dirubah</p>
-            
-              <button id="addBook" class="btn-save mt-3">Tambah</button>
+
+            <button id="addBook" class="btn-save mt-3">Tambah</button>
 
           </form>
         </div>

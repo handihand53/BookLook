@@ -80,7 +80,7 @@ $(window).load(function () {
           </table>
         `;
         $("#table").html(table)
-        for (var i = 0; i < data.length; i++) {
+        for (var i = data.length-1; i >= 0; i--) {
           var d = new Date(data[i].createdAt);
           var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
           var color
