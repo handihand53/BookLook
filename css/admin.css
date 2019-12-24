@@ -1,0 +1,84 @@
+.center {
+    text-align: center;
+    vertical-align: center;
+}
+
+.bg-cover-admin {
+    height: 730px;
+    background-color: rgb(48, 73, 85);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.judul-text {
+    color: rgb(255, 255, 255) !important;
+    /* font-family: 'Raleway', sans-serif; */
+    font-weight: 400;
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+}
+
+.login-judul {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.login-body {
+    text-align: left;
+}
+
+.login-input {
+    min-width: -webkit-fill-available;
+    padding: 5px;
+}
+
+.password {
+    margin-top: 30px;
+}
+
+.btn-masuk {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 176, 29) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-masuk:hover {
+    background-color: rgb(206, 134, 0) !important;
+}
+
+@media screen and (min-width: 771px) {
+    .admin-login-bg {
+        min-width: 200px;
+        max-width: 850px;
+        background-color: #fff;
+        width: 600px;
+        margin: auto;
+        padding: 20px 80px;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .admin-login-bg {
+        min-width: 200px;
+        max-width: 850px;
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+    }
+}
