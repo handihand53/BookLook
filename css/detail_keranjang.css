@@ -14,7 +14,21 @@
     /* Black w/ opacity */
 }
 
-.bg-blank{
+.no-margin {
+    margin: 0px !important;
+}
+
+.prof-ok{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.f14-red{
+    font-size: 70px;
+    color: rgb(255, 65, 90);
+}
+
+.bg-blank {
     background-image: url('../assets/bg/bucket-empty.png');
     background-size: 280px 280px;
     background-position: center;
@@ -24,7 +38,7 @@
     background-repeat: no-repeat;
 }
 
-.loading{
+.loading {
     z-index: 99999;
     position: fixed;
     width: 100%;
@@ -72,7 +86,7 @@
     z-index: -1;
 }
 
-.keranjang-title-full{
+.keranjang-title-full {
     font-size: 30px;
     font-weight: 500;
     color: #2196F3;
@@ -95,8 +109,27 @@
     min-height: auto;
 }
 
-#main-content{
+#main-content {
     min-height: 500px;
+}
+
+.border-bot {
+    border-bottom: 0.3px solid rgb(235, 235, 235);
+}
+
+.sub-list {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 17px;
+    margin-top: 17px;
+}
+
+hr {
+    margin: 2px !important;
+}
+
+.gray-main {
+    color: rgb(137, 137, 137);
 }
 
 .content-border {
@@ -163,6 +196,7 @@
     width: 0;
 }
 
+
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
@@ -210,7 +244,7 @@
     background-color: rgb(218, 142, 2);
 }
 
-.b-bot{
+.b-bot {
     border-bottom: rgba(204, 204, 204, 0.626) 0.7px solid;
     margin-bottom: 5px;
     padding-bottom: 5px;
@@ -227,24 +261,29 @@ h6 {
     font-size: 20px;
 }
 
-.market-text{
+.market-text {
     margin-left: 20px;
     margin-top: 20px;
     font-size: 14px;
     font-weight: bold;
-    color: #33C8FF;
-    cursor: pointer;
 }
 
-.market-text:hover{
-    text-decoration: underline;
-    color: #2196F3;
+.blue-content {
+    color: rgb(74, 174, 255);
 }
 
-.trash-keranjang{
+.trash-keranjang {
     position: absolute;
     bottom: 0;
     right: 20px;
+}
+
+.price-list {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 17px;
+    margin-top: 17px;
+
 }
 
 p {
@@ -252,7 +291,8 @@ p {
     padding: none !important;
 }
 
-.pay{
+.pay {
+    margin-top: 10px;
     width: 100%;
     padding: 5px;
     color: white;
@@ -260,8 +300,8 @@ p {
     border: none;
 }
 
-.pay:hover{
-    background-color: rgb(255, 151, 41  );
+.pay:hover {
+    background-color: rgb(255, 151, 41);
 }
 
 .delete-icon:hover {
@@ -275,6 +315,21 @@ p {
 }
 
 @media screen and (min-width: 771px) {
+    .checkmark-head {
+        top: 30px;
+    }
+    .col-md-6-custom {
+        flex: 0 0 55%;
+        max-width: 55%;
+        margin: 10px;
+    }
+
+    .col-md-3-custom {
+        flex: 0 0 35%;
+        max-width: 35%;
+        margin: 10px;
+    }
+
     .content-border {
         margin-bottom: 30px;
     }
@@ -302,6 +357,17 @@ p {
 }
 
 @media screen and (max-width: 770px) {
+    .col-md-6-custom {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-md-3-custom {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
     .content-border {
         margin-bottom: 30px;
     }
@@ -314,7 +380,7 @@ p {
         font-weight: bold;
     }
 
-    .author-keranjang{
+    .author-keranjang {
         color: rgb(155, 155, 155);
         font-size: 12px;
     }
@@ -323,5 +389,13 @@ p {
         font-size: 17px;
         font-weight: bold;
         color: rgb(255, 186, 82);
+    }
+
+    .mobile {
+        margin-left: 3rem !important;
+    }
+
+    .checkmark-head {
+        top: 20px;
     }
 }

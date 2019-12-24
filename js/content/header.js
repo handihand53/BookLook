@@ -7,7 +7,7 @@ let header = `
 </button>  
 
 <!-- Logo -->
-  <a class="navbar-brand" href="/user/index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top"></a>
+  <a class="navbar-brand mrl-auto" href="/user/index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top" "></a>
 
   <!-- Navbar links -->
   <div class="collapse navbar-collapse " id="collapsibleNavbar">
@@ -31,7 +31,7 @@ let header = `
   
   <span class="float-right no-padding">
   
-    <span class="prof no-border float-right" id="profile">
+    <span class="prof-header no-border float-right" id="profile">
         <div class="dropdown" style="color: white;">
            <img class="navbar-icon" src="../assets/logo/user.png" alt="">
               Hi, <span id="name">. . .</span><i class="fa fa-fw fa-chevron-down"></i>

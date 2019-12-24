@@ -3,9 +3,9 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
-
+import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-
+    if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 
@@ -30,8 +30,8 @@ $(window).load(function () {
         return parms;
     }
 
-    $("#edit-book").attr("href", "./edit_buku.html?_i="+ urlParams._i[0])
-    $("#detail-book").attr("href", "./detail-buku.html?_i="+ urlParams._i[0])
+    $("#edit-book").attr("href", "./edit_buku.html?_i=" + urlParams._i[0])
+    $("#detail-book").attr("href", "./detail-buku.html?_i=" + urlParams._i[0])
 
     $.ajax({
         type: "GET",
@@ -87,7 +87,7 @@ $(window).load(function () {
             img.onload = function () {
                 imgwidth = this.width;
                 imgheight = this.height;
-                if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth/imgheight>0.7 || imgwidth/imgheight<0.6) {
+                if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth / imgheight > 0.7 || imgwidth / imgheight < 0.6) {
                     alert("Ukuran Foto tidak valid")
                     $("#img").attr("src", "");
                     return
@@ -106,12 +106,12 @@ $(window).load(function () {
     });
 
     var today = new Date();
-    var date = today.getFullYear()+''+(today.getMonth()+1)+''+today.getDate();
+    var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
     var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
-    var dateTime = date+''+time;
+    var dateTime = date + '' + time;
 
     $("#save").click(function () {
-        var berkasName = dateTime+pict.name
+        var berkasName = dateTime + pict.name
         var pict = $("#upload-photo").get(0).files[0];
         var fd = new FormData();
         fd.append('picture', pict, berkasName);

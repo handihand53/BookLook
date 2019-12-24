@@ -45,7 +45,7 @@
             <a href="wishlist.html">
               <li class="li-item">Wishlist</li>
             </a>
-            <li class="li-item" id="market" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
+            <li class="li-item" id="market" data-toggle="modal" data-target="#marketkuModal">Toko</li>
             <a>
               <li class="li-item active-sidebar">Transaksi</li>
             </a>
@@ -54,90 +54,12 @@
         </div>
 
       </div>
-      <div class="col-md-9 mb-4 overflow-table">
+      <div class="col-md-9 mb-4">
         <div class="title-content mb-4">Transaksi</div>
-        <table class="table table-hover ">
-          <thead>
-            <th scope="col">No Pemesanan</th>
-            <th scope="col">Tanggal Transaksi</th>
-            <th scope="col">Status Pembayaran</th>
-            <th scope="col">Status Barang</th>
-            <th scope="col">Detail</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-            <tr>
-              <td class="no-pemesanan">12034757560</td>
-              <td class="tgl-pemesanan">15 Agustus 2019</td>
-              <td class="pembayaran-success">Pembayaran diterima</td>
-              <td class="status-pemesanan">Diterima</td>
-              <td><a href="detail_transaksi.html" class="detail-pemesanan">Lihat Detail</a></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="overflow-table" id="table">
+          
+        </div>
+
       </div>
     </div>
     <!-- Modal -->
@@ -151,12 +73,12 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body modal-market-body">
             Anda belum buka toko, apakah anda mau buka toko ?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
-            <a href="../open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+              <a href="../market/open-store.html"><button type="button" class="btn-ya">Ya</button></a>
+              <button type="button" class="btn-no" data-dismiss="modal">Tidak</button>
           </div>
         </div>
       </div>

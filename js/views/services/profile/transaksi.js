@@ -1,74 +1,117 @@
 import {
-    setCookie,
-    getCookie,
-    checkCookie
-  } from '../../../cookies.js'
-  
-  import checkMarket from '../../../marketCheck.js';
-  
-  
-  $(window).load(function () {
-  
-    getDataUser();
-  
-    function getDataUser() {
-      $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/users",
-        dataType: 'json',
-        timeout: 600000,
-        headers: {
-          'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-          if(data.userPhoto==null)
-            $('#img').attr('src', "../assets/else/signature.png");
-          else
-            $('#img').attr('src', data.userPhoto);
-          $("#loading").removeClass("loading");
-          $("#nama-pengguna").val(data.username)
-          $("#displayName").html(data.name);
-          $("#nama-lengkap").val(data.name);
-          $("#email-prof").val(data.email)
-          $("#nomor-prof").val(data.numberPhone)
-        },
-        error: function (errMsg) {
-          window.location.replace("/404.html")
-        }
-      });
-    }
+  setCookie,
+  getCookie,
+  checkCookie
+} from '../../../cookies.js'
 
+import checkMarket from '../../../marketCheck.js';
+
+
+$(window).load(function () {
+
+  getDataUser();
+  checkMarket();
+
+  function getDataUser() {
     $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/transactions/user/show",
-        dataType: 'json',
-        headers: {
-          'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-         console.log(data)
-        },
-        error: function (errMsg) {
-        //   window.location.replace("/404.html")
-        }
-      });
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/users",
+      dataType: 'json',
+      timeout: 600000,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        if (data.userPhoto == null)
+          $('#img').attr('src', "../assets/else/signature.png");
+        else
+          $('#img').attr('src', data.userPhoto);
+        $("#loading").removeClass("loading");
+        $("#nama-pengguna").val(data.username)
+        $("#displayName").html(data.name);
+        $("#nama-lengkap").val(data.name);
+        $("#email-prof").val(data.email)
+        $("#nomor-prof").val(data.numberPhone)
+      },
+      error: function (errMsg) {
+        window.location.replace("/404.html")
+      }
+    });
+  }
 
-      $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/transactions/user/show/06debf2d-a5cc-4d72-b26b-29137931e2f9",
-        dataType: 'json',
-        headers: {
-          'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-         console.log(data)
-        },
-        error: function (errMsg) {
-        //   window.location.replace("/404.html")
+  var month = new Array();
+  month[0] = "Januari";
+  month[1] = "Februari";
+  month[2] = "Maret";
+  month[3] = "April";
+  month[4] = "Mei";
+  month[5] = "Juni";
+  month[6] = "Juli";
+  month[7] = "Agustus";
+  month[8] = "September";
+  month[9] = "Oktober";
+  month[10] = "November";
+  month[11] = "Desember";
+
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/transactions/user/show",
+    dataType: 'json',
+    async:false,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+      if (data.length != 0) {
+        var table = `
+        <table class="table table-hover ">
+            <thead>
+              <th scope="col">No Pemesanan</th>
+              <th scope="col">Tanggal Transaksi</th>
+              <th scope="col">Status Pembayaran</th>
+              <th scope="col">Detail</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+          </table>
+        `;
+        $("#table").html(table)
+        for (var i = 0; i < data.length; i++) {
+          var d = new Date(data[i].createdAt);
+          var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+          var color
+          if(data[i].transferConfirm=="SUCCESS"){
+            color ="pembayaran-success";
+          }else color = "pembayaran-unsuccess"
+          var html = `
+            <tr>
+              <td class="no-pemesanan" title="` + data[i].transactionId + `">` + data[i].transactionId + `</td>
+              <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
+              <td class="`+color+`" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
+              <td><a href="detail_transaksi.html?_i=` + data[i].transactionId + `" title="" class="detail-pemesanan">Lihat Detail</a></td>
+            </tr>
+            `
+          $("#tableBody").append(html)
         }
-      });
+      }else{
+        var html = `
+          <div class="bg-products"></div>
+          <div class="center book">Belum Ada Transaksi.</div>
+          <div class="center book-12">ayo <a href="/user/"><span class="link">belanja</span></a> biar list transaksimu ada lagi.</div>
+        `
+        $("#table").append(html)
+      }
+
+    },
+    error: function (errMsg) {
+      //   window.location.replace("/404.html")
+    }
+  });
+
+ 
 
 });

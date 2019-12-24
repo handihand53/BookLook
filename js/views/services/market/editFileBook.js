@@ -3,9 +3,9 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
-
+import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-
+    if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 
@@ -30,8 +30,8 @@ $(window).load(function () {
         return parms;
     }
 
-    $("#edit-book").attr("href", "./edit_buku.html?_i="+ urlParams._i[0])
-    $("#detail-book").attr("href", "./detail-buku.html?_i="+ urlParams._i[0])
+    $("#edit-book").attr("href", "./edit_buku.html?_i=" + urlParams._i[0])
+    $("#detail-book").attr("href", "./detail-buku.html?_i=" + urlParams._i[0])
 
     $.ajax({
         type: "GET",
@@ -80,13 +80,13 @@ $(window).load(function () {
     });
 
     var today = new Date();
-    var date = today.getFullYear()+''+(today.getMonth()+1)+''+today.getDate();
+    var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
     var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
-    var dateTime = date+''+time;
+    var dateTime = date + '' + time;
 
     $("#save").click(function () {
         var berkas = $("#upload-file").get(0).files[0];
-        var berkasName = dateTime+berkas.name
+        var berkasName = dateTime + berkas.name
 
         var fd = new FormData();
         fd.append('book', berkas, berkasName);

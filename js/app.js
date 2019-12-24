@@ -6,8 +6,6 @@ import {
   checkCookie
 } from './cookies.js'
 
-
-
 $(document).ready(function () {
 
   $("#footer").html(footer);
@@ -54,10 +52,35 @@ $(document).ready(function () {
     });
   }
 
+  var market = ""
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/markets",
+    async:false,
+    timeout: 600000,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+      if (data.marketId != null) {
+        market = `
+            <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
+      } else {
+        market = `
+        <a href="/market/open-store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span style="color: #7d7d7d; ">Daftar</span></p></a>
+          `
+      }
+    },
+    error: function (errMsg) {
+      console.log(errMsg);
+    }
+  });
+
   function headerSuccess() {
     dropHtml = `
-      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>
-      <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>
+      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>` +
+      market + `
       <a href="/user/transaksi.html"><p class="dropdown-item drop-active blue"><i class="far fa-credit-card"></i> Transaksi</p></a>
       <a href="/user/wishlist.html"><p class="dropdown-item drop-active blue"><i class="fas fa-shopping-bag"></i> Wishlist</p></a>
       <p class="dropdown-item drop-active blue" id="logout"><i class="fas fa-sign-out-alt"></i> Keluar</p>
@@ -88,7 +111,7 @@ $(document).ready(function () {
             <br>
             `;
     cartHtml = `
-        <p class="p-3 keranjang bold"> Keranjang Anda kosong.</p>
+        <p class="p-3 keranjang bold"> Keranjang Kamu kosong.</p>
         <div class="center">
             <p class="t14 p-2">Waah keranjang kamu kosong nih, isi yuk!</p>
             <a href="/login.html"><button class="btn-orange">Belanja</button></a>
@@ -127,13 +150,13 @@ $(document).ready(function () {
           for (var i = 0; i < data.length; i++) {
             var html = `
           <li class="itm-keranjang">
-            <div class="row">
+            <div class="row m-1-cust">
               <div class="col-4">
                 <img src="` + data[i].product.productPhoto + `" alt="" class="width-img-keranjang">
               </div>
               <div class="col-8 no-padding">
                   <h6 class="title-keranjang-header" title="` + data[i].product.title + `">` + data[i].product.title + `</h6>
-                  <p class="author-header" title="`+ data[i].product.author +`">` + data[i].product.author + `</p>
+                  <p class="author-header" title="` + data[i].product.author + `">` + data[i].product.author + `</p>
                   <p class="sku-header">` + data[i].product.sku + `</p>
                   <p class="isbn-header">` + data[i].product.isbn + `</p>
                   <div class="row">
@@ -149,7 +172,7 @@ $(document).ready(function () {
             tot += data[i].product.price;
           }
           var total = `<li>
-          <div class="row">
+          <div class="row p-2">
             <div class="col-6">
               <p>Total (<span class="bold-header">` + data.length + `</span>)</p>
               <p class="price-header">Rp. ` + tot.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>    
@@ -163,7 +186,7 @@ $(document).ready(function () {
         } else {
           $("#keranjang").html(`
             <div class="bg-blank-keranjang"></div>
-            <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>
+            <p class="p-1 keranjang bold center">Keranjang Kamu kosong.</p>
             <div class="center">
               <p class="t12">Waah keranjang kamu kosong nih, ayo isi buat nambah koleksi buku kamu!</p>
             </div>
@@ -173,13 +196,13 @@ $(document).ready(function () {
       error: function (errMsg) {
         console.log(errMsg)
       },
-      complete: function(stopMsg){
+      complete: function (stopMsg) {
         function bindDeleteData(data_id) {
           var id = data_id
           var data = {
             "productId": id
           }
-        
+
           $.ajax({
             type: "DELETE",
             contentType: "application/json",
@@ -205,6 +228,5 @@ $(document).ready(function () {
       }
     });
   }
-  
-});
 
+});

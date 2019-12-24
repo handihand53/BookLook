@@ -51,31 +51,32 @@ $(window).load(function () {
     for (let i = 0; i < data.length; i++) {
       html = `
             <div class="col-3-custom">
-              <div class="content-border shadow-card no-border border-radius-4">
-                <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                <div class="p-2">
-                  <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
-                  <p class="author-book">` + data[i].author + `</p>
-                  <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                  <a href="book.html?_i=`+data[i].productId+`"><button class="btn-detail">Lihat  </button></a>
+              <a href="book.html?_i=`+data[i].productId+`">
+                <div class="content-border shadow-card no-border border-radius-4">
+                  <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+                  <div class="p-2">
+                    <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
+                    <p class="author-book">` + data[i].author + `</p>
+                    <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
             `;
 
       html2 = `
       <div class="mb-2">
-                <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                  <div class="p-2">
-                    <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
-                    <p class="author-book">Manusia</p>
-                    <p class="price-store">` + data[i].author + `</p>
-                    <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                    <a href="book.html?_i=`+data[i].productId+`"><button class="btn-detail">Lihat  </button></a>
-                  </div>
-                </div>
-              </div>
+        <a href="book.html?_i=`+data[i].productId+`">
+          <div class="content-border shadow-card no-border border-radius-4">
+            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+            <div class="p-2">
+              <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
+              <p class="author-book">` + data[i].author + `</p>
+              <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+            </div>
+          </div>
+        </a>
+      </div>
               `
       $("#content").append(html);
       if (i % 2 == 0) {

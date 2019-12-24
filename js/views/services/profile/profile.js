@@ -22,7 +22,7 @@ $(window).load(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        if(data.userPhoto==null)
+        if (data.userPhoto == null)
           $('#img').attr('src', "../assets/else/signature.png");
         else
           $('#img').attr('src', data.userPhoto);
@@ -104,6 +104,8 @@ $(window).load(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
+        $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+        $("#modalMsgEdit").html(`Perubahan profile berhasil disimpan`);
         $("#editProf").click();
         getDataUser();
       },
@@ -128,5 +130,16 @@ $(window).load(function () {
     }
     return false;
   }
+
+  $('input[type=number]').on('focus', function (e) {
+    $(this).on('wheel', function (e) {
+      e.preventDefault();
+    });
+  });
+
+  $('input[type=number]').on('keydown', function (e) {
+    if (e.which == 38 || e.which == 40)
+      e.preventDefault();
+  });
 
 });

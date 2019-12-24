@@ -3,8 +3,9 @@ import {
   getCookie,
   checkCookie
 } from '../../../cookies.js'
-
+import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+  if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
   $("#book-form").submit(function (e) {
     e.preventDefault();
   });
@@ -44,7 +45,7 @@ $(window).load(function () {
       img.onload = function () {
         imgwidth = this.width;
         imgheight = this.height;
-        if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth/imgheight>0.7 || imgwidth/imgheight<0.6) {
+        if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth / imgheight > 0.7 || imgwidth / imgheight < 0.6) {
           alert("Ukuran Foto tidak valid")
           $("#img").attr("src", "");
           return
@@ -193,11 +194,11 @@ $(window).load(function () {
     }
 
     var today = new Date();
-    var date = today.getFullYear()+''+(today.getMonth()+1)+''+today.getDate();
+    var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
     var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
-    var dateTime = date+''+time;
-    var berkasName = dateTime+file.name
-    var fotoName = dateTime+pict.name
+    var dateTime = date + '' + time;
+    var berkasName = dateTime + file.name
+    var fotoName = dateTime + pict.name
     var fd = new FormData();
     fd.append('picture', pict, fotoName)
     fd.append('title', judulBuku)
@@ -211,8 +212,8 @@ $(window).load(function () {
     fd.append('isbn', isbn)
 
     for (var pair of fd.entries()) {
-      console.log(pair[0]+ ', ' + pair[1]); 
-  }
+      console.log(pair[0] + ', ' + pair[1]);
+    }
 
     if (stats)
       $.ajax({
@@ -230,6 +231,8 @@ $(window).load(function () {
         success: function (data) {
           $("#show").click()
           $("#loading").css("visibility", "hidden");
+          $("input").val("")
+          $("textarea").val("")
         },
         error: function (data) {
           console.log(data)

@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  
+
   <div class="loading hide" id="loading"></div>
   <div class="bg-black" id="bg-black"></div>
   <header class="fixed" id="header" style="z-index: 100;">
@@ -43,19 +43,19 @@
         <div class="col-md-8">
           <ul class="ul-item">
             <a href="pemberitahuan_toko.html">
-              <li class="li-item active-sidebar">Pemberitahuan Pesanan</li>
+              <li class="li-item active-sidebar">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
             </a>
             <a href="store.html">
               <li class="li-item">Profile</li>
             </a>
             <a href="tambah_buku.html">
-              <li class="li-item">Tambah Produk</li>
+              <li class="li-item">Tambah Buku</li>
             </a>
             <a href="mybook_store.html">
-              <li class="li-item">Produk</li>
+              <li class="li-item">Buku</li>
             </a>
             <a href="history_penjualan.html">
-              <li class="li-item">History</li>
+              <li class="li-item">Histori</li>
             </a>
             <li class="li-item">Keluar</li>
           </ul>
@@ -68,27 +68,23 @@
           <span class="bc-item">Detail Pemberitahuan</span>
         </div>
         <div class="title-content mb-2">Detail Pemberitahuan</div>
-        <div class="no-pemesanan mb-3">No Pemesanan : 12034757560</div>
+        <div class="no-pemesanan mb-3">No Pemesanan : <span id="noDetailTransaksi"></span></div>
         <div class="flex-row">
-          <div class="col-4 detail-head mb-3">
+          <div class="col-3 detail-head mb-3">
             Tanggal Transaksi
-            <div class="detail-content">15 Agustus 2019</div>
+            <div class="detail-content" id="tglTransaksi"></div>
           </div>
-          <div class="col-4 detail-head mb-3">
+          <div class="col-3 detail-head mb-3">
             Pemesan
-            <div class="detail-content">Handi Hermawan</div>
+            <div class="detail-content" id="namaPemesan"></div>
           </div>
-          <div class="col-4 detail-head mb-3">
-            Status Pembayaran
-            <div class="detail-content">Pembayaran Diterima</div>
+          <div class="col-3 detail-head mb-3">
+            Status
+            <div class="detail-content" id="status"></div>
           </div>
-          <div class="col-4 detail-head mb-3">
-            Status Barang
-            <div class="detail-content">Diterima</div>
-          </div>
-          <div class="col-4 detail-head mb-3">
+          <div class="col-3 detail-head mb-3">
             Total
-            <div class="detail-content fs-16 orange">Rp. 107.000</div>
+            <div class="detail-content fs-16 orange">Rp. <span id="price"></span></div>
           </div>
         </div>
         <div>
@@ -161,10 +157,22 @@
             </div>
           </div>
 
-          <button class="btn-proses float-right">Proses</button>
+          <button class="btn-proses float-right" id="proses">Proses</button>
         </div>
       </div>
-
+      
+      <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
+      <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body center">
+              <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
+              <div class="prof" id="modalMsgEdit">Pesanan berhasil diproses</div>
+              <label class="prof-ok" data-dismiss="modal">OK</label>
+            </div>
+          </div>
+        </div>
+      </div>
       <br>
   </main>
 

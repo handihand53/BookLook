@@ -42,19 +42,19 @@
         <div class="col-md-8">
           <ul class="ul-item">
             <a>
-              <li class="li-item active-sidebar">Pemberitahuan Pesanan</li>
+              <li class="li-item active-sidebar">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
             </a>
             <a href="store.html">
               <li class="li-item">Profile</li>
             </a>
             <a href="tambah_buku.html">
-              <li class="li-item">Tambah Produk</li>
+              <li class="li-item">Tambah Buku</li>
             </a>
             <a href="mybook_store.html">
-              <li class="li-item">Produk</li>
+              <li class="li-item">Buku</li>
             </a>
             <a href="history_penjualan.html">
-              <li class="li-item">History</li>
+              <li class="li-item">Histori</li>
             </a>
             <li class="li-item">Keluar</li>
           </ul>
@@ -63,25 +63,21 @@
       <div class="row">
         <div class="mrl-auto col-md-9 mb-4 overflow-table ">
           <div class="title-user mb-4">Pemberitahuan Pesanan</div>
-          <table class="table table-hover ">
-            <thead>
-              <th scope="col">No Pemesanan</th>
-              <th scope="col">Nama Pemesan</th>
-              <th scope="col">Tanggal Pemesanan</th>
-              <th scope="col">Status Pembayaran</th>
-              <th scope="col">Detail</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="no-pemesanan">12034757560</td>
-                <td class="nama-pemesan">HansKunz</td>
-                <td class="tgl-pemesanan">15 Agustus 2019</td>
-                <td class="pembayaran-success">Pembayaran diterima</td>
-                <td><a href="detail_pemberitahuan.html" class="detail-pemesanan">Lihat</a></td>
-              </tr>
-            </tbody>
-          </table>
+          <div style="overflow: auto;">
+            <table class="table table-hover ">
+              <thead>
+                <th scope="col">No Pemesanan</th>
+                <th scope="col">Nama Pemesan</th>
+                <th scope="col">Tanggal Pemesanan</th>
+                <th scope="col">Status</th>
+                <th scope="col">Detail</th>
+                </tr>
+              </thead>
+              <tbody id="contentBody">
+               
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <br>

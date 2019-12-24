@@ -21,6 +21,15 @@
     background-image: url("../assets/gif/loading3.gif");
 }
 
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .content-height {
     min-height: 500px;
 }

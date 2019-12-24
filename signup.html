@@ -1,76 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BookLook</title>
-    <!-- logo web -->
-    <link href="assets/logo/bl.png" rel="icon">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- font awesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300&display=swap" rel="stylesheet">
-     <!-- custom css  -->
-     <link rel="stylesheet" href="css/signup.css">
 
-     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BookLook</title>
+  <!-- logo web -->
+  <link href="assets/logo/bl.png" rel="icon">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- font awesome CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300&display=swap" rel="stylesheet">
+  <!-- custom css  -->
+  <link rel="stylesheet" href="css/signup.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <div class="a">
       <div style="background-image: url(assets/bg/bg.png)" class="bg-cover">
         <div class="center">
-            <div class="judul-text">
-                BookLook
-            </div>
+          <div class="judul-text">
+            BookLook
+          </div>
           <div class="signup-bg signup-text border-radius-7 box-shadow">
             <div class="signup-judul">Daftar</div>
             <h6 id="msg" style="color: red;"></h6>
             <div class="signup-body">
-                <label>Nama Lengkap<span class="red">*</span></label>
-                <input min="3" type="text" id="name" name="name" class="signup-input" placeholder="Nama Lengkap" required>
-                <span class="hint gray" id="hint-name" >Nama lengkap terdiri dari 3 - 40 karakter</span>
-                <br><br>
-                <label>Nama Pengguna<span class="red">*</span></label>
-                <input type="text" id="username" name="username" class="signup-input" placeholder="Nama Pengguna" required>
-                <span class="hint gray" id="hint-username" >Nama pengguna terdiri dari 4 - 15 karakter</span>
-                <br><br>
-                <label>Email<span class="red">*</span></label>
-                <input type="email" id="email" name="email" class="signup-input" placeholder="Email" required>
-                <span class="hint gray">Contoh email example@mail.com </span>
-                <br><br>
-                <label>Kata Sandi<span class="red">*</span></label>
-                <input type="password" id="password" name="password" class="signup-input" placeholder="Kata Sandi" required>
-                <span class="hint gray" id="hint-password" >Kata sandi terdiri dari 6 - 20 karakter</span>
-                <br><br>
-                <label>No Handphone<span class="red">*</span> </label><br>
-                <input id="phoneNumber" class="signup-input" type="tel" pattern="[0-9]{13}" class="login-input" placeholder="No Handphone" required>
-                <span class="hint gray" id="hint-password" >No telepon terdiri dari 10 - 14 angka</span>
-                <ul class="signup-fail" id="login-fail"></ul>
-                
+              <label>Nama Lengkap<span class="red">*</span></label>
+              <input min="3" type="text" id="name" name="name" class="signup-input" placeholder="Nama Lengkap" required>
+              <span class="hint gray" id="hint-name">Nama lengkap terdiri dari 3 - 40 karakter</span>
+              <br><br>
+              <label>Nama Pengguna<span class="red">*</span></label>
+              <input type="text" id="username" name="username" class="signup-input" placeholder="Nama Pengguna"
+                required>
+              <span class="hint gray" id="hint-username">Nama pengguna terdiri dari 4 - 15 karakter</span>
+              <br><br>
+              <label>Email<span class="red">*</span></label>
+              <input type="email" id="email" name="email" class="signup-input" placeholder="Email" required>
+              <span class="hint gray">Contoh email example@mail.com </span>
+              <br><br>
+              <label>Kata Sandi<span class="red">*</span></label>
+              <input type="password" id="password" name="password" class="signup-input" placeholder="Kata Sandi"
+                required>
+              <span class="hint gray" id="hint-password">Kata sandi terdiri dari 6 - 20 karakter</span>
+              <br><br>
+              <label>No Handphone<span class="red">*</span> </label><br>
+              <input id="phoneNumber" class="signup-input" type="tel" pattern="[0-9]{13}" class="login-input"
+                placeholder="No Handphone" required>
+              <span class="hint gray" id="hint-password">No telepon terdiri dari 10 - 14 angka</span>
+              <ul class="signup-fail" id="login-fail"></ul>
+
             </div>
             <button class="signup-btn" id="daftar">Daftar</button>
-          <a href="login.html"><button class="cancel-btn">Batal</button></a>
+            <a href="login.html"><button class="cancel-btn">Batal</button></a>
           </div>
         </div>
       </div>
     </div>
   </header>
-    
-    <main class="">
-    </main>
 
-    <footer class="footer">
-          <div class="copyright">
-            Copyright &copy;2019 All right reserved
-          </div>
-    </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script type="module" src="js/signup.js"></script>
+  <main class="">
+  </main>
+
+  <footer class="footer">
+    <div class="copyright">
+      <div class="col-9 mlr-auto">
+        Copyright &copy;2019 BookLook toko buku online terlengkap. All right reserved
+      </div>
+    </div>
+  </footer>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script type="module" src="js/signup.js"></script>
 </body>
+
 </html>

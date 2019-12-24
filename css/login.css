@@ -64,10 +64,14 @@
 }
 
 .copyright{
-    text-align: center;
-    background-color: rgb(0, 125, 163);
-    color: #fff;
+    background-color: rgb(241, 241, 241);
+    padding: 15px;
     font-size: 12px;
+}
+
+.mlr-auto{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .orange{

@@ -3,8 +3,9 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
-
+import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+    if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     let id;
     $.ajax({
         type: "GET",
@@ -16,7 +17,6 @@ $(window).load(function () {
         },
         async: false,
         success: function (data) {
-            console.log(data.marketId)
             id = data.marketId;
             if (data.marketId != null) {
                 $("#loading").css("visibility", "hidden");
@@ -45,12 +45,12 @@ $(window).load(function () {
                     var html = `
                         <div class="col-3-custom">
                         <div class="content-border shadow-card no-border border-radius-4">
-                            <img src="`+data[i].productPhoto+`" alt="" class="width-img">
+                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
                             <div class="p-2">
-                            <p class="title-book" title="`+data[i].title+`">`+data[i].title+`</p>
-                            <p class="author-book">`+data[i].author+`</p>
-                            <p class="price-store">Rp. `+data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '')+`</p>
-                            <a href="detail-buku.html?_i=`+data[i].productId+`"><button class="btn-detail">Detail</button></a>
+                            <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
+                            <p class="author-book">` + data[i].author + `</p>
+                            <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                            <a href="detail-buku.html?_i=` + data[i].productId + `"><button class="btn-detail">Detail</button></a>
                             </div>
                         </div>
                         </div>
@@ -58,7 +58,13 @@ $(window).load(function () {
                     $("#product-content").append(html)
                 }
             } else {
-
+                $("#product-content").removeClass("flex-row")
+                var html = `
+                <div class="bg-products"></div>
+                <div class="center book">Belum Ada Buku.</div>
+                <div class="center book-12">Ayo mulai <a href="/market/tambah_buku.html"><span class="link">tambah</span></a> buku.</div>
+              `
+                $("#product-content").append(html)
             }
         },
         error: function (errMsg) {

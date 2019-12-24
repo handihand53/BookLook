@@ -24,6 +24,19 @@
     margin-right: auto;
 }
 
+#pemberitahuan{
+    background-color:red;
+    width: 15px;
+    color: white;
+    margin-left: 5px;
+    padding: px;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 12px;
+}
+
 .loading{
     z-index: 99999;
     position: fixed;
@@ -52,9 +65,15 @@
 }
 
 .pembayaran-success{
-    color: rgb(0, 73, 0);
+    color: rgb(0, 152, 0);
     font-size: 12px;
-    font-weight: 500;
+    font-weight: bold;
+}
+
+.pembayaran-pending{
+    color: rgb(236, 58, 58);
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .tgl-pemesanan{

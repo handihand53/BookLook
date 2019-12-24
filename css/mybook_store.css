@@ -18,11 +18,39 @@
     color: rgb(155, 155, 155);
 }
 
+.link {
+    color: rgb(0, 128, 255);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.book-12 {
+    font-size: 12px;
+}
+
+.link:hover {
+    color: rgb(0, 94, 187);
+}
+
+.book {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.bg-products {
+    background-image: url('../assets/bg/blank3.png');
+    background-size: 320px auto;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
 .red {
     color: red;
 }
 
-.loading{
+.loading {
     z-index: 99999;
     position: fixed;
     width: 100%;
@@ -33,13 +61,13 @@
     background-image: url("../assets/gif/loading3.gif");
 }
 
-.price-store{
+.price-store {
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
 }
 
-.col-3-custom{
+.col-3-custom {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -49,7 +77,7 @@
     margin-top: 20px;
 }
 
-.title-book{
+.title-book {
     font-weight: 500;
     overflow: hidden;
     white-space: nowrap;
@@ -76,7 +104,7 @@
     min-width: 60px;
 }
 
-.shadow-card{
+.shadow-card {
     box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
 }
 
@@ -84,11 +112,11 @@
     padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -111,12 +139,12 @@ a:hover{
     background-color: rgb(218, 142, 2);
 }
 
-p{
+p {
     padding: 0;
     margin: 0;
 }
 
-.author-book{
+.author-book {
     font-weight: 500;
     font-size: 14px;
     color: orange;
@@ -149,21 +177,21 @@ p{
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.ul-item{
-    padding:0px;
+.ul-item {
+    padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -175,23 +203,23 @@ a:hover{
     padding: 8px 15px 12px 15px;
 }
 
-.active-sidebar{
+.active-sidebar {
     color: rgb(0, 162, 255);
     font-weight: bold;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
 
-.li-item:hover{
+.li-item:hover {
     cursor: pointer;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
-ul li{
+ul li {
     display: inline-table;
 }
 
-.mlr-auto{
+.mlr-auto {
     margin-left: auto;
     margin-right: auto;
 }
@@ -222,7 +250,7 @@ ul li{
         font-weight: bold;
     }
 
-    .col-3-custom{
+    .col-3-custom {
         position: relative;
         width: 100%;
         padding-right: 15px;

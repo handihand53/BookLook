@@ -26,6 +26,7 @@ $(document).ready(function () {
     var email
     var password
     var phoneNumber
+
     $("#daftar").click(function () {
         $("#login-fail").html("");
         nama = $("#name").val();
@@ -131,4 +132,10 @@ $(document).ready(function () {
             }
         });
     }
+
+    $(document).on('keypress',function(e) {
+        if(e.which == 13) {
+            $("#daftar").click()
+        }
+    });
 });
