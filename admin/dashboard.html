@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,24 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
-     <!-- custom css  -->
-     <link rel="stylesheet" href="../css/custom.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link rel="stylesheet" href="../css/adminHeader.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 
-     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-
-     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
-     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header >
-        <nav class="navbar navbar-expand-md navbar-dark bg-custom-admin" >
-            <div class="dashboard-title col-8">Dashboard</div>
-            <div class="dashboard-title" style="margin-left:auto; margin-right:15px;"><i class="fas fa-bell"></i></div>
-            <div class=" float-right dashboard-title"><img src="../assets/else/profile_picture_example.png" alt="pp" width="30px"> <i class="fa fa-fw fa-chevron-down"></i></div>
-        </nav>
+    <header id="header">
+
     </header>
-    
+
     <main>
         <div class="row" style="margin: 0px;">
-            <section class="col-2 side-bar">
-                <ul class="navbar-nav">
-                    <li class="p-3 li-active"><a href="" class="link-list"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                    <li class="p-3"><a href="dashboard_user.html" class="list-color"><i class="fa fa-user" aria-hidden="true"></i> User</a></li>
-                    <li class="p-3"><a href="dashboard_toko.html" class="list-color"><i class="fa fa-store-alt" aria-hidden="true"></i> Toko</a></li>
-                    <li class="p-3"><a href="dashboard_blokir.html" class="list-color"><i class="fa fa-ban" aria-hidden="true"></i> Blokir</a></li>
-                    <li class="p-3"><a href="" class="list-color"><i class="fa fa-exchange-alt" aria-hidden="true"></i> Transaksi</a></li>
-                    <li class="p-3"><a href="dashboard_konfirmasi.html" class="list-color"><i class="fa fa-envelope" aria-hidden="true"></i> Konfirmasi Toko</a></li>
-                </ul>
+            <section class="col-2 side-bar" id="sidebar">
+                
             </section>
             <section class="col-10" style="background-color: rgb(238, 238, 238); padding: 0px;">
                 <div class="row justify-content-center" style="margin: 0px;">
@@ -58,21 +48,24 @@
                         </div>
                     </div>
                     <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2" ><i class="fa fa-chart-bar" style="font-size: 50px;" aria-hidden="true"></i></div>
+                        <div class="center m-2"><i class="fa fa-chart-bar" style="font-size: 50px;"
+                                aria-hidden="true"></i></div>
                         <span class="m-5">45 User Terdaftar</span><br>
                         <div class="center mt-2">
                             <button class="btn-orange">Lihat</button>
                         </div>
                     </div>
                     <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2" ><i class="fa fa-store-alt" style="font-size: 50px;" aria-hidden="true"></i></div>
+                        <div class="center m-2"><i class="fa fa-store-alt" style="font-size: 50px;"
+                                aria-hidden="true"></i></div>
                         <span class="m-5">27 Toko Terdaftar</span><br>
                         <div class="center mt-2">
                             <button class="btn-orange">Lihat</button>
                         </div>
                     </div>
                     <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2" ><i class="fa fa-ban" style="font-size: 50px;" aria-hidden="true"></i></div>
+                        <div class="center m-2"><i class="fa fa-ban" style="font-size: 50px;" aria-hidden="true"></i>
+                        </div>
                         <span class="m-5">3 User diblokir</span><br>
                         <div class="center mt-2">
                             <button class="btn-orange">Lihat</button>
@@ -88,11 +81,23 @@
             </section>
         </div>
     </main>
-    <footer class="bg-custom-admin">
-        <div class="center p-2" style="color: white; font-size: 12px;">
-            &copy; BookLook 2019
-        </div>
+    <footer class="bg-custom-admin" id="footer">
+
     </footer>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/js/views/services/admin/header-footer.js"></script>
+    <script src="/js/views/services/admin/sidebar.js"></script>
+    <script src="/js/views/services/admin/dashboard.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
 </body>
+
 </html>
