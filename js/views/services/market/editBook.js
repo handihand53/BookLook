@@ -3,9 +3,9 @@ import {
     getCookie,
     checkCookie
 } from '../../../cookies.js'
-
+import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-
+    if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
 

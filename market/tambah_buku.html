@@ -42,19 +42,19 @@
         <div class="col-md-8">
           <ul class="ul-item">
             <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan</li>
+              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
             </a>
             <a href="store.html">
               <li class="li-item">Profile</li>
             </a>
             <a href="tambah_buku.html">
-              <li class="li-item active-sidebar">Tambah Produk</li>
+              <li class="li-item active-sidebar">Tambah Buku</li>
             </a>
             <a href="mybook_store.html">
-              <li class="li-item">Produk</li>
+              <li class="li-item">Buku</li>
             </a>
             <a href="history_penjualan.html">
-              <li class="li-item">History</li>
+              <li class="li-item">Histori</li>
             </a>
             <li class="li-item">Keluar</li>
           </ul>
@@ -63,29 +63,30 @@
       <div class="row">
         <div class="col-md-9 mlr-auto">
 
-          <div class="title-user">Tambah Produk</div>
+          <div class="title-user">Tambah Buku</div>
 
-          
+
           <form id="book-form">
             <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
             <img alt="" id="img" width="100px" onchange="readURL(this)">
             <br>
-            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;" id="upload-photo">
+            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
+              id="upload-photo">
             <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label>
             <p id="photo-name" class="file-name"></p>
             <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
-            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;" id="upload-file">
+            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
+              id="upload-file">
             <label class="input-file" id="input2"><b>Unggah berkas</b></label>
             <p id="file-name" class="file-name"></p>
-          
+
             <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
             <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
               type="text"><br>
             <p id="judul" class="errMsg">Judul buku tidak boleh kosong</p>
 
             <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
-            <input name="isbn" id="isbnBuku" class="tambah-buku-input" required placeholder="ISBN"
-              type="text"><br>
+            <input name="isbn" id="isbnBuku" class="tambah-buku-input" required placeholder="ISBN" type="text"><br>
             <p id="isbnErr" class="errMsg">ISBN buku tidak boleh kosong</p>
 
             <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
@@ -114,7 +115,7 @@
             <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
             <p id="SKU" class="errMsg">Kode SKU tidak boleh kosong</p>
 
-         
+
             <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
             <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101"
               type="number" min="0"><br>
@@ -123,9 +124,12 @@
             <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
               type="text" rows="3"></textarea>
             <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
-            <button id="addBook" class="btn-save">Tambah</button>
-          </form>
+            <p class="tambah-buku-edit"><span class="red">*</span> Judul, ISBN, Penulis, Penerbit, Kategori, SKU Tidak
+              bisa dirubah</p>
+            
+              <button id="addBook" class="btn-save mt-3">Tambah</button>
 
+          </form>
         </div>
       </div>
     </div>

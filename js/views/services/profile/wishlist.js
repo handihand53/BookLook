@@ -59,6 +59,7 @@ $(window).load(function () {
                             <p class="title-book" title="` + data[i].product.title + `">` + data[i].product.title + `</p>
                             <p class="author-book" title="` + data[i].product.author + `">` + data[i].product.author + `</p>
                             <p class="price-book">Rp. ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                            <p class="trash-wishlist" data-id="` + data[i].product.productId + `" id="` + data[i].product.productId + `" onclick="bindDeleteWishlist(this.id)"><i class="fa fa-trash trash-hov-profile" aria-hidden="true"></i></p> 
                             <button class="btn-tambah t" data-id="` + data[i].product.productId + `">Beli</button>
                         </div>
                         </div>
@@ -68,12 +69,12 @@ $(window).load(function () {
                         bindListener();
                     }
 
-                }else{
+                } else {
                     $("#wishlist-item").removeClass("flex-row")
                     $("#wishlist-item").html(`
                     <div style="margin-top: 90px; margin-bottom: 100px;">
                         <div class="bg-blank-wishlist"></div>
-                            <p class="p-1 keranjang bold center">Wislist Anda masih kosong.</p>
+                            <p class="p-1 keranjang bold center">Wishlist Kamu masih kosong.</p>
                         <div class="center">
                             <p class="t12">Ayo <a class="alink" href="/user/"><u>belanja</u></a> sekarang!</p>
                         </div>
@@ -189,7 +190,7 @@ $(window).load(function () {
                 } else {
                     $("#keranjang").html(`
                 <div class="bg-blank-keranjang"></div>
-                <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>
+                <p class="p-1 keranjang bold center">Keranjang Kamu kosong.</p>
                 <div class="center">
                   <p class="t12">Waah keranjang kamu kosong nih, ayo isi buat nambah koleksi buku kamu!</p>
                 </div>
@@ -199,8 +200,6 @@ $(window).load(function () {
             error: function (errMsg) {
                 console.log(errMsg)
             }
-
         });
-
     }
 });

@@ -1,43 +1,48 @@
-.bg-black{
+.bg-black {
     z-index: 2;
     position: none;
     display: block;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
 }
 
-.white{
+.white {
     color: white;
 }
 
-.fixed{
+.fixed {
     position: fixed;
     width: 100%;
     z-index: 3;
 }
 
-.space-between{
+.space-between {
     display: flex;
     justify-content: space-around;
 }
 
-p{
+p {
     margin: 0px;
 }
 
-.t25{
-    font-size: 35px!important;
+.t25 {
+    font-size: 35px !important;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
 
-.bg-cover{
+.bg-cover {
     /* height: 730px; */
     background-repeat: no-repeat;
     background-size: 70%;
@@ -50,13 +55,13 @@ a:hover{
 }
 
 
-.price{
+.price {
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
 }
 
-.bg-index{
+.bg-index {
     background-image: url(../assets/bg/bg_home.png);
     height: 400px;
     position: absolute;
@@ -66,14 +71,14 @@ a:hover{
     background-attachment: fixed;
 }
 
-.content-border{
+.content-border {
     background-color: #fff;
     border: gray 1px solid;
     border-radius: 2px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
 }
 
-.content{
+.content {
     width: 90%;
     margin-top: 40px;
     margin-right: auto;
@@ -81,44 +86,45 @@ a:hover{
     z-index: -1;
 }
 
-.col-2-mob-4-desk{
+.col-2-mob-4-desk {
     position: relative;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
 }
 
-.content-width{
+.content-width {
     max-width: 1100px;
 }
 
-.content-height{
-    min-height: 10  00px;
+.content-height {
+    min-height: 10 00px;
 }
 
-.background-menu{
+.background-menu {
     position: absolute;
     top: 0px;
-    width:100%;
+    width: 100%;
     height: 450px;
     /* background-image: url('../assets/bg/vandan.jpg'); */
     z-index: -99;
 }
 
-.batas{
+.batas {
     margin-top: 70px;
 }
 
-.content-title{
+.content-title {
     font-weight: 500;
     font-size: 20px;
 }
 
-.col-5-custom{
+.col-5-custom {
     position: relative;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    max-height: 352px;
 }
 
 .flex-container {
@@ -131,18 +137,18 @@ a:hover{
     margin-bottom: 10px;
 }
 
-.border-radius-4{
+.border-radius-4 {
     border-radius: 4px;
 }
 
-.content-link{
+.content-link {
     margin-top: 15px;
     color: rgb(0, 217, 255);
     font-size: 10px;
     font-weight: 500;
 }
 
-.width-img{
+.width-img {
     max-width: 150px;
     max-height: 220px;
     width: 100%;
@@ -151,70 +157,94 @@ a:hover{
     min-width: 60px;
 }
 
-.no-border{
+.no-border {
     border: none !important;
 }
 
-.author{
+.author-main {
     color: rgb(255, 132, 0);
     margin-top: 2px;
     margin-left: 5px;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: bold;
+    font-size: 10px;
 }
 
-div.item:hover{
+div.item:hover {
     border: 1px rgba(0, 0, 0, 0.08) solid;
     box-shadow: 0 0 3px 0 rgba(99, 99, 99, 0.03), 0 0 3px 0 rgba(0, 0, 0, 0.03);
     background-color: rgb(255, 255, 255);
     border-radius: 3px;
 }
 
+
+.select{
+    width: 100%;
+    transition: width 0.1s;
+}
+
+.select:hover{
+    width: 103%!important;
+    border: rgb(182, 182, 182) 1px solid !important;
+}
+
+
 @media screen and (min-width: 771px) {
-    .content-border{
+    .max-min {
+        max-width: 150px;
+        min-width: 120px;
+    }
+
+    .content-border {
         margin-bottom: 30px;
     }
 
-    .title{
+    .title {
         margin-left: 5px;
         overflow: hidden;
         font-size: 14px;
         white-space: nowrap;
         text-overflow: ellipsis;
-        width: 142px;
+        width: auto;
         font-weight: 700;
-    }   
+    }
 
     .flex-item {
         padding: 0px;
-        width:150px;
+        width: 150px;
         height: auto;
         margin-top: 10px;
         color: white;
         font-weight: bold;
         font-size: 3em;
-    
+
     }
 
-    .col-2-mob-4-desk{
+    .col-2-mob-4-desk {
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
     }
 
-    .col-5-custom{
+    .col-5-custom {
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
+        min-width: 500px;
     }
-    
+
 
 }
 
 @media screen and (max-width: 770px) {
-    .col-12{
+    .max-min {
+        max-width: 150px;
+        min-width: 90px;
+    }
+
+    .col-12 {
         margin-left: auto;
         margin-right: auto;
     }
-    .author{
+
+    .author-main {
         font-size: 10px;
         color: rgb(119, 119, 119);
         margin-top: 2px;
@@ -222,27 +252,28 @@ div.item:hover{
         font-weight: 200;
     }
 
-    .hide{
+    .hide {
         visibility: hidden;
         position: absolute;
     }
 
-    .col-2-mob-4-desk{
+    .col-2-mob-4-desk {
         flex: 0 0 50%;
         max-width: 50%;
     }
 
-    .col-5-custom{
+    .col-5-custom {
         flex: 0 0 100%;
-        max-width: 100%;
+        max-width: 500px;
+        min-width: 350px;
     }
 
-    .author{
+    .author-main {
         color: orange;
         font-weight: 600;
     }
 
-    .title{
+    .title {
         font-size: 12px;
         margin-top: 2px;
         margin-left: 5px;
@@ -254,15 +285,19 @@ div.item:hover{
         font-weight: bold;
     }
 
-    .white{
-        color: rgb(238, 163, 0);
+    .bg-index {
+        background-position: top;
     }
 
-    .bg-index{
+    .white {
+        color: rgb(255, 255, 255);
+    }
+
+    .bg-index {
         height: 350px;
     }
 
-    .bg-cover{
+    .bg-cover {
         padding: 30px 15px;
         background-size: 600%;
         height: 750px;
@@ -279,15 +314,15 @@ div.item:hover{
         font-size: 3em;
     }
 
-    .background-menu{
+    .background-menu {
         height: 330px;
     }
 
-    .content-border{
+    .content-border {
         margin-bottom: 30px;
     }
 
-    .price{
+    .price {
         font-size: 12px;
     }
 }

@@ -191,9 +191,43 @@ p {
 }
 
 .pembayaran-success{
-    color: rgb(0, 73, 0);
+    color: rgb(0, 160, 0);
     font-size: 12px;
+    font-weight: bold;
+}
+
+.pembayaran-unsuccess{
+    color: rgb(255, 35, 35);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.link{
+    color: rgb(0, 128, 255);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.book-12{
+    font-size: 12px;
+}
+
+.link:hover{
+    color: rgb(0, 94, 187);
+}
+
+.book{
+    font-size: 14px;
     font-weight: 500;
+}
+
+.bg-products{
+    background-image: url('../assets/bg/blank2.png');
+    background-size: 320px auto;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
 }
 
 .tgl-pemesanan{

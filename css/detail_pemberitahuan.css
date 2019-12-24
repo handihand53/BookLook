@@ -68,8 +68,16 @@
 }
 
 .no-pemesanan {
-    color: rgb(0, 174, 255);
+    color: rgb(0, 0, 0);
     font-size: 13px;
+    font-weight: bold;
+}
+
+#noDetailTransaksi{
+    color: rgb(0, 174, 255);
+}
+
+#status{
     font-weight: bold;
 }
 
@@ -259,6 +267,23 @@ p {
     flex: 0 0 70%;
     max-width: 70%;
     margin-top: 20px;
+}
+
+.btn-finish{
+    text-align: center;
+    transition: all .4s;
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(218, 218, 218) !important;
+    font-size: 12px;
+    border: none;
+    color: rgb(74, 74, 74) !important;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    cursor: unset;
 }
 
 

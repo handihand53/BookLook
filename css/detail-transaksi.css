@@ -75,10 +75,26 @@
     margin-top: 20px;
 }
 
+#noDetailTransaksi{
+    color: rgb(47, 138, 248);
+}
+
+.pembayaran-success{
+    color: rgb(0, 160, 0);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pembayaran-unsuccess{
+    color: rgb(255, 35, 35);
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .no-pemesanan {
     font-size: 12px;
-    font-weight: 500;
-    color: rgb(122, 122, 122);
+    font-weight: 700;
+    color: rgb(0, 0, 0);
 }
 
 .title-book {
@@ -222,7 +238,9 @@ p {
 
 .detail-content {
     font-size: 12px;
-    font-weight: 500;
+}
+
+#tglTransaksi{
     color: black;
 }
 

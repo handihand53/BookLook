@@ -38,6 +38,57 @@
     font-weight: bold;
 }
 
+.btn-buy {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 176, 29) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-buy:hover {
+    background-color: rgb(247, 140, 0) !important;
+}
+
+.btn-wishlist {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(29, 161, 255) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-wishlist:hover {
+    background-color: rgb(0, 103, 247) !important;
+}
+
+.btn-already {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(187, 187, 187) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    cursor: not-allowed!important;
+}
+
 .prof-ok{
     font-size: 12px;
 }

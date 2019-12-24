@@ -45,7 +45,7 @@
             <a href="wishlist.html">
               <li class="li-item">Wishlist</li>
             </a>
-            <li class="li-item" data-toggle="modal" data-target="#marketkuModal">Marketku</li>
+            <li class="li-item" data-toggle="modal" data-target="#marketkuModal">Toko</li>
             <a>
               <li class="li-item active-sidebar">Transaksi</li>
             </a>
@@ -56,115 +56,28 @@
       </div>
       <div class="col-md-9 mb-4 overflow-table">
         <div class="bc">
-          <a href="/user/index.html"><span class="bc-item">Home</span></a> > 
-          <a href="transaksi.html"><span class="bc-item">Transaksi</span></a> > 
+          <a href="/user/index.html"><span class="bc-item">Home</span></a> >
+          <a href="transaksi.html"><span class="bc-item">Transaksi</span></a> >
           <span class="bc-item">Detail Transaksi</span>
         </div>
         <div class="title-content mb-2">Detail Transaksi</div>
-        <div class="no-pemesanan mb-3">No Pemesanan : 12034757560</div>
+        <div class="no-pemesanan mb-3">No Pemesanan : <span id="noDetailTransaksi"></span></div>
         <div class="flex-row">
           <div class="col-4 detail-head mb-3">
             Tanggal Transaksi
-            <div class="detail-content">15 Agustus 2019</div>
+            <div class="detail-content" id="tglTransaksi"></div>
           </div>
           <div class="col-4 detail-head mb-3">
             Status Pembayaran
-            <div class="detail-content">Pembayaran Diterima</div>
-          </div>
-          <div class="col-4 detail-head mb-3">
-            Status Barang
-            <div class="detail-content">Diterima</div>
+            <div class="detail-content" id="statusPembayaran"></div>
           </div>
           <div class="col-4 detail-head mb-3">
             Total
-            <div class="detail-content orange">Rp. 107.000</div>
+            <div class="detail-content orange">Rp. <span id="totalTransaksi"></span></div>
           </div>
         </div>
         <div>
-          <div class="col-12">
-            <div class="row border-bottom-gray">
-              <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Rp. 57.000</p>
-              </div>
-            </div>
-
-            <div class="row border-bottom-gray">
-              <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Rp. 57.000</p>
-              </div>
-            </div>
-
-            <div class="row border-bottom-gray">
-              <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Rp. 57.000</p>
-              </div>
-            </div>
-
-            <div class="row border-bottom-gray">
-              <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Rp. 57.000</p>
-              </div>
-            </div>
+          <div class="col-12" id="bookContent">
 
           </div>
         </div>
@@ -180,12 +93,12 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-market-body">
               Anda belum buka toko, apakah anda mau buka toko ?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn-blue" data-dismiss="modal">Tidak</button>
-              <a href="../market/open-store.html"><button type="button" class="btn-orange">Ya</button></a>
+                <a href="../market/open-store.html"><button type="button" class="btn-ya">Ya</button></a>
+                <button type="button" class="btn-no" data-dismiss="modal">Tidak</button>
             </div>
           </div>
         </div>
@@ -200,7 +113,7 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>
   <script type="module" src="../js/app.js"></script>
-  <script type="module" src="../js/views/services/profile/profile.js"></script>
+  <script type="module" src="../js/views/services/profile/detailTransaksi.js"></script>
   <script src="../js/deleteBuckets.js"></script>
 </body>
 

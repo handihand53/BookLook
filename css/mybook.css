@@ -130,6 +130,42 @@ a:hover {
     color: rgb(0, 162, 255);
 }
 
+.bg-products{
+    background-image: url('../assets/bg/no-books.png');
+    background-size: 320px 320px;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.trash-wishlist{
+    color: black;
+    height: 20px;
+    right: 25px;
+    bottom: 46px;
+    position: absolute;
+}
+
+.link{
+    color: rgb(0, 128, 255);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.book-12{
+    font-size: 12px;
+}
+
+.link:hover{
+    color: rgb(0, 94, 187);
+}
+
+.book{
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .author-book {
     font-weight: 500;
     font-size: 14px;
