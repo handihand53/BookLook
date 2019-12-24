@@ -208,6 +208,15 @@ ul li {
 }
 
 @media screen and (min-width: 771px) {
+    .max-min {
+        max-width: 150px;
+        min-width: 150px;
+    }
+
+    .min-1025{
+        min-width: 1025px;
+    }
+
     .title {
         margin-left: 5px;
         overflow: hidden;
@@ -230,6 +239,10 @@ ul li {
 }
 
 @media screen and (max-width: 770px) {
+    .max-min {
+        max-width: 150px;
+        min-width: 150px;
+    }
 
     .title {
         font-size: 12px;

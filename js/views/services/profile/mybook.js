@@ -57,7 +57,7 @@ $(window).load(function () {
           for (var i = 0; i < data.length; i++) {
             var pro = data[i].product;
             var html = `
-                <div class="col-3-custom">
+                <div class="col-3-custom max-min">
                 <a href="readbook.html?file=` + pro.productFile + `">
                     <div class="content-border shadow-card no-border border-radius-4">
                     <img src="` + pro.productPhoto + `" alt="" class="width-img">

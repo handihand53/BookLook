@@ -66,6 +66,12 @@ $(window).load(function () {
 
     $("#save").click(function () {
         var pict = $("#upload-photo").get(0).files[0];
+        if (pict == null) {
+            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+            $("#modalMsgEdit").html(`Foto masih kosong`);
+            $("#editProf").click();
+            return
+        }
         var fd = new FormData();
         var today = new Date();
         var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
@@ -73,17 +79,7 @@ $(window).load(function () {
         var dateTime = date + '' + time;
         var berkasName = dateTime + pict.name
         fd.append('picture', pict, berkasName);
-        console.log(pict)
-        if (pict == null) {
-            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
-            $("#modalMsgEdit").html(`Foto masih kosong`);
-            $("#editProf").click();
-        } else {
-            $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
-            $("#modalMsgEdit").html(`Perubahan profile berhasil disimpan`);
-            $("#editProf").click();
 
-        }
 
         $.ajax({
             type: "PUT",
@@ -96,6 +92,8 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+                $("#modalMsgEdit").html(`Perubahan profile berhasil disimpan`);
                 $("#editProf").click();
             },
             error: function (errMsg) {

@@ -52,7 +52,7 @@ $(window).load(function () {
       html = `
             <div class="col-3-custom">
               <a href="book.html?_i=`+data[i].productId+`">
-                <div class="content-border shadow-card no-border border-radius-4">
+                <div class="content-border shadow-card no-border max-min border-radius-4">
                   <img src="` + data[i].productPhoto + `" alt="" class="width-img">
                   <div class="p-2">
                     <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
@@ -67,7 +67,7 @@ $(window).load(function () {
       html2 = `
       <div class="mb-2">
         <a href="book.html?_i=`+data[i].productId+`">
-          <div class="content-border shadow-card no-border border-radius-4">
+          <div class="content-border shadow-card no-border max-min border-radius-4">
             <img src="` + data[i].productPhoto + `" alt="" class="width-img">
             <div class="p-2">
               <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>

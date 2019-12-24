@@ -36,29 +36,40 @@ $(window).load(function () {
     })
 
     $('input[id="upload-photo"]').change(function (file2) {
+        if ($("#upload-photo").get(0).files[0] == null) {
+            $("#img-display").attr("src", "")
+            return
+        } else {
+            var _URL = window.URL || window.webkitURL
+            var fileExtension = ['jpeg', 'jpg', 'png'];
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                alert("Format foto yang diperbolehkan : " + fileExtension.join(', '));
+                return;
+            }
 
-        var _URL = window.URL || window.webkitURL
-        var fileExtension = ['jpeg', 'jpg', 'png'];
-        if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-            alert("Only formats are allowed : " + fileExtension.join(', '));
-            return;
+            var fileName = file2.target.files[0].name;
+            var reader = new FileReader();
+            reader.readAsDataURL(event.srcElement.files[0]);
+            // var me = this;
+            reader.onload = function () {
+                var fileContent = reader.result;
+                $('#img-display').attr('src', fileContent);
+            }
+            console.log(fileName)
+            if (fileName == "") {
+                console.log("kosong")
+            }
         }
-
-        var fileName = file2.target.files[0].name;
-        var reader = new FileReader();
-        reader.readAsDataURL(event.srcElement.files[0]);
-        // var me = this;
-        reader.onload = function () {
-            var fileContent = reader.result;
-            $('#img-display').attr('src', fileContent);
-        }
-
-        // $('#photo-name').html(fileName + ' has been selected.');
-
     });
 
     $("#save").click(function () {
         var pict = $("#upload-photo").get(0).files[0];
+        if (pict == null) {
+            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+            $("#modalMsgEdit").html(`Foto masih kosong`);
+            $("#editProf").click();
+            return
+        }
         var today = new Date();
         var date = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate();
         var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds() + "" + today.getMilliseconds();
@@ -68,11 +79,7 @@ $(window).load(function () {
         console.log(pict)
         fd.append('picture', pict, berkasName);
 
-        if (pict == null) {
-            $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
-            $("#modalMsgEdit").html(`Foto masih kosong`);
-            $("#editProf").click();
-        }
+       
 
         $.ajax({
             type: "PUT",
@@ -85,6 +92,9 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                console.log(data)
+                $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+                $("#modalMsgEdit").html(`Perubahan foto berhasil disimpan`);
                 $("#editProf").click();
             },
             error: function (errMsg) {

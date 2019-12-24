@@ -5,6 +5,9 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+
+  var pictName="";
+  var fileName="";
   if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
   $("#book-form").submit(function (e) {
     e.preventDefault();
@@ -27,19 +30,17 @@ $(window).load(function () {
 
       var fileExtension = ['jpeg', 'jpg', 'png'];
       if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-        alert("Only formats are allowed : " + fileExtension.join(', '));
+        alert("Format foto yang diperbolehkan : " + fileExtension.join(', '));
         return;
       }
 
       // checker for img size
       // ==========================================================
       var file = $(this)[0].files[0];
-
+      pictName = file2.target.files[0].name;
       var img = new Image();
       var imgwidth = 0;
       var imgheight = 0;
-      var maxwidth = 600;
-      var maxheight = 900;
 
       img.src = _URL.createObjectURL(file);
       img.onload = function () {
@@ -48,11 +49,12 @@ $(window).load(function () {
         if (imgwidth % 2 != 0 || imgheight % 3 != 0 || imgwidth / imgheight > 0.7 || imgwidth / imgheight < 0.6) {
           alert("Ukuran Foto tidak valid")
           $("#img").attr("src", "");
+          $("#upload-photo").val("")
+          pictName = ""
           return
         }
       }
 
-      var fileName = file2.target.files[0].name;
       var reader = new FileReader();
       reader.readAsDataURL(event.srcElement.files[0]);
       // var me = this;
@@ -74,16 +76,23 @@ $(window).load(function () {
     if ($("#upload-file").get(0).files[0] != null) {
       var fileExtension = ['pdf'];
       if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
-        alert("Only formats are allowed : " + fileExtension.join(', '));
+        alert("Format File yang diperbolehkan : " + fileExtension.join(', '));
         return;
       }
 
-      var fileName = file1.target.files[0].name;
+      fileName = file1.target.files[0].name;
       var reader = new FileReader();
+      var maxSize = 200 * 1024 * 1024;
+      if (file1.target.files[0].size > maxSize) {
+        alert("Ukuran File terlalu besar")
+        fileName = ""
+        return
+      }
+
       reader.readAsDataURL(event.srcElement.files[0]);
-      $('p[id="file-name"]').html(fileName + ' dipilih.');
-    } else {
-      $('p[id="file-name"]').html("")
+        $('p[id="file-name"]').html(fileName + ' dipilih.');
+      } else {
+        $('p[id="file-name"]').html("")
     }
   });
 
@@ -121,6 +130,7 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
+    
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
@@ -135,6 +145,19 @@ $(window).load(function () {
     var kategori;
 
     var stats = true;
+    if(pictName==""){
+      stats = false;
+      $("#fot").addClass("show");
+    }else{
+      $("#fot").removeClass("show");
+    }
+
+    if(fileName==""){
+      stats = false;
+      $("#fil").addClass("show");
+    }else{
+      $("#fil").removeClass("show");
+    }
 
     if (judulBuku == "") {
       stats = false;

@@ -208,4 +208,39 @@ $(document).ready(function () {
       }
     });
   }
+  getBook()
+  function getBook() {
+    $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/libraries",
+      dataType: 'json',
+      timeout: 600000,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        if (data.length!=0) {
+          for (var i = 0; i < data.length; i++) {
+            if(data[i].product.productId==urlParams._i.toString()){
+              $("#buy").removeClass("btn-buy")
+              $("#buy").addClass("btn-already")
+              $("#buy").html("Sudah dibeli")
+              $("#buy").attr("disabled", true)
+
+              $("#wishlist").removeClass("btn-wishlist")
+              $("#wishlist").addClass("btn-already")
+              $("#wishlist").attr("disabled", true)
+              $("#wishlist").html("Sudah dibeli")
+            }
+          }
+        }
+
+      },
+      error: function (errMsg) {
+        console.log(errMsg)
+      }
+    });
+  }
+
 });

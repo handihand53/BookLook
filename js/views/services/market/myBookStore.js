@@ -39,11 +39,10 @@ $(window).load(function () {
         url: "http://localhost:8080/api/products/market/" + id,
         dataType: 'json',
         success: function (data) {
-            console.log(data)
             if (data.length != 0) {
                 for (var i = 0; i < data.length; i++) {
                     var html = `
-                        <div class="col-3-custom">
+                        <div class="col-3-custom max-min">
                         <div class="content-border shadow-card no-border border-radius-4">
                             <img src="` + data[i].productPhoto + `" alt="" class="width-img">
                             <div class="p-2">
@@ -65,6 +64,7 @@ $(window).load(function () {
                 <div class="center book-12">Ayo mulai <a href="/market/tambah_buku.html"><span class="link">tambah</span></a> buku.</div>
               `
                 $("#product-content").append(html)
+                
             }
         },
         error: function (errMsg) {
