@@ -1,0 +1,139 @@
+.side-bar {
+    background-color: #212529;
+    min-height: 717px;
+    color: white;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.li-active {
+    color: white !important;
+    background-color: black;
+}
+
+a.link-list {
+    color: white!important;
+}
+
+a.link-list:hover {
+    color: #fff;
+}
+
+.list-tag{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-detail-orange{
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    padding: 5px 20px;
+    width: 100px;
+}
+
+.btn-detail-orange:hover{
+    background-color: rgb(214, 139, 0);
+}
+
+a{
+    text-decoration: none!important;
+}
+
+.list-color {
+    color: rgb(109, 109, 109);
+}
+
+.list-color:hover {
+    color: #fff;
+    font-weight: 100;
+}
+
+.center {
+    text-align: center;
+    vertical-align: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.content-border-admin {
+    background-color: #fff;
+    border: gray 1px solid;
+    border-radius: 2px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.15), 0 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.li:hover{
+    background-color: #101214;
+    color: white;
+}
+
+.no-border {
+    border: none !important;
+}
+
+.m-3-custom {
+    margin: 5px !important;
+}
+
+.main-cont{
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 200px;
+}
+
+.title-confirm{
+    font-weight: bold;
+}
+
+.item-book{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.36);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.15), 0 0 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.btn-orange {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: orange;
+    font-size: 12px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    margin: 5px;
+    padding: 2px 12px;
+    width: 100px;
+    height: 25px;
+    box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
+    /* border-radius: 3px; */
+}
+
+.btn-orange:hover {
+    background-color: rgb(218, 142, 2);
+}   
+
+@media screen and (max-width: 770px) {
+    .m-3-custom {
+        margin: 5px !important;
+        max-width: 45%;
+    }
+
+    .side-bar{
+        max-width: 0px;
+    }
+
+    .col-10{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .table-overflow{
+        padding: 10px;
+        overflow: scroll;
+    }
+}
