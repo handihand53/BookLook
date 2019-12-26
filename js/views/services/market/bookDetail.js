@@ -41,7 +41,6 @@ $(window).load(function () {
         },
         success: function (data) {
             if (data.marketId != null) {
-                $("#loading").css("visibility", "hidden");
                 $("#marketName").html(data.marketName)
                 if (data.marketPhoto == null)
                     $('#display').attr('src', "../assets/else/signature.png");
@@ -65,29 +64,54 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            var html = `
-            <div class="col-3-custom">
+            if (data.product.productConfirm == "UNCONFIRMED") {
+                $("#bookContent").html("Buku yang kamu cari tidak ada / belum tersedia")
+                window.location.replace("/404.html")
+            } else {
+                $("#loading").css("visibility", "hidden");
+                var html = `
+                <div class="col-3-custom">
                 <div class="content-border shadow-card no-border border-radius-4">
-                  <img src="` + data.product.productPhoto + `" alt="" class="width-img">
+                  <img src="` + data.product.productPhoto + `" alt="" class="width-img ">
                 </div>
               </div>
-              <div class="col-9-custom">
-                <p class="title-book" title="` + data.product.title + `">` + data.product.title + `</p>
-                <p class="author-book">` + data.product.author + `</p>
-                <p class="publish-book">Penerbit :` + data.product.publisher + `</p>
-                <p class="publish-book">` + data.product.isbn + `</p>
-                <p class="publish-book">` + data.product.sku + `</p>
+              <div class="col-9-custom mt-4">
+                <div class="row">
+                    <p class="title-book col-6">Judul Buku</p>
+                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.title + `</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <p class="title-book col-6">Penulis Buku</p>
+                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.author + `</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <p class="title-book col-6">Penerbit Buku</p>
+                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.publisher + `</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <p class="title-book col-6">ISBN Buku</p>
+                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.isbn + `</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <p class="title-book col-6">SKU Buku</p>
+                    <p class="title-book col-6" title="` + data.product.sku + `">` + data.product.sku + `</p>
+                </div>
+                <hr>
                 <p class="deskripsi">Deskripsi</p>
                 <p class="deskripsi-content mb-4">` + data.product.description + `</p>
                 <p class="price-detail orange">Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
                 <br>
                 <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
               </div>
-            `
-            $("#bookContent").html(html)
+                `
+                $("#bookContent").html(html)
+            }
         },
         error: function (errMsg) {
-            console.log(errMsg);
             window.location.replace("/404.html")
         }
     });

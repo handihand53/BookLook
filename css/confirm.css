@@ -151,9 +151,14 @@ footer {
 
 .link{
     font-weight:400;
+    font-weight: bold;
 }
 
 .link:hover{
+    color: rgb(0, 115, 255);
+}
+
+.blue-2{
     color: rgb(0, 115, 255);
 }
 
@@ -177,7 +182,42 @@ footer {
     margin-top: 17px;
 }
 
+.col-8-mob{
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+.col-7-cust{
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+@media screen and (min-width: 772px) {
+    .right{
+        float: right;
+    }
+}
+
 @media screen and (max-width: 771px) {
+    .col-7-cust{
+        flex: 0 0 100%!important;
+        max-width: 100%!important;
+    }
+
+    .col-8-mob{
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+
+    .width-img{
+        margin-left: 32px;
+    }
+
+    .col-5{
+        flex: 0 0 100%!important;
+        max-width: 100%!important;
+        text-align: center;
+    }
     .col-md-6-custom {
         flex: 0 0 95%;
         max-width: 95%;
@@ -187,6 +227,16 @@ footer {
         flex: 0 0 95%;
         max-width: 95%;
         margin: 10px;
+    }
+
+    .sub-list-sku {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .price-list{
+        margin-top: 5px;
+        margin-bottom: 10px;
     }
 
     .sub-list {

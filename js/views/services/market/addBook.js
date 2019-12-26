@@ -256,6 +256,10 @@ $(window).load(function () {
           $("#loading").css("visibility", "hidden");
           $("input").val("")
           $("textarea").val("")
+          $("#img").attr("src", "")
+          $("#file-name").html("")
+          $("#upload-photo").val("")
+          $("#upload-file").val("")
         },
         error: function (data) {
           console.log(data)

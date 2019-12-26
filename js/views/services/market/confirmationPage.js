@@ -42,22 +42,22 @@ $(window).load(function () {
             for (var i = 0; i < bookArr.length; i++) {
                 var html = `
                 <div class="content-border shadow-card no-border border-radius-4 mb-2">
-                                <div class="judul-utama p-2">
-                                    <span class="bold">` + bookArr[i].product.title + `</span>
-                                    <a href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue float-right link">` + bookArr[i].marketName + `</span></a>
+                                <div class="judul-utama p-2 row">
+                                    <div class="bold col-9">` + bookArr[i].product.title + `</div>
+                                    <a class="col-md-3" href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue right link">` + bookArr[i].marketName + `</span></a>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <img src="` + bookArr[i].product.productPhoto + `" alt="" class="width-img">
                                     </div>
-                                    <div class="col-7 no-padding mobile">
+                                    <div class="col-8-mob no-padding mobile">
         
                                         <div class="row border-bot">
                                             <div class="col-md-6 sub-list gray">
                                                 Author
                                             </div>
-                                            <div class="col-md-6 sub-list ">
+                                            <div class="col-md-6 sub-list orange">
                                                 ` + bookArr[i].product.author + `
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@ $(window).load(function () {
                                             <div class="col-md-6 sub-list">
                                                 Harga
                                             </div>
-                                            <div class="col-md-6 price-list orange">
+                                            <div class="col-md-6 price-list blue">
                                                 Rp ` + bookArr[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `
                                             </div>
                                         </div>
@@ -135,5 +135,5 @@ $(window).load(function () {
         localStorage.removeItem('dataBook')
         window.location.replace("/user/index.html")
     })
-    localStorage.removeItem('dataBook')
+    // localStorage.removeItem('dataBook')
 })

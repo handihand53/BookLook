@@ -33,13 +33,14 @@
               <div class="login-judul">Masuk</div>
               <div class="login-body">
                   <label>Nama Pengguna / Email</label>
-                  <input type="text" class="login-input" placeholder="Nama Pengguna" required>
+                  <input id="username" type="text" class="login-input" placeholder="Nama Pengguna" required>
                   <label class="password">Kata Sandi</label>
-                  <input type="password" class="login-input" placeholder="Kata Sandi" required>
+                  <input id="password" type="password" class="login-input" placeholder="Kata Sandi" required>
+                  <span class="login-fail" id="login-fail"></span>
                   <br>
                   <br>
               </div>
-              <a href="/admin/dashboard.html"><button class="btn-masuk">Masuk</button></a>
+              <button id="masuk" class="btn-masuk">Masuk</button>
               <div>
               </div>
             </div>
@@ -53,5 +54,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="module" src="/js/views/services/admin/admin-login.js"></script>
 </body>
 </html>

@@ -53,8 +53,8 @@ $(window).load(function () {
                                 <span style="margin-top: -4px;" class="checkmark"></span>
                             </label>
                             <span class="bold market-text" title="` + data[i].product.title + `">` + data[i].product.title + `</span>
-                            <a href="/market/market-page.html?id=` + data[i].marketId + `"><span
-                                    class="blue float-right link">` + data[i].marketName + `</span></a>
+                            <a href="/market/market-page.html?id=` + data[i].marketId + `"><div
+                                    class="blue kanan link">` + data[i].marketName + `</div></a>
                         </div>
                         <hr>
                         <div class="row">
@@ -103,7 +103,7 @@ $(window).load(function () {
                                     <div class="col-md-6 sub-list">
                                         Harga
                                     </div>
-                                    <div class="col-md-6 price-list orange">
+                                    <div class="col-md-6 price-list blue-2">
                                         Rp ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `
                                     </div>
                                 </div>

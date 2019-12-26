@@ -8,7 +8,8 @@ $(window).load(function () {
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
-    var fileName=""
+    var fileName = ""
+
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
             queryEnd = url.indexOf("#") + 1 || url.length + 1,
@@ -36,6 +37,27 @@ $(window).load(function () {
     $.ajax({
         type: "GET",
         contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/products/" + urlParams._i,
+        dataType: 'json',
+        timeout: 600000,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (data.product.productConfirm == "UNCONFIRMED") {
+                window.location.replace("/404.html")
+            } else {
+                $("#loading").css("visibility", "hidden");
+            }
+        },
+        error: function (errMsg) {
+            window.location.replace("/404.html")
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
         url: "http://127.0.0.1:8080/api/markets",
         dataType: 'json',
         timeout: 600000,
@@ -44,7 +66,6 @@ $(window).load(function () {
         },
         success: function (data) {
             if (data.marketId != null) {
-                $("#loading").css("visibility", "hidden");
                 $("#marketName").html(data.marketName)
                 if (data.marketPhoto == null)
                     $('#display').attr('src', "../assets/else/signature.png");
@@ -78,7 +99,7 @@ $(window).load(function () {
             if (file2.target.files[0].size > maxSize) {
                 alert("Ukuran File terlalu besar")
                 $("#file-name").html("")
-                fileName=""
+                fileName = ""
                 return
             }
             $("#file-name").html(fileName)
@@ -92,13 +113,13 @@ $(window).load(function () {
 
     $("#save").click(function () {
         var berkas = $("#upload-file").get(0).files[0];
-        if (berkas == null || fileName=="")  {
+        if (berkas == null || fileName == "") {
             $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
             $("#modalMsgEdit").html(`File masih kosong`);
             $("#editProf").click();
             return
         }
-        
+
         var berkasName = dateTime + berkas.name
 
         var fd = new FormData();

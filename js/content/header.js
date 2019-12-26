@@ -24,7 +24,7 @@ let header = `
         <div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tentang</a>
+        <a class="nav-link" href="/tentang.html">Tentang</a>
       </li>
     </ul>
   </div>

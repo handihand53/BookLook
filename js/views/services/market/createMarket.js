@@ -38,7 +38,7 @@ $(document).ready(function () {
             checkMarket()
         },
         error: function (errMsg) {
-            
+            window.location.replace("/404.html")
         }
     });
 
@@ -94,8 +94,8 @@ $(document).ready(function () {
                         window.location.replace("/market/store.html")
                     }, 1000);
                 },
-                error: function (errMsg) {
-                    console.log(errMsg);
+                error: function (errMsg) {            
+                    window.location.replace("/404.html")
                 }
             });
         }

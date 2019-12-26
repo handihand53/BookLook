@@ -59,7 +59,7 @@ $(window).load(function () {
     contentType: "application/json",
     url: "http://127.0.0.1:8080/api/transactions/user/show",
     dataType: 'json',
-    async:false,
+    async: false,
     headers: {
       'Authorization': `Bearer ` + getCookie("token"),
     },
@@ -80,24 +80,24 @@ $(window).load(function () {
           </table>
         `;
         $("#table").html(table)
-        for (var i = data.length-1; i >= 0; i--) {
+        for (var i = data.length - 1; i >= 0; i--) {
           var d = new Date(data[i].createdAt);
           var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
           var color
-          if(data[i].transferConfirm=="SUCCESS"){
-            color ="pembayaran-success";
-          }else color = "pembayaran-unsuccess"
+          if (data[i].transferConfirm == "SUCCESS") {
+            color = "pembayaran-success";
+          } else color = "pembayaran-unsuccess"
           var html = `
             <tr>
               <td class="no-pemesanan" title="` + data[i].transactionId + `">` + data[i].transactionId + `</td>
               <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
-              <td class="`+color+`" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
+              <td class="` + color + `" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
               <td><a href="detail_transaksi.html?_i=` + data[i].transactionId + `" title="" class="detail-pemesanan">Lihat Detail</a></td>
             </tr>
             `
           $("#tableBody").append(html)
         }
-      }else{
+      } else {
         var html = `
           <div class="bg-products"></div>
           <div class="center book">Belum Ada Transaksi.</div>
@@ -112,6 +112,6 @@ $(window).load(function () {
     }
   });
 
- 
+
 
 });

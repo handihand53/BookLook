@@ -62,14 +62,16 @@ $.ajax({
         for (var i = 0; i < data.length; i++) {
             var html = `
                 <div class="col-4">
-                    <div class="content-border select shadow-card max-min no-border border-radius-4">
-                        <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                        <div class="p-1">
-                        <p class="title no-margin no-padding">` + data[i].title + `</p>
-                        <p class="author-main">` + data[i].author + `</p>
-                        <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                    <a href="/market/book.html?_i=`+data[i].productId+`">
+                        <div class="content-border select shadow-card max-min no-border border-radius-4">
+                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+                            <div class="p-1">
+                            <p class="title no-margin no-padding">` + data[i].title + `</p>
+                            <p class="author-main">` + data[i].author + `</p>
+                            <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 `
             $("#sport").append(html)
@@ -88,14 +90,16 @@ $.ajax({
         for (var i = 0; i < data.length; i++) {
             var html = `
                 <div class="col-4">
-                    <div class="content-border select shadow-card max-min no-border border-radius-4">
-                        <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                        <div class="p-1">
-                        <p class="title no-margin no-padding">` + data[i].title + `</p>
-                        <p class="author-main">` + data[i].author + `</p>
-                        <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                    <a href="/market/book.html?_i=`+data[i].productId+`">
+                        <div class="content-border select shadow-card max-min no-border border-radius-4">
+                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+                            <div class="p-1">
+                            <p class="title no-margin no-padding">` + data[i].title + `</p>
+                            <p class="author-main"> ` + data[i].author + `</p>
+                            <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 `
             $("#education").append(html)

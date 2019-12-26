@@ -77,7 +77,7 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
+            console.log(data.transactionDetail)
             var d = new Date(data.transaction.createdAt);
             var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
             $("#noDetailTransaksi").html(data.transaction.transactionId)
@@ -92,8 +92,41 @@ $(window).load(function () {
                 $("#proses").html("Selesai")
                 $("#status").css("color", "rgb(0, 157, 0)")
             }
-            for (var i = 0; i < data.length; i++) {
-
+            for (var i = 0; i < data.transactionDetail.length; i++) {
+                var html = `
+                <div class="col-12 plr-5">
+                    <div class="row shadow-card mb-3">
+                    <div class="col-3-custom">
+                        <div class="no-border border-radius-4">
+                        <img src="`+data.transactionDetail[i].product.productPhoto+`" alt="" class="width-img">
+                        </div>
+                    </div>
+                    <div class="col-9-custom plr-25">
+                        <div class="row border-bottom">
+                        <p class="col-md-6 title-text">Judul</p>
+                        <p class="title-book col-md-6">`+data.transactionDetail[i].product.title+`</p>
+                        </div>
+                        <div class="row border-bottom">
+                        <p class="col-md-6 title-text">Penulis</p>
+                        <p class="author-book col-md-6 ">`+data.transactionDetail[i].product.author+`</p>
+                        </div>
+                        <div class="row border-bottom">
+                        <p class="col-md-6 title-text">ISBN</p>
+                        <p class="title-book col-md-6">`+data.transactionDetail[i].product.isbn+`</p>
+                        </div>
+                        <div class="row border-bottom">
+                        <p class="col-md-6 title-text">SKU</p>
+                        <p class="title-book col-md-6">`+data.transactionDetail[i].product.sku+`</p>
+                        </div>
+                        <div class="row border-bottom">
+                        <p class="col-md-6 title-text">Harga</p>
+                        <p class="title-book col-md-6 blue">Rp. <span>`+data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '')+`</span></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                `;
+                $("#content").append(html)
             }
         },
         error: function (errMsg) {
