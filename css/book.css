@@ -12,6 +12,15 @@
     box-shadow: 0 0 1.2px 0 rgba(0, 0, 0, 0.15), 0 0 1.2px 0 rgba(0, 0, 0, 0.15);
 }
 
+.read-more{
+    color: rgb(0, 94, 255);
+    font-weight: 500;
+}
+
+.read-more:hover{
+    color: rgb(0, 63, 171);
+}
+
 .blue {
     color: rgb(0, 204, 255);
 }

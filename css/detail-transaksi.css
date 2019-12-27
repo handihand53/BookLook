@@ -239,8 +239,31 @@ p {
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+.blue-link{
+    text-decoration: underline!important;
+}
+
+.read-more{
+    color: rgb(0, 94, 255);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.read-more:hover{
+    color: rgb(0, 63, 171);
+}
+
+.blue-link:hover{
+    color: rgb(0, 74, 202);
+}
+
 .detail-content {
     font-size: 12px;
+}
+
+.deskripsi-book{
+    font-size: 12px;
+    font-weight: 400;
 }
 
 #tglTransaksi {

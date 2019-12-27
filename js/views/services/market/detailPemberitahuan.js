@@ -77,7 +77,6 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data.transactionDetail)
             var d = new Date(data.transaction.createdAt);
             var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
             $("#noDetailTransaksi").html(data.transaction.transactionId)

@@ -18,6 +18,16 @@
     color: rgb(155, 155, 155);
 }
 
+.read-more{
+    color: rgb(0, 94, 255);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.read-more:hover{
+    color: rgb(0, 63, 171);
+}
+
 .red {
     color: red;
 }

@@ -13,7 +13,7 @@ $(document).ready(function () {
         <li class="p-3 li"><a href="" class="list-color"><i class="fa fa-exchange-alt"
                     aria-hidden="true"></i> Transaksi</a></li>
         <li id="dash-konfirmasi" class="p-3 li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link" class="list-color"><i class="fa fa-envelope"
-                    aria-hidden="true"></i> Konfirmasi Buku</a></li>
+                    aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBuku" class="notif"> </span></a></li>
     </ul>
     <ul class="navbar-nav sidenav" id="mySidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -28,7 +28,7 @@ $(document).ready(function () {
         <li class="li"><a href="" class="list-color"><i class="fa fa-exchange-alt"
                     aria-hidden="true"></i> Transaksi</a></li>
         <li id="dash-konfirmasi-mob" class="li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link-mob" class="list-color"><i class="fa fa-envelope"
-                    aria-hidden="true"></i> Konfirmasi Buku</a></li>
+                    aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBukuMob" class="notif"> </span></a></li>
     </ul>
     `;
     $("#sidebar").html(sidebar)

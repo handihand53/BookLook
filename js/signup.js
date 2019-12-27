@@ -1,6 +1,8 @@
 import { setCookie, getCookie, checkCookie } from './cookies.js';
 
 $(document).ready(function () {
+
+    
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
@@ -122,8 +124,8 @@ $(document).ready(function () {
             dataType: 'json',
             timeout: 600000,
             success: function (a) {
-                var token = a.accessToken;
-                var type = a.tokenType;
+                console.log(a)
+                var token = a.result;
                 setCookie("token", token, 1);
                 window.location.assign("user/index.html");
             },
