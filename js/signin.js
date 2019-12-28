@@ -89,8 +89,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function (errMsg) {
-                    console.log(errMsg)
-                    if (errMsg.responseJSON.status == 400) {
+                    if (errMsg.responseJSON.status == false) {
                         $("#login-fail").html(`Login Gagal`)
                     }
                     if (errMsg.responseJSON.status == 401)
