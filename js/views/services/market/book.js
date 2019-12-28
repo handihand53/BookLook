@@ -52,7 +52,7 @@ $(document).ready(function () {
       if (data.product.description.toString().length > 400) {
         long = data.product.description + `<span class="read-more" id="less-more"> Kurangi</span>`
         short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
-      }else{
+      } else {
         short = data.product.description
       }
 
@@ -268,5 +268,48 @@ $(document).ready(function () {
       }
     });
   }
+  var transId = new Array();
+  getTransaction()
 
+  function getTransaction() {
+    $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/transactions/user/show",
+      dataType: 'json',
+      async: false,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        for (var i = 0; i < data.length; i++)
+          transId.push(data[i].transactionId)
+      }
+    });
+  }
+  getBookTransaction()
+  function getBookTransaction() {
+    for (var i = 0; i < transId.length; i++) {
+      $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/transactions/user/show/" + transId[i],
+        dataType: 'json',
+        headers: {
+          'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+          console.log(data)
+          for (var i = 0; i < data.transactionDetail.length; i++){
+            if(data.transactionDetail[i].product.productId == urlParams._i){
+              $("#buy").removeClass("btn-buy")
+              $("#buy").addClass("btn-already")
+              $("#buy").html("Sedang diproses")
+              $("#buy").attr("disabled", true)
+            }
+          }     
+        }
+      });
+    }
+  }
 });

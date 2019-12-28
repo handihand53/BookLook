@@ -86,6 +86,7 @@ $(window).load(function () {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
+      console.log(data)
       var d = new Date(data.transaction.createdAt);
       var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
       $("#noDetailTransaksi").html(data.transaction.transactionId)
@@ -118,7 +119,7 @@ $(window).load(function () {
                 <div class="row">
                   <div class="col-3-custom">
                     <div class="content-border no-border border-radius-4">
-                      <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
+                      <img src="`+data.transactionDetail[i].product.productPhoto+`" alt="" class="width-img">
                     </div>
                   </div>
   

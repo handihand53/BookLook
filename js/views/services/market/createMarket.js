@@ -90,9 +90,6 @@ $(document).ready(function () {
                 },
                 success: function (msg) {
                     $("#clk").click();
-                    setTimeout(function () {
-                        window.location.replace("/market/store.html")
-                    }, 1000);
                 },
                 error: function (errMsg) {            
                     window.location.replace("/404.html")
@@ -100,4 +97,9 @@ $(document).ready(function () {
             });
         }
     });
+
+    $('#marketkuModal').on('hidden.bs.modal', function (e) {
+        window.location.replace("/market/store.html")
+    })
+
 });

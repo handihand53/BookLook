@@ -2,6 +2,21 @@ import { setCookie, getCookie, checkCookie } from './cookies.js';
 
 $(document).ready(function () {
 
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/users",
+        dataType: 'json',
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            window.location.assign("user/index.html");
+        },
+        error: function (errMsg) {
+
+        }
+    });
     
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

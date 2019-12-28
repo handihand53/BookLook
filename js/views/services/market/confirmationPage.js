@@ -6,7 +6,7 @@ import {
 
 $(window).load(function () {
     var dataBook = JSON.parse(localStorage.getItem('dataBook'))
-    if(dataBook == null){
+    if (dataBook == null) {
         window.location.replace("/user/index.html");
     }
     var bookArr = [];

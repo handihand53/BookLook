@@ -130,7 +130,6 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
-    
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
@@ -234,9 +233,9 @@ $(window).load(function () {
     fd.append('book', file, berkasName)
     fd.append('isbn', isbn)
 
-    for (var pair of fd.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    // for (var pair of fd.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1]);
+    // }
 
     if (stats)
       $.ajax({
@@ -260,6 +259,8 @@ $(window).load(function () {
           $("#file-name").html("")
           $("#upload-photo").val("")
           $("#upload-file").val("")
+          pictName=""
+          fileName=""
         },
         error: function (data) {
           console.log(data)

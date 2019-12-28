@@ -64,6 +64,7 @@ $(window).load(function () {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
+      console.log(data)
       if (data.length != 0) {
         var table = `
         <table class="table table-hover ">
@@ -111,7 +112,5 @@ $(window).load(function () {
       //   window.location.replace("/404.html")
     }
   });
-
-
 
 });
