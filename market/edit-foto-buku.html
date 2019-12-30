@@ -30,12 +30,13 @@
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="row">
-                        <div class="col-5">
-                            <img id="display" class="mb-3" alt="" width="100%">
+                        <div>
+                            <img id="display" class="mb-3 mr-3" alt="">
                         </div>
-                        <div class="col-6">
+                        <div>
                             <h5 id="marketName"></h5>
                             <h6 class="status">Toko</h6>
+                            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
                         </div>
                     </div>
                 </div>
@@ -68,7 +69,8 @@
                     </div>
                     <div class="title-user">Ubah Foto</div>
                     <img src="" id="img" width="100px" onchange="readURL(this)">
-                    <input name="fileUri" required type="file" style="top: -500px; position: absolute;" class="file" id="upload-photo"><br>
+                    <input name="fileUri" required type="file" style="top: -500px; position: absolute;" class="file"
+                        id="upload-photo"><br>
                     <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label><br>
                     <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran rasio foto buku harus 2:3</p>
                     <span id="photo-name" class="file-name"></span>
@@ -96,7 +98,7 @@
             </div>
         </div>
         <br>
-    
+
     </main>
 
     <footer class="footer" id="footer">

@@ -50,7 +50,7 @@ $(document).ready(function () {
       $("#publisher").html(data.product.publisher);
 
       if (data.product.description.toString().length > 400) {
-        long = data.product.description + `<span class="read-more" id="less-more"> Kurangi</span>`
+        long = data.product.description + `<span class="read-more" id="less-more"> Lebih sedikit</span>`
         short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
       } else {
         short = data.product.description
@@ -299,12 +299,14 @@ $(document).ready(function () {
           'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-          console.log(data)
           for (var i = 0; i < data.transactionDetail.length; i++){
             if(data.transactionDetail[i].product.productId == urlParams._i){
               $("#buy").removeClass("btn-buy")
               $("#buy").addClass("btn-already")
-              $("#buy").html("Sedang diproses")
+              if(data.transactionDetail[i].marketConfirm =="CONFIRMED")
+                $("#buy").html("Sudah dibeli")
+              else
+                $("#buy").html("Sedang diproses")
               $("#buy").attr("disabled", true)
             }
           }     

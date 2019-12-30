@@ -41,6 +41,20 @@ $(window).load(function () {
             },
             success: function (data) {
                 if (data.length != 0) {
+                    var head=`
+                    <div class="content-border p-3 shadow-card no-border">
+                        <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
+                            <input type="checkbox" id="main-checkbox">
+                            <span class="checkmark checkmark-head" ></span>
+                        </label>
+                        <span class="ml-3">Pilih Semua Buku</span>
+                    </div>
+
+                    <div id="main-content">
+                    </div>
+                    `
+
+                    $("#book-confirm").html(head)
                     var tot = 0;
                     for (var i = 0; i < data.length; i++) {
 
@@ -116,6 +130,10 @@ $(window).load(function () {
                     }
                     bindListener();
                 } else {
+                    var html = `
+                    <div id="main-content"></div>
+                    `
+                    $("#book-confirm").html(html)
                     $("#main-content").html(`
                     <div class="bg-blank"></div>
                     `);

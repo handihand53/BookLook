@@ -66,7 +66,7 @@ $(document).ready(function () {
         } else y = true
 
         if (storeBio.length < 1) {
-            errorBio.html("Deskripsi toko tidak boleh kosong! ");
+            errorBio.html("Deskripsi toko tidak boleh kosong");
             z = false;
         } else z = true;
         if (x && y && z) {

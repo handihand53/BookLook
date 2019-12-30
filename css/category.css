@@ -53,10 +53,21 @@
     padding-left: 15px;
     flex: 0 0 100%;
     max-width: 16.67%;
-    margin-top: 20px;
+    margin-top: 30px;
+    transition: all 0.1s;
 }
 
+.border-book{
+    box-shadow: 0 0 1.5px 1px rgba(48, 48, 48, 0.11);
+}
 
+.border-book:hover{
+    box-shadow: 0 0 15px 5px rgba(99, 99, 99, 0.15), 0 0 5px 1px rgba(0, 0, 0, 0.02);
+}
+
+.col-3-custom:hover{
+    margin-top: 20px;
+}
 
 .title-book {
     white-space: nowrap;

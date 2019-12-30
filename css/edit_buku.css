@@ -207,6 +207,10 @@ p{
     color: rgb(0, 153, 255);
 }
 
+#display{
+    max-width: 115px;
+}
+
 .f14{
     font-size: 30px;
     color: rgb(0, 130, 211);

@@ -53,6 +53,7 @@ $(window).load(function () {
   month[9] = "Oktober";
   month[10] = "November";
   month[11] = "Desember";
+  var dataArray = new Array();
 
   $.ajax({
     type: "GET",
@@ -82,6 +83,7 @@ $(window).load(function () {
         `;
         $("#table").html(table)
         for (var i = data.length - 1; i >= 0; i--) {
+
           var d = new Date(data[i].createdAt);
           var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
           var color
@@ -113,4 +115,24 @@ $(window).load(function () {
     }
   });
 
+  
+ 
+  $.ajax({
+    type: "PUT",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/transactions/user/confirm/f9a34c07-6ea5-4f25-a58a-17d0dfcbcbf9",
+    dataType: 'json',
+    async: false,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+      console.log(data)
+     
+
+    },
+    error: function (errMsg) {
+      //   window.location.replace("/404.html")
+    }
+  }); 
 });

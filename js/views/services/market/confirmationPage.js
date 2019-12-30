@@ -55,7 +55,7 @@ $(window).load(function () {
         
                                         <div class="row border-bot">
                                             <div class="col-md-6 sub-list gray">
-                                                Author
+                                                Penulis
                                             </div>
                                             <div class="col-md-6 sub-list orange">
                                                 ` + bookArr[i].product.author + `
@@ -75,7 +75,7 @@ $(window).load(function () {
                                             <div class="col-md-6 sub-list gray">
                                                 SKU
                                             </div>
-                                            <div class="col-md-6 sub-list-sku ">
+                                            <div class="col-md-6 sub-list">
                                             ` + bookArr[i].product.sku + `
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@ $(window).load(function () {
                                             <div class="col-md-6 sub-list gray">
                                                 ISBN
                                             </div>
-                                            <div class="col-md-6 price-list ">
+                                            <div class="col-md-6 sub-list">
                                                 ` + bookArr[i].product.isbn + `
                                             </div>
                                         </div>
@@ -135,5 +135,5 @@ $(window).load(function () {
         localStorage.removeItem('dataBook')
         window.location.replace("/user/index.html")
     })
-    // localStorage.removeItem('dataBook')
+
 })

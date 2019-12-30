@@ -6,6 +6,20 @@ p {
     color: black;
 }
 
+nav{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+
+#profile-item:hover{
+    margin-top: 0px;
+}
+
+.status-buku {
+    font-size: 13px;
+    color: rgb(155, 155, 155);
+}
+
 .justify-content-between {
     display: flex;
     justify-content: space-between;

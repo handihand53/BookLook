@@ -10,6 +10,33 @@
     color: rgb(0, 194, 65) !important;
 }
 
+#display {
+    max-width: 115px;
+}
+
+#icon {
+    color: #338cf3;
+    font-size: 40px;
+}
+
+.prof{
+    font-weight: 400;
+}
+
+.prof-ok{
+    font-weight: bold;
+}
+
+.prof-ok:hover {
+    color: #338cf3;
+    cursor: pointer;
+}
+
+.status-buku {
+    font-size: 13px;
+    color: rgb(155, 155, 155);
+}
+
 .blue {
     color: rgb(0, 136, 255);
     font-weight: bold;
@@ -18,8 +45,6 @@
 .content-width {
     max-width: 1100px;
 }
-
-.border-bottom {}
 
 .title-text {
     font-weight: bold;
@@ -385,7 +410,7 @@ p {
 
 @media screen and (min-width: 770px) {
 
-    .title-book{
+    .title-book {
         margin-bottom: 20px;
         margin-top: 20px;
     }

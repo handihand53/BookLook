@@ -75,7 +75,7 @@ $(window).load(function () {
                 $("#loading").css("visibility", "hidden");
 
                 if (data.product.description.toString().length > 400) {
-                    long = data.product.description + `<span class="read-more" id="less-more"> Kurangi</span>`
+                    long = data.product.description + `<span class="read-more" id="less-more"> Lebih sedikit</span>`
                     short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
                 } else {
                     short = data.product.description
@@ -83,7 +83,7 @@ $(window).load(function () {
 
                 var html = `
                 <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4">
+                <div class="content-border shadow-card no-border border-radius-4 max-min">
                   <img src="` + data.product.productPhoto + `" alt="" class="width-img ">
                 </div>
               </div>
@@ -119,7 +119,7 @@ $(window).load(function () {
                 </div>
                 <hr>
                 <p class="deskripsi">Deskripsi</p>
-                <p class="mb-4" id="deskripsi">` + short + `</p>
+                <p class="mb-4 desk" id="deskripsi">` + short + `</p>
                 <br>
                 <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
               </div>
@@ -145,5 +145,30 @@ $(window).load(function () {
             $("#deskripsi").html(short)
             bindReadMore()
         })
+    }
+
+    checkJmlBukuTerjual()
+
+    function checkJmlBukuTerjual() {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/transactions/market/show",
+            dataType: 'json',
+            async: true,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                var tot = 0;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].transferConfirm == "PENDING") {} else tot++
+                }
+                $("#jmlBuku").html(tot)
+            },
+            error: function (errMsg) {
+                console.log(errMsg);
+            }
+        });
     }
 });

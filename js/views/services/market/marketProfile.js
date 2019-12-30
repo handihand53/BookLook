@@ -74,4 +74,27 @@ $(window).load(function () {
             }
         });
     });
+    checkJmlBukuTerjual()
+    function checkJmlBukuTerjual() {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/transactions/market/show",
+            dataType: 'json',
+            async: true,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                var tot = 0;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].transferConfirm == "PENDING") {} else tot++
+                }
+                $("#jmlBuku").html(tot)
+            },
+            error: function (errMsg) {
+                console.log(errMsg);
+            }
+        });
+    }
 });

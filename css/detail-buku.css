@@ -175,6 +175,10 @@ ul li{
     font-weight: bold;
 }
 
+.desk{
+    font-size: 13px;
+}
+
 .publish-book{
     color: rgb(110, 110, 110);
     font-size: 12px;
@@ -209,6 +213,10 @@ p {
     position: fixed;
     width: 100%;
     z-index: 3;
+}
+
+#display{
+    width: 100px;
 }
 
 .bg-black {
@@ -272,6 +280,20 @@ p {
 }
 
 @media screen and (min-width: 771px) {
+    .mb-5{
+        min-width: 900px ;
+    }
+
+    #display{
+        min-width: 90px;
+        max-width: 135px;
+    }
+
+    .max-min {
+        max-width: 150px;
+        min-width: 110px;
+    }
+
     .title {
         margin-left: 5px;
         overflow: hidden;
@@ -284,6 +306,11 @@ p {
 }
 
 @media screen and (max-width: 770px) {
+    .max-min {
+        max-width: 150px;
+        min-width: 110px;
+    }
+
     .col-9-custom {
         position: relative;
         width: 100%;

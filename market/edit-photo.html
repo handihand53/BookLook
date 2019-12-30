@@ -30,12 +30,13 @@
             <div class="row">
                 <div class="col-md-3 ">
                     <div class="row">
-                        <div class="col-5">
-                            <img id="display" class="mb-3" alt="" width="100%">
+                        <div>
+                            <img id="display" class="mb-3 mr-3" alt="">
                         </div>
-                        <div class="col-6">
+                        <div>
                             <h5 id="marketName"></h5>
                             <h6 class="status">Toko</h6>
+                            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
                         </div>
                     </div>
                 </div>
@@ -95,21 +96,21 @@
             </div>
         </div>
         <br>
-    
+
         <input type="button" id="editProf" data-toggle="modal" data-target="#editProfile" hidden>
 
         <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfile"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-body center">
-                <div id="icon"> </div>
-                <br>
-                <div class="prof" id="modalMsgEdit"></div>
-                <label class="prof-ok" data-dismiss="modal">OK</label>
-              </div>
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body center">
+                        <div id="icon"> </div>
+                        <br>
+                        <div class="prof" id="modalMsgEdit"></div>
+                        <label class="prof-ok" data-dismiss="modal">OK</label>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <br>
     </main>
