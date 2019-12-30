@@ -18,12 +18,16 @@
     margin: 0px !important;
 }
 
-.prof-ok{
+.blue-2 {
+    color: #2196F3;
+}
+
+.prof-ok {
     font-size: 12px;
     font-weight: bold;
 }
 
-.f14-red{
+.f14-red {
     font-size: 70px;
     color: rgb(255, 65, 90);
 }
@@ -261,12 +265,6 @@ h6 {
     font-size: 20px;
 }
 
-.market-text {
-    margin-left: 20px;
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: bold;
-}
 
 .blue-content {
     color: rgb(74, 174, 255);
@@ -318,6 +316,7 @@ p {
     .checkmark-head {
         top: 30px;
     }
+
     .col-md-6-custom {
         flex: 0 0 55%;
         max-width: 55%;
@@ -354,9 +353,47 @@ p {
         font-weight: bold;
         color: rgb(255, 186, 82);
     }
+
+
+    .market-text {
+        margin-left: 20px;
+        margin-top: 20px;
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 20px;
+        text-overflow: ellipsis;
+    }
+    .kanan{
+        float: right;
+    }
 }
 
 @media screen and (max-width: 770px) {
+    .width-img{
+        margin-bottom: 12px;
+        margin-top: 12px;
+    }
+    .sub-list{
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .border-bot{
+        margin-bottom: 12px;
+    }
+    .market-text {
+        margin-left: 20px;
+        font-size: 12px;
+        margin-top: 2px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: auto;
+        max-width: 120px;
+        font-weight: bold;
+    }
+
     .col-md-6-custom {
         flex: 0 0 100%;
         max-width: 100%;

@@ -38,7 +38,7 @@ $(document).ready(function () {
             checkMarket()
         },
         error: function (errMsg) {
-            
+            window.location.replace("/404.html")
         }
     });
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
         } else y = true
 
         if (storeBio.length < 1) {
-            errorBio.html("Deskripsi toko tidak boleh kosong! ");
+            errorBio.html("Deskripsi toko tidak boleh kosong");
             z = false;
         } else z = true;
         if (x && y && z) {
@@ -90,14 +90,16 @@ $(document).ready(function () {
                 },
                 success: function (msg) {
                     $("#clk").click();
-                    setTimeout(function () {
-                        window.location.replace("/market/store.html")
-                    }, 1000);
                 },
-                error: function (errMsg) {
-                    console.log(errMsg);
+                error: function (errMsg) {            
+                    window.location.replace("/404.html")
                 }
             });
         }
     });
+
+    $('#marketkuModal').on('hidden.bs.modal', function (e) {
+        window.location.replace("/market/store.html")
+    })
+
 });

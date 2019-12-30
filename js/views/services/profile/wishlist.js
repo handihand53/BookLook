@@ -35,6 +35,11 @@ $(window).load(function () {
             }
         });
     }
+    getBook()
+
+    function getBook() {
+
+    }
 
     function getWishlist() {
         $.ajax({
@@ -51,6 +56,24 @@ $(window).load(function () {
                 $("#wishlist-item").html("")
                 if (data.length != 0) {
                     for (let i = 0; i < data.length; i++) {
+                        let idBook=data[i].product.productId;
+                        $.ajax({
+                            type: "GET",
+                            contentType: "application/json",
+                            url: "http://127.0.0.1:8080/api/libraries",
+                            dataType: 'json',
+                            async: false,
+                            headers: {
+                                'Authorization': `Bearer ` + getCookie("token"),
+                            },
+                            success: function (data) {
+                                for (var i = 0; i < data.length; i++) {
+                                    if (data[i].product.productId == idBook)
+                                        deleteWish(idBook)
+                                }
+                                console.log("a")
+                            }
+                        });
                         var html = `
                     <div class="col-3-custom max-min">
                         <div class="content-border shadow-card no-border border-radius-4">
@@ -87,6 +110,7 @@ $(window).load(function () {
             }
         });
     }
+   
 
     function bindListener() {
         $("button.btn-tambah.t").click(function () {
@@ -99,7 +123,6 @@ $(window).load(function () {
                 contentType: "application/json",
                 url: "http://127.0.0.1:8080/api/buckets/add/",
                 dataType: 'json',
-                timeout: 600000,
                 headers: {
                     'Authorization': `Bearer ` + getCookie("token"),
                 },
@@ -115,6 +138,27 @@ $(window).load(function () {
         })
     }
 
+    function deleteWish(id){
+        var id = {
+            "productId": id
+          } 
+        $.ajax({
+            type: "DELETE",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/wishlists/delete",
+            dataType: 'json',
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            data: JSON.stringify(id),
+            success: function (data) {
+                console.log("sukses")
+            },
+            error: function (errMsg) {
+                console.log(errMsg)
+            }
+        });
+    }
 
     function deleteWishlist(data) {
         $.ajax({

@@ -14,17 +14,19 @@ let header = `
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" id="drop">
         <div class="nav-link dropdown" id="kategori">Kategori <i class="fa fa-fw fa-chevron-down"></i> 
-          <div class="dropdown-content" >
-            <div>
-              <div class="arrow-up-kategori"></div>
-            </div>
-            <div class="box" id="categoryBox">
+          <div class="dropdown-content">
+            <div class="category-drop">
+              <div>
+                <div class="arrow-up-kategori"></div>
+              </div>
+              <div class="box" id="categoryBox">
+              </div>
             </div>
           </div>
         <div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tentang</a>
+        <a class="nav-link" href="/tentang.html">Tentang</a>
       </li>
     </ul>
   </div>

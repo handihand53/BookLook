@@ -13,6 +13,12 @@
     padding-bottom: 100px;
 }
 
+.login-fail{
+    font-size: 14px;
+    font-weight: 100;
+    color: rgb(231, 33, 33);
+}
+
 .judul-text {
     color: rgb(255, 255, 255) !important;
     /* font-family: 'Raleway', sans-serif; */

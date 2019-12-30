@@ -10,6 +10,10 @@
     max-width: 1100px;
 }
 
+#img-market{
+    max-width: 115px;
+}
+
 .content-height {
     min-height: 500px;
 }
@@ -197,6 +201,10 @@ ul li{
     margin-right: auto;
 }
 
+.blue-2{
+    color: rgb(0, 119, 255);
+}
+
 @media screen and (min-width: 771px) {
     .title {
         margin-left: 5px;
@@ -206,6 +214,10 @@ ul li{
         text-overflow: ellipsis;
         width: 142px;
         font-weight: 700;
+    }
+
+    .col-3-custom{
+        min-width: 190px;
     }
 }
 
@@ -229,6 +241,6 @@ ul li{
         padding-right: 15px;
         padding-left: 15px;
         flex: 0 0 50%;
-        max-width: 50%;
+        max-width: 180px;
     }
 }

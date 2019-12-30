@@ -6,7 +6,8 @@ import {
 
 
 $(document).ready(function () {
-
+  var long = ""
+  var short = ""
   var urlString = window.location.href;
   var urlParams = parseURLParams(urlString);
   var productId;
@@ -47,14 +48,37 @@ $(document).ready(function () {
       $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''));
       $("#author").html(data.product.author);
       $("#publisher").html(data.product.publisher);
-      $("#deskripsi").html(data.product.description);
+
+      if (data.product.description.toString().length > 400) {
+        long = data.product.description + `<span class="read-more" id="less-more"> Lebih sedikit</span>`
+        short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
+      } else {
+        short = data.product.description
+      }
+
+      $("#deskripsi").html(short);
       $("#bookimg").attr("src", data.product.productPhoto);
       $("#title").html(data.product.title)
+      bindReadMore()
     },
     error: function (errMsg) {
       console.log(errMsg)
     }
   });
+
+  function bindReadMore() {
+    $("#read-more").click(function () {
+      $("#deskripsi").html(long)
+      bindLess()
+    })
+  }
+
+  function bindLess() {
+    $("#less-more").click(function () {
+      $("#deskripsi").html(short)
+      bindReadMore()
+    })
+  }
 
   $("#buy").click(function () {
     var data = {
@@ -108,6 +132,7 @@ $(document).ready(function () {
 
   getWishlist()
   getBuckets()
+
   function getBuckets() {
     $.ajax({
       type: "GET",
@@ -209,6 +234,7 @@ $(document).ready(function () {
     });
   }
   getBook()
+
   function getBook() {
     $.ajax({
       type: "GET",
@@ -220,9 +246,9 @@ $(document).ready(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        if (data.length!=0) {
+        if (data.length != 0) {
           for (var i = 0; i < data.length; i++) {
-            if(data[i].product.productId==urlParams._i.toString()){
+            if (data[i].product.productId == urlParams._i.toString()) {
               $("#buy").removeClass("btn-buy")
               $("#buy").addClass("btn-already")
               $("#buy").html("Sudah dibeli")
@@ -242,5 +268,50 @@ $(document).ready(function () {
       }
     });
   }
+  var transId = new Array();
+  getTransaction()
 
+  function getTransaction() {
+    $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/transactions/user/show",
+      dataType: 'json',
+      async: false,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        for (var i = 0; i < data.length; i++)
+          transId.push(data[i].transactionId)
+      }
+    });
+  }
+  getBookTransaction()
+  function getBookTransaction() {
+    for (var i = 0; i < transId.length; i++) {
+      $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/transactions/user/show/" + transId[i],
+        dataType: 'json',
+        headers: {
+          'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+          for (var i = 0; i < data.transactionDetail.length; i++){
+            if(data.transactionDetail[i].product.productId == urlParams._i){
+              $("#buy").removeClass("btn-buy")
+              $("#buy").addClass("btn-already")
+              if(data.transactionDetail[i].marketConfirm =="CONFIRMED")
+                $("#buy").html("Sudah dibeli")
+              else
+                $("#buy").html("Sedang diproses")
+              $("#buy").attr("disabled", true)
+            }
+          }     
+        }
+      });
+    }
+  }
 });

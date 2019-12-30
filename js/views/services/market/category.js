@@ -51,8 +51,8 @@ $(window).load(function () {
     for (let i = 0; i < data.length; i++) {
       html = `
             <div class="col-3-custom">
-              <a href="book.html?_i=`+data[i].productId+`">
-                <div class="content-border shadow-card no-border max-min border-radius-4">
+              <a href="book.html?_i=` + data[i].productId + `">
+                <div class="content-border border-book no-border max-min border-radius-4">
                   <img src="` + data[i].productPhoto + `" alt="" class="width-img">
                   <div class="p-2">
                     <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
@@ -66,8 +66,8 @@ $(window).load(function () {
 
       html2 = `
       <div class="mb-2">
-        <a href="book.html?_i=`+data[i].productId+`">
-          <div class="content-border shadow-card no-border max-min border-radius-4">
+        <a href="book.html?_i=` + data[i].productId + `">
+          <div class="content-border border-book no-border max-min border-radius-4">
             <img src="` + data[i].productPhoto + `" alt="" class="width-img">
             <div class="p-2">
               <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
@@ -79,10 +79,7 @@ $(window).load(function () {
       </div>
               `
       $("#content").append(html);
-      if (i % 2 == 0) {
-        $("#mob1").append(html2);
-      } else
-        $("#mob2").append(html2);
+    
     }
 
   }

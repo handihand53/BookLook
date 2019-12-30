@@ -6,8 +6,8 @@ import {
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
 
-  var pictName="";
-  var fileName="";
+  var pictName = "";
+  var fileName = "";
   if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
   $("#book-form").submit(function (e) {
     e.preventDefault();
@@ -90,9 +90,9 @@ $(window).load(function () {
       }
 
       reader.readAsDataURL(event.srcElement.files[0]);
-        $('p[id="file-name"]').html(fileName + ' dipilih.');
-      } else {
-        $('p[id="file-name"]').html("")
+      $('p[id="file-name"]').html(fileName + ' dipilih.');
+    } else {
+      $('p[id="file-name"]').html("")
     }
   });
 
@@ -130,7 +130,6 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
-    
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
@@ -145,17 +144,17 @@ $(window).load(function () {
     var kategori;
 
     var stats = true;
-    if(pictName==""){
+    if (pictName == "") {
       stats = false;
       $("#fot").addClass("show");
-    }else{
+    } else {
       $("#fot").removeClass("show");
     }
 
-    if(fileName==""){
+    if (fileName == "") {
       stats = false;
       $("#fil").addClass("show");
-    }else{
+    } else {
       $("#fil").removeClass("show");
     }
 
@@ -234,9 +233,9 @@ $(window).load(function () {
     fd.append('book', file, berkasName)
     fd.append('isbn', isbn)
 
-    for (var pair of fd.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    // for (var pair of fd.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1]);
+    // }
 
     if (stats)
       $.ajax({
@@ -256,6 +255,12 @@ $(window).load(function () {
           $("#loading").css("visibility", "hidden");
           $("input").val("")
           $("textarea").val("")
+          $("#img").attr("src", "")
+          $("#file-name").html("")
+          $("#upload-photo").val("")
+          $("#upload-file").val("")
+          pictName = ""
+          fileName = ""
         },
         error: function (data) {
           console.log(data)
@@ -285,4 +290,28 @@ $(window).load(function () {
     }
   });
 
+  checkJmlBukuTerjual()
+
+  function checkJmlBukuTerjual() {
+    $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/transactions/market/show",
+      dataType: 'json',
+      async: true,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        var tot = 0;
+        for (var i = data.length - 1; i >= 0; i--) {
+          if (data[i].transferConfirm == "PENDING") {} else tot++
+        }
+        $("#jmlBuku").html(tot)
+      },
+      error: function (errMsg) {
+        console.log(errMsg);
+      }
+    });
+  }
 });

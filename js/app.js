@@ -79,7 +79,8 @@ $(document).ready(function () {
 
   function headerSuccess() {
     dropHtml = `
-      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>` +
+      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>
+      <a href="/user/mybook.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-book"></i> Bukuku</p></a>` +
       market + `
       <a href="/user/transaksi.html"><p class="dropdown-item drop-active blue"><i class="far fa-credit-card"></i> Transaksi</p></a>
       <a href="/user/wishlist.html"><p class="dropdown-item drop-active blue"><i class="fas fa-shopping-bag"></i> Wishlist</p></a>

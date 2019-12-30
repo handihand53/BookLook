@@ -23,6 +23,8 @@ $(window).load(function () {
         return parms;
     }
 
+    $("#about").attr("href", "/market/about.html?id="+urlParams.id.toString())
+
     $.ajax({
         type: "GET",
         url: "http://127.0.0.1:8080/api/products/market/" + urlParams.id.toString(),
@@ -61,7 +63,6 @@ $(window).load(function () {
         dataType: 'json',
         async: false,
         success: function (data) {
-            console.log(data);
             if (data.marketPhoto != null)
                 $("#img-market").attr("src", data.marketPhoto)
             else

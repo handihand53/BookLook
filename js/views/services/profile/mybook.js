@@ -52,14 +52,14 @@ $(window).load(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        console.log(data)
         if (data.length!=0) {
           for (var i = 0; i < data.length; i++) {
             var pro = data[i].product;
+            console.log(pro)
             var html = `
                 <div class="col-3-custom max-min">
                 <a href="readbook.html?file=` + pro.productFile + `">
-                    <div class="content-border shadow-card no-border border-radius-4">
+                    <div class="content-border no-border border-radius-4 border-book">
                     <img src="` + pro.productPhoto + `" alt="" class="width-img">
                     <div class="p-2">
                         <p class="title-book" title="+` + pro.title + `+">` + pro.title + `</p>
