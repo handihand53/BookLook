@@ -71,8 +71,11 @@ $(document).ready(function () {
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
+                    console.log(errMsg.responseJSON.status)
                     if (errMsg.responseJSON.status == 401)
                         $("#login-fail").html('Email atau password salah, Silahkan coba lagi')
+                    if (!errMsg.responseJSON.status)
+                        $("#login-fail").html('Login Gagal')
                 }
             });
         }

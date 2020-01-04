@@ -42,6 +42,7 @@ $(document).ready(function () {
         }
     });
 
+    var trigger = false;
 
     $("#daftar").click(function () {
         $(".error").each(function () {
@@ -89,17 +90,28 @@ $(document).ready(function () {
                     'Authorization': `Bearer ` + getCookie("token"),
                 },
                 success: function (msg) {
+                    trigger=true
+                    $("#fail-msg").html("Market Berhasil didaftarkan.")
+                    $("#logo").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+                    $("#logo").addClass("c-blue")
+                    $("#logo").removeClass("c-red")
                     $("#clk").click();
                 },
-                error: function (errMsg) {            
-                    window.location.replace("/404.html")
+                error: function (errMsg) {
+                    $("#fail-msg").html(errMsg.responseJSON.message)
+                    $("#logo").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+                    $("#logo").addClass("c-red")
+                    $("#clk").click();
+                    console.log(errMsg)
                 }
             });
         }
     });
 
     $('#marketkuModal').on('hidden.bs.modal', function (e) {
-        window.location.replace("/market/store.html")
+        if(trigger){
+            window.location.replace("/market/store.html")
+        }
     })
 
 });

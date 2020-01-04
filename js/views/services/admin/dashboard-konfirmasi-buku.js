@@ -5,6 +5,18 @@ import {
 } from '../../../cookies.js';
 
 $(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:8080/api/admin/profile",
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {},
+        error: function (err) {
+            window.location.assign("/admin_login.html");
+        }
+    });
+
     var long = ""
     var short = ""
     var month = new Array();
@@ -21,7 +33,8 @@ $(document).ready(function () {
     month[10] = "November";
     month[11] = "Desember";
     getDataTable()
-    function getDataTable(){
+
+    function getDataTable() {
         $.ajax({
             type: "GET",
             url: "http://127.0.0.1:8080/api/admin/products/unconfirmed",
@@ -31,23 +44,27 @@ $(document).ready(function () {
             },
             success: function (data) {
                 console.log(data)
+                if (data.length == 0)
+                    $("#jmlBuku").html("")
+                else
+                    $("#jmlBuku").html(data.length)
                 if (data.length != 0) {
                     $("#jmlBukuMob").addClass("notif")
                     $("#jmlBuku").addClass("notif")
                     $("#jmlBukuMob").html(data.length)
                     $("#jmlBuku").html(data.length)
                     for (var i = 0; i < data.length; i++) {
-                        var d = new Date(data[i].createdAt);
+                        var d = new Date(data[i].product.createdAt);
                         var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
                         let html = `
                     <tr>
                         <td>` + (i + 1) + `</td>
-                        <td class="text-table" title="` + data[i].title + `">` + data[i].title + `</td>
-                        <td class="text-table" title="` + tgl + `">` + tgl + `</td>
-                        <td class="text-table" title=></td>
-                        <td class="text-table look" data-id="` + data[i].productId + `">Lihat</td>
-                        <td class="center no-pad-left"><button id="acc" class="btn-acc" data-name="` + data[i].title + `" data-id="` + data[i].productId + `" type="button"><i class="fas fa-check f14 mb-2 mt-2"></i></button></td>
-                        <td class="center no-pad-right"><button id="decline" class="btn-decline" data-id=` + data[i].productId + ` ><i class="fas fa-times"></i></button></td>
+                        <td class="text-table center" title="` + data[i].product.title + `">` + data[i].product.title + `</td>
+                        <td class="text-table center" title="` + tgl + `">` + tgl + `</td>
+                        <td class="text-table center" title="` + data[i].marketName + `"><a target="#" href=/market/market-page.html?id=`+data[i].marketId+`>` + data[i].marketName + `</a></td>
+                        <td class="text-table look center" data-id="` + data[i].product.productId + `">Lihat</td>
+                        <td class="center no-pad-left"><button id="acc" class="btn-acc" data-name="` + data[i].product.title + `" data-id="` + data[i].product.productId + `" type="button"><i class="fas fa-check f14 mb-2 mt-2"></i></button></td>
+                        <td class="center no-pad-right"><button id="decline" class="btn-decline" data-id=` + data[i].product.productId + ` ><i class="fas fa-times"></i></button></td>
                     </tr>
                     `
                         $("#contentBody").append(html)
@@ -70,11 +87,11 @@ $(document).ready(function () {
         $("#accProduct").attr("data-id", $(this).data("id"))
         $("#confirm").click()
     })
-    
+
     $("#accProduct").click(function () {
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:8080/api/admin/products/"+$(this).data("id")+"/confirm",
+            url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/confirm",
             async: false,
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
@@ -82,6 +99,7 @@ $(document).ready(function () {
             success: function (data) {
                 $("#contentBody").html("")
                 getDataTable()
+                $('#confirmModal').modal('hide');
             },
             error: function (errMsg) {
                 console.log(errMsg)
@@ -135,7 +153,6 @@ $(document).ready(function () {
             bindReadMore()
         })
     }
-
 
     $("#dash-konfirmasi").addClass("li-active")
     $("#dash-konfirmasi-link").addClass("link-list")

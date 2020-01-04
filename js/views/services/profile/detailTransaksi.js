@@ -17,7 +17,6 @@ $(window).load(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/users",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
@@ -109,8 +108,7 @@ $(window).load(function () {
           success: function (data) {
             x = data.marketName
           },
-          error: function (errMsg) {
-          }
+          error: function (errMsg) {}
         });
 
         var html = `
@@ -119,31 +117,31 @@ $(window).load(function () {
                 <div class="row">
                   <div class="col-3-custom">
                     <div class="content-border no-border border-radius-4">
-                      <img src="`+data.transactionDetail[i].product.productPhoto+`" alt="" class="width-img">
+                      <img src="` + data.transactionDetail[i].product.productPhoto + `" alt="" class="width-img">
                     </div>
                   </div>
   
                   <div class="col-9-custom">
                     <div class="row border-bottom">
                       <p class="col-md-6 title-text">Judul</p>
-                      <p class="title-book col-md-6" title="`+data.transactionDetail[i].product.title+`">` + data.transactionDetail[i].product.title + `</p>
+                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.title + `">` + data.transactionDetail[i].product.title + `</p>
                     </div>
                     <div class="row border-bottom">
                       <p class="col-md-6 title-text">Penulis</p>
-                      <p class="author-book col-md-6" title="`+data.transactionDetail[i].product.author+`">` + data.transactionDetail[i].product.author + `</p>
+                      <p class="author-book col-md-6" title="` + data.transactionDetail[i].product.author + `">` + data.transactionDetail[i].product.author + `</p>
                     </div>
                     <div class="row border-bottom">
                       <p class="col-md-6 title-text">ISBN</p>
-                      <p class="title-book col-md-6" title="`+data.transactionDetail[i].product.isbn+`">` + data.transactionDetail[i].product.isbn + `</p>
+                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.isbn + `">` + data.transactionDetail[i].product.isbn + `</p>
                     </div>
                     <div class="row border-bottom">
                       <p class="col-md-6 title-text">SKU</p>
-                      <p class="title-book col-md-6" title="`+data.transactionDetail[i].product.sku+`">` + data.transactionDetail[i].product.sku + `</p>
+                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
                     </div>
                     <div class="row">
                       <p class="col-md-6 title-text">Harga</p>
-                      <p class="title-book col-md-6 blue-2" title="`+ data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-                      '$&,').replace(/\.00/g, '')+`">Rp.
+                      <p class="title-book col-md-6 blue-2" title="` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+          '$&,').replace(/\.00/g, '') + `">Rp.
                         <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
           '$&,').replace(/\.00/g, '') + `</span></p>
                     </div>
@@ -155,7 +153,7 @@ $(window).load(function () {
       }
     },
     error: function (errMsg) {
-        window.location.replace("/404.html")
+      window.location.replace("/404.html")
     }
   });
 

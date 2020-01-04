@@ -1,3 +1,10 @@
+import {
+    setCookie,
+    getCookie,
+    checkCookie
+} from '../../../cookies.js';
+
+
 $(document).ready(function () {
     $.ajax({
         type: "GET",

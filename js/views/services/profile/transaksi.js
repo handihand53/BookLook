@@ -114,13 +114,11 @@ $(window).load(function () {
       //   window.location.replace("/404.html")
     }
   });
-
   
- 
   $.ajax({
     type: "PUT",
     contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/transactions/user/confirm/f9a34c07-6ea5-4f25-a58a-17d0dfcbcbf9",
+    url: "http://127.0.0.1:8080/api/transactions/user/confirm/b8fa446e-950c-4880-8bb1-9faf13cf488b",
     dataType: 'json',
     async: false,
     headers: {
@@ -128,11 +126,9 @@ $(window).load(function () {
     },
     success: function (data) {
       console.log(data)
-     
-
     },
     error: function (errMsg) {
-      //   window.location.replace("/404.html")
+      console.log(errMsg)
     }
-  }); 
+  });
 });

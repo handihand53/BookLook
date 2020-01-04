@@ -64,6 +64,10 @@
     box-shadow: none !important;
 }
 
+.img-cst{
+    width: 200px;
+}
+
 .btn-masuk:hover {
     background-color: rgb(206, 134, 0) !important;
 }

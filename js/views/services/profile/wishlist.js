@@ -35,12 +35,7 @@ $(window).load(function () {
             }
         });
     }
-    getBook()
-
-    function getBook() {
-
-    }
-
+    
     function getWishlist() {
         $.ajax({
             type: "GET",
@@ -57,23 +52,6 @@ $(window).load(function () {
                 if (data.length != 0) {
                     for (let i = 0; i < data.length; i++) {
                         let idBook=data[i].product.productId;
-                        $.ajax({
-                            type: "GET",
-                            contentType: "application/json",
-                            url: "http://127.0.0.1:8080/api/libraries",
-                            dataType: 'json',
-                            async: false,
-                            headers: {
-                                'Authorization': `Bearer ` + getCookie("token"),
-                            },
-                            success: function (data) {
-                                for (var i = 0; i < data.length; i++) {
-                                    if (data[i].product.productId == idBook)
-                                        deleteWish(idBook)
-                                }
-                                console.log("a")
-                            }
-                        });
                         var html = `
                     <div class="col-3-custom max-min">
                         <div class="content-border shadow-card no-border border-radius-4">

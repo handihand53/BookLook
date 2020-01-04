@@ -189,6 +189,18 @@ p{
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.171);
 }
 
+.icon-modal{
+    font-size: 50px;
+}
+
+.c-blue{
+    color: rgb(14, 139, 255);
+}
+
+.c-red{
+    color: rgb(255, 66, 59);
+}
+
 .modal-txt{
     font-size: 14px;
     font-weight: 500;

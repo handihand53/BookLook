@@ -12,18 +12,18 @@ $(window).load(function () {
   getDataUser();
   checkMarket();
   getBook();
-
+  var id;
   function getDataUser() {
     $.ajax({
       type: "GET",
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/users",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
+        id = data.userId
         if (data.userPhoto == null)
           $('#img').attr('src', "../assets/else/signature.png");
         else
@@ -55,10 +55,10 @@ $(window).load(function () {
         if (data.length!=0) {
           for (var i = 0; i < data.length; i++) {
             var pro = data[i].product;
-            console.log(pro)
+            var res = pro.productFile.split("/");
             var html = `
                 <div class="col-3-custom max-min">
-                <a href="readbook.html?file=` + pro.productFile + `">
+                <a href="readbook.html?file=`+ res[res.length-1]+`&key=`+data[i].uniqueKey+`&id=`+id+`" target="#">
                     <div class="content-border no-border border-radius-4 border-book">
                     <img src="` + pro.productPhoto + `" alt="" class="width-img">
                     <div class="p-2">
