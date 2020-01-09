@@ -15,6 +15,10 @@ nav{
     margin-top: 0px;
 }
 
+.nav-link{
+    color: white!important;
+}
+
 .status-buku {
     font-size: 13px;
     color: rgb(155, 155, 155);
