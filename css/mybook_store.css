@@ -14,6 +14,11 @@
     min-height: 500px;
 }
 
+.disabled{
+    cursor: not-allowed!important;
+    background-color: rgb(140, 140, 140)!important;
+}
+
 .status {
     color: rgb(155, 155, 155);
 }
@@ -120,6 +125,15 @@ a:hover {
     text-decoration: none;
 }
 
+.disable-book{
+    background: rgba(0, 0, 0, 0.279);
+    overflow: hidden;
+}
+
+.opacity{
+    opacity: 0.4;
+}
+
 .btn-detail {
     font-family: 'Noto Sans', sans-serif;
     background-color: orange;
@@ -127,9 +141,8 @@ a:hover {
     border: none;
     color: white;
     font-weight: 300;
-    margin: 5px;
     padding: 2px 12px;
-    width: 95%;
+    width: 100%;
     height: 25px;
     box-shadow: 0 3px 3px 0 rgba(26, 26, 26, 0.158), 0 0 3px 0 rgba(27, 27, 27, 0.397);
     /* border-radius: 3px; */
@@ -226,8 +239,8 @@ ul li {
 
 @media screen and (min-width: 771px) {
     .max-min {
-        max-width: 170px;
-        min-width: 170px;
+        max-width: 190px;
+        min-width: 190px;
     }
 
     .title {

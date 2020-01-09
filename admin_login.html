@@ -24,22 +24,19 @@
           
           <div class="center" style="padding: 20px;">
             <div class="judul-text">
-                Admin Login
-                <br>
-                <br>
+              <img src="/assets/logo/logo_white.png" class="img-cst mb-4">
             </div>
 
             <div class="admin-login-bg login-text">
               <div class="login-judul">Masuk</div>
               <div class="login-body">
-                  <label>Nama Pengguna / Email</label>
-                  <input type="text" class="login-input" placeholder="Nama Pengguna" required>
+                  <label>Email</label>
+                  <input id="username" type="text" class="login-input" placeholder="Email" required>
                   <label class="password">Kata Sandi</label>
-                  <input type="password" class="login-input" placeholder="Kata Sandi" required>
-                  <br>
-                  <br>
+                  <input id="password" type="password" class="login-input" placeholder="Kata Sandi" required>
+                  <div class="center login-fail mb-2 mt-2" id="login-fail"></div>
               </div>
-              <a href="/admin/dashboard.html"><button class="btn-masuk">Masuk</button></a>
+              <button id="masuk" class="btn-masuk">Masuk</button>
               <div>
               </div>
             </div>
@@ -53,5 +50,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="module" src="/js/views/services/admin/admin-login.js"></script>
 </body>
 </html>

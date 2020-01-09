@@ -1,6 +1,23 @@
 import { setCookie, getCookie, checkCookie } from './cookies.js';
 
 $(document).ready(function () {
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/users",
+        dataType: 'json',
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            window.location.assign("user/index.html");
+        },
+        error: function (errMsg) {
+
+        }
+    });
+    
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
@@ -101,7 +118,7 @@ $(document).ready(function () {
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
-                    alert("gagal");
+                    alert(errMsg.responseJSON.message);
                 }
             });
         }
@@ -122,8 +139,8 @@ $(document).ready(function () {
             dataType: 'json',
             timeout: 600000,
             success: function (a) {
-                var token = a.accessToken;
-                var type = a.tokenType;
+                console.log(a)
+                var token = a.result;
                 setCookie("token", token, 1);
                 window.location.assign("user/index.html");
             },

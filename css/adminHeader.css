@@ -21,6 +21,17 @@
   padding-top: 60px;
 }
 
+.notif{
+  background-color: rgb(255, 34, 34);
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 11px;
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+}
+
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -34,14 +45,14 @@
   color: #f1f1f1;
 }
 
+.profile-setting:hover{
+  color: rgb(179, 179, 179);
+}
+
 .side-icon {
   margin-right: 10px;
   z-index: 1;
   color: white;
-  
-  /* box-shadow: 0 0 1.2px 0 rgba(0, 0, 0, 1), 0 0 1.2px 0 rgba(0, 0, 0, 1); */
-  /* border-radius: 0px 20px 20px 0px; */
-  /* background-color: #343A40; */
   font-size: 15px;
   cursor: pointer
 }
@@ -65,13 +76,13 @@
 
 /* }   */
 
-@media screen and (max-width: 601px) {
+@media screen and (max-width: 772px) {
   .side-icon {
     visibility: visible;
   }
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 771px){
   .side-icon{
     visibility: hidden;
   }

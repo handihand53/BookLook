@@ -18,7 +18,6 @@ $(window).load(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/users",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
@@ -53,17 +52,19 @@ $(window).load(function () {
   month[9] = "Oktober";
   month[10] = "November";
   month[11] = "Desember";
+  var dataArray = new Array();
 
   $.ajax({
     type: "GET",
     contentType: "application/json",
     url: "http://127.0.0.1:8080/api/transactions/user/show",
     dataType: 'json',
-    async:false,
+    async: false,
     headers: {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
+      console.log(data)
       if (data.length != 0) {
         var table = `
         <table class="table table-hover ">
@@ -80,24 +81,25 @@ $(window).load(function () {
           </table>
         `;
         $("#table").html(table)
-        for (var i = data.length-1; i >= 0; i--) {
+        for (var i = data.length - 1; i >= 0; i--) {
+
           var d = new Date(data[i].createdAt);
           var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
           var color
-          if(data[i].transferConfirm=="SUCCESS"){
-            color ="pembayaran-success";
-          }else color = "pembayaran-unsuccess"
+          if (data[i].transferConfirm == "SUCCESS") {
+            color = "pembayaran-success";
+          } else color = "pembayaran-unsuccess"
           var html = `
             <tr>
               <td class="no-pemesanan" title="` + data[i].transactionId + `">` + data[i].transactionId + `</td>
               <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
-              <td class="`+color+`" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
+              <td class="` + color + `" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
               <td><a href="detail_transaksi.html?_i=` + data[i].transactionId + `" title="" class="detail-pemesanan">Lihat Detail</a></td>
             </tr>
             `
           $("#tableBody").append(html)
         }
-      }else{
+      } else {
         var html = `
           <div class="bg-products"></div>
           <div class="center book">Belum Ada Transaksi.</div>
@@ -111,7 +113,21 @@ $(window).load(function () {
       //   window.location.replace("/404.html")
     }
   });
-
- 
-
+  
+  $.ajax({
+    type: "PUT",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/transactions/user/confirm/13e64b63-e9fd-4148-9607-707e2813c329",
+    dataType: 'json',
+    async: false,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+      console.log(data)
+    },
+    error: function (errMsg) {
+      console.log(errMsg)
+    }
+  });
 });

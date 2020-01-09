@@ -18,6 +18,16 @@
     color: rgb(155, 155, 155);
 }
 
+.read-more{
+    color: rgb(0, 94, 255);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.read-more:hover{
+    color: rgb(0, 63, 171);
+}
+
 .red {
     color: red;
 }
@@ -125,6 +135,25 @@ ul li{
     background-color: rgb(247, 140, 0) !important;
 }
 
+.btn-read {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(29, 119, 255) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    cursor: pointer;
+    text-align: center  ;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-read:hover {
+    background-color: rgb(0, 107, 247) !important;
+}
+
 .btn-detail {
     font-family: 'Noto Sans', sans-serif;
     background-color: orange;
@@ -165,6 +194,10 @@ ul li{
     font-weight: bold;
 }
 
+.desk{
+    font-size: 13px;
+}
+
 .publish-book{
     color: rgb(110, 110, 110);
     font-size: 12px;
@@ -199,6 +232,10 @@ p {
     position: fixed;
     width: 100%;
     z-index: 3;
+}
+
+#display{
+    width: 100px;
 }
 
 .bg-black {
@@ -262,6 +299,17 @@ p {
 }
 
 @media screen and (min-width: 771px) {
+
+    #display{
+        min-width: 90px;
+        max-width: 135px;
+    }
+
+    .max-min {
+        max-width: 150px;
+        min-width: 110px;
+    }
+
     .title {
         margin-left: 5px;
         overflow: hidden;
@@ -274,6 +322,11 @@ p {
 }
 
 @media screen and (max-width: 770px) {
+    .max-min {
+        max-width: 150px;
+        min-width: 110px;
+    }
+
     .col-9-custom {
         position: relative;
         width: 100%;

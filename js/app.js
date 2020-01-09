@@ -57,15 +57,57 @@ $(document).ready(function () {
     type: "GET",
     contentType: "application/json",
     url: "http://127.0.0.1:8080/api/markets",
-    async:false,
+    async: false,
     timeout: 600000,
     headers: {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
       if (data.marketId != null) {
-        market = `
-            <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
+
+        $.ajax({
+          type: "GET",
+          contentType: "application/json",
+          url: "http://127.0.0.1:8080/api/markets/block/check",
+          dataType: 'json',
+          async: false,
+          headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+          },
+          success: function (data) {
+            if (!data.success) {
+              var modal = `
+              <div class="modal fade" id="blokir" tabindex="-1" role="dialog" aria-labelledby="blokir"
+              aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"><i class="fas fa-info-circle"></i> Informasi </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body modal-market-body">
+                      Toko anda masih terkena blokir, untuk informasi lebih lanjut silahkan hubungi Customers Service kami. Mohon maaf atas ketidaknyamanannya.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn-ya" data-dismiss="modal">Mengerti</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              `
+              $("main").append(modal)
+
+              market = `
+                <a style="cursor:pointer;"  data-toggle="modal" data-target="#blokir"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span style="font-weight: bold; color: #ff5447; ">Terblokir</span></p></a>`;
+            } else {
+              market = `
+                <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
+            }
+
+          }
+        });
       } else {
         market = `
         <a href="/market/open-store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span style="color: #7d7d7d; ">Daftar</span></p></a>
@@ -79,7 +121,8 @@ $(document).ready(function () {
 
   function headerSuccess() {
     dropHtml = `
-      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>` +
+      <a href="/user/user.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-user"></i> Profile</p></a>
+      <a href="/user/mybook.html"><p class="dropdown-item drop-active blue" id="prof"><i class="fas fa-book"></i> Bukuku</p></a>` +
       market + `
       <a href="/user/transaksi.html"><p class="dropdown-item drop-active blue"><i class="far fa-credit-card"></i> Transaksi</p></a>
       <a href="/user/wishlist.html"><p class="dropdown-item drop-active blue"><i class="fas fa-shopping-bag"></i> Wishlist</p></a>
@@ -228,5 +271,6 @@ $(document).ready(function () {
       }
     });
   }
+
 
 });

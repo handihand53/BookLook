@@ -5,13 +5,31 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/markets/block/check",
+        dataType: 'json',
+        async: false,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (!data.success)
+                window.location.replace("/user/user.html")
+        },
+        error: function (errMsg) {
+            console.log(errMsg)
+        }
+    });
+
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://127.0.0.1:8080/api/markets",
         dataType: 'json',
-        timeout: 600000,
+        async: false,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },

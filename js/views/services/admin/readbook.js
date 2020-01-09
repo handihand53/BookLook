@@ -5,18 +5,16 @@ import {
 } from '../../../cookies.js'
 
 $.ajax({
-  type: "GET",
-  contentType: "application/json",
-  url: "http://127.0.0.1:8080/api/users",
-  dataType: 'json',
-  headers: {
-    'Authorization': `Bearer ` + getCookie("token"),
-  },
-  success: function (data) {
-  },
-  error: function (errMsg) {
-    window.location.replace("/404.html")
-  }
+    type: "GET",
+    url: "http://127.0.0.1:8080/api/admin/profile",
+    headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+    },
+    error: function (err) {
+        window.location.assign("/admin_login.html");
+    }
 });
 
 var urlString = window.location.href;
@@ -43,12 +41,12 @@ function parseURLParams(url) {
     return parms;
 }
 
-var url = `http://127.0.0.1:8080/api/libraries/books/`
+var url = `http://127.0.0.1:8080/api/markets/check-book/`
 var key = urlParams.key
 var id = urlParams.id
 var book = urlParams.file
 
-var fullPath = url + id + "/" + key + "/" + book +"#toolbar=0"
+var fullPath = url + id + "/" + key + "/" + book + "#toolbar=0"
 $("#iframe").attr("src", fullPath)
 
 $.ajax({
@@ -56,13 +54,10 @@ $.ajax({
     contentType: "application/json",
     url: fullPath,
     dataType: 'json',
-    headers: {
-      'Authorization': `Bearer ` + getCookie("token"),
-    },
     success: function (data) {
-      console.log(data)
+        console.log(data)
     },
     error: function (errMsg) {
-      console.log(errMsg)
+        console.log(errMsg)
     }
-  });
+});

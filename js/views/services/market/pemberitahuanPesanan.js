@@ -7,13 +7,31 @@ import {
 import checkTransaksi from '../../../notifMarket.js';
 
 $(window).load(function () {
-    
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/markets/block/check",
+        dataType: 'json',
+        async: false,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (!data.success)
+                window.location.replace("/user/user.html")
+        },
+        error: function (errMsg) {
+            console.log(errMsg)
+        }
+    });
+
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://127.0.0.1:8080/api/markets",
         dataType: 'json',
-        timeout: 600000,
+        async: false,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
@@ -45,39 +63,81 @@ $(window).load(function () {
     month[9] = "Oktober";
     month[10] = "November";
     month[11] = "Desember";
+    //digunakan untuk menampung data dari request array
+    //karena hasil dari request datang tidak serial, maka diperlukan untuk sorting
+    var dataArray = new Array();
 
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://127.0.0.1:8080/api/transactions/market/show",
         dataType: 'json',
-        async: true,
+        async: false,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            for(var i=data.length-1;i>=0;i--){
-                var d = new Date(data[i].createdAt);
-                var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-                var cl;
-                if(data[i].transferConfirm=="PENDING")cl="pembayaran-pending"
-                else cl="pembayaran-success"
-                var html = `
-                <tr>
-                    <td class="no-pemesanan" title="`+data[i].transactionId+`">`+data[i].transactionId+`</td>
-                    <td class="nama-pemesan" title="`+data[i].userId+`">`+data[i].userId+`</td>
-                    <td class="tgl-pemesanan" title="`+tgl+`">`+tgl+`</td>
-                    <td class="`+cl+`" title="`+data[i].transferConfirm+`">`+data[i].transferConfirm+`</td>
-                    <td><a href="detail_pemberitahuan.html?_i=`+data[i].transactionId+`" class="detail-pemesanan">Lihat</a></td>
-                </tr>
-                `
-                $("#contentBody").append(html)
+            var tot = 0;
+            for (var i = data.length - 1; i >= 0; i--) {
+                dataArray.push(data[i])
             }
+
+            dataArray.sort(function (a, b) {
+                return b.createdAt.toString().localeCompare(a.createdAt);
+            });
+
         },
         error: function (errMsg) {
             console.log(errMsg);
         }
     });
+    var tot = 0;
 
-    if(checkTransaksi()!=0)$("#pemberitahuan").html(checkTransaksi())
+    if (dataArray.length != 0) {
+        for (var i = 0; i < dataArray.length; i++) {
+            var username = ""
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "http://127.0.0.1:8080/api/users/" + dataArray[i].userId,
+                dataType: 'json',
+                async: false,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (data) {
+                    username = data.username
+                }
+            });
+            var d = new Date(dataArray[i].createdAt);
+            var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+            var cl;
+            if (dataArray[i].transferConfirm == "PENDING") cl = "pembayaran-pending"
+            else {
+                cl = "pembayaran-success"
+                tot++
+            }
+
+            var html = `
+                    <tr>
+                        <td class="no-pemesanan" title="` + dataArray[i].transactionId + `">` + dataArray[i].transactionId + `</td>
+                        <td class="nama-pemesan" title="` + username + `">` + username + `</td>
+                        <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
+                        <td class="` + cl + `" title="` + dataArray[i].transferConfirm + `">` + dataArray[i].transferConfirm + `</td>
+                        <td><a href="detail_pemberitahuan.html?_i=` + dataArray[i].transactionId + `" class="detail-pemesanan">Lihat</a></td>
+                    </tr>
+                    `
+            $("#contentBody").append(html)
+        }
+    } else {
+        var html = `
+                <tr>
+                    <td class="center" colspan="5" style="color: gray">Belum ada pemberitahuan terbaru</td>
+                </tr>
+                `
+        $("#contentBody").html(html)
+    }
+    $("#jmlBuku").html(tot)
+
+    if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
 });

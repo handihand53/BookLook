@@ -5,13 +5,33 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/markets/block/check",
+        dataType: 'json',
+        async: false,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (!data.success)
+                window.location.replace("/user/user.html")
+        },
+        error: function (errMsg) {
+            console.log(errMsg)
+        }
+    });
+
+
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://127.0.0.1:8080/api/markets",
         dataType: 'json',
-        timeout: 600000,
+        async: false,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
@@ -68,39 +88,93 @@ $(window).load(function () {
     month[10] = "November";
     month[11] = "Desember";
     var confirmId = urlParams._i;
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/transactions/market/show/" + urlParams._i,
-        dataType: 'json',
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            console.log(data)
-            var d = new Date(data.transaction.createdAt);
-            var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-            $("#noDetailTransaksi").html(data.transaction.transactionId)
-            $("#tglTransaksi").html(tgl)
-            $("#namaPemesan").html(data.transaction.userId)
-            $("#status").html(data.transaction.transferConfirm)
-            $("#price").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-            if(data.transaction.transferConfirm=="SUCCESS") {
-                $("#proses").attr("disabled", true)
-                $("#proses").removeClass("btn-proses")
-                $("#proses").addClass("btn-finish")
-                $("#proses").html("Selesai")
-                $("#status").css("color", "rgb(0, 157, 0)")
-            }
-            for (var i = 0; i < data.length; i++) {
 
+    function getDetailTrans() {
+        checkJmlBukuTerjual()
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/transactions/market/show/" + urlParams._i,
+            dataType: 'json',
+            async: false,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                $("#content").html("")
+                var d = new Date(data.transaction.createdAt);
+                var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+                $("#noDetailTransaksi").html(data.transaction.transactionId)
+                $("#tglTransaksi").html(tgl)
+                var username = ""
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    url: "http://127.0.0.1:8080/api/users/" + data.transaction.userId,
+                    dataType: 'json',
+                    async: false,
+                    headers: {
+                        'Authorization': `Bearer ` + getCookie("token"),
+                    },
+                    success: function (data) {
+                        username = data.username
+                    }
+                });
+                $("#namaPemesan").html(username)
+                $("#status").html(data.transaction.transferConfirm)
+                $("#price").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
+                if (data.transaction.transferConfirm == "SUCCESS") {
+                    $("#proses").attr("disabled", true)
+                    $("#proses").removeClass("btn-proses")
+                    $("#proses").addClass("btn-finish")
+                    $("#proses").html("Selesai")
+                    $("#status").css("color", "rgb(0, 157, 0)")
+                } else {
+                    $("#status").css("color", "#fc2803")
+                }
+                for (var i = data.transactionDetail.length - 1; i >= 0; i--) {
+                    var html = `
+                    <div class="col-12 plr-5">
+                        <div class="row shadow-card mb-3">
+                        <div class="col-3-custom">
+                            <div class="no-border border-radius-4">
+                            <img src="` + data.transactionDetail[i].product.productPhoto + `" alt="" class="width-img">
+                            </div>
+                        </div>
+                        <div class="col-9-custom plr-25">
+                            <div class="row border-bottom">
+                            <p class="col-md-6 title-text">Judul</p>
+                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.title + `</p>
+                            </div>
+                            <div class="row border-bottom">
+                            <p class="col-md-6 title-text">Penulis</p>
+                            <p class="author-book col-md-6 ">` + data.transactionDetail[i].product.author + `</p>
+                            </div>
+                            <div class="row border-bottom">
+                            <p class="col-md-6 title-text">ISBN</p>
+                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.isbn + `</p>
+                            </div>
+                            <div class="row border-bottom">
+                            <p class="col-md-6 title-text">SKU</p>
+                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.sku + `</p>
+                            </div>
+                            <div class="row border-bottom">
+                            <p class="col-md-6 title-text">Harga</p>
+                            <p class="title-book col-md-6 blue">Rp. <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</span></p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    `;
+                    $("#content").append(html)
+                }
+            },
+            error: function (errMsg) {
+                console.log(errMsg);
             }
-        },
-        error: function (errMsg) {
-            console.log(errMsg);
-        }
-    });
-
+        });
+    }
+    getDetailTrans()
 
     $("#proses").click(function () {
         $.ajax({
@@ -120,4 +194,33 @@ $(window).load(function () {
             }
         });
     })
+
+    $('#showInfo').on('hidden.bs.modal', function (e) {
+        getDetailTrans()
+        $("#pemberitahuan").html("")
+        $("#pemberitahuan").css("background", "transparent")
+    })
+
+    function checkJmlBukuTerjual() {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/transactions/market/show",
+            dataType: 'json',
+            async: true,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                var tot = 0;
+                for (var i = data.length - 1; i >= 0; i--) {
+                    if (data[i].transferConfirm == "PENDING") {} else tot++
+                }
+                $("#jmlBuku").html(tot)
+            },
+            error: function (errMsg) {
+                console.log(errMsg);
+            }
+        });
+    }
 });

@@ -31,12 +31,13 @@
       <div class="row">
         <div class="col-md-3 ">
           <div class="row">
-            <div class="col-5">
-              <img id="display" class="mb-3" alt="" width="100%">
+            <div>
+              <img id="display" class="mb-3 mr-3" alt="">
             </div>
-            <div class="col-6">
+            <div>
               <h5 id="marketName"></h5>
               <h6 class="status">Toko</h6>
+              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>              
             </div>
           </div>
         </div>
@@ -53,9 +54,6 @@
             </a>
             <a href="mybook_store.html">
               <li class="li-item">Buku</li>
-            </a>
-            <a href="history_penjualan.html">
-              <li class="li-item">Histori</li>
             </a>
             <li class="li-item">Keluar</li>
           </ul>
@@ -87,80 +85,12 @@
             <div class="detail-content fs-16 orange">Rp. <span id="price"></span></div>
           </div>
         </div>
-        <div>
-          <div class="col-12">
-            <div class="row shadow-card mb-3">
-              <div class="col-3-custom">
-                <div class="no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
+        <div id="content">
 
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Harga Rp. 57.000</p>
-                <br>
-              </div>
-            </div>
-
-            <div class="row shadow-card mb-3">
-              <div class="col-3-custom">
-                <div class="no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Harga Rp. 57.000</p>
-                <br>
-              </div>
-            </div>
-
-            <div class="row shadow-card mb-3">
-              <div class="col-3-custom">
-                <div class="no-border border-radius-4">
-                  <img src="../assets/img/sample 17.jpg" alt="" class="width-img">
-                </div>
-              </div>
-
-              <div class="col-9-custom">
-                <p class="title-book">Piece Of Pie</p>
-                <p class="author-book">Laura Palmer</p>
-                <p class="publish-book">Terbit : 27 Agustus 2005</p>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="deskripsi-content mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis
-                  labore asperiores veritatis alias ullam officia nostrum commodi, placeat numquam eveniet sit inventore
-                  repellendus hic eius, maxime, iste distinctio deleniti veniam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Maxime reiciendis nulla cum perferendis ipsam similique fugit ducimus quas eos, et,
-                  aperiam magnam sed sapiente nesciunt placeat autem? Nemo, repudiandae ducimus.</p>
-                <p class="price-detail orange">Harga Rp. 57.000</p>
-                <br>
-              </div>
-
-            </div>
-          </div>
-
-          <button class="btn-proses float-right" id="proses">Proses</button>
         </div>
+        <button class="btn-proses float-right" id="proses">Proses</button>
       </div>
-      
+
       <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
       <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

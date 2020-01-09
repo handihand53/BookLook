@@ -12,6 +12,8 @@ $(window).load(function () {
   getDataUser();
   checkMarket();
   getBook();
+  var id;
+  var readKey;
 
   function getDataUser() {
     $.ajax({
@@ -19,11 +21,12 @@ $(window).load(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/users",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
+        id = data.userId
+        readKey = data.readKey;
         if (data.userPhoto == null)
           $('#img').attr('src', "../assets/else/signature.png");
         else
@@ -47,19 +50,18 @@ $(window).load(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/libraries",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        console.log(data)
-        if (data.length!=0) {
+        if (data.length != 0) {
           for (var i = 0; i < data.length; i++) {
             var pro = data[i].product;
+            var res = pro.productFile.split("/");
             var html = `
                 <div class="col-3-custom max-min">
-                <a href="readbook.html?file=` + pro.productFile + `">
-                    <div class="content-border shadow-card no-border border-radius-4">
+                <a data-id="` + id + `" data-file="` + res[res.length - 1] + `" target="#" class="rb">
+                    <div class="content-border no-border border-radius-4 border-book">
                     <img src="` + pro.productPhoto + `" alt="" class="width-img">
                     <div class="p-2">
                         <p class="title-book" title="+` + pro.title + `+">` + pro.title + `</p>
@@ -72,7 +74,8 @@ $(window).load(function () {
 
             $("#contentBook").append(html)
           }
-        }else{
+          klik()
+        } else {
           $("#contentBook").removeClass("flex-row")
           var html = `
           <div class="bg-products"></div>
@@ -87,5 +90,13 @@ $(window).load(function () {
         console.log(errMsg)
       }
     });
+  }
+
+  function klik() {
+    $(".rb").click(function () {
+      getDataUser()
+      $(this).attr("data-key", readKey)
+      window.open("/user/readbook.html?file="+ $(this).attr("data-file") + "&id=" + $(this).attr("data-id") + "&key=" + readKey)
+    })
   }
 });

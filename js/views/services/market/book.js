@@ -6,10 +6,16 @@ import {
 
 
 $(document).ready(function () {
-
+  var long = ""
+  var short = ""
   var urlString = window.location.href;
   var urlParams = parseURLParams(urlString);
   var productId;
+
+  getBook()
+  var transId = new Array();
+  getTransaction()
+  getBookTransaction()
 
   function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,
@@ -36,9 +42,6 @@ $(document).ready(function () {
     type: "GET",
     url: "http://127.0.0.1:8080/api/products/" + urlParams._i.toString(),
     async: false,
-    headers: {
-      'Authorization': `Bearer ` + getCookie("token"),
-    },
     success: function (data) {
       productId = data.product.productId;
       $("#marketSeller").html(`<a class="market-link" href="/market/market-page.html?id=` + data.marketId + `"><u>` + data.marketName + `</u></a>`);
@@ -47,14 +50,37 @@ $(document).ready(function () {
       $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''));
       $("#author").html(data.product.author);
       $("#publisher").html(data.product.publisher);
-      $("#deskripsi").html(data.product.description);
+
+      if (data.product.description.toString().length > 400) {
+        long = data.product.description + `<span class="read-more" id="less-more"> Lebih sedikit</span>`
+        short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
+      } else {
+        short = data.product.description
+      }
+
+      $("#deskripsi").html(short);
       $("#bookimg").attr("src", data.product.productPhoto);
       $("#title").html(data.product.title)
+      bindReadMore()
     },
     error: function (errMsg) {
       console.log(errMsg)
     }
   });
+
+  function bindReadMore() {
+    $("#read-more").click(function () {
+      $("#deskripsi").html(long)
+      bindLess()
+    })
+  }
+
+  function bindLess() {
+    $("#less-more").click(function () {
+      $("#deskripsi").html(short)
+      bindReadMore()
+    })
+  }
 
   $("#buy").click(function () {
     var data = {
@@ -73,10 +99,18 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: function (data) {
         getBuckets()
+        $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+        $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
+        $("#ok").html("OK")
         $("#modalInfo").click()
       },
       error: function (errMsg) {
-        console.log(errMsg)
+        if (errMsg.responseJSON.status) {
+          $("#icon").html(`<img class="mb-4"src="../assets/else/not-login.png" alt="" width="100px">`)
+          $("#modalMsgEdit").html("Untuk menambahkan item ini, kamu harus login dulu nih.")
+          $("#btn-login").html("<a href='/login.html'><button class='mt-3 btn-buy'>Login</button></a>")
+          $("#modalInfo").click()
+        }
       }
     });
   })
@@ -98,16 +132,22 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: function (data) {
         getWishlist()
+        $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+        $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
+        $("#ok").html("OK")
         $("#modalInfo").click()
       },
       error: function (errMsg) {
-        console.log(errMsg)
+        if (errMsg.responseJSON.status) {
+          $("#icon").html(`<img class="mb-4"src="../assets/else/not-login.png" alt="" width="100px">`)
+          $("#modalMsgEdit").html("Untuk menambahkan item ini, kamu harus login dulu nih.")
+          $("#btn-login").html("<a href='/login.html'><button class='mt-3 btn-buy'>Login</button></a>")
+          $("#modalInfo").click()
+        }
       }
     });
   })
 
-  getWishlist()
-  getBuckets()
   function getBuckets() {
     $.ajax({
       type: "GET",
@@ -178,6 +218,9 @@ $(document).ready(function () {
       }
     });
   }
+  getBuckets()
+
+  getWishlist()
 
   function getWishlist() {
     $.ajax({
@@ -185,7 +228,6 @@ $(document).ready(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/wishlists",
       dataType: 'json',
-      timeout: 600000,
       async: false,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
@@ -202,32 +244,27 @@ $(document).ready(function () {
             }
           }
         }
-      },
-      error: function (errMsg) {
-        window.location.replace("/404.html")
       }
     });
   }
-  getBook()
+
   function getBook() {
     $.ajax({
       type: "GET",
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/libraries",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        if (data.length!=0) {
+        if (data.length != 0) {
           for (var i = 0; i < data.length; i++) {
-            if(data[i].product.productId==urlParams._i.toString()){
+            if (data[i].product.productId == urlParams._i.toString()) {
               $("#buy").removeClass("btn-buy")
               $("#buy").addClass("btn-already")
               $("#buy").html("Sudah dibeli")
               $("#buy").attr("disabled", true)
-
               $("#wishlist").removeClass("btn-wishlist")
               $("#wishlist").addClass("btn-already")
               $("#wishlist").attr("disabled", true)
@@ -235,7 +272,6 @@ $(document).ready(function () {
             }
           }
         }
-
       },
       error: function (errMsg) {
         console.log(errMsg)
@@ -243,4 +279,47 @@ $(document).ready(function () {
     });
   }
 
+  function getTransaction() {
+    $.ajax({
+      type: "GET",
+      contentType: "application/json",
+      url: "http://127.0.0.1:8080/api/transactions/user/show",
+      dataType: 'json',
+      async: false,
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        for (var i = 0; i < data.length; i++)
+          transId.push(data[i].transactionId)
+      }
+    });
+  }
+
+  function getBookTransaction() {
+    for (var i = 0; i < transId.length; i++) {
+      $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/transactions/user/show/" + transId[i],
+        dataType: 'json',
+        headers: {
+          'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+          for (var i = 0; i < data.transactionDetail.length; i++) {
+            if (data.transactionDetail[i].product.productId == urlParams._i) {
+              $("#buy").removeClass("btn-buy")
+              $("#buy").addClass("btn-already")
+              if (data.transactionDetail[i].marketConfirm == "CONFIRMED")
+                $("#buy").html("Sudah dibeli")
+              else
+                $("#buy").html("Sedang diproses")
+              $("#buy").attr("disabled", true)
+            }
+          }
+        }
+      });
+    }
+  }
 });

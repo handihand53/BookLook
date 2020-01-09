@@ -106,13 +106,6 @@ $(window).load(function() {
     $("#cart-item").html(cartHtml);
     $("#logout").click(function(){
       localStorage.removeItem("token");
-      console.log("klik")
       location.reload();
     })
-
-    // function logout(){
-    //   localStorage.removeItem("token");
-    //   console.log("klik")
-    //   location.reload();
-    // }    
 });

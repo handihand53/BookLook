@@ -2,25 +2,9 @@ import {
     setCookie,
     getCookie,
     checkCookie
-} from './cookies.js';
+} from '../../../cookies.js';
 
 $(document).ready(function () {
-
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/users",
-        dataType: 'json',
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            window.location.assign("user/index.html");
-        },
-        error: function (errMsg) {
-
-        }
-    });
 
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -75,25 +59,23 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "http://127.0.0.1:8080/api/auth/signin",
+                url: "http://127.0.0.1:8080/api/auth/admin/signin",
                 data: JSON.stringify(data),
                 dataType: 'json',
                 timeout: 600000,
                 success: function (data) {
-                    if (data.status == true) {
-                        var token = data.result;
-                        setCookie("token", token, 1);
-                        window.location.assign("user/index.html");
-                    } else {
-                        $("#login-fail").html('Anda diblokir untuk sementara waktu, untuk informasi lebih hubungi CS kami.')
-                    }
+                    console.log(data)
+                    var token = data.result;
+                    setCookie("token", token, 1);
+                    window.location.assign("admin/dashboard.html");
                 },
                 error: function (errMsg) {
-                    if (errMsg.responseJSON.status == false) {
-                        $("#login-fail").html(`Login Gagal`)
-                    }
+                    console.log(errMsg)
+                    console.log(errMsg.responseJSON.status)
                     if (errMsg.responseJSON.status == 401)
                         $("#login-fail").html('Email atau password salah, Silahkan coba lagi')
+                    if (!errMsg.responseJSON.status)
+                        $("#login-fail").html('Login Gagal')
                 }
             });
         }

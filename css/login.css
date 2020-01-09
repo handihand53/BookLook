@@ -1,10 +1,8 @@
 .judul-text{
     color: rgb(44, 206, 255) !important;
-    /* font-family: 'Raleway', sans-serif; */
     font-weight: 400;
     font-size: 40px;
     color: #fff;
-    
     font-weight: bold;
 }
 
@@ -18,7 +16,7 @@
 }
 
 .login-text{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'raleway', sans-serif;
     font-size: 20px;
     font-weight: 500;
 }
@@ -35,9 +33,15 @@
     box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
 }
 
-.login-fail{
+.label-text{
     font-size: 14px;
-    font-weight: 100;
+}
+
+.login-fail{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
     color: rgb(231, 33, 33);
 }
 
@@ -124,11 +128,39 @@ a:hover{
     text-align: left;
 }
 
+.img-cst{
+    width: 200px;
+}
+
+.bottom-text{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn-login {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 176, 29) !important;
+    font-size: 15px;
+    border: none;
+    color: white !important;
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    font-weight: 500;
+}
+
+.btn-login:hover {
+    background-color: rgb(247, 140, 0) !important;
+}
+
+
 .login-bg{
     background-color: #fff;
     width: 100%;
     margin: auto;
-    height: 500px;
+    height: auto;
     padding: 20px 80px;
 }
 
@@ -145,7 +177,7 @@ a:hover{
     }
     .bg-cover{
         padding: 30px 15px;
-        background-size: 600%;
+        background-size: 250%;
         height: 750px;
     }
 
