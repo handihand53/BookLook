@@ -21,54 +21,70 @@
     <main>
         <div class="row" style="margin: 0px;">
             <section class="col-2 side-bar" id="sidebar">
-                
+                <!-- <span class="float-right">Semua waktu</span> -->
             </section>
             <section class="col-10" style="background-color: rgb(238, 238, 238); padding: 0px;">
-                <div class="row justify-content-center" style="margin: 0px;">
-                    <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <span class="m-5">Yang Baru Bulan Ini</span><br>
-                        <hr>
-                        <div class="row m-4">
-                            <div class="col-6 center">
-                                <span>31</span>
-                                <p>User Baru</p>
+                <div class="kontent">
+                    <div class="col-3-cst m-3">
+                        <div class="row background-cst p-2">
+                            <div class="center title-card col-6">
+                                <i class="fas fa-users orange"></i>
+                                <br>
+                                <span class="text-detail-cst ">Pengguna</span>
                             </div>
-                            <div class="col-6 center">
-                                <span>10</span>
-                                <p>Toko Baru</p>
+                            <div class="f50 center border-left col-6">
+                                <div class="ml-2" id="user"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2"><i class="fa fa-chart-bar" style="font-size: 50px;"
-                                aria-hidden="true"></i></div>
-                        <span class="m-5">45 User Terdaftar</span><br>
-                        <div class="center mt-2">
-                            <button class="btn-orange">Lihat</button>
+                    <div class="col-3-cst m-3">
+                        <div class="row center background-cst p-2">
+                            <div class="center title-card col-6">
+                                <i class="fas fa-store-alt blue"></i>
+                                <br>
+                                <span class="text-detail-cst">Toko</span>
+                            </div>
+                            <div class="f50 center border-left col-6">
+                                <div class="ml-2" id="market"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2"><i class="fa fa-store-alt" style="font-size: 50px;"
-                                aria-hidden="true"></i></div>
-                        <span class="m-5">27 Toko Terdaftar</span><br>
-                        <div class="center mt-2">
-                            <button class="btn-orange">Lihat</button>
+                    <div class="col-3-cst m-3">
+                        <div class="row center background-cst p-2">
+                            <div class="center title-card col-6">
+                                <i class="fas fa-check-circle green"></i>
+                                <br>
+                                <span class="text-detail-cst">Buku Terkonfirmasi</span>
+                            </div>
+                            <div class="f50 center border-left col-6">
+                                <div class="ml-2" id="bukuKonfirm"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="content-border-admin shadow-card no-border pt-3 m-3-custom">
-                        <div class="center m-2"><i class="fa fa-ban" style="font-size: 50px;" aria-hidden="true"></i>
+                    <div class="col-3-cst m-3">
+                        <div class="row center background-cst p-2">
+                            <div class="center title-card col-6">
+                                <i class="fas fa-times red"></i>
+                                <br>
+                                <span class="text-detail-cst">Buku Tidak Terkonfirmasi</span>
+                            </div>
+                            <div class="f50 center border-left col-6">
+                                <div class="ml-2" id="bukuUnkonfirm"></div>
+                            </div>
                         </div>
-                        <span class="m-5">3 User diblokir</span><br>
-                        <div class="center mt-2">
-                            <button class="btn-orange">Lihat</button>
-                        </div>
-                        <br>
                     </div>
-                </div>
-
-                <div class="row justify-content-center" style="margin: 0px;">
-                    <div class="content-border shadow-card no-border p-2 m-3-custom d-table">a</div>
-                    <div class="content-border shadow-card no-border p-2 m-3-custom d-table">b</div>
+                    <div class="col-3-cst m-3">
+                        <div class="row center background-cst p-2">
+                            <div class="center title-card col-6">
+                                <i class="fas fa-exchange-alt ocean"></i>
+                                <br>
+                                <span class="text-detail-cst">Transaksi</span>
+                            </div>
+                            <div class="f50 center border-left col-6">
+                                <div class="ml-2" id="trans"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -78,7 +94,7 @@
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="/js/views/services/admin/header-footer.js"></script>
-    <script src="/js/views/services/admin/sidebar.js"></script>
+    <script type="module" src="/js/views/services/admin/sidebar.js"></script>
     <script type="module" src="/js/views/services/admin/dashboard.js"></script>
     <script>
         function openNav() {

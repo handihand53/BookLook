@@ -5,17 +5,28 @@ import {
 } from '../../../cookies.js';
 
 $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "http://127.0.0.1:8080/api/admin/profile",
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {},
-        error: function (err) {
-            window.location.assign("/admin_login.html");
-        }
-    });
+
+    var readKey
+    var id
+    getDataAdmin()
+
+    function getDataAdmin() {
+        $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1:8080/api/admin/profile",
+            async: false,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                id = data.userId
+                readKey = data.readKey
+            },
+            error: function (err) {
+                window.location.assign("/admin_login.html");
+            }
+        });
+    }
 
     var long = ""
     var short = ""
@@ -43,7 +54,6 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
                 if (data.length == 0)
                     $("#jmlBuku").html("")
                 else
@@ -61,7 +71,7 @@ $(document).ready(function () {
                         <td>` + (i + 1) + `</td>
                         <td class="text-table center" title="` + data[i].product.title + `">` + data[i].product.title + `</td>
                         <td class="text-table center" title="` + tgl + `">` + tgl + `</td>
-                        <td class="text-table center" title="` + data[i].marketName + `"><a target="#" href=/market/market-page.html?id=`+data[i].marketId+`>` + data[i].marketName + `</a></td>
+                        <td class="text-table center" title="` + data[i].marketName + `"><a target="#" href=/market/market-page.html?id=` + data[i].marketId + `>` + data[i].marketName + `</a></td>
                         <td class="text-table look center" data-id="` + data[i].product.productId + `">Lihat</td>
                         <td class="center no-pad-left"><button id="acc" class="btn-acc" data-name="` + data[i].product.title + `" data-id="` + data[i].product.productId + `" type="button"><i class="fas fa-check f14 mb-2 mt-2"></i></button></td>
                         <td class="center no-pad-right"><button id="decline" class="btn-decline" data-id=` + data[i].product.productId + ` ><i class="fas fa-times"></i></button></td>
@@ -70,6 +80,12 @@ $(document).ready(function () {
                         $("#contentBody").append(html)
                     }
                 } else {
+                    var html = `
+                    <tr>
+                        <td colspan="6" class="center txt">Belum ada permintaan buku baru</td>
+                    </tr>
+                    `
+                    $("#contentBody").append(html)
                     $("#jmlBukuMob").html()
                     $("#jmlBuku").html()
                     $("#jmlBukuMob").removeClass("notif")
@@ -116,7 +132,7 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
+                var res = data.product.productFile.split("/");
                 $("#img-book").attr("src", data.product.productPhoto)
                 $("#bookModal").html(data.product.title)
                 $("#penulis").html(data.product.author)
@@ -130,6 +146,7 @@ $(document).ready(function () {
                 } else {
                     short = data.product.description
                 }
+                $("#readBook").attr("data-file", res[res.length - 1])
                 $("#deskripsi").html(short)
                 $("#btn-modal").click()
                 bindReadMore()
@@ -153,6 +170,11 @@ $(document).ready(function () {
             bindReadMore()
         })
     }
+
+    $("#readBook").click(function () {
+        getDataAdmin()
+        window.open("/admin/readbook.html?file="+ $(this).attr("data-file") + "&id=" + id + "&key=" + readKey)
+    })
 
     $("#dash-konfirmasi").addClass("li-active")
     $("#dash-konfirmasi-link").addClass("link-list")

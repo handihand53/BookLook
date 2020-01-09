@@ -29,14 +29,7 @@
             </section>
             <section class="col-10" style="background-color: rgb(238, 238, 238); padding: 0px;">
 
-                <div class="bg-white-custom col-9 mt-3" style="margin-left: auto; margin-right: auto;">
-                    <div class="content-border p-2 shadow-card no-border">
-                        <span class="left color-green bold">Total Toko
-                            Terdaftar</span><span class=""> 45</span>
-                    </div>
-                </div>
-
-                <div class="row col-10 table-overflow" style="margin-left: auto; margin-right: auto;">
+                <div class="mt-4 col-10 table-overflow" style="margin-left: auto; margin-right: auto;">
                     <div class="list-tag">List Toko</div>
                     <table class="table table-hover">
                         <thead>
@@ -52,16 +45,24 @@
                         <tbody id="table-body">
                         </tbody>
                     </table>
+                    <div class="center"><span id="previous"><a id="aprevious" href=""><i
+                                    class="fas fa-angle-double-left"></i></a></span> <span id="page"></span> <span
+                            id="next"><a id="anext" href=""><i class="fas fa-angle-double-right"></i></a></span>
+                    </div>
+                    <br>
+                    <div>Menampilkan <span id="currentShow"></span> dari <span id="allShow"></span> Toko</div>
                 </div>
 
-                <div class="row justify-content-center" style="margin: 0px;">
+                <div class="col-10" style="margin: 0px;">
+
+
                 </div>
             </section>
         </div>
 
         <!-- MODAL CONFIRM BLOKIR -->
         <!-- Button trigger modal -->
-        <button id="confirm" data-toggle="modal" data-target="#confirmModal" ></button>
+        <button id="confirm" data-toggle="modal" data-target="#confirmModal" hidden></button>
 
         <!-- Modal -->
         <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -75,15 +76,16 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <span aria-hidden="true">
+                        <span aria-hidden="true" id="unblock">
                             Lakukan blokir market <span id="marketName"></span>?
                         </span>
-                        <div>Durasi blokir: <input type="number" class="day" id="hari" min="1" width="50px"> Hari</div>
+                        <div id="durasi"></div>
                         <div id="errText" class="red"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn-gray" data-dismiss="modal">Batal</button>
                         <button type="button" id="blokirMarket" class="btn-file">Konfirmasi</button>
+                        <button type="button" id="unblokirMarket" class="btn-file">Konfirmasi</button>
                     </div>
                 </div>
             </div>
@@ -109,16 +111,16 @@
                                 <img id="img-market" class="width-img" src="">
                             </div>
                             <div class="col-md-8">
-                               <div class="detail-text-date">Mulai bergabung: <span id="date"></span></div>
-                               <div class="detail-text-blokir">Mulai blokir: <span id="blokirStart"></span></div>
-                               <div class="detail-text-blokir">Akhir blokir: <span id="blokirEnd"></span></div>
-                               <div class="detail-text-2">Deskripsi</div>
-                               <div class="detail-text-deskripsi" id="deskripsiToko"></div>
+                                <div class="detail-text-date">Mulai bergabung: <span id="date"></span></div>
+                                <div class="detail-text-blokir">Mulai blokir: <span id="blokirStart"></span></div>
+                                <div class="detail-text-blokir">Akhir blokir: <span id="blokirEnd"></span></div>
+                                <div class="detail-text-2">Deskripsi</div>
+                                <div class="detail-text-deskripsi" id="deskripsiToko"></div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button"  data-dismiss="modal" class="btn-file">Tutup</button>
+                        <button type="button" data-dismiss="modal" class="btn-file">Tutup</button>
                     </div>
                 </div>
             </div>
@@ -129,7 +131,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="/js/views/services/admin/header-footer.js"></script>
-    <script src="/js/views/services/admin/sidebar.js"></script>
+    <script type="module" src="/js/views/services/admin/sidebar.js"></script>
     <script type="module" src="/js/views/services/admin/dashboard-toko.js"></script>
     <script>
         function openNav() {

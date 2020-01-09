@@ -27,7 +27,11 @@ $(document).ready(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
+            $("#bukuKonfirm").html(data.confirmedBook)
+            $("#bukuUnkonfirm").html(data.unconfirmedBook)
+            $("#trans").html(data.transaction)
+            $("#user").html(data.user)
+            $("#market").html(data.market)
         },
         error:function (err){
             window.location.assign("/admin_login.html");

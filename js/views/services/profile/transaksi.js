@@ -18,7 +18,6 @@ $(window).load(function () {
       contentType: "application/json",
       url: "http://127.0.0.1:8080/api/users",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
@@ -118,7 +117,7 @@ $(window).load(function () {
   $.ajax({
     type: "PUT",
     contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/transactions/user/confirm/b8fa446e-950c-4880-8bb1-9faf13cf488b",
+    url: "http://127.0.0.1:8080/api/transactions/user/confirm/13e64b63-e9fd-4148-9607-707e2813c329",
     dataType: 'json',
     async: false,
     headers: {

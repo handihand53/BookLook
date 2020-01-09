@@ -5,6 +5,7 @@ import {
 } from './cookies.js'
 
 var id = ""
+var readKey
 getDataUser()
 
 function getDataUser() {
@@ -19,6 +20,7 @@ function getDataUser() {
         },
         success: function (data) {
             id = data.userId
+            readKey = data.readKey
         }
     });
 }
@@ -156,13 +158,13 @@ function getBook() {
                     </div>
                     `
                 $("#slider").append(body)
-                var le=0;
-                if(data.length>17){
-                    le=17
-                }else{
-                    le=data.length
+                var le = 0;
+                if (data.length > 17) {
+                    le = 17
+                } else {
+                    le = data.length
                 }
-                for (var i = 0; i < le ; i++) {
+                for (var i = 0; i < le; i++) {
                     var pro = data[i].product;
                     var res = pro.productFile.split("/");
                     if (i % 6 == 0 && i != 0) {
@@ -177,7 +179,7 @@ function getBook() {
                     }
                     var content = `
                     <div class="col-2-mob-4-desk">
-                        <a href="readbook.html?file=` + res[res.length - 1] + `&key=` + data[i].uniqueKey + `&id=` + id + `" target="#">
+                        <div class="rb" data-file="` + res[res.length - 1] + `" data-id="` + id + `" target="#">
                             <div class="content-border border-radius-4 shadow-card max-min no-border border-radius-4 select2">
                                 <img src="` + data[i].product.productPhoto + `" alt="` + data[i].product.title + `" class="width-img">
                                 <div class="p-1">
@@ -185,11 +187,11 @@ function getBook() {
                                     <p class="author-book" title="` + data[i].product.author + `">` + data[i].product.author + `</p>
                                 </div>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     `
                     $(".slider-container:last").append(content)
-                }
+                }   
                 var content = `
                     <div class="col-2-mob-4-desk">
                         <a href="/user/mybook.html">
@@ -199,14 +201,29 @@ function getBook() {
                         </a>
                     </div>`
                 $(".slider-container:last").append(content)
-
+                klik()
             } else {
-
+                var body = `
+                            <div class="carousel-item">
+                                <div class="row col-12 slider-container">
+                                </div>
+                            <br>
+                            </div>
+                            `
+                $("#slider").append(body)
+                $(".slider-container:last").append("Belum ada buku")
             }
-            console.log(data)
         },
         error: function (errMsg) {
             console.log(errMsg)
         }
     });
+
+    function klik() {
+        $(".rb").click(function () {
+            getDataUser()
+            $(this).attr("data-key", readKey)
+            window.open("/user/readbook.html?file=" + $(this).attr("data-file") + "&id=" + $(this).attr("data-id") + "&key=" + readKey)
+        })
+    }
 }

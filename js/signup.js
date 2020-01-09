@@ -118,7 +118,7 @@ $(document).ready(function () {
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
-                    alert("gagal");
+                    alert(errMsg.responseJSON.message);
                 }
             });
         }

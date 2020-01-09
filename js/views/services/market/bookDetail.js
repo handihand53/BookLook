@@ -5,6 +5,32 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+    getDataUser()
+
+    var readKey
+    var id
+
+    function getDataUser() {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/users",
+            dataType: 'json',
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+
+                console.log(data)
+                id = data.userId
+                readKey = data.readKey;
+            },
+            error: function (errMsg) {
+                window.location.replace("/404.html")
+            }
+        });
+    }
+
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
@@ -56,7 +82,7 @@ $(window).load(function () {
 
     var long = ""
     var short = ""
-
+    var res
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -73,7 +99,7 @@ $(window).load(function () {
                 window.location.replace("/404.html")
             } else {
                 $("#loading").css("visibility", "hidden");
-
+                res = data.product.productFile.split("/");
                 if (data.product.description.toString().length > 400) {
                     long = data.product.description + `<span class="read-more" id="less-more"> Lebih sedikit</span>`
                     short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
@@ -121,6 +147,7 @@ $(window).load(function () {
                 <p class="deskripsi">Deskripsi</p>
                 <p class="mb-4 desk" id="deskripsi">` + short + `</p>
                 <br>
+                <button class="btn-read">Lihat</button>
                 <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
               </div>
                 `
@@ -171,4 +198,8 @@ $(window).load(function () {
             }
         });
     }
+    $(".btn-read").click(function () {
+        getDataUser()
+        window.open("/market/readbook.html?file=" + res[res.length - 1] + "&id=" + id + "&key=" + readKey)
+    })
 });

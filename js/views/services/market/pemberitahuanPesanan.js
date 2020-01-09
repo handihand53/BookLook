@@ -11,9 +11,27 @@ $(window).load(function () {
     $.ajax({
         type: "GET",
         contentType: "application/json",
+        url: "http://127.0.0.1:8080/api/markets/block/check",
+        dataType: 'json',
+        async: false,
+        headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+        },
+        success: function (data) {
+            if (!data.success)
+                window.location.replace("/user/user.html")
+        },
+        error: function (errMsg) {
+            console.log(errMsg)
+        }
+    });
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
         url: "http://127.0.0.1:8080/api/markets",
         dataType: 'json',
-        timeout: 600000,
+        async: false,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
@@ -75,31 +93,32 @@ $(window).load(function () {
     });
     var tot = 0;
 
-    for (var i = 0; i < dataArray.length; i++) {
-        var username = ""
-        $.ajax({
-            type: "GET",
-            contentType: "application/json",
-            url: "http://127.0.0.1:8080/api/users/" + dataArray[i].userId,
-            dataType: 'json',
-            async: false,
-            headers: {
-                'Authorization': `Bearer ` + getCookie("token"),
-            },
-            success: function (data) {
-                username = data.username
+    if (dataArray.length != 0) {
+        for (var i = 0; i < dataArray.length; i++) {
+            var username = ""
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                url: "http://127.0.0.1:8080/api/users/" + dataArray[i].userId,
+                dataType: 'json',
+                async: false,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (data) {
+                    username = data.username
+                }
+            });
+            var d = new Date(dataArray[i].createdAt);
+            var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+            var cl;
+            if (dataArray[i].transferConfirm == "PENDING") cl = "pembayaran-pending"
+            else {
+                cl = "pembayaran-success"
+                tot++
             }
-        });
-        var d = new Date(dataArray[i].createdAt);
-        var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-        var cl;
-        if (dataArray[i].transferConfirm == "PENDING") cl = "pembayaran-pending"
-        else {
-            cl = "pembayaran-success"
-            tot++
-        }
 
-        var html = `
+            var html = `
                     <tr>
                         <td class="no-pemesanan" title="` + dataArray[i].transactionId + `">` + dataArray[i].transactionId + `</td>
                         <td class="nama-pemesan" title="` + username + `">` + username + `</td>
@@ -108,7 +127,15 @@ $(window).load(function () {
                         <td><a href="detail_pemberitahuan.html?_i=` + dataArray[i].transactionId + `" class="detail-pemesanan">Lihat</a></td>
                     </tr>
                     `
-        $("#contentBody").append(html)
+            $("#contentBody").append(html)
+        }
+    } else {
+        var html = `
+                <tr>
+                    <td class="center" colspan="5" style="color: gray">Belum ada pemberitahuan terbaru</td>
+                </tr>
+                `
+        $("#contentBody").html(html)
     }
     $("#jmlBuku").html(tot)
 

@@ -12,8 +12,6 @@ $(document).ready(function () {
   var urlParams = parseURLParams(urlString);
   var productId;
 
-  getWishlist()
-  getBuckets()
   getBook()
   var transId = new Array();
   getTransaction()
@@ -101,7 +99,7 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: function (data) {
         getBuckets()
-        $("icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+        $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
         $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
         $("#ok").html("OK")
         $("#modalInfo").click()
@@ -134,7 +132,7 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: function (data) {
         getWishlist()
-        $("icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
+        $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
         $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
         $("#ok").html("OK")
         $("#modalInfo").click()
@@ -220,6 +218,9 @@ $(document).ready(function () {
       }
     });
   }
+  getBuckets()
+
+  getWishlist()
 
   function getWishlist() {
     $.ajax({
