@@ -69,6 +69,7 @@ a:hover {
     z-index: -99;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: 115%;
 }
 
 .content-border {
