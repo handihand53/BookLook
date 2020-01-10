@@ -70,7 +70,16 @@ $(window).load(function () {
                                             ` + bookArr[i].product.publisher + `
                                             </div>
                                         </div>
-        
+
+                                        <div class="row border-bot">
+                                            <div class="col-md-6 sub-list gray">
+                                                ISBN
+                                            </div>
+                                            <div class="col-md-6 sub-list">
+                                                ` + bookArr[i].product.isbn + `
+                                            </div>
+                                        </div>
+
                                         <div class="row border-bot">
                                             <div class="col-md-6 sub-list gray">
                                                 SKU
@@ -82,10 +91,10 @@ $(window).load(function () {
         
                                         <div class="row border-bot">
                                             <div class="col-md-6 sub-list gray">
-                                                ISBN
+                                                Jumlah halaman
                                             </div>
                                             <div class="col-md-6 sub-list">
-                                                ` + bookArr[i].product.isbn + `
+                                            ` + bookArr[i].product.pageTotal + ` Halaman
                                             </div>
                                         </div>
 

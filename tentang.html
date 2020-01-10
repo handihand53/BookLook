@@ -28,10 +28,61 @@
   <br>
   <div class="batas"></div>
   </section>
-  <main class="content content-width content-height" style="min-height: 500px;">
-    <img src="/assets/logo/logo_blue.png" alt="" class="logo">
-        <h3 class="blue-about">Tentang</h3>
-        <p><b>BookLook</b> - Situs Jual Beli Online di Indonesia BookLook merupakan situs jual beli online di Indonesia yang memiliki ratusan buku digital. Baca buku online terasa semakin mudah dan menyenangkan saat ini karena apapun yang Anda ingin baca pasti bisa ditemukan di BookLook.</p>
+  <main class="about content-height row">
+    <section class="col-md-3">
+      <a href="/tentang.html" class="m-1">
+        <p class="active cg">Tentang BookLook <i class="fas fa-chevron-right float-right mt-15"></i></p>
+      </a>
+      <a href="/syarat-dan-ketentuan.html" class="m-1">
+        <p id="bt1" class="bottom-gray cg">Syarat & ketentuan <i id="icon1"
+            class="fas fa-chevron-right float-right mt-15 hide-arrow"></i>
+        </p>
+      </a>
+      <a href="/kebijakan-privasi.html" class="m-1">
+        <p id="bt2" class="bottom-gray cg">Kebijakan Privasi <i id="icon2"
+            class="fas fa-chevron-right float-right mt-15 hide-arrow"></i>
+        </p>
+      </a>
+    </section>
+
+    <section class="col-9 content-body mb-5">
+      <div class="border-bottom p-2 mb-2">
+        <h4 class="cg bold">Tentang BookLook</h4>
+      </div>
+      <div class="">
+        <p class="cg lh border-bottom pb-4">
+          BookLook Sebagai salah satu situs jual beli, berkomitmen memberikan pengalaman berbelanja buku online yang
+          aman, nyaman, mudah, menyenangkan, di mana saja dan kapan saja. Hal ini disebabkan dengan adanya kehadiran
+          BookLook yang memiliki tujuan untuk memastikan kegiatan belanja Anda dapat dilakukan senyaman mungkin. Melalui
+          transfer bank yang bisa dilakukan menggunakan rekening dari berbagai bank yang tersedia.
+
+          Pesatnya perkembangan teknologi dari hari ke hari mempermudah begitu banyak aktivitas yang dilakukan dalam
+          keseharian masyarakat Indonesia. Salah satu aktivitas yang terpengaruh karena kemajuan teknologi ini adalah
+          kegiatan belanja. Untuk membaca buku kini tidak lagi harus mengunjungi beraneka toko untuk mecari setiap
+          buku yang berbeda, karena dapat dilakukan dengan cara yang mudah. Dengan memanfaatkan jaringan internet, maka
+          anda dapat terhubung langsung dengan banyaknya marketplace atau situs jual beli online yang ada.
+          Salah satunya adalah situs jual beli buku secara online. Di tengah banyaknya situs belanja buku secara online
+          yang saling bersaing, BookLook hadir sebagai salah satu toko buku online terbaik dan terlengkap untuk
+          memudahkan anda semua. Selain jual beli buku secara online, nantinya buku yang sudah dibeli dapat langsung
+          dibaca dengan instant tanpa memakan waktu lama. </p>
+
+        <h6 class="mt-4">Pertanyaan Umum Seputar BookLook</h6>
+        <ul class="no-padding">
+          <li class="cg lh mt-4 mb-3 ml-3 about-title">Apakah BookLook memiliki toko offline ?</li>
+          <p class="cg lh">Saat ini BookLook belum memiliki toko offline. Pembelian hanya bisa dilakukan melalui website
+            BookLook. Klik <a href="/user/">di sini</a> untuk melihat apa saja yang ada di BookLook.</p>
+          <li class="cg lh mt-4 mb-3 ml-3 about-title">Apakah saya bisa berjualan di BookLook ?</li>
+          <p class="cg lh">Tentu saja bisa, semua orang yang telah terdaftar di BookLook memiliki bisa membuat toko
+            untuk berjualan buku secara online. Klik <a href="/user/">di sini</a> untuk daftar menjadi user di BookLook.
+          </p>
+          <li class="cg lh mt-4 mb-3 ml-3 about-title">Bagaimana cara mendaftar di BookLook ?</li>
+          <p class="cg lh">Klik <a href="/user/">di sini</a> untuk daftar menjadi user BookLook dan rasakan kemudahan
+            berbelanja buku secara online.
+          </p>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer" id="footer">
@@ -41,8 +92,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>
-  <script src="../js/index.js"></script>
+  <script type="module" src="../js/index.js"></script>
   <script src="../js/deleteBuckets.js"></script>
+  <script>
+    $("#bt1").mouseover(function () {
+      $("#icon1").addClass("show-arrow")
+      $("#icon1").removeClass("hide-arrow")
+    })
+
+    $("#bt1").mouseout(function () {
+      $("#icon1").addClass("hide-arrow")
+      $("#icon1").removeClass("show-arrow")
+    })
+
+    $("#bt2").mouseover(function () {
+      $("#icon2").addClass("show-arrow")
+      $("#icon2").removeClass("hide-arrow")
+    })
+
+    $("#bt2").mouseout(function () {
+      $("#icon2").addClass("hide-arrow")
+      $("#icon2").removeClass("show-arrow")
+    })
+  </script>
 </body>
 
 </html>
+
+<!-- 
+<h3 class="blue-about">Tentang</h3>
+<p><b>BookLook</b> - Situs Jual Beli Online di Indonesia BookLook merupakan situs jual beli online di Indonesia yang memiliki ratusan buku digital. Baca buku online terasa semakin mudah dan menyenangkan saat ini karena apapun yang Anda ingin baca pasti bisa ditemukan di BookLook.</p> -->

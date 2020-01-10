@@ -3,13 +3,15 @@ import header from './content/header.js'
 import {
   setCookie,
   getCookie,
-  checkCookie
+  checkCookie,
+  deleteCookie
 } from './cookies.js'
 
 $(document).ready(function () {
 
   $("#footer").html(footer);
   $("#header").html(header);
+
   let dropHtml = "";
   let cartHtml = "";
   $.ajax({
@@ -24,6 +26,8 @@ $(document).ready(function () {
     success: function (data) {
       $("#name").html(data.name.substring(0, 7))
       headerSuccess();
+      $("#footer-masuk").html(`<a href="/kebijakan-privasi.html" class="bold alink">Kebijakan & privasi</a>`)
+      $("#footer-daftar").html(`<a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat & ketentuan</a>`)
     },
     error: function (errMsg) {
       headerError();
@@ -58,64 +62,18 @@ $(document).ready(function () {
     contentType: "application/json",
     url: "http://127.0.0.1:8080/api/markets",
     async: false,
-    timeout: 600000,
     headers: {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
       if (data.marketId != null) {
-
-        $.ajax({
-          type: "GET",
-          contentType: "application/json",
-          url: "http://127.0.0.1:8080/api/markets/block/check",
-          dataType: 'json',
-          async: false,
-          headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-          },
-          success: function (data) {
-            if (!data.success) {
-              var modal = `
-              <div class="modal fade" id="blokir" tabindex="-1" role="dialog" aria-labelledby="blokir"
-              aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title"><i class="fas fa-info-circle"></i> Informasi </h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body modal-market-body">
-                      Toko anda masih terkena blokir, untuk informasi lebih lanjut silahkan hubungi Customers Service kami. Mohon maaf atas ketidaknyamanannya.
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn-ya" data-dismiss="modal">Mengerti</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              `
-              $("main").append(modal)
-
-              market = `
-                <a style="cursor:pointer;"  data-toggle="modal" data-target="#blokir"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span style="font-weight: bold; color: #ff5447; ">Terblokir</span></p></a>`;
-            } else {
-              market = `
-                <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
-            }
-
-          }
-        });
+        market = `
+        <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
       } else {
         market = `
-        <a href="/market/open-store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span style="color: #7d7d7d; ">Daftar</span></p></a>
+        <a href="/market/open-store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i><span> Daftar Toko </span></p></a>
           `
       }
-    },
-    error: function (errMsg) {
-      console.log(errMsg);
     }
   });
 
@@ -140,7 +98,7 @@ $(document).ready(function () {
 
     addDropDown()
     getBuckets()
-
+    logoutAct()
   }
 
   function headerError() {
@@ -189,6 +147,8 @@ $(document).ready(function () {
       success: function (data) {
         $("#keranjang").html("")
         if (data.length != 0) {
+          $("#notif-bucket").html(data.length)
+          $("#notif-bucket").css("display", "inline-block")
           var tot = 0;
           for (var i = 0; i < data.length; i++) {
             var html = `
@@ -272,5 +232,26 @@ $(document).ready(function () {
     });
   }
 
+  function logoutAct() {
+    $("#logout").click(function () {
+      logout()
+    })
+  }
+
+  getCookie("token")
+
+  function logout() {
+    $.ajax({
+      type: "POST",
+      url: "http://127.0.0.1:8080/api/auth/signout",
+      headers: {
+        'Authorization': `Bearer ` + getCookie("token"),
+      },
+      success: function (data) {
+        deleteCookie()
+        location.reload()
+      }
+    });
+  }
 
 });

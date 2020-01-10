@@ -177,7 +177,7 @@
     width: 90%;
     padding: 8px;
     border:0.7px solid rgba(128, 128, 128, 0.211);
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .tambah-buku-input:focus{
@@ -186,7 +186,8 @@
 }
 
 .tambah-buku-edit{
-    font-size: 12px;
+    margin-top: 15px;
+    font-size: 14px;
     font-weight: 700;
 }
 

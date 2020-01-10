@@ -189,6 +189,10 @@ p{
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.171);
 }
 
+textarea{
+    height: 200px;
+}
+
 .icon-modal{
     font-size: 50px;
 }

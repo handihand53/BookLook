@@ -24,118 +24,81 @@ function getDataUser() {
         }
     });
 }
+var catName = new Array();
+getCategory()
 
-$.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/products/category/Health",
-    success: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var html = `
-            <a href="/market/book.html?_i=` + data[i].productId + `">
-                <div class="col-4">
-                    <div class="content-border select shadow-card max-min no-border border-radius-4">
-                        <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                        <div class="p-1">
-                        <p class="title no-margin no-padding">` + data[i].title + `</p>
-                        <p class="author-main">` + data[i].author + `</p>
-                        <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                        </div>
-                    </div>
-                </div>
-            <a>
-                `
-            $("#health").append(html)
+function getCategory() {
+    $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1:8080/api/categories/",
+        Accept: "application/json",
+        contentType: "application/json",
+        dataType: 'json',
+        async: false,
+        success: function (data) {
+            console.log(data)
+            for (var i = 0; i < data.length; i++) {
+                catName.push(data[i].categoryName)
+            }
+        },
+        failure: function (errMsg) {
+            console.log(errMsg);
         }
-    },
-    error: function (errMsg) {
-        console.log(errMsg);
-    }
-});
+    });
+}
 
-$.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/products/category/Fiction",
-    success: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var html = `
-            <div class="col-4">
-                <a href="/market/book.html?_i=` + data[i].productId + `">
-                    <div class="content-border select shadow-card max-min no-border border-radius-4">
-                        <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                        <div class="p-1">
-                        <p class="title no-margin no-padding">` + data[i].title + `</p>
-                        <p class="author-main">` + data[i].author + `</p>
-                        <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                        </div>
-                    </div>
-                <a>
+getBooks()
+
+function getBooks() {
+
+    catName.forEach(arr => {
+        var coverTag = `
+        <div class="col-5-custom mb-3">
+            <div>
+                <div class="float-left ml-3 content-title">`+arr+`</div>
+                <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=`+arr+`">Lebih Banyak</a>
+                </div>
             </div>
-            `
-            $("#fiction").append(html)
-        }
-    },
-    error: function (errMsg) {
-        console.log(errMsg);
-    }
-});
+            <br>
+            <br>
+            <div class="row" id="`+arr+`">
 
-$.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/products/category/Sport",
-    success: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var html = `
-                <div class="col-4">
+            </div>
+        </div>
+        `
+        $("#utama").append(coverTag)
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            async: false,
+            url: "http://127.0.0.1:8080/api/products/category/"+arr,
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var html = `
                     <a href="/market/book.html?_i=` + data[i].productId + `">
-                        <div class="content-border select shadow-card max-min no-border border-radius-4">
-                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                            <div class="p-1">
-                            <p class="title no-margin no-padding">` + data[i].title + `</p>
-                            <p class="author-main">` + data[i].author + `</p>
-                            <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                        <div class="col-4">
+                            <div class="content-border select shadow-card max-min no-border border-radius-4">
+                                <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+                                <div class="p-1">
+                                <p class="title no-margin no-padding">` + data[i].title + `</p>
+                                <p class="author-main">` + data[i].author + `</p>
+                                <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                                </div>
                             </div>
                         </div>
-                    </a>
-                </div>
-                `
-            $("#sport").append(html)
-        }
-    },
-    error: function (errMsg) {
-        console.log(errMsg);
-    }
-});
+                    <a>
+                        `
+                    $("#"+arr).append(html)
+                }
+            },
+            error: function (errMsg) {
+                console.log(errMsg);
+            }
+        });
+    });
+}
 
-$.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/products/category/Education",
-    success: function (data) {
-        for (var i = 0; i < data.length; i++) {
-            var html = `
-                <div class="col-4">
-                    <a href="/market/book.html?_i=` + data[i].productId + `">
-                        <div class="content-border select shadow-card max-min no-border border-radius-4">
-                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                            <div class="p-1">
-                            <p class="title no-margin no-padding">` + data[i].title + `</p>
-                            <p class="author-main"> ` + data[i].author + `</p>
-                            <p class="price">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                `
-            $("#education").append(html)
-        }
-    },
-    error: function (errMsg) {
-        console.log(errMsg);
-    }
-});
 getBook()
 
 function getBook() {
@@ -151,7 +114,7 @@ function getBook() {
             if (data.length != 0) {
                 console.log(data)
                 var body = `
-                    <div class="carousel-item active">
+                    <div class="carousel-item active" style="border-bottom: none;">
                         <div class="row col-12 slider-container">
                         </div>
                     <br>
@@ -191,7 +154,7 @@ function getBook() {
                     </div>
                     `
                     $(".slider-container:last").append(content)
-                }   
+                }
                 var content = `
                     <div class="col-2-mob-4-desk">
                         <a href="/user/mybook.html">

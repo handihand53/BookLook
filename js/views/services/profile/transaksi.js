@@ -91,10 +91,10 @@ $(window).load(function () {
           } else color = "pembayaran-unsuccess"
           var html = `
             <tr>
-              <td class="no-pemesanan" title="` + data[i].transactionId + `">` + data[i].transactionId + `</td>
+              <td class="no-pemesanan" title="` + data[i].transactionCode + `">` + data[i].transactionCode + `</td>
               <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
               <td class="` + color + `" title="` + data[i].transferConfirm + `">` + data[i].transferConfirm + `</td>
-              <td><a href="detail_transaksi.html?_i=` + data[i].transactionId + `" title="" class="detail-pemesanan">Lihat Detail</a></td>
+              <td><a href="detail_transaksi.html?_i=` + data[i].transactionCode + `" title="" class="detail-pemesanan">Lihat Detail</a></td>
             </tr>
             `
           $("#tableBody").append(html)
@@ -117,7 +117,7 @@ $(window).load(function () {
   $.ajax({
     type: "PUT",
     contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/transactions/user/confirm/0084ba85-bf50-4385-9367-3bd2dcc0d610",
+    url: "http://127.0.0.1:8080/api/transactions/user/confirm/BLK-HAN-20200110030056",
     dataType: 'json',
     async: false,
     headers: {

@@ -1,0 +1,20 @@
+.li-item {
+    font-size: 18px;
+    list-style: none;
+    font-weight: 500;
+    margin-right: 10px;
+    border-bottom: 0.05px rgb(216, 216, 216) solid;
+    padding: 8px 15px 12px 15px;
+}
+
+#display{
+    max-height: 82px;
+}
+
+.active-sidebar{
+    color: rgb(0, 162, 255);
+    font-weight: bold;
+    border-bottom: solid rgb(0, 162, 255) 3px !important; 
+}
+
+/* =================================== */

@@ -50,10 +50,8 @@ $(document).ready(function () {
         });
 
         var storeName = $("#storeName").val();
-        var storeSku = $("#storeSku").val();
         var storeBio = $("#storeBio").val();
         var errorNama = $("#errorMsgNama");
-        var errorSku = $("#errorMsgSku");
         var errorBio = $("#errorMsgBio");
         var x, y, z;
         if (storeName.length < 6) {
@@ -61,20 +59,14 @@ $(document).ready(function () {
             x = false;
         } else x = true;
 
-        if (storeSku.length < 2 || storeSku.length > 5) {
-            errorSku.html("Sku toko terdiri dari 2-5 karakter");
-            y = false;
-        } else y = true
-
         if (storeBio.length < 1) {
             errorBio.html("Deskripsi toko tidak boleh kosong");
             z = false;
         } else z = true;
-        if (x && y && z) {
+        if (x && z) {
 
             var data = {
                 "marketName": storeName,
-                "marketSKU": storeSku,
                 "marketBio": storeBio
             };
 

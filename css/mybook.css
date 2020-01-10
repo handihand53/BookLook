@@ -134,7 +134,7 @@ a:hover {
     font-size: 12px;
     list-style: none;
     border-bottom: 0.05px rgb(216, 216, 216) solid;
-    padding: 8px 0px 12px 45px;
+    padding: 8px 0px 12px 15px;
 }
 
 .active-sidebar {

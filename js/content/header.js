@@ -48,6 +48,7 @@ let header = `
         </div>
       </span>
     <div class="dropdown float-right" id="drop-shop" style="margin: auto; padding: 8px;">
+    <span class="notif-bucket" id="notif-bucket"></span>
     <a href="#" ><i class="fas fa-shopping-cart mark-white fa-lg wish-list" aria-hidden="true"></i></a>
         
     <div class="border-radius-7 right-6 dropdown-content profile-mob" id="item-desk" style="top: 38px; min-width: 300px; overflow-y: auto;">

@@ -7,7 +7,7 @@
 }
 
 .content-width {
-    max-width: 1100px;
+    max-width: 1300px;
 }
 
 #display{
@@ -152,13 +152,7 @@ a:hover{
     text-decoration: none;
 }
 
-.li-item {
-    font-size: 14px;
-    list-style: none;
-    font-weight: 500;
-    border-bottom: 0.05px rgb(216, 216, 216) solid;
-    padding: 8px 15px 12px 15px;
-}
+
 
 .active-sidebar{
     color: rgb(0, 162, 255);

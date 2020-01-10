@@ -56,6 +56,7 @@ a:hover {
 
 
 .price {
+    margin: 0px;
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
@@ -161,12 +162,78 @@ a:hover {
     border: none !important;
 }
 
+.bottom-gray {
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
+    padding-bottom: 7px;
+}
+
+.mt-15 {
+    margin-top: 6px;
+}
+
+.bottom-gray:hover {
+    color: rgba(0, 101, 252, 0.644);
+}
+
+.hide-arrow {
+    visibility: hidden;
+}
+
+.show-arrow {
+    visibility: visible;
+}
+
+.lh {
+    line-height: 32px !important;
+}
+
+.cg {
+    color: rgb(105, 105, 105);
+    font-weight: 400;
+}
+
+.detail-font {
+    font-size: 14px;
+}
+
+.f14{
+    line-height: 25px;
+}
+
+.active {
+    border-bottom: 1px solid rgba(0, 108, 248, 0.63);
+    padding-bottom: 7px;
+    color: rgba(0, 101, 252, 0.644);
+    font-weight: bold;
+}
+
+.logo-about {
+    width: 100%;
+}
+
+.about-title {
+    font-weight: 500;
+}
+
+.content-body {
+    border-left: 0.5px solid rgba(145, 145, 145, 0.589);
+    padding-left: 30px;
+}
+
+.about {
+    width: 100%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+    max-width: 1100px;
+    min-height: 500px;
+}
 
 
 .author-main {
     color: rgb(255, 132, 0);
     margin-top: 2px;
-    margin-left: 5px;
     font-weight: bold;
     font-size: 12px;
     overflow: hidden;
@@ -226,7 +293,7 @@ div.item:hover {
         min-height: 265px;
     }
 
-    .container{
+    .container {
         min-width: 960px;
     }
 
@@ -302,10 +369,41 @@ div.item:hover {
         min-width: 500px;
     }
 
-
 }
 
 @media screen and (max-width: 770px) {
+
+    .f-12 {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .border-radius-200 {
+        border-radius: 400px;
+        height: 120px;
+        width: 120px;
+        margin-top: 54px;
+        transition: all 0.1s;
+    }
+
+    .border-radius-200:hover {
+        margin-top: 44px;
+    }
+
+    .cst-icon {
+        padding: 35px 0px;
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 300px;
+    }
+
+    .more {
+        font-size: 1px;
+        font-weight: 500;
+    }
 
     .slider-container {
         max-height: 198px;
@@ -329,7 +427,6 @@ div.item:hover {
     .author-main {
         font-size: 10px;
         margin-top: 2px;
-        margin-left: 5px;
         color: orange;
         font-weight: bold;
     }
@@ -353,7 +450,6 @@ div.item:hover {
     .title {
         font-size: 12px;
         margin-top: 2px;
-        margin-left: 5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -363,15 +459,13 @@ div.item:hover {
     }
 
     .bg-index {
+        height: 350px;
+        background-size: 400%;
         background-position: top;
     }
 
     .white {
         color: rgb(255, 255, 255);
-    }
-
-    .bg-index {
-        height: 350px;
     }
 
     .bg-cover {
@@ -400,6 +494,7 @@ div.item:hover {
     }
 
     .price {
+        margin: 0px;
         font-size: 12px;
     }
 }

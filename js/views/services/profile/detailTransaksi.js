@@ -88,7 +88,7 @@ $(window).load(function () {
       console.log(data)
       var d = new Date(data.transaction.createdAt);
       var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-      $("#noDetailTransaksi").html(data.transaction.transactionId)
+      $("#noDetailTransaksi").html(data.transaction.transactionCode)
       $("#tglTransaksi").html(tgl)
       $("#statusPembayaran").html(data.transaction.transferConfirm)
       var color
@@ -137,6 +137,10 @@ $(window).load(function () {
                     <div class="row border-bottom">
                       <p class="col-md-6 title-text">SKU</p>
                       <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
+                    </div>
+                    <div class="row border-bottom">
+                      <p class="col-md-6 title-text">Jumlah halaman</p>
+                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.pageTotal + `">` + data.transactionDetail[i].product.pageTotal + ` Halaman</p>
                     </div>
                     <div class="row">
                       <p class="col-md-6 title-text">Harga</p>

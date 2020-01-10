@@ -39,6 +39,21 @@ $(window).load(function () {
     });
   }
 
+  document.getElementById("nomor-prof").addEventListener("keypress", function (evt) {
+    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+      evt.preventDefault();
+    }
+  });
+
+  document.getElementById("nomor-prof").addEventListener("input", function () {
+    var s = $("#nomor-prof").val().toString()
+    if(s.length<9){
+      $("#errPhone").html("Panjang nomor telepone adalah 10 - 14 angka")
+    }else{
+      $("#errPhone").html("")
+    }
+  })
+
   $("#save").click(editProfile);
 
   function editProfile() {
@@ -47,7 +62,7 @@ $(window).load(function () {
     var email = $("#email-prof").val()
     var numPhone = $("#nomor-prof").val()
 
-    var numCheck = "^[0-9]";
+    var numCheck = /[0-9]/g;
 
     if (fullname == "") {
       $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
@@ -99,7 +114,6 @@ $(window).load(function () {
       data: JSON.stringify(data),
       url: "http://127.0.0.1:8080/api/users/edit/profile",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },

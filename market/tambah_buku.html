@@ -36,7 +36,7 @@
             <div class="col-6">
               <h5 id="marketName"></h5>
               <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>              
+              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
             </div>
           </div>
         </div>
@@ -111,15 +111,13 @@
               <option value="" selected hidden disabled>Pilih</option>
             </select><br>
 
-            <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
-            <input class="sku" id="skuToko" required placeholder="SKU" disabled id="marketSku"></input> -
-            <input name="sku" id="skuBuku" required placeholder="Kode SKU" id="b" class="sku-input"></input>
-            <p id="SKU" class="errMsg">Kode SKU tidak boleh kosong</p>
-
-            <br>
-            <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Rp. 1200101"
-              type="number" min="0"><br>
+            <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
+            <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="120" type="number"
+              min="0"><br>
+            <p id="jmlHal" class="errMsg">Jumlah halaman tidak boleh kosong</p>
+            <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label><br>
+            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="120000" type="number"
+              min="0"><br>
             <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
             <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
             <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
@@ -144,6 +142,7 @@
             <div class="center modal-container"></div>
             <div class="center modal-text">
               <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
+              <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
               <br>
             </div>
           </div>

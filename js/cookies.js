@@ -28,3 +28,7 @@ export function checkCookie() {
         setCookie("username", user, 1);
     }
 }
+
+export function deleteCookie() {
+    document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT; path=/"
+}

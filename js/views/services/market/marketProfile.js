@@ -45,7 +45,7 @@ $(window).load(function () {
                     $('#display').attr('src', data.marketPhoto);
                 $("#marketName").html(data.marketName)
                 $("#marketName2").val(data.marketName)
-                $("#marketSku").val(data.marketSKU)
+                $("#marketSku").val(data.marketCode)
                 $("#marketBio").val(data.marketBio)
             }
         },

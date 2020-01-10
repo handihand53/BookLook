@@ -109,6 +109,16 @@
     color: rgb(231, 33, 33);
 }
 
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .signup-input-false{
     color: rgb(255, 31, 31);
     border: 1.5px rgb(255, 31, 31) solid;

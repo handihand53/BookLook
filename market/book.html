@@ -26,62 +26,75 @@
 
   <main class="content content-width content-height">
     <div class="row">
-      <div class="content-border no-border p-2 col-md-8 mlr-auto">
-        <div class="judul-utama p-2" id="title"></div>
-        <hr>
-        <div class="row p-2">
-          <div class="col-md-4">
-            <img id="bookimg" alt="" class="width-img">
-          </div>
-          <div class="col-md-7">
-
-            <div class="row border-bot">
-              <div class="col-md-6 sub-list">
-                Author
-              </div>
-              <div class="col-md-6 sub-list orange" id="author">
-              </div>
+      <div class="col-md-8 mlr-auto">
+        <div class="content-border no-border p-2">
+          <div class="judul-utama p-2" id="title"></div>
+          <hr>
+          <div class="row p-2">
+            <div class="col-md-4">
+              <img id="bookimg" alt="" class="width-img">
             </div>
+            <div class="col-md-7">
 
-            <div class="row border-bot">
-              <div class="col-md-6 sub-list">
-                Penerbit
+              <div class="row border-bot">
+                <div class="col-md-6 sub-list">
+                  Author
+                </div>
+                <div class="col-md-6 sub-list orange" id="author">
+                </div>
               </div>
-              <div class="col-md-6 sub-list " id="publisher">
+
+              <div class="row border-bot">
+                <div class="col-md-6 sub-list">
+                  Penerbit
+                </div>
+                <div class="col-md-6 sub-list " id="publisher">
+                </div>
               </div>
+
+              <div class="row border-bot">
+                <div class="col-md-6 sub-list">
+                  ISBN
+                </div>
+                <div class="col-md-6 sub-list-sku " id="isbn">
+                </div>
+              </div>
+
+              <div class="row border-bot">
+                <div class="col-md-6 sub-list">
+                  SKU
+                </div>
+                <div class="col-md-6 sub-list-sku " id="sku">
+                </div>
+              </div>
+
+              <div class="row border-bot">
+                <div class="col-md-6 sub-list">
+                  Jumlah Halaman
+                </div>
+                <div class="col-md-6 sub-list-sku " id="page">
+                </div>
+              </div>
+
+              <div class="row border-bot mb-3">
+                <div class="col-md-6 sub-list">
+                  Harga
+                </div>
+                <div class="col-md-6 price-list blue-2" id="price">
+                </div>
+              </div>
+
+              <button id="buy" class="btn-buy mlr-auto mb-2">Beli</button>
+              <button id="wishlist" class="btn-wishlist mlr-auto">Wishlist</button>
+
             </div>
-
-            <div class="row border-bot">
-              <div class="col-md-6 sub-list">
-                SKU
-              </div>
-              <div class="col-md-6 sub-list-sku " id="sku">
-              </div>
-            </div>
-
-            <div class="row border-bot">
-              <div class="col-md-6 sub-list">
-                ISBN
-              </div>
-              <div class="col-md-6 sub-list-sku " id="isbn">
-              </div>
-            </div>
-
-            <div class="row border-bot mb-3">
-              <div class="col-md-6 sub-list">
-                Harga
-              </div>
-              <div class="col-md-6 price-list blue-2" id="price">
-              </div>
-            </div>
-
-            <button id="buy" class="btn-buy mlr-auto">Beli</button>
-            <button id="wishlist" class="btn-wishlist mlr-auto">Wishlist</button>
-
           </div>
         </div>
-        <p class="pl-3 mt-1 deskripsi-tag">Deskripsi</p>
-        <p class="pl-3 deskripsi" id="deskripsi"></p>
+
+        <div class="content-border no-border mt-3 pt-3 pb-4 pl-3">
+          <p class="pl-3 mt-1 deskripsi-tag">Deskripsi</p>
+          <p class="pl-3 deskripsi" id="deskripsi"></p>
+        </div>
       </div>
 
       <div class="content-border no-border p-3 col-md-3 mlr-auto mt fit">
@@ -96,8 +109,7 @@
     <br>
 
     <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
-    <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo"
-      aria-hidden="true">
+    <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-body center">

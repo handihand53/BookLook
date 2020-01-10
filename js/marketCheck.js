@@ -36,7 +36,7 @@ export default function checkMarket() {
                     }
                 });
             }else{
-                $("#market").html($("#market").html()+ ` <span style="color: #7d7d7d; ">Daftar</span>`)
+                $("#market").html(` <span>Daftar toko</span> `)
             }
         },
         error: function (errMsg) {

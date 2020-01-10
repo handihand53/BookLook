@@ -49,6 +49,8 @@ $(document).ready(function () {
       $("#isbn").html(data.product.isbn);
       $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''));
       $("#author").html(data.product.author);
+      $("#page").html(data.product.pageTotal + " Halaman");
+
       $("#publisher").html(data.product.publisher);
 
       if (data.product.description.toString().length > 400) {
@@ -101,7 +103,7 @@ $(document).ready(function () {
         getBuckets()
         $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
         $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
-        $("#ok").html("OK")
+        $("#ok").html(`<button class="modal-btn-ok">Oke</button>`)
         $("#modalInfo").click()
       },
       error: function (errMsg) {
@@ -134,7 +136,7 @@ $(document).ready(function () {
         getWishlist()
         $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
         $("#modalMsgEdit").html(`Item berhasil ditambahkan`)
-        $("#ok").html("OK")
+        $("#ok").html(`<button class="modal-btn-ok">Oke</button>`)
         $("#modalInfo").click()
       },
       error: function (errMsg) {
@@ -160,6 +162,8 @@ $(document).ready(function () {
       success: function (data) {
         $("#keranjang").html("")
         if (data.length != 0) {
+          $("#notif-bucket").html(data.length)
+          $("#notif-bucket").css("display", "inline-block")
           var tot = 0;
           for (var i = 0; i < data.length; i++) {
             if (data[i].product.productId == productId) {
@@ -204,6 +208,8 @@ $(document).ready(function () {
             </li>`
           $("#keranjang").append(total)
         } else {
+          $("#notif-bucket").html("")
+          $("#notif-bucket").css("display", "none")
           $("#keranjang").html(`
                 <div class="bg-blank-keranjang"></div>
                 <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>
@@ -219,7 +225,6 @@ $(document).ready(function () {
     });
   }
   getBuckets()
-
   getWishlist()
 
   function getWishlist() {

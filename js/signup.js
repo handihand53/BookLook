@@ -1,4 +1,8 @@
-import { setCookie, getCookie, checkCookie } from './cookies.js';
+import {
+    setCookie,
+    getCookie,
+    checkCookie
+} from './cookies.js';
 
 $(document).ready(function () {
 
@@ -17,7 +21,7 @@ $(document).ready(function () {
 
         }
     });
-    
+
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
@@ -36,13 +40,39 @@ $(document).ready(function () {
         return false;
     }
 
-    var numRegex="//d+";
+    var numRegex = "//d+";
 
     var nama
     var username
     var email
     var password
     var phoneNumber
+
+    $('input[type=number]').on('focus', function (e) {
+        $(this).on('wheel', function (e) {
+            e.preventDefault();
+        });
+    });
+
+    $('input[type=number]').on('keydown', function (e) {
+        if (e.which == 38 || e.which == 40)
+            e.preventDefault();
+    });
+
+    document.getElementById("phoneNumber").addEventListener("keypress", function (evt) {
+        if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+            evt.preventDefault();
+        }
+    });
+
+    document.getElementById("phoneNumber").addEventListener("input", function () {
+        var s = $("#phoneNumber").val().toString()
+        if (s.length < 9) {
+            $("#errPhone").html("Panjang minimal nomor telepone adalah 10 karakter")
+        } else {
+            $("#errPhone").html("")
+        }
+    })
 
     $("#daftar").click(function () {
         $("#login-fail").html("");
@@ -51,52 +81,50 @@ $(document).ready(function () {
         email = $("#email").val();
         password = $("#password").val();
         phoneNumber = $("#phoneNumber").val();
-        var cek=true;
-        
+        var cek = true;
+
 
         if (nama == "") {
             $("#login-fail").append(`<li>Nama harus di isi</li>`)
-            cek=false;
-            console.log ("kosong");
-        }
-        else if (nama.length < 4) {
+            cek = false;
+            console.log("kosong");
+        } else if (nama.length < 4) {
             $("#login-fail").append(`<li>Panjang nama lengkap tidak valid</li>`)
-            cek=false;
+            cek = false;
         }
 
         if (username == "") {
             $("#login-fail").append(`<li>Nama Pengguna harus di isi</li>`)
-            cek=false;
-        }
-        else if (username.length < 3) {
+            cek = false;
+        } else if (username.length < 3) {
             $("#login-fail").append(`<li>Panjang nama pengguna tidak valid</li>`)
-            cek=false;
+            cek = false;
         }
 
         if (email == "") {
             $("#login-fail").append(`<li>Email harus di isi</li>`)
-            cek=false;
+            cek = false;
         }
-        if (password == ""){
+        if (password == "") {
             $("#login-fail").append(`<li>Kata sandi harus di isi</li>`)
             cek = false;
-        } else if (password.length < 6 || password.length > 20){
+        } else if (password.length < 6 || password.length > 20) {
             $("#login-fail").append(`<li>Panjang password tidak valid</li>`)
-            cek=false;
+            cek = false;
         }
 
-        if(phoneNumber == ""){
+        if (phoneNumber == "") {
             $("#login-fail").append(`<li>No telepon harus di isi</li>`)
             cek = false;
-        }else if(phoneNumber.match(numRegex)){
-            cek=false;
+        } else if (phoneNumber.match(numRegex)) {
+            cek = false;
         }
-        
+
         if (!validate()) {
             return;
         };
 
-        if(cek){
+        if (cek) {
             var data = {
                 "name": nama,
                 "username": username,
@@ -150,8 +178,8 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on('keypress',function(e) {
-        if(e.which == 13) {
+    $(document).on('keypress', function (e) {
+        if (e.which == 13) {
             $("#daftar").click()
         }
     });

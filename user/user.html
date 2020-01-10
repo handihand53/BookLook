@@ -74,10 +74,7 @@
             <label class="profile-edit" for="nama">Nomor Telepon<span class="red">*</span> </label>
             <br>
             <input id="nomor-prof" class="profile-input" type="number" min="0" placeholder="087123456789" name="nama">
-            <label class="numphone">Contoh : 082123456789</label><br>
-            <!-- <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
-          <br>
-          <textarea id="biodata-profile" class="profile-input" type="text" name="nama" heigh=></textarea><br> -->
+            <label class="numphone" id="errPhone"></label><br>
             <label class="change-password" for="">Opsi : </label>
             <br>
             <a href="edit-photo.html"><button class="btn-edit">Ubah Foto</button></a>
@@ -86,8 +83,6 @@
           </div>
         </div>
       </div>
-
-      
 
       <!-- Modal -->
       <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
@@ -120,7 +115,7 @@
               <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
               <br>
               <div class="prof" id="modalMsgEdit">Perubahan profile berhasil disimpan</div>
-              <label class="prof-ok" data-dismiss="modal">OK</label>
+              <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
             </div>
           </div>
         </div>
