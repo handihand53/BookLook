@@ -125,11 +125,11 @@ input[type="number"] {
 }
 
 .gray{
-    color: rgba(80, 56, 56, 0.432);
+    color: rgba(255, 83, 83, 0.918);
 }
 
 .hint{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 

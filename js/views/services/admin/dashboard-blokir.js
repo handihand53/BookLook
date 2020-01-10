@@ -41,7 +41,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8080/api/admin/block/market",
+        url: "http://127.0.0.1:8080/api/admin/block/user",
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
@@ -70,7 +70,7 @@ $(document).ready(function () {
             } else {
                 var html = `
                     <tr>
-                        <td colspan="5" class="center txt">Belum ada list blokir toko</td>
+                        <td colspan="5" class="center txt">Belum ada list pengguna yang terblokir</td>
                     </tr>
                     `
                 $("tbody").append(html)

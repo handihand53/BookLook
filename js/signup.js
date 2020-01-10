@@ -59,6 +59,19 @@ $(document).ready(function () {
             e.preventDefault();
     });
 
+    var flag = false
+
+    document.getElementById("password2").addEventListener("input", function () {
+        var s = $("#password").val().toString()
+        if (s != $(this).val()) {
+            $("#hint-password2").html("Kata sandi tidak sama")
+            flag = false
+        } else {
+            flag = true
+            $("#hint-password2").html("")
+        }
+    })
+
     document.getElementById("phoneNumber").addEventListener("keypress", function (evt) {
         if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
             evt.preventDefault();
@@ -87,7 +100,6 @@ $(document).ready(function () {
         if (nama == "") {
             $("#login-fail").append(`<li>Nama harus di isi</li>`)
             cek = false;
-            console.log("kosong");
         } else if (nama.length < 4) {
             $("#login-fail").append(`<li>Panjang nama lengkap tidak valid</li>`)
             cek = false;
@@ -105,12 +117,17 @@ $(document).ready(function () {
             $("#login-fail").append(`<li>Email harus di isi</li>`)
             cek = false;
         }
+
         if (password == "") {
             $("#login-fail").append(`<li>Kata sandi harus di isi</li>`)
             cek = false;
         } else if (password.length < 6 || password.length > 20) {
             $("#login-fail").append(`<li>Panjang password tidak valid</li>`)
             cek = false;
+        }
+
+        if (flag == false) {
+            $("#hint-password2").html("Silahkan ketik ulang kata sandi anda")
         }
 
         if (phoneNumber == "") {
@@ -124,7 +141,7 @@ $(document).ready(function () {
             return;
         };
 
-        if (cek) {
+        if (cek && flag) {
             var data = {
                 "name": nama,
                 "username": username,
@@ -139,9 +156,9 @@ $(document).ready(function () {
                 url: "http://127.0.0.1:8080/api/auth/signup",
                 data: JSON.stringify(data),
                 dataType: 'json',
-                cache: false,
-                timeout: 600000,
+                async: false,
                 success: function (msg) {
+                    console.log(msg)
                     login();
                 },
                 error: function (errMsg) {
@@ -165,9 +182,7 @@ $(document).ready(function () {
             url: "http://127.0.0.1:8080/api/auth/signin",
             data: JSON.stringify(dataIn),
             dataType: 'json',
-            timeout: 600000,
             success: function (a) {
-                console.log(a)
                 var token = a.result;
                 setCookie("token", token, 1);
                 window.location.assign("user/index.html");

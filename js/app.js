@@ -248,8 +248,12 @@ $(document).ready(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
+        console.log(data)
         deleteCookie()
         location.reload()
+      },
+      error: function(data){
+        console.log(data)
       }
     });
   }
