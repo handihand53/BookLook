@@ -50,31 +50,32 @@ $(document).ready(function () {
         });
 
         var storeName = $("#storeName").val();
-        var storeSku = $("#storeSku").val();
         var storeBio = $("#storeBio").val();
         var errorNama = $("#errorMsgNama");
-        var errorSku = $("#errorMsgSku");
         var errorBio = $("#errorMsgBio");
         var x, y, z;
         if (storeName.length < 6) {
+            $("#storeName").addClass("is-invalid")
             errorNama.html("Nama toko minimal panjang 6 karakter");
             x = false;
-        } else x = true;
-
-        if (storeSku.length < 2 || storeSku.length > 5) {
-            errorSku.html("Sku toko terdiri dari 2-5 karakter");
-            y = false;
-        } else y = true
+        } else {
+            $("#storeName").removeClass("is-invalid")
+            x = true;
+        }
 
         if (storeBio.length < 1) {
+            $("#storeBio").addClass("is-invalid")
             errorBio.html("Deskripsi toko tidak boleh kosong");
             z = false;
-        } else z = true;
-        if (x && y && z) {
+        } else {
+            $("#storeBio").removeClass("is-invalid")
+            z = true;
+        }
+
+        if (x && z) {
 
             var data = {
                 "marketName": storeName,
-                "marketSKU": storeSku,
                 "marketBio": storeBio
             };
 
@@ -90,7 +91,7 @@ $(document).ready(function () {
                     'Authorization': `Bearer ` + getCookie("token"),
                 },
                 success: function (msg) {
-                    trigger=true
+                    trigger = true
                     $("#fail-msg").html("Market Berhasil didaftarkan.")
                     $("#logo").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
                     $("#logo").addClass("c-blue")
@@ -109,7 +110,7 @@ $(document).ready(function () {
     });
 
     $('#marketkuModal').on('hidden.bs.modal', function (e) {
-        if(trigger){
+        if (trigger) {
             window.location.replace("/market/store.html")
         }
     })

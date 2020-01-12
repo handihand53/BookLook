@@ -10,7 +10,7 @@ import checkMarket from '../../../marketCheck.js';
 $(window).load(function () {
 
   getDataUser();
-
+  var phnm
   function getDataUser() {
     $.ajax({
       type: "GET",
@@ -39,6 +39,23 @@ $(window).load(function () {
     });
   }
 
+  document.getElementById("nomor-prof").addEventListener("keypress", function (evt) {
+    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+      evt.preventDefault();
+    }
+  });
+  
+  document.getElementById("nomor-prof").addEventListener("input", function () {
+    var s = $("#nomor-prof").val().toString()
+    if(s.length<9 || s.length>14){
+      $("#errPhone").html("Panjang nomor telepone adalah 10 - 14 angka")
+      phnm = false
+    }else{
+      phnm = true
+      $("#errPhone").html("")
+    }
+  })
+
   $("#save").click(editProfile);
 
   function editProfile() {
@@ -47,7 +64,7 @@ $(window).load(function () {
     var email = $("#email-prof").val()
     var numPhone = $("#nomor-prof").val()
 
-    var numCheck = "^[0-9]";
+    var numCheck = /[0-9]/g;
 
     if (fullname == "") {
       $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
@@ -85,6 +102,13 @@ $(window).load(function () {
       return
     }
 
+    if(phnm == false){
+      $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+      $("#modalMsgEdit").html(`Nomor telepon minimal 10 - 14 angka`);
+      $("#editProf").click();
+      return
+    }
+
     var data = {
       "email": email,
       "name": fullname,
@@ -99,7 +123,6 @@ $(window).load(function () {
       data: JSON.stringify(data),
       url: "http://127.0.0.1:8080/api/users/edit/profile",
       dataType: 'json',
-      timeout: 600000,
       headers: {
         'Authorization': `Bearer ` + getCookie("token"),
       },
@@ -131,15 +154,15 @@ $(window).load(function () {
     return false;
   }
 
-  $('input[type=number]').on('focus', function (e) {
-    $(this).on('wheel', function (e) {
-      e.preventDefault();
-    });
-  });
+  // $('input[type=number]').on('focus', function (e) {
+  //   $(this).on('wheel', function (e) {
+  //     e.preventDefault();
+  //   });
+  // });
 
-  $('input[type=number]').on('keydown', function (e) {
-    if (e.which == 38 || e.which == 40)
-      e.preventDefault();
-  });
+  // $('input[type=number]').on('keydown', function (e) {
+  //   if (e.which == 38 || e.which == 40)
+  //     e.preventDefault();
+  // });
 
 });

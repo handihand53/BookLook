@@ -88,7 +88,7 @@ $(window).load(function () {
       console.log(data)
       var d = new Date(data.transaction.createdAt);
       var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-      $("#noDetailTransaksi").html(data.transaction.transactionId)
+      $("#noDetailTransaksi").html(data.transaction.transactionCode)
       $("#tglTransaksi").html(tgl)
       $("#statusPembayaran").html(data.transaction.transferConfirm)
       var color
@@ -138,6 +138,10 @@ $(window).load(function () {
                       <p class="col-md-6 title-text">SKU</p>
                       <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
                     </div>
+                    <div class="row border-bottom">
+                      <p class="col-md-6 title-text">Jumlah halaman</p>
+                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.pageTotal + `">` + data.transactionDetail[i].product.pageTotal + ` Halaman</p>
+                    </div>
                     <div class="row">
                       <p class="col-md-6 title-text">Harga</p>
                       <p class="title-book col-md-6 blue-2" title="` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
@@ -150,6 +154,19 @@ $(window).load(function () {
               </div>
                 `
         $("#bookContent").append(html)
+      }
+      if (data.transaction.transferConfirm != "SUCCESS") {
+        let btnPay = `
+        <a href="/market/pay.html?i=` + data.transaction.transactionCode + `"><button id="pay" class="float-right btn-pay">Bayar</button></a>
+        `
+        $("#bookContent").append(btnPay)
+      }
+
+      if(data.transaction.transferConfirm=="PENDING"){
+        $("#pay").css("cursor", "not-allowed")
+        $("#pay").addClass("disable")
+        $("#pay").attr("disabled", true)
+        $("#pay").html("Sudah Dibayar")
       }
     },
     error: function (errMsg) {

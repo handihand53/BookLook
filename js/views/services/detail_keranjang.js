@@ -5,7 +5,6 @@ import {
 } from '../../cookies.js'
 
 $(window).load(function () {
-
     getDataUser();
 
     function getDataUser() {
@@ -41,7 +40,7 @@ $(window).load(function () {
             },
             success: function (data) {
                 if (data.length != 0) {
-                    var head=`
+                    var head = `
                     <div class="content-border p-3 shadow-card no-border">
                         <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
                             <input type="checkbox" id="main-checkbox">
@@ -101,6 +100,15 @@ $(window).load(function () {
                                     </div>
                                     <div class="col-md-6 sub-list ">
                                         ` + data[i].product.sku + `
+                                    </div>
+                                </div>
+
+                                <div class="row border-bot">
+                                    <div class="col-md-6 sub-list gray-main">
+                                        Jumlah Halaman
+                                    </div>
+                                    <div class="col-md-6 sub-list ">
+                                        ` + data[i].product.pageTotal + ` Halaman
                                     </div>
                                 </div>
 
@@ -265,7 +273,6 @@ $(window).load(function () {
             }
         })
         $(".totPrice").html(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-
     });
 
     var jml = 0;
@@ -282,6 +289,8 @@ $(window).load(function () {
 
         if (jml != $(".check").length) {
             $("#main-checkbox").prop("checked", false)
+        } else {
+            $("#main-checkbox").prop("checked", true)
         }
         $(".totPrice").html(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
     })
@@ -308,5 +317,9 @@ $(window).load(function () {
         localStorage.setItem('dataBook', JSON.stringify(data_book));
         location.href = "/market/confirmation-page.html";
     })
+
     $("#main-checkbox").prop("checked", false)
+    $(".check").each(function () {
+        $(this).prop("checked", false);
+    })
 });

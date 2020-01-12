@@ -12,9 +12,9 @@ function bindDeleteData(data_id) {
       $("#buy").attr("disabled", false)
     }
   } catch (error) {
-    
+
   }
-  
+
   $.ajax({
     type: "DELETE",
     contentType: "application/json",
@@ -42,7 +42,7 @@ function bindDeleteWishlist(data_id) {
   var data = {
     "productId": id
   }
-  
+
   $.ajax({
     type: "DELETE",
     contentType: "application/json",
@@ -116,6 +116,8 @@ function refreshBuckets() {
     success: function (data) {
       $("#keranjang").html("")
       if (data.length != 0) {
+        $("#notif-bucket").html(data.length)
+        $("#notif-bucket").css("display", "inline-block")
         var tot = 0;
         for (var i = 0; i < data.length; i++) {
           var html = `
@@ -155,6 +157,8 @@ function refreshBuckets() {
         </li>`
         $("#keranjang").append(total)
       } else {
+        $("#notif-bucket").html("")
+        $("#notif-bucket").css("display", "none")
         $("#keranjang").html(`
             <div class="bg-blank-keranjang"></div>
             <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>
@@ -261,20 +265,20 @@ function getB() {
 
 function getWishlist() {
   $.ajax({
-      type: "GET",
-      contentType: "application/json",
-      url: "http://127.0.0.1:8080/api/wishlists",
-      dataType: 'json',
-      timeout: 600000,
-      async: false,
-      headers: {
-          'Authorization': `Bearer ` + getCookie("token"),
-      },
-      success: function (data) {
-          $("#wishlist-item").html("")
-          if (data.length != 0) {
-              for (let i = 0; i < data.length; i++) {
-                  var html = `
+    type: "GET",
+    contentType: "application/json",
+    url: "http://127.0.0.1:8080/api/wishlists",
+    dataType: 'json',
+    timeout: 600000,
+    async: false,
+    headers: {
+      'Authorization': `Bearer ` + getCookie("token"),
+    },
+    success: function (data) {
+      $("#wishlist-item").html("")
+      if (data.length != 0) {
+        for (let i = 0; i < data.length; i++) {
+          var html = `
               <div class="col-3-custom">
                   <div class="content-border shadow-card no-border border-radius-4">
                   <img src="` + data[i].product.productPhoto + `" alt="" class="width-img">
@@ -288,13 +292,12 @@ function getWishlist() {
                   </div>
               </div>
               `
-                  $("#wishlist-item").append(html);
-                  bindListener();
-              }
+          $("#wishlist-item").append(html);
+        }
 
-          } else {
-              $("#wishlist-item").removeClass("flex-row")
-              $("#wishlist-item").html(`
+      } else {
+        $("#wishlist-item").removeClass("flex-row")
+        $("#wishlist-item").html(`
               <div style="margin-top: 90px; margin-bottom: 100px;">
                   <div class="bg-blank-wishlist"></div>
                       <p class="p-1 keranjang bold center">Wishlist Kamu masih kosong.</p>
@@ -303,10 +306,10 @@ function getWishlist() {
                   </div>
               </div>
               `);
-          }
-      },
-      error: function (errMsg) {
-          window.location.replace("/404.html")
       }
+    },
+    error: function (errMsg) {
+      window.location.replace("/404.html")
+    }
   });
 }

@@ -104,7 +104,7 @@ $(window).load(function () {
                 $("#content").html("")
                 var d = new Date(data.transaction.createdAt);
                 var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-                $("#noDetailTransaksi").html(data.transaction.transactionId)
+                $("#noDetailTransaksi").html(data.transaction.transactionCode)
                 $("#tglTransaksi").html(tgl)
                 var username = ""
                 $.ajax({

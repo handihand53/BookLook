@@ -135,7 +135,7 @@ $(window).load(function () {
       if (data.marketId != null) {
         $("#loading").css("visibility", "hidden");
         $("#marketName").html(data.marketName)
-        $("#skuToko").val(data.marketSKU)
+        $("#skuToko").val(data.marketCode)
         if (data.marketPhoto == null)
           $('#display').attr('src', "../assets/else/signature.png");
         else
@@ -153,10 +153,10 @@ $(window).load(function () {
     var penerbitBuku = $("#penerbitBuku").val()
     var kategoriBuku1 = $("#kategoriBuku1").val()
     var kategoriBuku2 = $("#kategoriBuku2").val()
-    var skuBuku = $("#skuBuku").val()
     var hargaBuku = $("#hargaBuku").val()
     var deskripsiBuku = $("#deskripsiBuku").val()
     var isbn = $("#isbnBuku").val()
+    var jumlahHalaman = $("#jumlahHalaman").val()
     var pict = $("#upload-photo").get(0).files[0];
     var file = $("#upload-file").get(0).files[0];
     var kategori;
@@ -200,12 +200,12 @@ $(window).load(function () {
     } else
       $("#kat").removeClass("show");
 
-    if (skuBuku == "") {
+    if (jumlahHalaman == "") {
       stats = false;
-      $("#SKU").addClass("show");
+      $("#jmlHal").addClass("show");
     } else
-      $("#SKU").removeClass("show");
-
+      $("#jmlHal").removeClass("show");
+    
     if (hargaBuku == "") {
       stats = false;
       $("#price").addClass("show");
@@ -245,11 +245,11 @@ $(window).load(function () {
     fd.append('description', deskripsiBuku)
     fd.append('author', penulisBuku)
     fd.append('publisher', penerbitBuku)
-    fd.append('sku', skuBuku)
     fd.append('categories', kategori)
     fd.append('price', hargaBuku)
     fd.append('book', file, berkasName)
     fd.append('isbn', isbn)
+    fd.append('pageTotal', jumlahHalaman)
 
     // for (var pair of fd.entries()) {
     //   console.log(pair[0] + ', ' + pair[1]);

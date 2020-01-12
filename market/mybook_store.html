@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../css/mybook_store.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/header-market.css">
 </head>
 
 <body>
@@ -26,47 +27,78 @@
   <div class="batas"></div>
 
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div class="col-5">
-              <img id="display" class="mb-3" alt="" width="100%">
-            </div>
-            <div class="col-6">
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>              
-            </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item active-sidebar">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item active-sidebar">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="col-md-9 mb-4 mlr-auto">
-          <div class="title-content mb-4">Buku </div>
-          <!--  -->
-          <div class="flex-row" id="product-content">
-            
+
+      <!-- content -->
+
+      <div class="col-md-9 mb-1">
+        <div class="row">
+          <div class="col-md-12 pl-3 mb-1">
+            <div class="row col-md-12 pr-3 mt-2">
+              <div class="title-content"> Buku</div>
+              <!--  -->
+              <div class="mt-2 right-cat">
+                <div class="row">
+                  <div>
+                    <input class="search-cat form-control form-control-sm" id="search" type="text"
+                      placeholder='Cari judul buku'>
+                  </div>
+                  <div class="btn-group ml-3" id="sort-btn">
+                    <button class="btn btn-cst btn-sm dropdown-toggle" id="sort">
+                      Urutkan
+                    </button>
+                    <div class="dropdown-menu" id="drop-sort" data-status="0">
+                      <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
+                      <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
+                      <div class="dropdown-divider"></div>
+                      <div class="dropdown-item sort-content" data-sort="hargaAsc">Harga <i
+                          class="fas fa-arrow-up ml-3"></i>
+                      </div>
+                      <div class="dropdown-item sort-content" data-sort="hargaDesc">Harga <i
+                          class="fas fa-arrow-down ml-3"></i></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+        <!--  -->
+        <div class="flex-row" id="product-content">
+
+        </div>
       </div>
+      <!-- batas -->
+    </div>
+
   </main>
 
   <footer class="footer" id="footer">

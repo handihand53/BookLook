@@ -83,6 +83,7 @@ $(window).load(function () {
     var long = ""
     var short = ""
     var res
+
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -137,6 +138,11 @@ $(window).load(function () {
                 <div class="row">
                     <p class="title-book col-6">SKU Buku</p>
                     <p class="title-book col-6" title="` + data.product.sku + `">` + data.product.sku + `</p>
+                </div>
+                <hr>
+                <div class="row">
+                    <p class="title-book col-6">Total Halaman</p>
+                    <p class="title-book col-6" title="` + data.product.pageTotal + `">` + data.product.pageTotal + ` Halaman</p>
                 </div>
                 <hr>
                 <div class="row">

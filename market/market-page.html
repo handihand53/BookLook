@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="../css/marketPage.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/header-market.css">
     <link rel="stylesheet" href="../css/footer.css">
 </head>
 
@@ -25,36 +26,63 @@
     <div class="batas"></div>
 
     <main class="content content-width content-height">
-        <div class="mb-5">
-            <div class="row">
-                <div class="row col-md-3">
-                    <div>
-                        <img class="mb-3 mr-2" alt="" id="img-market">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row p-3">
+                    <div class="mr-2">
+                        <img class="mb-3 mr-2" alt="" id="img-market" width="100px">
                     </div>
                     <div>
-                        <h5 id="marketName"></h5>
+                        <h5 class="marketName"></h5>
                         <h6 class="status">Toko</h6>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <ul class="ul-item">
-                        <a href="">
-                            <li class="li-item active-sidebar">Buku</li>
-                        </a>
-                        <a id="about">
-                            <li class="li-item">Tentang</li>
-                        </a>
-                    </ul>
+
+                <div class="card p-3 mb-2">
+                    <p class="judul-tentang">Tentang <b><span class="marketName"></span></b> </p>
+                    <p class="text-tentang" id="tentang"></p>
                 </div>
             </div>
-            <div class="row">
-                <div class="mrl-auto col-md-9 mb-2">
-                    <!--  -->
-                    <div class="flex-row" id="product-items">
-                       
+
+            <!-- content -->
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-12 pl-3 mb-1">
+                        <div class="row col-md-12 pr-3 mt-2">
+                            <div class="title-content"> Buku</div>
+                            <!--  -->
+                            <div class="mt-2 right-cat">
+                                <div class="row">
+                                    <div>
+                                        <input class="search-cat form-control form-control-sm" id="search" type="text"
+                                            placeholder='Cari judul buku'>
+                                    </div>
+                                    <div class="btn-group ml-3" id="sort-btn">
+                                        <button class="btn btn-cst btn-sm dropdown-toggle" id="sort">
+                                            Urutkan
+                                        </button>
+                                        <div class="dropdown-menu" id="drop-sort" data-status="0">
+                                            <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
+                                            <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="dropdown-item sort-content" data-sort="hargaAsc">Harga <i
+                                                    class="fas fa-arrow-up ml-3"></i>
+                                            </div>
+                                            <div class="dropdown-item sort-content" data-sort="hargaDesc">Harga <i
+                                                    class="fas fa-arrow-down ml-3"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+                <div class="flex-row" id="product-items">
+                </div>
             </div>
+            <!-- batas -->
         </div>
     </main>
 

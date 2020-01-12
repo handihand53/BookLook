@@ -34,6 +34,8 @@ input[type="number"] {
     min-height: 500px;
 }
 
+
+
 .status {
     color: rgb(155, 155, 155);
 }
@@ -63,6 +65,7 @@ input[type="number"] {
 .profile-edit {
     font-size: 12px;
     font-weight: 700;
+    margin-top: 20px;
 }
 
 .change-password {
@@ -78,7 +81,7 @@ input[type="number"] {
 .numphone {
     font-size: 11px;
     font-weight: 500;
-    color: rgb(191, 191, 191);
+    color: rgb(255, 65, 65);
 }
 
 a {
@@ -231,7 +234,7 @@ a:hover {
     font-size: 12px;
     list-style: none;
     border-bottom: 0.05px rgb(216, 216, 216) solid;
-    padding: 8px 0px 12px 45px;
+    padding: 8px 0px 12px 15px;
 }
 
 .active-sidebar {

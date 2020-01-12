@@ -56,20 +56,10 @@ a:hover {
 
 
 .price {
+    margin: 0px;
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
-}
-
-.bg-index {
-    background-image: url(../assets/bg/bg_home.png);
-    height: 420px;
-    position: absolute;
-    width: 100%;
-    z-index: -99;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 115%;
 }
 
 .content-border {
@@ -161,12 +151,115 @@ a:hover {
     border: none !important;
 }
 
+.card-color {
+    color: #00aeff;
+    font-weight: 500;
+}
+
+.card-sub-color {
+    margin-top: 10px;
+    color: #9b9b9b;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.card-bg {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.212);
+    background-image: url("../assets/bg/blank2.jpeg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+
+.bg-index {
+    background: linear-gradient(0deg, rgba(90, 123, 129, 0.3), rgba(102, 206, 255, 0.315)), url("../assets/bg/bg_home.png");
+    height: 420px;
+    position: absolute;
+    width: 100%;
+    z-index: -99;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 115%;
+}
+
+.bottom-gray {
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
+    padding-bottom: 7px;
+}
+
+.mt-15 {
+    margin-top: 6px;
+}
+
+.bottom-gray:hover {
+    color: rgba(0, 101, 252, 0.644);
+}
+
+.hide-arrow {
+    visibility: hidden;
+}
+
+.show-arrow {
+    visibility: visible;
+}
+
+.lh {
+    line-height: 32px !important;
+}
+
+.cg {
+    color: rgb(105, 105, 105);
+    font-weight: 400;
+}
+
+.detail-font {
+    font-size: 14px;
+}
+
+.f14 {
+    line-height: 25px;
+}
+
+.active {
+    padding-bottom: 7px;
+    color: rgba(0, 101, 252, 0.644);
+    font-weight: bold;
+}
+
+.no-border-bottom {
+    border-bottom: none !important;
+}
+
+.logo-about {
+    width: 100%;
+}
+
+.about-title {
+    font-weight: 500;
+}
+
+.content-body {
+    border-left: 0.5px solid rgba(145, 145, 145, 0.589);
+    padding-left: 30px;
+}
+
+.about {
+    width: 100%;
+    margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+    max-width: 1100px;
+    min-height: 500px;
+}
 
 
 .author-main {
     color: rgb(255, 132, 0);
     margin-top: 2px;
-    margin-left: 5px;
     font-weight: bold;
     font-size: 12px;
     overflow: hidden;
@@ -221,12 +314,21 @@ div.item:hover {
 
 
 @media screen and (min-width: 771px) {
+    .min-height {
+        background-color: rgba(255, 255, 255, 0.993);
+        min-height: 260px;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+
     .slider-container {
         max-height: 265px;
         min-height: 265px;
     }
 
-    .container{
+    .container {
         min-width: 960px;
     }
 
@@ -302,10 +404,48 @@ div.item:hover {
         min-width: 500px;
     }
 
-
 }
 
 @media screen and (max-width: 770px) {
+    .min-height {
+        background-color: rgba(255, 255, 255, 0.993);
+        min-height: 260px;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .f-12 {
+        display: block;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .border-radius-200 {
+        border-radius: 400px;
+        height: 120px;
+        width: 120px;
+        margin-top: 54px;
+        transition: all 0.1s;
+    }
+
+    .border-radius-200:hover {
+        margin-top: 44px;
+    }
+
+    .cst-icon {
+        padding: 35px 0px;
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 300px;
+    }
+
+    .more {
+        font-size: 1px;
+        font-weight: 500;
+    }
 
     .slider-container {
         max-height: 198px;
@@ -329,7 +469,6 @@ div.item:hover {
     .author-main {
         font-size: 10px;
         margin-top: 2px;
-        margin-left: 5px;
         color: orange;
         font-weight: bold;
     }
@@ -353,7 +492,6 @@ div.item:hover {
     .title {
         font-size: 12px;
         margin-top: 2px;
-        margin-left: 5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -363,15 +501,13 @@ div.item:hover {
     }
 
     .bg-index {
+        height: 400px;
+        background-size: 400%;
         background-position: top;
     }
 
     .white {
         color: rgb(255, 255, 255);
-    }
-
-    .bg-index {
-        height: 350px;
     }
 
     .bg-cover {
@@ -400,6 +536,7 @@ div.item:hover {
     }
 
     .price {
+        margin: 0px;
         font-size: 12px;
     }
 }

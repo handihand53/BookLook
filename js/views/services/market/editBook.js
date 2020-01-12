@@ -110,6 +110,7 @@ $(window).load(function () {
             $("#isbn").val(data.product.isbn)
             $("#price").val(data.product.price)
             $("#description").val(data.product.description)
+            $("#page").val(data.product.pageTotal)
             $("#edit-foto-buku").attr("href", "./edit-foto-buku.html?_i=" + urlParams._i[0])
         },
         error: function (errMsg) {
@@ -129,7 +130,7 @@ $(window).load(function () {
             var html = `
                 <div id="icon"><i class="fas fa-times-circle f14-red mb-2 mt-2"></i> </div>
                 <div class="prof" id="modalMsgEdit">Harga tidak boleh kosong</div>
-                <label class="prof-ok" data-dismiss="modal">OK</label>
+                <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
             `
             $("#modal-body").html(html)
             $("#modalInfo").click()
@@ -140,7 +141,7 @@ $(window).load(function () {
             var html = `
                 <div id="icon"><i class="fas fa-times-circle f14-red mb-2 mt-2"></i> </div>
                 <div class="prof" id="modalMsgEdit">Deskripsi tidak boleh kosong</div>
-                <label class="prof-ok" data-dismiss="modal">OK</label>
+                <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
             `
             $("#modal-body").html(html)
             $("#modalInfo").click()
@@ -161,7 +162,7 @@ $(window).load(function () {
                 var html = `
                     <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
                     <div class="prof" id="modalMsgEdit">Item berhasil diperbaharui</div>
-                    <label class="prof-ok" data-dismiss="modal">OK</label>
+                    <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
                 `
                 $("#modal-body").html(html)
                 $("#modalInfo").click()

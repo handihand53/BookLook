@@ -120,11 +120,11 @@ $(window).load(function () {
 
             var html = `
                     <tr>
-                        <td class="no-pemesanan" title="` + dataArray[i].transactionId + `">` + dataArray[i].transactionId + `</td>
+                        <td class="no-pemesanan" title="` + dataArray[i].transactionCode + `">` + dataArray[i].transactionCode + `</td>
                         <td class="nama-pemesan" title="` + username + `">` + username + `</td>
                         <td class="tgl-pemesanan" title="` + tgl + `">` + tgl + `</td>
                         <td class="` + cl + `" title="` + dataArray[i].transferConfirm + `">` + dataArray[i].transferConfirm + `</td>
-                        <td><a href="detail_pemberitahuan.html?_i=` + dataArray[i].transactionId + `" class="detail-pemesanan">Lihat</a></td>
+                        <td><a href="detail_pemberitahuan.html?_i=` + dataArray[i].transactionCode + `" class="detail-pemesanan">Lihat</a></td>
                     </tr>
                     `
             $("#contentBody").append(html)

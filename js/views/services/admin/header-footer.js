@@ -1,3 +1,8 @@
+import {
+    getCookie,
+    deleteCookie
+} from '../../../cookies.js';
+
 $(document).ready(function () {
     let header = `
     <nav class="navbar navbar-expand-md navbar-dark bg-custom-admin" >
@@ -9,7 +14,7 @@ $(document).ready(function () {
                     <i class="fa fa-fw fa-chevron-down"></i>
                 </span>
                 <div class="dropdown-menu" style="left: -120px; top: 20px" id="dropdown-content" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Keluar</a>
+                    <a class="dropdown-item" id="logout" href="#">Keluar</a>
                 </div>
             </div>
         </div>
@@ -34,6 +39,28 @@ $(document).ready(function () {
         $("#dropdown-content").removeClass("show")
     })
 
-    $("#drop").click(function(){
+    $("#logout").click(function () {
+        logout()
     })
+
+    function logout() {
+        deleteCookie()
+        window.location.href = "/admin_login.html"
+
+        $.ajax({
+          type: "POST",
+          url: "http://127.0.0.1:8080/api/auth/signout",
+          headers: {
+            'Authorization': `Bearer ` + getCookie("token"),
+          },
+          success: function (data) {
+            console.log(data)
+            deleteCookie()
+            location.reload()
+          },
+          error: function(data){
+            console.log(data)
+          }
+        });
+      }
 })

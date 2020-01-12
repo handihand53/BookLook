@@ -175,6 +175,28 @@ a:hover {
     line-height: 25px;
 }
 
+.disable{
+    background: rgb(119, 119, 119)!important;
+}
+
+.btn-pay{
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(29, 161, 255);
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.btn-pay:hover{
+    background-color:rgb(0, 114, 196)  ;
+}
+
 .price-detail {
     font-size: 14px;
     font-weight: bold;
@@ -185,7 +207,7 @@ a:hover {
     font-size: 12px;
     list-style: none;
     border-bottom: 0.05px rgb(216, 216, 216) solid;
-    padding: 8px 0px 12px 45px;
+    padding: 8px 0px 12px 15px;
 }
 
 .active-sidebar {

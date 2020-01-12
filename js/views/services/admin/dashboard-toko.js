@@ -59,7 +59,7 @@ $(document).ready(function () {
     month[10] = "November";
     month[11] = "Desember";
 
-    var market;
+    var user;
     var start = "-"
     var end = "-"
     var btn = "Blokir"
@@ -67,128 +67,289 @@ $(document).ready(function () {
     getList()
 
     function getList() {
-        market = new Array();
+        user = new Array();
         $("#table-body").html("")
         $.ajax({
             type: "GET",
-            url: "http://127.0.0.1:8080/api/admin/list/market",
+            url: "http://127.0.0.1:8080/api/admin/list/users",
             async: false,
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                market = data
+                user = data
+                user.sort(usernameAsc);
                 addToTable()
             }
         });
     }
 
-    function addToTable() {
-        if (market.length != 0) {
-            var totPage = urlParams.page.toString() * 10
-            var first = totPage - 10
-            if (market.length < totPage) {
-                totPage -= 10 - market.length
-            }
-            var x = "";
-            var jmlPecah = Math.ceil(market.length / 10)
-            if (jmlPecah < 4) {
-                for (var i = 1; i <= jmlPecah; i++) {
-                    x += i + " "
-                }
+    $('#search').on('input', function () {
+        user.sort(usernameAsc);
+        addToTable($(this).val())
+    });
+
+    function usernameAsc(a, b) {
+        var nameA = a.username.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.username.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function usernameDesc(a, b) {
+        var nameA = a.username.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.username.toUpperCase(); // ignore upper and lowercase
+        if (nameA > nameB) {
+            return -1;
+        }
+
+        if (nameA < nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function statusAsc(a, b) {
+        var nameA = a.status.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.status.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function statusDesc(a, b) {
+        var nameA = a.status.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.status.toUpperCase(); // ignore upper and lowercase
+        if (nameA > nameB) {
+            return -1;
+        }
+
+        if (nameA < nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    sortName()
+
+    function sortName() {
+        $("#namaTabel").click(function () {
+            $("#statusTabel").html(`Status`)
+            if ($(this).attr("data-set") == "0") {
+                $(this).attr("data-set", "1")
+                $(this).html(`Nama Pengguna <i class="fas fa-sort-up"></i>`)
+                user.sort(usernameAsc);
+                addToTable($("#search").val())
             } else {
-                x = (jmlPecah - 1) + " " + jmlPecah + " " + (jmlPecah + 1)
+                $(this).attr("data-set", "0")
+                $(this).html(`Nama Pengguna <i class="fas fa-sort-down"></i>`)
+                user.sort(usernameDesc);
+                addToTable($("#search").val())
             }
-            $("#page").html(x)
+        })
+    }
 
-            if (urlParams.page.toString() < 4) {
-                $("#previous").attr("hidden", true)
+    sortStatus()
+
+    function sortStatus() {
+        $("#statusTabel").click(function () {
+            $("#namaTabel").html(`Nama Pengguna`)
+            if ($(this).attr("data-set") == "0") {
+                $(this).attr("data-set", "1")
+                $(this).html(`Status <i class="fas fa-sort-up"></i>`)
+                user.sort(statusAsc);
+                addToTable($("#search").val())
+            } else {
+                $(this).attr("data-set", "0")
+                $(this).html(`Status <i class="fas fa-sort-down"></i>`)
+                user.sort(statusDesc);
+                addToTable($("#search").val())
             }
+        })
+    }
 
-            if (urlParams.page.toString() == jmlPecah) {
-                $("#next").attr("hidden", true)
-            }
-            $("#currentShow").html(totPage)
-            $("#allShow").html(market.length)
-            for (var i = first; i < totPage; i++) {
-                var d = new Date(market[i].createdAt);
-                var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-                var market_id = market[i].marketId
-                var statsMarket = "Aktif"
-                var color = "green"
+    function addToTable(str) {
+        if (user.length != 0) {
+            $("#table-body").html("")
+            var f = false;
+            for (var i = 0; i < user.length; i++) {
+                if (str == "" || str == undefined) {
+                    var d = new Date(user[i].createdAt);
+                    var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+                    var user_id = user[i].userId
+                    var idx = i;
+                    var statsMarket = "Aktif"
+                    var color = "green"
 
-                $.ajax({
-                    type: "GET",
-                    url: "http://127.0.0.1:8080/api/admin/block/market",
-                    async: false,
-                    headers: {
-                        'Authorization': `Bearer ` + getCookie("token"),
-                    },
-                    success: function (data) {
-                        start = "-"
-                        end = "-"
-                        btn = "Blokir"
-                        btnClass = "blokir-btn"
-                        if (data.length != 0) {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8080/api/admin/block/user",
+                        async: false,
+                        headers: {
+                            'Authorization': `Bearer ` + getCookie("token"),
+                        },
+                        success: function (data) {
+                            start = "-"
+                            end = "-"
+                            btn = "Blokir"
+                            btnClass = "blokir-btn"
 
-                            for (var i = 0; i < data.length; i++) {
-                                if (market_id == data[i].market.marketId) {
+                            if (data.length != 0) {
+                                for (var x = 0; x < data.length; x++) {
+                                    if (user_id == data[x].user.userId) {
+                                        user[idx].status = "1"
+                                        var today = new Date();
+                                        start = new Date(data[x].startAt);
+                                        end = new Date(data[x].endAt);
 
-                                    var today = new Date();
-                                    start = new Date(data[i].startAt);
-                                    end = new Date(data[i].endAt);
+                                        if (today >= start && today <= end) {
+                                            statsMarket = "Blokir"
+                                            color = "red"
+                                            btn = "Buka Blokir"
+                                            btnClass = "unblokir-btn"
+                                            break
+                                        } else {
+                                            start = "-"
+                                            end = "-"
+                                            console.log(start)
+                                            btn = "Blokir"
+                                            btnClass = "blokir-btn"
+                                        }
+                                    } else {
+                                        user[idx].status = "0"
+                                        start = "-"
+                                        end = "-"
+                                        btn = "Blokir"
+                                        btnClass = "blokir-btn"
+                                    }
+                                }
+                            } else {
+                                user.forEach(function (data) {
+                                    data.status = "0"
+                                });
+                            }
+                        },
+                    });
 
-                                    if (today >= start && today <= end) {
-                                        statsMarket = "Blokir"
-                                        color = "red"
-                                        btn = "Buka Blokir"
-                                        btnClass = "unblokir-btn"
-                                        break
+                    var html = `
+                    <tr>
+                        <th class="center" scope="row">` + (i + 1) + `</th>
+                        <td class="" title="` + user[i].username + `">` + user[i].username + `</a></td>
+                        <td class="center" style="color: ` + color + `;">` + statsMarket + `</td>
+                        <td class="center">` + tgl + `</td>
+                        <td class="center detail" data-id="` + i + `" data-start="` + start + `" data-end="` + end + `">Detail</td>
+                        <td class="center"><button data-id="` + user[i].userId + `" data-user="` + user[i].username + `" class="` + btnClass + `">` + btn + `</button></td>
+                    </tr>
+                    `
+
+                    $("#table-body").append(html)
+                } else if (str.toLowerCase() == user[i].username.substring(0, str.length).toLowerCase()) {
+                    var count = 1;
+                    if (f == false) $("#table-body").html("")
+                    f = true
+                    var d = new Date(user[i].createdAt);
+                    var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+                    var user_id = user[i].userId
+                    var statsMarket = "Aktif"
+                    var color = "green"
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8080/api/admin/block/user",
+                        async: false,
+                        headers: {
+                            'Authorization': `Bearer ` + getCookie("token"),
+                        },
+                        success: function (data) {
+                            start = "-"
+                            end = "-"
+                            btn = "Blokir"
+                            btnClass = "blokir-btn"
+                            if (data.length != 0) {
+                                for (var x = 0; x < data.length; x++) {
+                                    if (user_id == data[x].user.userId) {
+                                        var today = new Date();
+                                        start = new Date(data[x].startAt);
+                                        end = new Date(data[x].endAt);
+
+                                        if (today >= start && today <= end) {
+                                            statsMarket = "Blokir"
+                                            color = "red"
+                                            btn = "Buka Blokir"
+                                            btnClass = "unblokir-btn"
+                                            break
+                                        } else {
+                                            start = "-"
+                                            end = "-"
+                                            btn = "Blokir"
+                                            btnClass = "blokir-btn"
+                                        }
                                     } else {
                                         start = "-"
                                         end = "-"
                                         btn = "Blokir"
                                         btnClass = "blokir-btn"
                                     }
-                                } else {
-                                    start = "-"
-                                    end = "-"
-                                    btn = "Blokir"
-                                    btnClass = "blokir-btn"
                                 }
                             }
-                        }
-                    },
-                });
+                        },
+                    });
 
-                var html = `
-                <tr>
-                    <th class="center" scope="row">` + (i + 1) + `</th>
-                    <td class="" title="` + market[i].marketName + `"><a class="alink" href="/market/market-page.html?id=` + market[i].marketId + `">` + market[i].marketName + `</a></td>
-                    <td class="center" style="color: ` + color + `;">` + statsMarket + `</td>
-                    <td class="center">` + tgl + `</td>
-                    <td class="center detail" data-id="` + i + `">Detail</td>
-                    <td class="center"><button data-start="` + start + `" data-end="` + end + `" data-id="` + market[i].marketId + `" data-market="` + market[i].marketName + `" class="` + btnClass + `">` + btn + `</button></td>
-                </tr>
-                `
-                $("#table-body").append(html)
-            }
-            $("#totMarket").html(market.length)
-        } else {
-            var html = `
+                    var html = `
                     <tr>
-                        <td colspan="6" class="center txt">Belum ada toko yang terdaftar</td>
+                        <th class="center" scope="row">` + count + `</th>
+                        <td class="" title="` + user[i].username + `">` + user[i].username + `</a></td>
+                        <td class="center" style="color: ` + color + `;">` + statsMarket + `</td>
+                        <td class="center">` + tgl + `</td>
+                        <td class="center detail" data-id="` + i + `" data-start="` + start + `" data-end="` + end + `">Detail</td>
+                        <td class="center"><button data-id="` + user[i].userId + `" data-user="` + user[i].username + `" class="` + btnClass + `">` + btn + `</button></td>
                     </tr>
                     `
+                    $("#table-body").append(html)
+                    count++;
+                } else if (f == false) {
+                    var html = `
+                        <tr>
+                            <td colspan="6" class="center txt">User tidak ditemukan</td>
+                        </tr>
+                        `
+                    $("#table-body").html(html)
+                }
+            }
+
+            $("#totMarket").html(user.length)
+
+        } else {
+            var html = `
+            <tr>
+                <td colspan="6" class="center txt">Belum ada user yang terdaftar</td>
+            </tr>
+            `
             $("#table-body").append(html)
         }
+
         bindListener()
     }
 
-    $("#unblokirMarket").click(function () {
+    $("#unblokirUser").click(function () {
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:8080/api/admin/unblock/market/" + $(this).attr("data-idMarket"),
+            url: "http://127.0.0.1:8080/api/admin/unblock/user/" + $(this).attr("data-iduser"),
             async: false,
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
@@ -203,7 +364,7 @@ $(document).ready(function () {
         });
     })
 
-    $("#blokirMarket").click(function () {
+    $("#blokirUser").click(function () {
         if ($("#hari").val() == "") {
             $("#errText").html("Tolong isi durasi lama blokir")
             return
@@ -211,7 +372,7 @@ $(document).ready(function () {
         $('#confirmModal').modal('hide');
         $.ajax({
             type: "POST",
-            url: "http://127.0.0.1:8080/api/admin/block/market/" + $(this).attr("data-idMarket") + "/" + $("#hari").val(),
+            url: "http://127.0.0.1:8080/api/admin/block/user/" + $(this).attr("data-iduser") + "/" + $("#hari").val(),
             async: false,
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
@@ -228,43 +389,55 @@ $(document).ready(function () {
     function bindListener() {
         $(".blokir-btn").click(function () {
             $("#confirm").click()
-            $("#marketName").html($(this).data("market"))
-            $("#blokirMarket").attr("data-idMarket", $(this).data("id"))
-            $("#unblokirMarket").attr("hidden", true)
+            $("#userName").html($(this).attr("data-user"))
+            $("#blokirUser").attr("data-iduser", $(this).attr("data-id"))
+            $("#unblokirUser").attr("hidden", true)
             $("#durasi").html(`Durasi blokir: <input type="number" class="day" id="hari" min="1" width="50px"> Hari`)
-            $("#blokirMarket").attr("hidden", false)
+            $("#blokirUser").attr("hidden", false)
         })
 
         $(".detail").click(function () {
             $("#btn-modal").click()
+
             var src
-            if (market[$(this).data("id")].marketPhoto == null) {
+            if (user[$(this).attr("data-id")].userPhoto == null) {
                 src = "../assets/else/signature.png";
             } else {
-                src = market[$(this).data("id")].marketPhoto
+                src = user[$(this).attr("data-id")].userPhoto
             }
-            console.log(start)
+            var start = "-"
+            if ($(this).attr("data-start") != "-")
+                start = new Date($(this).attr("data-start"))
+
+            var end = "-"
+            if ($(this).attr("data-end") != "-")
+                end = new Date($(this).attr("data-end"))
+            var s = "-",
+                e = "-"
+
             if (start != "-")
-                start = start.getDate() + " " + month[start.getMonth()] + " " + start.getFullYear() + " - " + addZero(start.getHours()) + ":" + addZero(start.getMinutes()) + " WIB";
+                s = start.getDate() + " " + month[start.getMonth()] + " " + start.getFullYear() + " - " + addZero(start.getHours()) + ":" + addZero(start.getMinutes()) + " WIB";
 
             if (end != "-")
-                end = end.getDate() + " " + month[end.getMonth()] + " " + end.getFullYear() + " - " + addZero(end.getHours()) + ":" + addZero(end.getMinutes()) + " WIB";
+                e = end.getDate() + " " + month[end.getMonth()] + " " + end.getFullYear() + " - " + addZero(end.getHours()) + ":" + addZero(end.getMinutes()) + " WIB";
 
-            $("#blokirStart").html(start)
-            $("#blokirEnd").html(end)
-            $("#img-market").attr("src", src)
-            $("#namaToko").html(market[$(this).data("id")].marketName)
-            var d = new Date(market[$(this).data("id")].createdAt);
+            $("#blokirStart").html(s)
+            $("#blokirEnd").html(e)
+            $("#img-user").attr("src", src)
+            $("#emailUser").html(user[$(this).attr("data-id")].email)
+            $("#noTlpUser").html(user[$(this).attr("data-id")].numberPhone)
+            $("#namaUser").html(user[$(this).attr("data-id")].username)
+            var d = new Date(user[$(this).attr("data-id")].createdAt);
             var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
             $("#date").html(tgl)
-            $("#deskripsiToko").html(market[$(this).data("id")].marketBio)
+
         })
 
         $(".unblokir-btn").click(function () {
-            $("#unblock").html("Buka blokir untuk market " + $(this).data("market") + " ?")
-            $("#unblokirMarket").attr("data-idMarket", $(this).data("id"))
-            $("#unblokirMarket").attr("hidden", false)
-            $("#blokirMarket").attr("hidden", true)
+            $("#unblock").html("Buka blokir untuk pengguna " + $(this).attr("data-user") + " ?")
+            $("#unblokirUser").attr("data-iduser", $(this).attr("data-id"))
+            $("#unblokirUser").attr("hidden", false)
+            $("#blokirUser").attr("hidden", true)
             $("#durasi").html("")
             $("#errText").html("")
             $("#confirm").click()

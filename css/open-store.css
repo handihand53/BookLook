@@ -177,6 +177,11 @@ p{
     padding-bottom: 50px;
 }
 
+.block{
+    display: block;
+    font-weight: 500;
+}
+
 .btn-modal{
     margin-top: 10px;
     padding: 6px;
@@ -187,6 +192,10 @@ p{
     border-radius: 30px;
     background-color: rgb(0, 140, 255);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.171);
+}
+
+textarea{
+    height: 200px!important;
 }
 
 .icon-modal{

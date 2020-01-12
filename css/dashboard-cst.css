@@ -11,6 +11,19 @@
     background-color: black;
 }
 
+#search {
+    border: 0.5px solid rgba(116, 115, 115, 0.336);
+    width: 200px;
+    padding: 5px 5px 5px 12px;
+    border-radius: 12px;
+}
+
+#search:focus{
+    outline: none !important;
+    box-shadow: 0 0 5px rgba(63, 63, 63, 0.415);
+}
+
+
 a.link-list {
     color: white !important;
 }
@@ -39,7 +52,7 @@ a.link-list:hover {
     height: 30px;
 }
 
-.day:focus{
+.day:focus {
     border: transparent 1px solid;
     box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
 }
@@ -180,6 +193,15 @@ a {
     padding-right: 0px;
 }
 
+#namaTabel:hover{
+    cursor: pointer;
+    background-color: rgba(180, 180, 180, 0.226);
+}
+
+#jmlBuku{
+    color: white;
+}
+
 #bookName {
     font-weight: 500;
 }
@@ -213,12 +235,23 @@ a {
     background-color: rgb(103, 103, 103) !important;
 }
 
-.txt{
+.txt {
     color: rgb(103, 103, 103);
 }
 
-.img-book{
+.img-book {
     max-width: 200px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.detail-text-profile {
+    font-size: 15px;
+    color: rgb(100, 100, 100);
+    margin-bottom: 2px;
+    font-weight: 500;
 }
 
 .btn-decline:hover {
@@ -258,7 +291,7 @@ a {
     box-shadow: none !important;
 }
 
-.red{
+.red {
     color: red;
     font-size: 12px;
 }
@@ -281,6 +314,12 @@ a {
     width: 100px !important;
     height: auto !important;
     box-shadow: none !important;
+}
+
+
+
+.width-img {
+    width: 120px;
 }
 
 .detail {
@@ -321,7 +360,18 @@ a {
     text-decoration: underline !important;
 }
 
+.border-btm {
+    border-bottom: 0.5px solid rgba(138, 138, 138, 0.61);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
 @media screen and (min-width: 771px) {
+
+    .col-modal-cst {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
 
     .main-cont {
         padding-top: 20px;
@@ -352,8 +402,8 @@ a {
     }
 
     .detail-text-blokir {
-        color: rgb(0, 0, 0);
-        font-size: 12px;
+        color: rgb(56, 56, 56);
+        font-size: 15px;
         font-weight: 500;
         margin-bottom: 3px;
     }
@@ -375,6 +425,12 @@ a {
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    .col-modal-cst {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
 
     .detail-text-2 {
         font-size: 14px;

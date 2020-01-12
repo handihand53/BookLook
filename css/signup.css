@@ -109,17 +109,31 @@
     color: rgb(231, 33, 33);
 }
 
+.block{
+    display: block;
+    font-weight: 500;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 .signup-input-false{
     color: rgb(255, 31, 31);
     border: 1.5px rgb(255, 31, 31) solid;
 }
 
 .gray{
-    color: rgba(80, 56, 56, 0.432);
+    color: rgba(255, 83, 83, 0.918);
 }
 
 .hint{
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
 }
 

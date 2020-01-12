@@ -52,12 +52,34 @@
             <li class="li-item">Keluar</li>
           </ul>
         </div>
-
       </div>
       <div class="col-md-9 mb-4">
-        <div class="title-content mb-4">Wishlist</div>
+        <div class="row pl-4 pr-3">
+          <div class="title-content">Wishlist</div>
+          <div class="row right-cat mt-3">
+            <div class="">
+              <input class="search-cat form-control form-control-sm" id="search" type="text"
+                placeholder='Cari judul buku'>
+            </div>
+            <div class="btn-group ml-3" id="sort-btn">
+              <button class="btn btn-cst btn-sm dropdown-toggle" id="sort">
+                Urutkan
+              </button>
+              <div class="dropdown-menu" id="drop-sort" data-status="0">
+                <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
+                <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item sort-content" data-sort="hargaAsc">Harga <i class="fas fa-arrow-up ml-3"></i>
+                </div>
+                <div class="dropdown-item sort-content" data-sort="hargaDesc">Harga <i
+                    class="fas fa-arrow-down ml-3"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!--  -->
-        <div class="flex-row" id="wishlist-item">
+        <div class="flex-row mt-3" id="wishlist-item">
 
         </div>
         <!--  -->
@@ -85,14 +107,13 @@
 
         <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
 
-        <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo"
-          aria-hidden="true">
+        <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-body center">
                 <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
                 <div class="prof" id="modalMsgEdit">Item berhasil ditambahkan</div>
-                <label class="prof-ok" data-dismiss="modal">OK</label>
+                <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
               </div>
             </div>
           </div>
