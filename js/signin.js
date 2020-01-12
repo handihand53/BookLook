@@ -80,6 +80,7 @@ $(document).ready(function () {
                 dataType: 'json',
                 timeout: 600000,
                 success: function (data) {
+                    console.log(data)
                     if (data.status == true) {
                         var token = data.result;
                         setCookie("token", token, 1);
@@ -89,8 +90,10 @@ $(document).ready(function () {
                     }
                 },
                 error: function (errMsg) {
+                    console.log(errMsg)
                     if (errMsg.responseJSON.status == false) {
-                        $("#login-fail").html(`Login Gagal`)
+                        $("#modalTrigger").click()
+                        $("#modalMsgEdit").html(errMsg.responseJSON.result)
                     }
                     if (errMsg.responseJSON.status == 401)
                         $("#login-fail").html('Email atau password salah, Silahkan coba lagi')

@@ -27,59 +27,52 @@
   <div class="batas"></div>
 
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div class="col-5">
-              <img id="display" class="mb-3" alt="">
-            </div>
-            <div>
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
-            </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a>
-              <li class="li-item active-sidebar">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
+        <ul>
+          <a>
+            <li class="li-item active-sidebar">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="mrl-auto col-md-9 mb-4 overflow-table ">
-          <div class="title-user mb-4">Pemberitahuan Pesanan</div>
-          <div style="overflow: auto;">
-            <table class="table table-hover ">
-              <thead>
-                <th scope="col">No Pemesanan</th>
-                <th scope="col">Nama Pemesan</th>
-                <th scope="col">Tanggal</th>
-                <th scope="col">Status</th>
-                <th scope="col">Detail</th>
-                </tr>
-              </thead>
-              <tbody id="contentBody">
+      <div class="col-md-9">
+        <div class="title-user mb-4">Pemberitahuan Pesanan</div>
+        <div style="overflow: auto;">
+          <table class="table table-hover ">
+            <thead>
+              <th scope="col">No Pemesanan</th>
+              <th scope="col">Nama Pemesan</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Status</th>
+              <th scope="col">Detail</th>
+              </tr>
+            </thead>
+            <tbody id="contentBody">
 
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
-      <br>
     </div>
   </main>
 

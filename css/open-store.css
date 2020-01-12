@@ -177,6 +177,11 @@ p{
     padding-bottom: 50px;
 }
 
+.block{
+    display: block;
+    font-weight: 500;
+}
+
 .btn-modal{
     margin-top: 10px;
     padding: 6px;
@@ -190,7 +195,7 @@ p{
 }
 
 textarea{
-    height: 200px;
+    height: 200px!important;
 }
 
 .icon-modal{

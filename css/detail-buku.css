@@ -18,13 +18,13 @@
     color: rgb(155, 155, 155);
 }
 
-.read-more{
+.read-more {
     color: rgb(0, 94, 255);
     font-weight: 500;
     cursor: pointer;
 }
 
-.read-more:hover{
+.read-more:hover {
     color: rgb(0, 63, 171);
 }
 
@@ -32,13 +32,13 @@
     color: red;
 }
 
-.price-store{
+.price-store {
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
 }
 
-.col-3-custom{
+.col-3-custom {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -48,7 +48,7 @@
     margin-top: 20px;
 }
 
-.title-book{
+.title-book {
     font-weight: 500;
 }
 
@@ -71,19 +71,19 @@
     min-width: 60px;
 }
 
-.shadow-card{
+.shadow-card {
     box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
 }
 
-.ul-item{
-    padding:0px;
+.ul-item {
+    padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -95,23 +95,22 @@ a:hover{
     padding: 8px 15px 12px 15px;
 }
 
-.active-sidebar{
+.active-sidebar {
     color: rgb(0, 162, 255);
     font-weight: bold;
-    border-bottom: solid rgb(0, 162, 255) 3px !important; 
 }
 
 
-.li-item:hover{
+.li-item:hover {
     cursor: pointer;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
-ul li{
+ul li {
     display: inline-table;
 }
 
-.mlr-auto{
+.mlr-auto {
     margin-left: auto;
     margin-right: auto;
 }
@@ -124,7 +123,7 @@ ul li{
     color: white !important;
     font-weight: 300;
     /* margin: 5px; */
-    text-align: center  ;
+    text-align: center;
     padding: 10px 12px 10px 12px !important;
     width: 150px !important;
     height: auto !important;
@@ -143,7 +142,7 @@ ul li{
     color: white !important;
     font-weight: 300;
     cursor: pointer;
-    text-align: center  ;
+    text-align: center;
     padding: 10px 12px 10px 12px !important;
     width: 150px !important;
     height: auto !important;
@@ -173,7 +172,7 @@ ul li{
     background-color: rgb(218, 142, 2);
 }
 
-.author-book{
+.author-book {
     font-weight: 500;
     font-size: 14px;
     color: orange;
@@ -189,16 +188,16 @@ ul li{
     font-size: 15px;
 }
 
-.price-detail{
+.price-detail {
     font-size: 14px;
     font-weight: bold;
 }
 
-.desk{
+.desk {
     font-size: 13px;
 }
 
-.publish-book{
+.publish-book {
     color: rgb(110, 110, 110);
     font-size: 12px;
     font-weight: 500;
@@ -206,7 +205,8 @@ ul li{
 
 .deskripsi-content {
     background: rgb(243, 243, 243);
-    display: block; /* or inline-block */
+    display: block;
+    /* or inline-block */
     text-overflow: ellipsis;
     /* word-wrap: break-word; */
     overflow: auto;
@@ -234,7 +234,7 @@ p {
     z-index: 3;
 }
 
-#display{
+#display {
     width: 100px;
 }
 
@@ -259,13 +259,13 @@ p {
     margin-top: 20px;
 }
 
-.flex-row{
+.flex-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.loading{
+.loading {
     z-index: 99999;
     position: fixed;
     width: 100%;
@@ -276,12 +276,12 @@ p {
     background-image: url("../assets/gif/loading3.gif");
 }
 
-.bc{
+.bc {
     font-weight: bold;
     font-size: 12px;
 }
 
-.bc-item:hover{
+.bc-item:hover {
     color: rgb(30, 119, 253);
     cursor: pointer;
 }
@@ -300,7 +300,7 @@ p {
 
 @media screen and (min-width: 771px) {
 
-    #display{
+    #display {
         min-width: 90px;
         max-width: 135px;
     }
@@ -349,7 +349,7 @@ p {
         font-weight: bold;
     }
 
-    .col-3-custom{
+    .col-3-custom {
         position: relative;
         width: 100%;
         padding-right: 15px;

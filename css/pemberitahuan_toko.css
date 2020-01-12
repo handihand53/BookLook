@@ -7,7 +7,7 @@
 }
 
 .content-width {
-    max-width: 1300px;
+    max-width: 1100px;
 }
 
 #display{
@@ -152,24 +152,11 @@ a:hover{
     text-decoration: none;
 }
 
-
-
 .active-sidebar{
     color: rgb(0, 162, 255);
     font-weight: bold;
     border-bottom: solid rgb(0, 162, 255) 3px; 
 }
-
-
-.li-item:hover{
-    cursor: pointer;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
-}
-
-ul li{
-    display: inline-table;
-}
-
 
 p{
     margin: 0px;

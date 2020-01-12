@@ -289,7 +289,7 @@ $(window).load(function () {
 
         if (jml != $(".check").length) {
             $("#main-checkbox").prop("checked", false)
-        }else{
+        } else {
             $("#main-checkbox").prop("checked", true)
         }
         $(".totPrice").html(total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
@@ -318,8 +318,8 @@ $(window).load(function () {
         location.href = "/market/confirmation-page.html";
     })
 
-    $("#main-checkbox").prop("checked", true)
+    $("#main-checkbox").prop("checked", false)
     $(".check").each(function () {
-        $(this).prop("checked", true);
+        $(this).prop("checked", false);
     })
 });

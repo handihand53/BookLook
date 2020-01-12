@@ -25,12 +25,12 @@
   <br>
   <div class="batas"></div>
 
-  
+
   <main class="content content-width content-height">
     <div class="row">
       <div class="col-md-3">
         <h2>BELUM PUNYA TOKO ?</h2>
-        
+
         <div class="border-bottom-blue">
           <h6 class="orange">AYO DAFTAR SEKARANG JUGA!</h6>
           <h7 class="status"></h7>
@@ -44,17 +44,15 @@
         <div class="title-user">Daftar Toko</div>
         <div>
           <label class="profile-edit" for="nama">Nama Toko<span class="red">*</span> </label>
-          <br>
-          <input id="storeName" class="profile-input" type="text" name="nama">
-          <div class="error" id="errorMsgNama"></div>
-          <br>
-          <label class="profile-edit" for="nama">Deskripsi Toko<span class="red">*</span> </label>
-          <br>
-          <textarea id="storeBio" class="profile-input" type="text" name="nama"></textarea><br>
-          <div class="error" id="errorMsgBio"></div>
-          <br>
-          <button id="daftar" class="btn-daftar">Daftar</button>
-          <a href="/user/user.html"><button id="kembali" class="btn-back">Kembali</button></a>
+          <input id="storeName" class="form-control" type="text" name="nama">
+          <div class="invalid-feedback block" id="errorMsgNama"></div>
+          <label class="profile-edit mt-4" for="nama">Deskripsi Toko<span class="red">*</span> </label>
+          <textarea id="storeBio" class="form-control" type="text" name="nama"></textarea>
+          <div class="invalid-feedback block" id="errorMsgBio"></div>
+          <div class="mt-4">
+            <button id="daftar" class="btn-daftar">Daftar</button>
+            <a href="/user/user.html"><button id="kembali" class="btn-back">Kembali</button></a>
+          </div>
         </div>
       </div>
     </div>
@@ -67,8 +65,9 @@
           <div class="col-12">
             <div class="center icon-modal" id="logo"></div>
             <div class="center modal-text">
-                <span class="modal-txt" id="fail-msg"></span><br>
-                <label class="modal-txt" style="cursor: pointer;" data-dismiss="modal"><button class="modal-btn-ok">Oke<button></label>
+              <span class="modal-txt" id="fail-msg"></span><br>
+              <label class="modal-txt" style="cursor: pointer;" data-dismiss="modal"><button
+                  class="modal-btn-ok">Oke</button></label>
             </div>
           </div>
         </div>

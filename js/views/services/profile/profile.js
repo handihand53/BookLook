@@ -10,7 +10,7 @@ import checkMarket from '../../../marketCheck.js';
 $(window).load(function () {
 
   getDataUser();
-
+  var phnm
   function getDataUser() {
     $.ajax({
       type: "GET",
@@ -44,12 +44,14 @@ $(window).load(function () {
       evt.preventDefault();
     }
   });
-
+  
   document.getElementById("nomor-prof").addEventListener("input", function () {
     var s = $("#nomor-prof").val().toString()
-    if(s.length<9){
+    if(s.length<9 || s.length>14){
       $("#errPhone").html("Panjang nomor telepone adalah 10 - 14 angka")
+      phnm = false
     }else{
+      phnm = true
       $("#errPhone").html("")
     }
   })
@@ -100,6 +102,13 @@ $(window).load(function () {
       return
     }
 
+    if(phnm == false){
+      $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
+      $("#modalMsgEdit").html(`Nomor telepon minimal 10 - 14 angka`);
+      $("#editProf").click();
+      return
+    }
+
     var data = {
       "email": email,
       "name": fullname,
@@ -145,15 +154,15 @@ $(window).load(function () {
     return false;
   }
 
-  $('input[type=number]').on('focus', function (e) {
-    $(this).on('wheel', function (e) {
-      e.preventDefault();
-    });
-  });
+  // $('input[type=number]').on('focus', function (e) {
+  //   $(this).on('wheel', function (e) {
+  //     e.preventDefault();
+  //   });
+  // });
 
-  $('input[type=number]').on('keydown', function (e) {
-    if (e.which == 38 || e.which == 40)
-      e.preventDefault();
-  });
+  // $('input[type=number]').on('keydown', function (e) {
+  //   if (e.which == 38 || e.which == 40)
+  //     e.preventDefault();
+  // });
 
 });

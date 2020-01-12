@@ -27,61 +27,55 @@
   <div class="batas"></div>
 
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div class="col-5">
-              <img id="display" class="mb-3" alt="">
-            </div>
-            <div>
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
-            </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
           </div>
-        </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item active-sidebar">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-9 mrl-auto">
-          <div class="title-user">Profile</div>
           <div>
-            <label class="profile-edit" for="nama">Nama Market<span class="red">*</span> </label>
-            <br>
-            <input id="marketName2" class="profile-input" type="text" disabled name="nama">
-            <br><br>
-            <label class="profile-edit" for="nama">SKU<span class="red">*</span> </label>
-            <br>
-            <input id="marketSku" class="profile-input" type="text" disabled name="nama">
-            <div id="errorMsgEmail"></div>
-            <br>
-            <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
-            <br>
-            <textarea id="marketBio" class="profile-input" type="text" name="nama" heigh=></textarea><br>
-            <br>
-            <label class="change-password" for="">Opsi : </label>
-            <br>
-            <a href="edit-photo.html"><button class="btn-blue">Ubah Foto</button></a><br>
-            <button id="save" class="btn-save">Simpan</button>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item active-sidebar">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
+      </div>
+
+      <!-- content -->
+      <div class="col-md-9">
+        <div class="title-user">Profile</div>
+        <div>
+          <label class="profile-edit" for="nama">Nama Market<span class="red">*</span> </label>
+          <input id="marketName2" class="form-control mb-2" type="text" disabled name="nama">
+          <label class="profile-edit" for="nama">SKU<span class="red">*</span> </label>
+          <input id="marketSku" class="form-control mb-2" type="text" disabled name="nama">
+          <div id="errorMsgEmail"></div>
+          <label class="profile-edit" for="nama">Biodata<span class="red">*</span> </label>
+          <br>
+          <textarea id="marketBio" class="form-control" type="text" name="nama" heigh=></textarea><br>
+          <br>
+          <label class="change-password" for="">Opsi : </label>
+          <br>
+          <a href="edit-photo.html"><button class="btn-blue">Ubah Foto</button></a><br>
+          <button id="save" class="btn-save">Simpan</button>
+        </div>
+        <!-- batas -->
       </div>
     </div>
 
@@ -99,7 +93,6 @@
         </div>
       </div>
     </div>
-    <br>
   </main>
 
   <footer class="footer" id="footer">

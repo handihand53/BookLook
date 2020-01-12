@@ -132,6 +132,7 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                console.log(data)
                 $("#modalBayar").click()
             },
             error: function (errMsg) {

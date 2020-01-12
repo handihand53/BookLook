@@ -104,6 +104,21 @@ a {
     line-height: 20px;
 }
 
+#kategoriData{
+    padding-left: 20px;
+    font-weight: 400;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.p-cst{
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
 .background-cst{
     background-color: white;
     border-radius: 7px;

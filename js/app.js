@@ -18,8 +18,6 @@ $(document).ready(function () {
     type: "GET",
     contentType: "application/json",
     url: "http://127.0.0.1:8080/api/users",
-    dataType: 'json',
-    timeout: 600000,
     headers: {
       'Authorization': `Bearer ` + getCookie("token"),
     },
@@ -50,7 +48,7 @@ $(document).ready(function () {
           $("#categoryBox").append(html);
         }
       },
-      failure: function (errMsg) {
+      error: function (errMsg) {
         console.log(errMsg);
       }
     });
@@ -238,9 +236,9 @@ $(document).ready(function () {
     })
   }
 
-  getCookie("token")
-
   function logout() {
+    deleteCookie()
+    window.location.href = "/user/"
     $.ajax({
       type: "POST",
       url: "http://127.0.0.1:8080/api/auth/signout",
@@ -249,10 +247,9 @@ $(document).ready(function () {
       },
       success: function (data) {
         console.log(data)
-        deleteCookie()
-        location.reload()
+
       },
-      error: function(data){
+      error: function (data) {
         console.log(data)
       }
     });

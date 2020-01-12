@@ -293,7 +293,6 @@ function getWishlist() {
               </div>
               `
           $("#wishlist-item").append(html);
-          bindListener();
         }
 
       } else {

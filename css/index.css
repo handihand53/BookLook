@@ -62,17 +62,6 @@ a:hover {
     color: rgb(0, 167, 228);
 }
 
-.bg-index {
-    background-image: url(../assets/bg/bg_home.png);
-    height: 420px;
-    position: absolute;
-    width: 100%;
-    z-index: -99;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 115%;
-}
-
 .content-border {
     background-color: #fff;
     border: gray 1px solid;
@@ -162,6 +151,40 @@ a:hover {
     border: none !important;
 }
 
+.card-color {
+    color: #00aeff;
+    font-weight: 500;
+}
+
+.card-sub-color {
+    margin-top: 10px;
+    color: #9b9b9b;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.card-bg {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.212);
+    background-image: url("../assets/bg/blank2.jpeg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+}
+
+.bg-index {
+    background: linear-gradient(0deg, rgba(90, 123, 129, 0.3), rgba(102, 206, 255, 0.315)), url("../assets/bg/bg_home.png");
+    height: 420px;
+    position: absolute;
+    width: 100%;
+    z-index: -99;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 115%;
+}
+
 .bottom-gray {
     border-bottom: 0.5px solid rgba(128, 128, 128, 0.452);
     padding-bottom: 7px;
@@ -196,15 +219,18 @@ a:hover {
     font-size: 14px;
 }
 
-.f14{
+.f14 {
     line-height: 25px;
 }
 
 .active {
-    border-bottom: 1px solid rgba(0, 108, 248, 0.63);
     padding-bottom: 7px;
     color: rgba(0, 101, 252, 0.644);
     font-weight: bold;
+}
+
+.no-border-bottom {
+    border-bottom: none !important;
 }
 
 .logo-about {
@@ -288,6 +314,15 @@ div.item:hover {
 
 
 @media screen and (min-width: 771px) {
+    .min-height {
+        background-color: rgba(255, 255, 255, 0.993);
+        min-height: 260px;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+
     .slider-container {
         max-height: 265px;
         min-height: 265px;
@@ -372,6 +407,13 @@ div.item:hover {
 }
 
 @media screen and (max-width: 770px) {
+    .min-height {
+        background-color: rgba(255, 255, 255, 0.993);
+        min-height: 260px;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
 
     .f-12 {
         display: block;
@@ -459,7 +501,7 @@ div.item:hover {
     }
 
     .bg-index {
-        height: 350px;
+        height: 400px;
         background-size: 400%;
         background-position: top;
     }

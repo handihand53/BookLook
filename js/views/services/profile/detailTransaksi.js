@@ -155,6 +155,19 @@ $(window).load(function () {
                 `
         $("#bookContent").append(html)
       }
+      if (data.transaction.transferConfirm != "SUCCESS") {
+        let btnPay = `
+        <a href="/market/pay.html?i=` + data.transaction.transactionCode + `"><button id="pay" class="float-right btn-pay">Bayar</button></a>
+        `
+        $("#bookContent").append(btnPay)
+      }
+
+      if(data.transaction.transferConfirm=="PENDING"){
+        $("#pay").css("cursor", "not-allowed")
+        $("#pay").addClass("disable")
+        $("#pay").attr("disabled", true)
+        $("#pay").html("Sudah Dibayar")
+      }
     },
     error: function (errMsg) {
       window.location.replace("/404.html")

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../css/edit_buku.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/header-market.css">
 </head>
 
 <body>
@@ -26,91 +27,87 @@
   <br>
   <div class="batas"></div>
 
-  <main class="content content-width content-height">
-    <div class="mb-3">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="row">
-            <div>
-              <img id="display" class="mb-3 mr-3" alt="">
+  <main class="content content-width content-height mb-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
+          </div>
+        </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item active-sidebar">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
+      </div>
+
+      <!-- content -->
+      <div class="col-md-9">
+        <div class="bc">
+          <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
+          <a id="detail-book"><span class="bc-item">Detail Buku</span></a> >
+          <span class="bc-item">Edit Buku</span>
+        </div>
+        <div class="title-user mb-3">Edit Buku</div>
+        <img src="" alt="" id="img" width="150px"><br>
+
+        <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
+        <input id="title" class="tambah-buku-input" disabled placeholder="Judul Buku" type="text"><br>
+        <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
+        <input id="author" class="tambah-buku-input" disabled placeholder="Penulis" type="text"><br>
+        <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
+        <input id="publisher" class="tambah-buku-input" disabled placeholder="Penerbit" type="text"><br>
+        <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
+        <input id="skuMarket" class="tambah-buku-input" placeholder="SKU" disabled name="a"></input>
+        <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
+        <input id="page" class="tambah-buku-input" placeholder="Jumlah Halaman" disabled name="a"></input>
+        <br>
+        <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
+        <input id="isbn" class="tambah-buku-input" disabled placeholder="ISBN" type="text"><br>
+        <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
+        <input id="price" class="tambah-buku-input" required placeholder="Harga" type="text"><br>
+        <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
+        <textarea id="description" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
+          rows="10"></textarea>
+        <br>
+        <label class="opsi">Opsi :</label><br>
+        <a id="edit-foto-buku"><button class="btn-blue">Ubah Foto Buku</button></a>
+        <a id="edit-file-buku"><button class="btn-blue">Ubah file</button></a>
+        <br>
+        <button id="save" class="btn-save">Simpan</button>
+        <!-- batas -->
+      </div>
+
+
+      <!-- Modal -->
+      <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
+
+      <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body center" id="modal-body">
+
             </div>
-            <div>
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item active-sidebar">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-9">
-          <div class="bc">
-            <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
-            <a id="detail-book"><span class="bc-item">Detail Buku</span></a> >
-            <span class="bc-item">Edit Buku</span>
-          </div>
-          <div class="title-user">Edit Buku</div>
-          <img src="" alt="" id="img" width="150px"><br>
-
-          <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-          <input id="title" class="tambah-buku-input" disabled placeholder="Judul Buku" type="text"><br>
-          <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-          <input id="author" class="tambah-buku-input" disabled placeholder="Penulis" type="text"><br>
-          <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-          <input id="publisher" class="tambah-buku-input" disabled placeholder="Penerbit" type="text"><br>
-          <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
-          <input id="skuMarket" class="tambah-buku-input" placeholder="SKU" disabled name="a"></input>
-          <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
-          <input id="page" class="tambah-buku-input" placeholder="Jumlah Halaman" disabled name="a"></input>
-          <br>
-          <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
-          <input id="isbn" class="tambah-buku-input" disabled placeholder="ISBN" type="text"><br>
-          <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-          <input id="price" class="tambah-buku-input" required placeholder="Harga" type="text"><br>
-          <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-          <textarea id="description" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
-            rows="10"></textarea>
-          <br>
-          <label class="opsi">Opsi :</label><br>
-          <a id="edit-foto-buku"><button class="btn-blue">Ubah Foto Buku</button></a>
-          <a id="edit-file-buku"><button class="btn-blue">Ubah file</button></a>
-          <br>
-          <button id="save" class="btn-save">Simpan</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
-
-    <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-body center" id="modal-body">
-
           </div>
         </div>
       </div>
-    </div>
-    <br>
+      <br>
   </main>
 
   <footer class="footer" id="footer">

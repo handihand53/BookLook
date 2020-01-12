@@ -49,7 +49,7 @@ $(document).ready(function () {
             console.log(data)
             if (data.length != 0) {
                 for (var i = 0; i < data.length; i++) {
-                    var d = new Date(data[i].market.createdAt);
+                    var d = new Date(data[i].user.createdAt);
                     var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
                     var start = new Date(data[i].startAt);
                     var startAt = start.getDate() + " " + month[start.getMonth()] + " " + start.getFullYear() + " - " + addZero(start.getHours()) + ":" + addZero(start.getMinutes()) + " WIB";;
@@ -58,7 +58,7 @@ $(document).ready(function () {
                     var html = `
                 <tr>
                     <th class="center">` + (i + 1) + `</th>
-                    <td class="" title="` + data[i].market.marketName + `"><a class="alink" href="/market/market-page.html?id=` + data[i].market.marketId + `">` + data[i].market.marketName + `</a></td>
+                    <td class="" title="` + data[i].user.username + `">` + data[i].user.username + `</td>
                     <td class="center">` + tgl + `</td>
                     <td class="center">` + startAt + `</td>
                     <td class="center">` + endAt + `</td>

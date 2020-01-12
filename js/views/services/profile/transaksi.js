@@ -113,21 +113,5 @@ $(window).load(function () {
       //   window.location.replace("/404.html")
     }
   });
-  
-  $.ajax({
-    type: "PUT",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/transactions/user/confirm/BLK-HAN-20200110030056",
-    dataType: 'json',
-    async: false,
-    headers: {
-      'Authorization': `Bearer ` + getCookie("token"),
-    },
-    success: function (data) {
-      console.log(data)
-    },
-    error: function (errMsg) {
-      console.log(errMsg)
-    }
-  });
+
 });

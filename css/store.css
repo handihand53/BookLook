@@ -231,10 +231,6 @@ p{
     margin: 0px;
 }
 
-ul li{
-    display: inline-table;
-}
-
 .center {
     text-align: center;
     vertical-align: center;

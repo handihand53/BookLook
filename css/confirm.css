@@ -10,6 +10,55 @@
     height: 20px;
 }
 
+ul{
+    font-weight: 500;
+}
+
+.show{
+    visibility: visible;
+    position: relative;
+}
+
+.hide{
+    visibility: hidden;
+    position: absolute;
+}
+
+ol li{
+    font-size: 12px;
+}
+
+.bank{
+    max-width: 50px;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.pad{
+    padding: 15px;
+    margin-bottom: none;
+}
+
+.keterangan{
+    /* margin-top: 30px; */
+}
+
+.modal-btn-ok {
+    margin-top: 10px;
+    padding: 6px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    background-color: rgb(0, 140, 255);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.171);
+}
+
+.modal-btn-ok:hover {
+    background-color: rgb(0, 98, 179);
+}
+
 .width-img{
     max-width: 150px;
     max-height: 220px;

@@ -9,7 +9,7 @@ $(document).ready(function () {
     // <li id="dash-user" class="p-3 li"><a href="dashboard_user.html" id="dash-user-link" class="list-color"><i class="fa fa-user" aria-hidden="true"></i> User</a></li>
     // <li class="p-3 li"><a href="" class="list-color"><i class="fa fa-exchange-alt" aria-hidden="true"></i> Transaksi</a></li>
 
-    let sidebar=`
+    let sidebar = `
     
     <ul class="navbar-nav">
         <li id="dash-home" class="p-3 li"><a id="dash-home-link" href="dashboard.html" class="list-color"><i class="fa fa-home"
@@ -18,6 +18,7 @@ $(document).ready(function () {
                     aria-hidden="true"></i> Pengguna</a></li>
         <li id="dash-blokir" class="p-3 li"><a href="dashboard_blokir.html" id="dash-blokir-link" class="list-color"><i class="fa fa-ban"
                     aria-hidden="true"></i> Blokir</a></li>
+        <li id="dash-category" class="p-3 li"><a href="dashboard_category.html" id="dash-category-link" class="list-color"><i class="fa fa-list-alt" aria-hidden="true"></i> Kategori</a></li>
         <li id="dash-konfirmasi" class="p-3 li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link" class="list-color"><i class="fa fa-envelope"
                     aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBuku"> </span></a></li>
     </ul>
@@ -29,12 +30,14 @@ $(document).ready(function () {
                     aria-hidden="true"></i> PEngguna</a></li>
         <li id="dash-blokir-mob" class="li"><a href="dashboard_blokir.html" id="dash-blokir-link-mob" class="list-color"><i class="fa fa-ban"
                     aria-hidden="true"></i> Blokir</a></li>
+        <li id="dash-category-mob" class="p-3 li"><a href="dashboard_category.html" id="dash-category-link-mob" class="list-color"><i class="fa fa-list-alt" aria-hidden="true"></i> Kategori</a></li>
         <li id="dash-konfirmasi-mob" class="li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link-mob" class="list-color"><i class="fa fa-envelope"
                     aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBukuMob" class="notif"> </span></a></li>
     </ul>
     `;
     $("#sidebar").html(sidebar)
     getBookRequest()
+
     function getBookRequest() {
         $.ajax({
             type: "GET",
@@ -44,8 +47,6 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
-
                 if (data.length != 0) {
                     $("#jmlBukuMob").addClass("notif")
                     $("#jmlBuku").addClass("notif")
@@ -57,11 +58,8 @@ $(document).ready(function () {
                     $("#jmlBukuMob").removeClass("notif")
                     $("#jmlBuku").removeClass("notif")
                 }
-            },
-            error: function (errMsg) {
-                console.log(errMsg)
             }
         });
     }
-    
+
 });

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../assets/logo/bl.png" rel="icon">
+    <title>Konfirmasi Pembayaran | BookLook</title>
+    <link rel="stylesheet" href="../css/confirm.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <header class="fixed">
+        <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav row">
+            <div class="col-7-cust center">
+                <a class="left col-12" href="/user/index.html"><img src="../assets/logo/logo_blue.png" alt="BookLook"
+                        height="27px" class="d-inline-block align-top"></a>
+            </div>
+            <div class="confirm-text col-5 float-right">Pilih metode pembayaran</span>
+        </nav>
+    </header>
+
+    <body>
+        <br><br><br>
+        <div class="content">
+            <div class="row col-md-9 mrl-auto flex-wrap">
+                <div class="col-md-6-custom" id="book-confirm">
+                    <div class=" p-2 fit-height">
+                        <div class="pl-2 pt-2">
+                            <h4>Pilih Cara Membayar</h4>
+                        </div>
+                        <!-- <img src="../assets/else/atm bersama.png" alt="" class="bank">
+                                <img src="../assets/else/bca.png" alt="" class="bank">
+                                <img src="../assets/else/bni.png" alt="" class="bank">
+                                <img src="../assets/else/mandiri.png" alt="" class="bank"> -->
+                        <div class="pl-2 mt-4">
+                            <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
+                                <div class="custom-control custom-radio custom-control-inline" style="display: block;">
+                                    <input type="radio" id="customRadioInline1" name="customRadioInline1"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioInline1"
+                                        style="display: block;">
+                                        <h6>Transfer bank <span class="float-right"><i class="fas fa-angle-down"></i>
+                                        </h6> </span>
+                                    </label>
+                                </div>
+
+                                <div id="trans" class="border-top mt-3 pt-2 hide">
+                                    <ul>
+                                        <li>Ke bank BCA</li>
+                                        Cara membayar melalui ATM <img src="../assets/else/bca.png" alt=""
+                                            class="bank">:
+                                        <ol>
+                                            <li>Masukkan kartu ATM dan PIN</li>
+                                            <li>Pilih menu TRANSAKSI LAINNYA</li>
+                                            <li>Pilih menu PEMBAYARAN</li>
+                                            <li>Pilih menu LAIN – LAIN (Jika menu lain-lain tidak muncul, tekan
+                                                berikutnya)</li>
+                                            <li>Masukkan kode perusahaan 998899 disertai dengan kode pembayaran
+                                                <span><b class="code"></b></span> tekan BENAR</li>
+                                            </li>
+                                            <li>Transaksi selesai. Simpan bukti pembayaran dan email konfirmasi</li>
+                                            <li>pembayaran akan dikirim ke email pemesan.</li>
+                                        </ol>
+                                        <li>Ke bank BNI</li>
+                                        Cara membayar melalui ATM <img src="../assets/else/bni.png" alt=""
+                                            class="bank">:
+                                        <ol>
+                                            <li>Masukkan kartu ATM dan PIN</li>
+                                            <li>Pilih menu TRANSAKSI LAINNYA</li>
+                                            <li>Pilih menu PEMBAYARAN</li>
+                                            <li>Pilih menu Virtual Account</li>
+                                            <li>Masukkan kode perusahaan 998899 disertai dengan kode pembayaran
+                                                <span><b class="code"></b></span> tekan BENAR</li>
+                                            </li>
+                                            <li>Transaksi selesai. Simpan bukti pembayaran dan email konfirmasi</li>
+                                            <li>pembayaran akan dikirim ke email pemesan.</li>
+                                        </ol>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
+                                <div class="custom-control custom-radio custom-control-inline" style="display: block;">
+                                    <input type="radio" id="customRadioInline2" name="customRadioInline1"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioInline2"
+                                        style="display: block;">
+                                        <h6>Ovo <span class="float-right"><i class="fas fa-angle-down"></i>
+                                        </h6></span>
+                                    </label>
+                                </div>
+
+                                <div id="ovo" class="border-top mt-3 pt-2 hide">
+                                    <ul>
+                                        Cara membayar melalui <img src="../assets/else/Logo OVO.png" alt=""
+                                            class="bank"> :
+                                        <ol>
+                                            <li>Masukkan nomor handphone kamu yang sudah terdaftar di OVO</li>
+                                            <li>Kamu akan mendapatkan notifikasi pembayaran OVO aplikasi di handphone
+                                            </li>
+                                            <li>Konfirmasi pembayaran dalam waktu kurang dari 1 menit</li>
+                                            <li>Kamu bisa memilih OVO Cash, OVO Points, atau Split untuk pembayaran kamu
+                                            </li>
+                                            <li>Pembayaran transaksi kamu sukses dibayarkan</li>
+                                        </ol>
+                                    </ul>
+                                    <div>
+                                        Masukan nomor telepon kamu : 
+                                        <input type="number" id="numphone" class="form-control" min="0">
+                                        <div id="errPhone" class="invalid-feedback" style="display: block;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3-custom">
+                    <div class="content-border shadow-card no-border border-radius-4  p-2 fit-height">
+                        <div class="judul-utama">Rincian</div>
+                        <hr>
+                        <div class="row pr-2 pl-2 mb-2">
+                            <div class="col-6 sub-list no-margin">
+                                Total Belanja
+                            </div>
+                            <div class="col-6 sub-list blue right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Potongan
+                            </div>
+                            <div class="col-6 sub-list blue right no-margin">
+                                -
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Total Pembayaran
+                            </div>
+                            <div class="col-6 sub-list blue right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-border shadow-card no-border border-radius-4  p-2 fit-height mt-3">
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Jumlah
+                            </div>
+                            <div class="col-6 sub-list blue right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                        <button class="btn-bayar" id="bayar">Bayar</button>
+                        <div id="feedback" class="invalid-feedback" style="display: block;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input id="modalBayar" data-toggle="modal" data-target="#marketkuModal" hidden>
+        <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="col-12">
+                        <div class="center modal-container"></div>
+                        <div class="center modal-text">
+                            <span class="modal-txt">Transaksi berhasil!</span><br>
+                            <span class="modal-txt">Menunggu konfirmasi dari toko</span><br>
+                            <button class="modal-btn-ok" data-dismiss="modal">Oke</button>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <br>
+    <footer class="footer">
+        <div class="copyright mrl-auto col-7">
+            Copyright &copy; 2019 BookLook toko buku online terlengkap. All right reserved
+        </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="module" src="../js/views/services/market/pay.js"></script>
+</body>
+
+</html>

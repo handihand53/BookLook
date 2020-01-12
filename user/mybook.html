@@ -52,7 +52,24 @@
         </ul>
       </div>
       <div class="col-md-9">
-        <div class="title-content mb-2">Bukuku</div>
+        <div class="row pl-4 pr-3">
+          <div class="title-content">Bukuku</div>
+          <div class="row right-cat mt-3">
+            <div class="">
+              <input class="search-cat form-control form-control-sm" id="search" type="text"
+                placeholder='Cari judul buku'>
+            </div>
+            <div class="btn-group ml-3" id="sort-btn">
+              <button class="btn btn-cst btn-sm dropdown-toggle" id="sort">
+                Urutkan
+              </button>
+              <div class="dropdown-menu" id="drop-sort" data-status="0">
+                <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
+                <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
+              </div>
+            </div>
+          </div>
+        </div>
         <!--  -->
         <div class="flex-row" id="contentBook">
         </div>
@@ -76,8 +93,8 @@
             Anda belum buka toko, apakah anda mau buka toko ?
           </div>
           <div class="modal-footer">
-              <a href="../market/open-store.html"><button type="button" class="btn-ya">Ya</button></a>
-              <button type="button" class="btn-no" data-dismiss="modal">Tidak</button>
+            <a href="../market/open-store.html"><button type="button" class="btn-ya">Ya</button></a>
+            <button type="button" class="btn-no" data-dismiss="modal">Tidak</button>
           </div>
         </div>
       </div>

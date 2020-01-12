@@ -27,39 +27,37 @@
   <div class="batas"></div>
 
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div>
-              <img id="display" class="mb-3 mr-3" alt="">
-            </div>
-            <div>
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>              
-            </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item active-sidebar">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item active-sidebar">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
       </div>
-      <div class="col-md-9 mb-4 mlr-auto">
+
+      <!-- content -->
+      <div class="col-md-9">
         <div class="bc">
           <span class="bc-item">Home</span> >
           <a href="pemberitahuan_toko.html"><span class="bc-item">Pemberitahuan Pesanan</span></a> >
@@ -89,21 +87,23 @@
 
         </div>
         <button class="btn-proses float-right" id="proses">Proses</button>
+        <!-- batas -->
       </div>
+    </div>
 
-      <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
-      <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-body center">
-              <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
-              <div class="prof" id="modalMsgEdit">Pesanan berhasil diproses</div>
-              <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
-            </div>
+    <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
+    <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body center">
+            <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i> </div>
+            <div class="prof" id="modalMsgEdit">Pesanan berhasil diproses</div>
+            <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
           </div>
         </div>
       </div>
-      <br>
+    </div>
+    <br>
   </main>
 
   <footer class="footer" id="footer">

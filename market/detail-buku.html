@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
   <link rel="stylesheet" href="../css/detail-buku.css">
   <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/header-market.css">
   <link rel="stylesheet" href="../css/footer.css">
 </head>
 
@@ -26,51 +27,50 @@
   <div class="batas"></div>
 
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div class="">
-              <img id="display" class="mb-3 mr-3" alt="">
-            </div>
-            <div class="">
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
-            </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item active-sidebar">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item active-sidebar">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="col-md-9 mlr-auto mb-3">
-          <div class="bc">
-            <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
-            <span class="bc-item">Detail Buku</span>
-          </div>
-          <div class="title-content mt-4">Buku</div>
 
-          <div class="col-12">
-            <div class="row border-bottom-gray" id="bookContent">
-            </div>
+      <!-- content -->
+      <div class="col-md-9" style="margin-bottom: 100px;">
+        <div class="bc">
+          <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
+          <span class="bc-item">Detail Buku</span>
+        </div>
+        <div class="title-content mt-4">Buku</div>
+
+        <div class="col-12">
+          <div class="row border-bottom-gray" id="bookContent">
           </div>
         </div>
+        <!-- batas -->
+      </div>
+
   </main>
 
   <footer class="footer" id="footer">

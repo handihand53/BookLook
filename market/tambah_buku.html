@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../css/tambah_buku.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/header-market.css">
 </head>
 
 <body>
@@ -26,129 +27,124 @@
   <br>
   <div class="batas"></div>
   <main class="content content-width content-height">
-    <div class="mb-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <div class="row">
-            <div class="col-5">
-              <img id="display" class="mb-3" alt="" width="100%">
-            </div>
-            <div class="col-6">
-              <h5 id="marketName"></h5>
-              <h6 class="status">Toko</h6>
-              <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
-            </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <div class="row">
+          <div class="mr-2">
+            <img id="display" class="mb-3" alt="">
+          </div>
+          <div>
+            <h5 id="marketName"></h5>
+            <h6 class="status">Toko</h6>
+            <h6 class="status-buku">Terjual: <span id="jmlBuku"></span> Buku</h6>
           </div>
         </div>
-        <div class="col-md-8">
-          <ul class="ul-item">
-            <a href="pemberitahuan_toko.html">
-              <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
-            </a>
-            <a href="store.html">
-              <li class="li-item">Profile</li>
-            </a>
-            <a href="tambah_buku.html">
-              <li class="li-item active-sidebar">Tambah Buku</li>
-            </a>
-            <a href="mybook_store.html">
-              <li class="li-item">Buku</li>
-            </a>
-            <li class="li-item">Keluar</li>
-          </ul>
-        </div>
+        <ul>
+          <a href="pemberitahuan_toko.html">
+            <li class="li-item">Pemberitahuan Pesanan <span id="pemberitahuan"></span></li>
+          </a>
+          <a href="store.html">
+            <li class="li-item">Profile Toko</li>
+          </a>
+          <a href="tambah_buku.html">
+            <li class="li-item active-sidebar">Tambah Buku</li>
+          </a>
+          <a href="mybook_store.html">
+            <li class="li-item">Buku</li>
+          </a>
+          <li class="li-item">Keluar</li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="col-md-9 mlr-auto">
 
-          <div class="title-user">Tambah Buku</div>
+      <!-- content -->
+      <div class="col-md-9">
 
+        <div class="title-user">Tambah Buku</div>
+        <form id="book-form">
+          <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
+          <img alt="" id="img" width="100px" onchange="readURL(this)">
+          <br>
+          <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
+            id="upload-photo">
+          <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label>
+          <p id="fot" class="errMsg">Foto buku tidak boleh kosong</p>
+          <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran rasio foto buku harus 2:3</p>
+          <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
+          <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
+            id="upload-file">
+          <label class="input-file" id="input2"><b>Unggah berkas</b></label>
+          <p id="file-name" class="file-name"></p>
+          <p id="fil" class="errMsg">File buku tidak boleh kosong</p>
+          <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 200mb</p>
 
-          <form id="book-form">
-            <label class="tambah-buku-edit" for="">Foto Buku<span class="red">*</span></label><br>
-            <img alt="" id="img" width="100px" onchange="readURL(this)">
-            <br>
-            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
-              id="upload-photo">
-            <label class="input-file mt-2" id="input"><b>Unggah Foto</b></label>
-            <p id="fot" class="errMsg">Foto buku tidak boleh kosong</p>
-            <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran rasio foto buku harus 2:3</p>
-            <label class="tambah-buku-edit" style="margin-top: 10px;">Berkas Buku<span class="red">*</span></label><br>
-            <input name="fileUri" required type="file" class="file" style="position: absolute; top: -500px;"
-              id="upload-file">
-            <label class="input-file" id="input2"><b>Unggah berkas</b></label>
-            <p id="file-name" class="file-name"></p>
-            <p id="fil" class="errMsg">File buku tidak boleh kosong</p>
-            <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 200mb</p>
+          <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
+          <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
+            type="text"><br>
+          <p id="judul" class="errMsg">Judul buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-            <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
-              type="text"><br>
-            <p id="judul" class="errMsg">Judul buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
+          <input name="isbn" id="isbnBuku" class="tambah-buku-input" required placeholder="ISBN" type="text"><br>
+          <p id="isbnErr" class="errMsg">ISBN buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
-            <input name="isbn" id="isbnBuku" class="tambah-buku-input" required placeholder="ISBN" type="text"><br>
-            <p id="isbnErr" class="errMsg">ISBN buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
+          <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis"
+            type="text"><br>
+          <p id="penulis" class="errMsg">Penulis buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-            <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis"
-              type="text"><br>
-            <p id="penulis" class="errMsg">Penulis buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
+          <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit"
+            type="text"><br>
+          <p id="penerbit" class="errMsg">Penerbit buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-            <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit"
-              type="text"><br>
-            <p id="penerbit" class="errMsg">Penerbit buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Kategori 1<span class="red">*</span></label><br>
+          <select name="categories " id="kategoriBuku1" class="tambah-buku-input" required>
+            <option value="" selected hidden disabled>Pilih</option>
+          </select><br>
+          <p id="kat" class="errMsg">Kategori buku tidak boleh kosong</p>
 
-            <label class="tambah-buku-edit">Kategori 1<span class="red">*</span></label><br>
-            <select name="categories " id="kategoriBuku1" class="tambah-buku-input" required>
-              <option value="" selected hidden disabled>Pilih</option>
-            </select><br>
-            <p id="kat" class="errMsg">Kategori buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Kategori 2<span class="red">*</span></label><br>
+          <select name="categories " id="kategoriBuku2" class="tambah-buku-input">
+            <option value="" selected hidden disabled>Pilih</option>
+          </select><br>
 
-            <label class="tambah-buku-edit">Kategori 2<span class="red">*</span></label><br>
-            <select name="categories " id="kategoriBuku2" class="tambah-buku-input">
-              <option value="" selected hidden disabled>Pilih</option>
-            </select><br>
+          <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
+          <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="120" type="number"
+            min="0"><br>
+          <p id="jmlHal" class="errMsg">Jumlah halaman tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label><br>
+          <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="120000" type="number"
+            min="0"><br>
+          <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
+          <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
+          <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
+            type="text" rows="3"></textarea>
+          <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
+          <p class="tambah-buku-edit"><span class="red">*</span> Judul, ISBN, Penulis, Penerbit, Kategori, SKU Tidak
+            bisa dirubah</p>
 
-            <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
-            <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="120" type="number"
-              min="0"><br>
-            <p id="jmlHal" class="errMsg">Jumlah halaman tidak boleh kosong</p>
-            <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label><br>
-            <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="120000" type="number"
-              min="0"><br>
-            <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
-            <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-            <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
-              type="text" rows="3"></textarea>
-            <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
-            <p class="tambah-buku-edit"><span class="red">*</span> Judul, ISBN, Penulis, Penerbit, Kategori, SKU Tidak
-              bisa dirubah</p>
+          <button id="addBook" class="btn-save mt-3 mb-5">Tambah</button>
 
-            <button id="addBook" class="btn-save mt-3">Tambah</button>
-
-          </form>
-        </div>
+        </form>
+        <!-- batas -->
       </div>
-    </div>
-    <br>
-    <button hidden id="show" data-toggle="modal" data-target="#marketkuModal"></button>
-    <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="col-12">
-            <div class="center modal-container"></div>
-            <div class="center modal-text">
-              <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
-              <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
-              <br>
+
+      <button hidden id="show" data-toggle="modal" data-target="#marketkuModal"></button>
+      <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="col-12">
+              <div class="center modal-container"></div>
+              <div class="center modal-text">
+                <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
+                <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
+                <br>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </main>
 
   <footer class="footer" id="footer">

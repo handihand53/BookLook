@@ -14,9 +14,9 @@
     min-height: 500px;
 }
 
-.disabled{
-    cursor: not-allowed!important;
-    background-color: rgb(140, 140, 140)!important;
+.disabled {
+    cursor: not-allowed !important;
+    background-color: rgb(140, 140, 140) !important;
 }
 
 .status {
@@ -100,6 +100,16 @@
     border-radius: 4px;
 }
 
+.btn-cst {
+    background-color: rgb(0, 140, 255);
+    color: white;
+}
+
+.btn-cst:hover {
+    background-color: rgb(0, 120, 218);
+    color: white;
+}
+
 .width-img {
     max-width: 180px;
     max-height: 220px;
@@ -125,12 +135,12 @@ a:hover {
     text-decoration: none;
 }
 
-.disable-book{
+.disable-book {
     background: rgba(0, 0, 0, 0.279);
     overflow: hidden;
 }
 
-.opacity{
+.opacity {
     opacity: 0.4;
 }
 
@@ -222,6 +232,12 @@ a:hover {
     border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
+.dropdown-menu {
+    width: 100px !important;
+    right: 0 !important;
+    left: unset !important;
+}
+
 
 .li-item:hover {
     cursor: pointer;
@@ -238,6 +254,11 @@ ul li {
 }
 
 @media screen and (min-width: 771px) {
+    .right-cat {
+        right: 0;
+        position: absolute;
+    }
+
     .max-min {
         max-width: 190px;
         min-width: 190px;
@@ -255,8 +276,13 @@ ul li {
 }
 
 @media screen and (max-width: 770px) {
+    .right-cat {
+        right: 0;
+        position: absolute;
+    }
+
     .max-min {
-        max-width: 180px!important;
+        max-width: 180px !important;
         min-width: 155px;
     }
 

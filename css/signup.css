@@ -109,6 +109,10 @@
     color: rgb(231, 33, 33);
 }
 
+.block{
+    display: block;
+    font-weight: 500;
+}
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;

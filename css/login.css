@@ -6,6 +6,22 @@
     font-weight: bold;
 }
 
+.block{
+    display: block;
+    font-weight: 500;
+}
+
+.icon{
+    color: rgb(255, 82, 82);
+    font-size: 70px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.prof{
+    font-weight: 600;
+}
+
 .border-radius-7{
     border-radius: 7px;
 }
