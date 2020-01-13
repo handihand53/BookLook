@@ -33,11 +33,8 @@
                         <div class="pl-2 pt-2">
                             <h4>Pilih Cara Membayar</h4>
                         </div>
-                        <!-- <img src="../assets/else/atm bersama.png" alt="" class="bank">
-                                <img src="../assets/else/bca.png" alt="" class="bank">
-                                <img src="../assets/else/bni.png" alt="" class="bank">
-                                <img src="../assets/else/mandiri.png" alt="" class="bank"> -->
                         <div class="pl-2 mt-4">
+                            <!-- transfer -->
                             <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
                                 <div class="custom-control custom-radio custom-control-inline" style="display: block;">
                                     <input type="radio" id="customRadioInline1" name="customRadioInline1"
@@ -84,6 +81,7 @@
                                 </div>
                             </div>
 
+                            <!-- ovo -->
                             <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
                                 <div class="custom-control custom-radio custom-control-inline" style="display: block;">
                                     <input type="radio" id="customRadioInline2" name="customRadioInline1"
@@ -110,10 +108,69 @@
                                         </ol>
                                     </ul>
                                     <div>
-                                        Masukan nomor telepon kamu : 
+                                        Masukan nomor telepon kamu :
                                         <input type="number" id="numphone" class="form-control" min="0">
                                         <div id="errPhone" class="invalid-feedback" style="display: block;"></div>
                                     </div>
+                                </div>
+
+                            </div>
+
+                            <!-- indomaret -->
+                            <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
+                                <div class="custom-control custom-radio custom-control-inline" style="display: block;">
+                                    <input type="radio" id="customRadioInline3" name="customRadioInline1"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioInline3"
+                                        style="display: block;">
+                                        <h6>Indomaret <span class="float-right"><i class="fas fa-angle-down"></i>
+                                        </h6></span>
+                                    </label>
+                                </div>
+
+                                <div id="indomaret" class="border-top mt-3 pt-2 hide">
+                                    <ul>
+                                        Cara membayar melalui <img src="../assets/else/indomaret.png" alt=""
+                                            class="bank"> :
+                                        <ol>
+                                            <li>Datang ke salah satu gerai Indomaret terdekat</li>
+                                            <li>Beritahu kasir untuk melakukan pembayaran buku ke BookLook</li>
+                                            <li>Tunjukkan kode <span class="bold" id="indo-code"></span> untuk membayar
+                                                pesanan</li>
+                                            <li> Kasir di Indomaret akan memasukkan kode pembayaran tersebut dan meminta
+                                                Kamu untuk membayar sejumlah nominal tagihan Kamu.</li>
+                                            <li>Pembayaran Kamu melalui Indomaret selesai</li>
+                                            <li>Terima tanda terima sebagai bukti pembayaran</li>
+                                        </ol>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- alfamaret -->
+                            <div class="content-border shadow-card no-border border-radius-4 pad mb-1">
+                                <div class="custom-control custom-radio custom-control-inline" style="display: block;">
+                                    <input type="radio" id="customRadioInline4" name="customRadioInline1"
+                                        class="custom-control-input">
+                                    <label class="custom-control-label" for="customRadioInline4"
+                                        style="display: block;">
+                                        <h6>Alfamart <span class="float-right"><i class="fas fa-angle-down"></i>
+                                        </h6></span>
+                                    </label>
+                                </div>
+
+                                <div id="alfamart" class="border-top mt-3 pt-2 hide">
+                                    <ul>
+                                        Cara membayar melalui <img src="../assets/else/alfamart.png" alt=""
+                                            class="bank"> :
+                                        <ol>
+                                            <li>Datang ke salah satu gerai Alfa group terdekat</li>
+                                            <li>Beritahu kasir untuk melakukan pembayaran buku ke BookLook</li>
+                                            <li>Tunjukkan kode <span class="bold" id="alfa-code"></span> untuk membayar
+                                                pesanan</li>
+                                            <li>Lakukan pembayaran sesuai dengan nominal tagihan</li>
+                                            <li>Terima tanda terima sebagai bukti pembayaran</li>
+                                        </ol>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

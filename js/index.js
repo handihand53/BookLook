@@ -76,7 +76,8 @@ function getBooks() {
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
                     book.push(data[i])
-                    var html = `
+                    if (i < 3) {
+                        var html = `
                     <div class="col-4">
                         <a href="/market/book.html?_i=` + data[i].productId + `">
                             <div class="content-border select shadow-card max-min no-border border-radius-4">
@@ -90,7 +91,8 @@ function getBooks() {
                         <a>
                     </div>
                         `
-                    $("#" + arr).append(html)
+                        $("#" + arr).append(html)
+                    }
                 }
             },
             error: function (errMsg) {
@@ -99,13 +101,11 @@ function getBooks() {
         });
     });
 }
-console.log(book)
 getBook(book)
 
 function getBook(data) {
 
     if (data.length != 0) {
-        console.log(data)
         var body = `
             <div class="carousel-item active no-border-bottom">
                 <div class="row col-12 slider-container">

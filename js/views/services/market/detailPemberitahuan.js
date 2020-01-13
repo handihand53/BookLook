@@ -187,7 +187,15 @@ $(window).load(function () {
             },
             success: function (data) {
                 $("#modalInfo").click()
-                console.log(data)
+                if (checkTransaksi() != 0) {
+                    $(".notif-toko").html(checkTransaksi())
+                    $(".notif-toko").css("display", "inline-block")
+                    $(".notif-toko-drop").html(checkTransaksi())
+                    $(".notif-toko-drop").css("display", "inline-block")
+                } else {
+                    $(".notif-toko").css("display", "none")
+                    $(".notif-toko-drop").css("display", "none")
+                }
             },
             error: function (errMsg) {
                 console.log(errMsg);

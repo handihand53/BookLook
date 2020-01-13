@@ -101,14 +101,15 @@
 }
 
 .btn-cst {
-    background-color: rgb(0, 140, 255);
-    color: white;
+    background-color: rgb(75, 75, 75);
+    color: rgb(243, 243, 243);
 }
 
 .btn-cst:hover {
-    background-color: rgb(0, 120, 218);
+    background-color: rgb(67, 68, 68);
     color: white;
 }
+
 
 .width-img {
     max-width: 180px;

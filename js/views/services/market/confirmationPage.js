@@ -121,6 +121,8 @@ $(window).load(function () {
         }
     });
 
+    var message
+
     $("#bayar").click(function () {
         $.ajax({
             type: "POST",
@@ -133,6 +135,7 @@ $(window).load(function () {
             },
             success: function (data) {
                 console.log(data)
+                message = data.message
                 $("#modalBayar").click()
             },
             error: function (errMsg) {
@@ -143,7 +146,7 @@ $(window).load(function () {
 
     $('#marketkuModal').on('hidden.bs.modal', function (e) {
         localStorage.removeItem('dataBook')
-        window.location.replace("/user/index.html")
+        window.location.replace("/market/pay.html?i="+message)
     })
 
 })

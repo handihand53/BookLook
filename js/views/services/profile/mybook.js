@@ -91,7 +91,7 @@ $(window).load(function () {
           $("#contentBook").append(html)
         }
       } else {
-        f = false;
+        f = true;
         for (var i = 0; i < data.length; i++) {
           if (str.toLowerCase() == data[i].product.title.substring(0, str.length).toLowerCase()) {
             var pro = data[i].product;

@@ -53,7 +53,7 @@
           <a href="mybook_store.html">
             <li class="li-item">Buku</li>
           </a>
-          <li class="li-item">Keluar</li>
+          <li class="li-item" id="logout-sidebar">Keluar</li>
         </ul>
       </div>
 
@@ -99,22 +99,23 @@
 
           <label class="tambah-buku-edit">Kategori 1<span class="red">*</span></label><br>
           <select name="categories " id="kategoriBuku1" class="tambah-buku-input" required>
-            <option value="" selected hidden disabled>Pilih</option>
+
           </select><br>
           <p id="kat" class="errMsg">Kategori buku tidak boleh kosong</p>
 
-          <label class="tambah-buku-edit">Kategori 2<span class="red">*</span></label><br>
-          <select name="categories " id="kategoriBuku2" class="tambah-buku-input">
-            <option value="" selected hidden disabled>Pilih</option>
-          </select><br>
+          <div id="addCategory">
+
+          </div>
+          <span id="klikAdd">Tambah kategori Lainnya</span>
+          <br>
 
           <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
-          <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="120" type="number"
-            min="0"><br>
+          <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="Contoh : 120"
+            type="number" min="0"><br>
           <p id="jmlHal" class="errMsg">Jumlah halaman tidak boleh kosong</p>
           <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label><br>
-          <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="120000" type="number"
-            min="0"><br>
+          <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Contoh : 120000"
+            type="number" min="0"><br>
           <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
           <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
           <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"

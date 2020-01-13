@@ -29,24 +29,29 @@ $(window).load(function () {
         return parms;
     }
 
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/transactions/user/show/" + urlParams.i,
-        dataType: 'json',
-        async: false,
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            if (data.transaction.transferConfirm == "PENDING")
-                window.location.replace("/user/")
-            $(".totPrice").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-        },
-        error: function (errMsg) {
-            window.location.replace("/404.html")
-        }
-    });
+    try {
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://127.0.0.1:8080/api/transactions/user/show/" + urlParams.i,
+            dataType: 'json',
+            async: false,
+            headers: {
+                'Authorization': `Bearer ` + getCookie("token"),
+            },
+            success: function (data) {
+                if (data.transaction.transferConfirm == "PENDING")
+                    window.location.replace("/user/")
+                $(".totPrice").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
+            },
+            error: function (errMsg) {
+                window.location.replace("/404.html")
+            }
+        });
+    } catch (error) {
+        window.location.replace("/404.html")
+    }
+
 
     var phnm = false;
 
@@ -62,7 +67,7 @@ $(window).load(function () {
     })
 
     $("#bayar").click(function () {
-        if ($("#customRadioInline1").prop("checked") == true) {
+        if ($("#customRadioInline1").prop("checked") == true || $("#customRadioInline3").prop("checked") == true || $("#customRadioInline4").prop("checked") == true) {
             bayar()
         } else if ($("#customRadioInline2").prop("checked") == true) {
             if ($("#numphone").val() == "" || $("#numphone").val() == undefined) {
@@ -99,12 +104,18 @@ $(window).load(function () {
     })
 
     $(".code").html(Math.floor(100000000000 + Math.random() * 900000000000))
+    $("#alfa-code").html(Math.floor(100000000000 + Math.random() * 900000000000))
+    $("#indo-code").html(Math.floor(100000000000 + Math.random() * 900000000000))
 
     $("#customRadioInline1").click(function () {
         $("#trans").addClass("show")
         $("#trans").removeClass("hide")
         $("#ovo").addClass("hide")
         $("#ovo").removeClass("show")
+        $("#indomaret").addClass("hide")
+        $("#indomaret").removeClass("show")
+        $("#alfamart").addClass("hide")
+        $("#alfamart").removeClass("show")
     })
 
     $("#customRadioInline2").click(function () {
@@ -112,6 +123,32 @@ $(window).load(function () {
         $("#ovo").removeClass("hide")
         $("#trans").addClass("hide")
         $("#trans").removeClass("show")
+        $("#indomaret").addClass("hide")
+        $("#indomaret").removeClass("show")
+        $("#alfamart").addClass("hide")
+        $("#alfamart").removeClass("show")
+    })
+
+    $("#customRadioInline3").click(function () {
+        $("#indomaret").addClass("show")
+        $("#indomaret").removeClass("hide")
+        $("#ovo").addClass("hide")
+        $("#ovo").removeClass("show")
+        $("#trans").addClass("hide")
+        $("#trans").removeClass("show")
+        $("#alfamart").addClass("hide")
+        $("#alfamart").removeClass("show")
+    })
+
+    $("#customRadioInline4").click(function () {
+        $("#alfamart").addClass("show")
+        $("#alfamart").removeClass("hide")
+        $("#trans").addClass("hide")
+        $("#trans").removeClass("show")
+        $("#indomaret").addClass("hide")
+        $("#indomaret").removeClass("show")
+        $("#ovo").addClass("hide")
+        $("#ovo").removeClass("show")
     })
 
     $('#numphone').on('focus', function (e) {

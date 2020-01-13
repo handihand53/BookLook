@@ -45,12 +45,14 @@ $(window).load(function () {
             window.location.replace("/404.html")
         }
     });
+    
 
     function listBook(data, str) {
         f = false
         if (data.length != 0) {
             $("#product-items").html("")
             if (str == "" || str == undefined) {
+
                 for (let i = 0; i < data.length; i++) {
                     f = true
                     var html = `
@@ -67,7 +69,9 @@ $(window).load(function () {
                 </div>
                 `
                     $("#product-items").append(html)
+                    i++
                 }
+                
             } else {
                 for (let i = 0; i < data.length; i++) {
                     if (str.toLowerCase() == data[i].title.substring(0, str.length).toLowerCase()) {

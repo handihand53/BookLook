@@ -6,7 +6,7 @@ import {
   checkCookie,
   deleteCookie
 } from './cookies.js'
-
+import checkTransaksi from '../js/notifMarket.js';
 $(document).ready(function () {
 
   $("#footer").html(footer);
@@ -26,6 +26,15 @@ $(document).ready(function () {
       headerSuccess();
       $("#footer-masuk").html(`<a href="/kebijakan-privasi.html" class="bold alink">Kebijakan & privasi</a>`)
       $("#footer-daftar").html(`<a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat & ketentuan</a>`)
+      if (checkTransaksi() != 0) {
+        $(".notif-toko").html(checkTransaksi())
+        $(".notif-toko").css("display", "inline-block")
+        $(".notif-toko-drop").html(checkTransaksi())
+        $(".notif-toko-drop").css("display", "inline-block")
+      } else {
+        $(".notif-toko").css("display", "none")
+        $(".notif-toko-drop").css("display", "none")
+      }
     },
     error: function (errMsg) {
       headerError();
@@ -66,7 +75,7 @@ $(document).ready(function () {
     success: function (data) {
       if (data.marketId != null) {
         market = `
-        <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko</p></a>`;
+        <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span class="notif-toko-drop"></span></p></a>`;
       } else {
         market = `
         <a href="/market/open-store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i><span> Daftar Toko </span></p></a>
@@ -234,11 +243,15 @@ $(document).ready(function () {
     $("#logout").click(function () {
       logout()
     })
+
+    $("#logout-sidebar").click(function () {
+      logout()
+    })
   }
 
   function logout() {
     deleteCookie()
-    window.location.href = "/user/"
+    window.location.assign("/user/")
     $.ajax({
       type: "POST",
       url: "http://127.0.0.1:8080/api/auth/signout",
@@ -254,5 +267,6 @@ $(document).ready(function () {
       }
     });
   }
+
 
 });

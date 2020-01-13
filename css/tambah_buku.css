@@ -6,7 +6,18 @@
     z-index: -1;
 }
 
-.errMsg{
+#klikAdd {
+    color: rgb(16, 80, 218);
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#klikAdd:hover {
+    color: rgb(0, 42, 133);
+}
+
+.errMsg {
     font-size: 12px;
     color: rgb(255, 92, 92);
     visibility: hidden;
@@ -14,24 +25,24 @@
     position: absolute;
 }
 
-.show{
+.show {
     visibility: visible;
     position: static;
 }
 
-.fileHint{
+.fileHint {
     color: rgb(42, 42, 42);
     font-size: 10px;
     font-style: italic;
     font-weight: 500;
 }
 
-.file-name{
+.file-name {
     font-size: 12px;
     font-weight: bold;
 }
 
-.btn-org{
+.btn-org {
     border: none;
     font-size: 14px;
     padding: 5px 20px;
@@ -41,7 +52,7 @@
     background-color: orange;
 }
 
-.btn-org:hover{
+.btn-org:hover {
     background-color: rgb(221, 144, 0);
 }
 
@@ -53,35 +64,36 @@
     min-height: 500px;
 }
 
-.status{
-    color:rgb(155, 155, 155);
+.status {
+    color: rgb(155, 155, 155);
 }
 
-.red{
+.red {
     color: red;
 }
 
-.sukses{
+.sukses {
     /* position: fixed; */
     background-color: rgb(6, 231, 6);
 }
 
-.modal-container{
+.modal-container {
     height: 70px;
     background-image: url(../assets/else/checked.png);
     background-size: 70px 70px;
-    padding-top: 70px;  
+    padding-top: 70px;
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 50px;
 }
+
 /* 
 .hide{
     visibility: hidden;
     position: absolute;
 } */
 
-.loading{
+.loading {
     z-index: 99999;
     position: fixed;
     width: 100%;
@@ -92,11 +104,11 @@
     background-image: url("../assets/gif/loading3.gif");
 }
 
-.hide{
+.hide {
     visibility: visible44;
 }
 
-.title-user{
+.title-user {
     font-size: 25px;
     font-weight: 600;
     color: rgb(0, 170, 255);
@@ -110,7 +122,7 @@
     color: white !important;
     font-weight: 300;
     /* margin: 5px; */
-    text-align: center  ;
+    text-align: center;
     padding: 10px 12px 10px 12px !important;
     width: 150px !important;
     height: auto !important;
@@ -138,7 +150,7 @@
 }
 
 .input-file:hover {
-    background-color: rgb(0, 132, 247)!important;
+    background-color: rgb(0, 132, 247) !important;
 }
 
 .file {
@@ -148,72 +160,72 @@
     left: 0;
 }
 
-.tanggal-edit{
+.tanggal-edit {
     padding: 4px;
-    border:0.7px solid rgba(128, 128, 128, 0.211);
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
     font-size: 12px;
 }
 
-.tanggal-edit:focus{
+.tanggal-edit:focus {
     border: transparent 1px solid;
     box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
 }
 
-.sku{
+.sku {
     width: 20%;
     padding: 8px;
-    border:0.7px solid rgba(128, 128, 128, 0.211);
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
     font-size: 12px;
 }
 
-.sku-input{
+.sku-input {
     width: 65%;
     padding: 8px;
-    border:0.7px solid rgba(128, 128, 128, 0.211);
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
     font-size: 12px;
 }
 
-.tambah-buku-input{
+.tambah-buku-input {
     width: 90%;
     padding: 8px;
-    border:0.7px solid rgba(128, 128, 128, 0.211);
+    border: 0.7px solid rgba(128, 128, 128, 0.211);
     font-size: 14px;
 }
 
-.tambah-buku-input:focus{
+.tambah-buku-input:focus {
     border: transparent 1px solid;
     box-shadow: 0 0 20px rgba(0, 157, 255, 0.415);
 }
 
-.tambah-buku-edit{
+.tambah-buku-edit {
     margin-top: 15px;
     font-size: 14px;
     font-weight: 700;
 }
 
-.change-password{
+.change-password {
     font-size: 12px;
     font-weight: 500;
     color: rgb(0, 153, 255);
 }
 
-.change-password:hover{
+.change-password:hover {
     color: rgb(0, 115, 192);
 }
 
-.ul-item{
-    padding:0px;
+.ul-item {
+    padding: 0px;
 }
 
-.ul-item{
-    padding:0px;
+.ul-item {
+    padding: 0px;
 }
 
-a{
+a {
     color: black;
 }
 
-a:hover{
+a:hover {
     text-decoration: none;
 }
 
@@ -225,28 +237,28 @@ a:hover{
     padding: 8px 15px 12px 15px;
 }
 
-.active-sidebar{
+.active-sidebar {
     color: rgb(0, 162, 255);
     font-weight: bold;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
 
-.li-item:hover{
+.li-item:hover {
     cursor: pointer;
-    border-bottom: solid rgb(0, 162, 255) 3px; 
+    border-bottom: solid rgb(0, 162, 255) 3px;
 }
 
-ul li{
+ul li {
     display: inline-table;
 }
 
-.mlr-auto{
+.mlr-auto {
     margin-left: auto;
     margin-right: auto;
 }
 
-p{
+p {
     margin: 0px;
 }
 
@@ -274,4 +286,4 @@ p{
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.9);
- }
+}

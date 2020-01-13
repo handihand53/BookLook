@@ -36,6 +36,7 @@ let header = `
     <span class="prof-header no-border float-right" id="profile">
         <div class="dropdown" style="color: white;">
            <img class="navbar-icon" src="../assets/logo/user.png" alt="">
+           <span class="notif-toko"></span>
               Hi, <span id="name">. . .</span><i class="fa fa-fw fa-chevron-down"></i>
           <div class="dropdown-content">
               <div>
@@ -46,6 +47,7 @@ let header = `
               </div>
           </div>
         </div>
+        
       </span>
     <div class="dropdown float-right" id="drop-shop" style="margin: auto; padding: 8px;">
     <span class="notif-bucket" id="notif-bucket"></span>
@@ -63,6 +65,7 @@ let header = `
   </span>
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler no-border cst-padding no-margin float-left" id="btn_profile">
+  <span class="notif-toko"></span>
       <span class="dropdown"><img class="navbar-icon" src="../assets/logo/user.png" alt="">
         <div class="dropdown-content" style="right: 0;">
           <div>

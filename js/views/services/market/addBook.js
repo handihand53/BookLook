@@ -5,24 +5,6 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-  $.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: "http://127.0.0.1:8080/api/markets/block/check",
-    dataType: 'json',
-    async: false,
-    headers: {
-      'Authorization': `Bearer ` + getCookie("token"),
-    },
-    success: function (data) {
-      if (!data.success)
-        window.location.replace("/user/user.html")
-    },
-    error: function (errMsg) {
-      console.log(errMsg)
-    }
-  });
-
 
   var pictName = "";
   var fileName = "";
@@ -148,11 +130,24 @@ $(window).load(function () {
   });
 
   $("#addBook").click(function () {
+    var kategoriBuku2 = ""
+    var count = 0;
+    $(".kategori-lainnya").each(function () {
+      if (count == 0 && $(this).val() != null && $(this).val() != "") {
+        kategoriBuku2 = $(this).val()
+        count++;
+      } else if ($(this).val() != null && $(this).val() != "") {
+        kategoriBuku2 += ", " + $(this).val()
+      }
+
+    });
+
+    return
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
     var kategoriBuku1 = $("#kategoriBuku1").val()
-    var kategoriBuku2 = $("#kategoriBuku2").val()
+
     var hargaBuku = $("#hargaBuku").val()
     var deskripsiBuku = $("#deskripsiBuku").val()
     var isbn = $("#isbnBuku").val()
@@ -205,7 +200,7 @@ $(window).load(function () {
       $("#jmlHal").addClass("show");
     } else
       $("#jmlHal").removeClass("show");
-    
+
     if (hargaBuku == "") {
       stats = false;
       $("#price").addClass("show");
@@ -287,26 +282,50 @@ $(window).load(function () {
       });
   })
 
-  $.ajax({
-    type: "GET",
-    url: "http://127.0.0.1:8080/api/categories/",
-    Accept: "application/json",
-    contentType: "application/json",
-    dataType: 'json',
-    timeout: 600000,
-    success: function (data) {
-      for (let s of data) {
-        let html = `
-        <option value=` + s.categoryName + `>` + s.categoryName + `</option>
-        `;
-        $("#kategoriBuku1").append(html);
-        $("#kategoriBuku2").append(html);
+  addCat()
+
+  $("#klikAdd").click(function () {
+    var html = `
+    <label class="tambah-buku-edit">Kategori lainnya</label><br>
+    <select name="categories"  class="tambah-buku-input kategori-lainnya">
+      <option value="" selected hidden disabled>Pilih</option>
+      <option value=""></option>
+
+    </select><br>
+    `
+
+    $("#addCategory").append(html)
+    addCat()
+  })
+
+  function addCat() {
+    $("#kategoriBuku1").html("")
+    $(".kategori-lainnya").html("")
+    $("#kategoriBuku1").html(`<option value="" selected hidden disabled>Pilih</option><option value=""></option>`)
+    $(".kategori-lainnya").html(`<option value="" selected hidden disabled>Pilih</option><option value=""></option>`)
+
+    $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:8080/api/categories/",
+      Accept: "application/json",
+      contentType: "application/json",
+      dataType: 'json',
+      timeout: 600000,
+      success: function (data) {
+        for (let s of data) {
+          let html = `
+          <option value=` + s.categoryName + `>` + s.categoryName + `</option>
+          `;
+          $("#kategoriBuku1").append(html);
+          $(".kategori-lainnya").append(html);
+        }
+      },
+      failure: function (errMsg) {
+        console.log(errMsg);
       }
-    },
-    failure: function (errMsg) {
-      console.log(errMsg);
-    }
-  });
+    });
+  }
+
 
   checkJmlBukuTerjual()
 
@@ -332,4 +351,21 @@ $(window).load(function () {
       }
     });
   }
+
+  document.getElementById("jumlahHalaman").addEventListener("keypress", function (evt) {
+    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+      evt.preventDefault();
+    }
+  });
+
+  document.getElementById("hargaBuku").addEventListener("keypress", function (evt) {
+    if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+      evt.preventDefault();
+    }
+  });
+
+  $('#marketkuModal').on('hidden.bs.modal', function (e) {
+    window.location.href = "/market/mybook_store.html"
+  })
+
 });
