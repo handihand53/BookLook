@@ -2,7 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Admin | BookLook</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Toko | BookLook</title>
     <!-- logo web -->
     <link href="../assets/logo/bl.png" rel="icon">
     <!-- Bootstrap CSS -->
@@ -10,7 +13,7 @@
     <!-- font awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <!-- custom css  -->
-    <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard-cst.css">
     <link rel="stylesheet" href="../css/adminHeader.css">
 </head>
 
@@ -18,26 +21,58 @@
     <header id="header">
 
     </header>
+
     <main>
         <div class="row" style="margin: 0px;">
             <section class="col-2 side-bar" id="sidebar">
             </section>
             <section class="col-10" style="background-color: rgb(238, 238, 238); padding: 0px;">
-                <div class="kontent p-cst">
+                <div class="kontent ml-2 mt-3">
                     <div>
-                        <div class="title">List Kategori</div>
-                        <ol id="kategoriData">
-
-                        </ol>
+                        <div class="row col-md-12">
+                            <div class="col-md-5 border-cst">
+                                <div class="title mb-4">Daftar Kategori</div>
+                                <div id="kategoriData"></div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="title mb-4 ">Tambah Kategori</div>
+                                <input type="text" id="catName" class="form-control mt-2 mb-2">
+                                <div class="invalid-feedback" id="err">
+                                </div>
+                                <div class="float-right">
+                                    <button class="btn btn-outline-dark" id="add">Tambah</button>
+                                </div>
+                                <p class="hint mt-1"><span class="red">*</span>Kategori yang sudah ditambahkan tidak
+                                    dapat di hapus/diganti </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
+
+        <button hidden id="clk" data-toggle="modal" data-target="#marketkuModal">tambah</button>
+        <!-- Modal -->
+        <div class="modal fade" id="marketkuModal" tabindex="-1" role="dialog" aria-labelledby="marketkuModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="col-12">
+                        <div class="center icon-modal" id="logo"><i class="fas fa-check f14 mb-2 mt-2"></i></div>
+                        <div class="center modal-text">
+                            <span class="modal-txt">Kategori berhasil ditambahkan</span><br>
+                            <label class="modal-txt" style="cursor: pointer;" data-dismiss="modal"><button
+                                    class="modal-btn-ok">Oke</button></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="bg-custom-admin" id="footer">
-
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script type="module" src="/js/views/services/admin/header-footer.js"></script>
     <script type="module" src="/js/views/services/admin/sidebar.js"></script>
     <script type="module" src="/js/views/services/admin/category.js"></script>
@@ -50,7 +85,6 @@
             document.getElementById("mySidenav").style.width = "0";
         }
     </script>
-
 </body>
 
 </html>

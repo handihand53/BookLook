@@ -6,6 +6,19 @@
     padding-left: 0px;
 }
 
+.add-btn {
+    border: 0.5px solid rgb(202, 202, 202);
+    padding: 3px 15px;
+    background-color: rgb(212, 212, 212);
+    font-size: 14px;
+}
+
+.btn-outline-dark{
+    margin-left: 5px;
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+
 .sidenav {
     height: 100%;
     width: 0;
@@ -85,7 +98,7 @@ a {
     justify-content: center;
 }
 
-.col-5-cst{
+.col-5-cst {
     margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -94,58 +107,58 @@ a {
     flex: 0 0 46.5%;
 }
 
-#user{
+#user {
     margin-left: auto;
     margin-right: auto;
 }
 
-.text-detail-cst{
+.text-detail-cst {
     font-size: 13px;
     line-height: 20px;
 }
 
-#kategoriData{
+#kategoriData {
     padding-left: 20px;
     font-weight: 400;
 }
 
-.title{
+.title {
     font-size: 20px;
     font-weight: bold;
 }
 
-.p-cst{
+.p-cst {
     padding-top: 20px;
     padding-left: 50px;
 }
 
-.background-cst{
+.background-cst {
     background-color: white;
     border-radius: 7px;
 }
 
-.red{
+.red {
     color: rgb(255, 73, 73);
 }
 
-.ocean{
+.ocean {
     color: rgb(98, 199, 177);
 }
 
-.green{
+.green {
     color: rgb(83, 177, 83);
 }
 
-.blue{
+.blue {
     color: rgb(68, 134, 255);
 }
 
-.orange{
+.orange {
     color: rgb(255, 185, 55);
 }
 
-.border-right{
-    border-right: 1px solid black!important;
+.border-right {
+    border-right: 1px solid black !important;
     height: 50px;
     margin-top: auto;
     margin-bottom: auto;
@@ -153,7 +166,7 @@ a {
     margin-right: auto;
 }
 
-.title-card{
+.title-card {
     font-size: 20px;
     font-weight: 500;
 }

@@ -139,7 +139,6 @@ $(window).load(function () {
       } else if ($(this).val() != null && $(this).val() != "") {
         kategoriBuku2 += ", " + $(this).val()
       }
-
     });
 
     var judulBuku = $("#judulBuku").val()

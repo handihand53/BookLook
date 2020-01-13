@@ -41,7 +41,7 @@ function parseURLParams(url) {
     return parms;
 }
 
-var url = `http://127.0.0.1:8080/api/markets/check-book/`
+var url = `http://127.0.0.1:8080/api/admin/check-book/`
 var key = urlParams.key
 var id = urlParams.id
 var book = urlParams.file

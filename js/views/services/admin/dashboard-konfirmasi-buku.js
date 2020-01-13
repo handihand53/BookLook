@@ -91,19 +91,23 @@ $(document).ready(function () {
                     $("#jmlBukuMob").removeClass("notif")
                     $("#jmlBuku").removeClass("notif")
                 }
+                accept()
             },
             error: function (errMsg) {
                 console.log(errMsg)
             }
         });
     }
+    accept()
 
-    $(".btn-acc").click(function () {
-        $("#bookName").html($(this).data("name"))
-        $("#accProduct").attr("data-id", $(this).data("id"))
-        $("#confirm").click()
-    })
+    function accept() {
+        $(".btn-acc").click(function () {
+            $("#bookName").html($(this).data("name"))
+            $("#accProduct").attr("data-id", $(this).data("id"))
+            $("#confirm").click()
+        })
 
+    }
     $("#accProduct").click(function () {
         $.ajax({
             type: "POST",
@@ -173,7 +177,7 @@ $(document).ready(function () {
 
     $("#readBook").click(function () {
         getDataAdmin()
-        window.open("/admin/readbook.html?file="+ $(this).attr("data-file") + "&id=" + id + "&key=" + readKey)
+        window.open("/admin/readbook.html?file=" + $(this).attr("data-file") + "&id=" + id + "&key=" + readKey)
     })
 
     $("#dash-konfirmasi").addClass("li-active")
