@@ -142,7 +142,6 @@ $(window).load(function () {
 
     });
 
-    return
     var judulBuku = $("#judulBuku").val()
     var penulisBuku = $("#penulisBuku").val()
     var penerbitBuku = $("#penerbitBuku").val()
