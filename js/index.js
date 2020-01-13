@@ -50,23 +50,8 @@ function getCategory() {
 getBooks()
 
 function getBooks() {
-
+    console.log(catName)
     catName.forEach(arr => {
-        var coverTag = `
-        <div class="col-5-custom mb-3">
-            <div>
-                <div class="float-left ml-3 content-title">` + arr + `</div>
-                <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `">Lebih Banyak</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="row" id="` + arr + `">
-
-            </div>
-        </div>
-        `
-        $("#utama").append(coverTag)
 
         $.ajax({
             type: "GET",
@@ -74,6 +59,23 @@ function getBooks() {
             async: false,
             url: "http://127.0.0.1:8080/api/products/category/" + arr,
             success: function (data) {
+                if (data.length != 0) {
+                    var coverTag = `
+                <div class="col-5-custom mb-3">
+                    <div>
+                        <div class="float-left ml-3 content-title">` + arr + `</div>
+                        <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `">Lebih Banyak</a>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row" id="` + arr + `">
+
+                    </div>
+                </div>
+                `
+                    $("#utama").append(coverTag)
+                }
                 for (var i = 0; i < data.length; i++) {
                     book.push(data[i])
                     if (i < 3) {
