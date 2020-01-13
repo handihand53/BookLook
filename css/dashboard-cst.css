@@ -398,7 +398,8 @@ ol {
     font-weight: bold;
 }
 
-.icon-modal{
+
+.icon-modal {
     color: rgb(0, 140, 255);
     font-size: 70px;
 }
@@ -429,7 +430,7 @@ ol {
     font-weight: 500 !important;
 }
 
-.show{
+.show {
     display: block;
 }
 
@@ -500,6 +501,12 @@ ol {
 }
 
 @media screen and (max-width: 770px) {
+
+    .mlr-auto {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
     .border-cst {
         padding-bottom: 30px;
         margin-bottom: 30px;
