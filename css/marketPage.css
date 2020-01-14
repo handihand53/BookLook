@@ -222,13 +222,13 @@ ul li {
     color: rgb(0, 119, 255);
 }
 
-.read-more{
+.read-more {
     cursor: pointer;
     color: rgb(0, 140, 255);
     font-weight: bold;
 }
 
-.read-more:hover{
+.read-more:hover {
     color: rgb(0, 39, 212);
     font-weight: bold;
 }
@@ -243,8 +243,16 @@ ul li {
     color: white;
 }
 
+p{
+    text-align: justify;
+}
 
 @media screen and (min-width: 771px) {
+    .about {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
     .right-cat {
         right: 0;
         position: absolute;
@@ -266,6 +274,11 @@ ul li {
 }
 
 @media screen and (max-width: 770px) {
+    .about {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
     .right-cat {
         right: 0;
         position: absolute;

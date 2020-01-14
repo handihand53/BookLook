@@ -70,6 +70,9 @@
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .col-3-custom {
@@ -80,6 +83,7 @@
     flex: 0 0 25%;
     max-width: 23%;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .title-book {
@@ -112,7 +116,7 @@
 
 
 .width-img {
-    max-width: 180px;
+    max-width: 160px;
     max-height: 220px;
     width: 100%;
     border-top-left-radius: 6px;
@@ -172,6 +176,9 @@ p {
     font-weight: 500;
     font-size: 14px;
     color: orange;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 

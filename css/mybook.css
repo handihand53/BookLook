@@ -22,6 +22,7 @@
 
 .border-book:hover {
     margin-top: 0px;
+    margin-bottom: 10px;
     box-shadow: 0 0 15px 5px rgba(99, 99, 99, 0.15), 0 0 5px 1px rgba(0, 0, 0, 0.02);
 }
 
@@ -42,6 +43,7 @@
     max-width: 23%;
     margin-top: 20px;
     transition: all 0.1s;
+    margin-bottom: 20px;
 }
 
 .title-book {

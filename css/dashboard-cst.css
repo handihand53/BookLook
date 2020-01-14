@@ -430,6 +430,14 @@ ol {
     font-weight: 500 !important;
 }
 
+.title-card{
+    font-size: 30px!important;
+}
+
+.red{
+    font-size: 30px!important;
+}
+
 .show {
     display: block;
 }

@@ -38,6 +38,8 @@ $(document).ready(function () {
     },
     error: function (errMsg) {
       headerError();
+      $(".notif-toko").css("display", "none")
+      $(".notif-toko-drop").css("display", "none")
     }
   });
 

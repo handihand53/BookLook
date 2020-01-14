@@ -243,12 +243,11 @@ a:hover {
 
 .content-body {
     border-left: 0.5px solid rgba(145, 145, 145, 0.589);
-    padding-left: 30px;
+    text-align: justify;
 }
 
 .about {
     width: 100%;
-    margin-top: 40px;
     margin-right: auto;
     margin-left: auto;
     z-index: -1;
@@ -314,6 +313,10 @@ div.item:hover {
 
 
 @media screen and (min-width: 771px) {
+    .content-body {
+        padding-left: 30px;
+    }
+
     .min-height {
         background-color: rgba(255, 255, 255, 0.993);
         min-height: 260px;
@@ -374,9 +377,9 @@ div.item:hover {
     }
 
     .title {
-        overflow: hidden;
         font-size: 14px;
         white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
         width: auto;
         font-weight: 700;
@@ -402,11 +405,51 @@ div.item:hover {
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
         min-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    .about {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .hide2 {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 770px) {
+    button.navbar-toggler.no-border.float-left.collapsed{
+        display: none;
+    }
+
+    header {
+        position: static!important;
+    }
+
+    .hide-border {
+        border: 0px solid white !important;
+    }
+
+    .h {
+        display: none;
+    }
+
+    .show {
+        margin: 0 !important;
+    }
+
+    .content-body {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .about {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
     .min-height {
         background-color: rgba(255, 255, 255, 0.993);
         min-height: 260px;
@@ -487,6 +530,8 @@ div.item:hover {
         flex: 0 0 100%;
         max-width: 500px;
         min-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .title {

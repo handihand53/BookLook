@@ -75,7 +75,6 @@ $(window).load(function () {
             }
         },
         error: function (errMsg) {
-            console.log(errMsg);
             window.location.replace("/404.html")
         }
     });
@@ -110,52 +109,52 @@ $(window).load(function () {
 
                 var html = `
                 <div class="col-3-custom">
-                <div class="content-border shadow-card no-border border-radius-4 max-min">
-                  <img src="` + data.product.productPhoto + `" alt="" class="width-img ">
+                    <div class="content-border shadow-card no-border border-radius-4 max-min">
+                    <img src="` + data.product.productPhoto + `" alt="" class="width-img ">
+                    </div>
                 </div>
-              </div>
-              <div class="col-9-custom mt-4">
-                <div class="row">
-                    <p class="title-book col-6">Judul Buku</p>
-                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.title + `</p>
+                <div class="col-9-custom mt-4">
+                    <div class="row">
+                        <p class="title-book col-5">Judul Buku</p>
+                        <p class="title-book col-7" title="` + data.product.title + `">` + data.product.title + `</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">Penulis Buku</p>
+                        <p class="title-book col-7" title="` + data.product.author + `">` + data.product.author + `</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">Penerbit Buku</p>
+                        <p class="title-book col-7" title="` + data.product.publisher + `">` + data.product.publisher + `</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">ISBN Buku</p>
+                        <p class="title-book col-7" title="` + data.product.isbn + `">` + data.product.isbn + `</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">SKU Buku</p>
+                        <p class="title-book col-7" title="` + data.product.sku + `">` + data.product.sku + `</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">Total Halaman</p>
+                        <p class="title-book col-7" title="` + data.product.pageTotal + `">` + data.product.pageTotal + ` Halaman</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <p class="title-book col-5">Harga</p>
+                        <p class="title-book orange col-7" title="Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                    </div>
+                    <hr>
+                    <p class="deskripsi">Deskripsi</p>
+                    <p class="mb-4 desk" id="deskripsi">` + short + `</p>
+                    <br>
+                    <button class="btn-read">Lihat</button>
+                    <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
                 </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">Penulis Buku</p>
-                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.author + `</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">Penerbit Buku</p>
-                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.publisher + `</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">ISBN Buku</p>
-                    <p class="title-book col-6" title="` + data.product.title + `">` + data.product.isbn + `</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">SKU Buku</p>
-                    <p class="title-book col-6" title="` + data.product.sku + `">` + data.product.sku + `</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">Total Halaman</p>
-                    <p class="title-book col-6" title="` + data.product.pageTotal + `">` + data.product.pageTotal + ` Halaman</p>
-                </div>
-                <hr>
-                <div class="row">
-                    <p class="title-book col-6">Harga</p>
-                    <p class="title-book orange col-6" title="Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                </div>
-                <hr>
-                <p class="deskripsi">Deskripsi</p>
-                <p class="mb-4 desk" id="deskripsi">` + short + `</p>
-                <br>
-                <button class="btn-read">Lihat</button>
-                <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
-              </div>
                 `
                 $("#bookContent").html(html)
                 bindReadMore()

@@ -50,7 +50,6 @@ function getCategory() {
 getBooks()
 
 function getBooks() {
-    console.log(catName)
     catName.forEach(arr => {
 
         $.ajax({
@@ -61,10 +60,11 @@ function getBooks() {
             success: function (data) {
                 if (data.length != 0) {
                     var coverTag = `
-                <div class="col-5-custom mb-3">
-                    <div>
-                        <div class="float-left ml-3 content-title">` + arr + `</div>
-                        <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `">Lebih Banyak</a>
+                <div class="border border-radius-7 hide-border">
+                    <div class="col-5-custom mb-3 mt-3 border-content">
+                        <div>
+                            <div class="float-left ml-3 content-title">` + arr + `</div>
+                            <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `">Lebih Banyak</a>
                         </div>
                     </div>
                     <br>
@@ -103,7 +103,22 @@ function getBooks() {
         });
     });
 }
-getBook(book)
+
+
+
+$.ajax({
+    type: "GET",
+    contentType: "application/json",
+    async: false,
+    url: "http://127.0.0.1:8080/api/products/dashboard/header/18",
+    success: function (data) {
+        getBook(data)
+    },
+    error: function (data){
+        console.log(data)
+    }
+});
+
 
 function getBook(data) {
 

@@ -44,7 +44,7 @@ $(document).ready(function () {
     async: false,
     success: function (data) {
       productId = data.product.productId;
-      $("#marketSeller").html(`<a class="market-link" href="/market/market-page.html?id=` + data.marketId + `"><u>` + data.marketName + `</u></a>`);
+      $(".penjual").html(`<a class="market-link" href="/market/market-page.html?id=` + data.marketId + `"><u>` + data.marketName + `</u></a>`);
       $("#sku").html(data.product.sku);
       $("#isbn").html(data.product.isbn);
       $("#price").html("Rp. " + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''));

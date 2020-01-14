@@ -89,9 +89,10 @@
     padding-right: 15px;
     padding-left: 15px;
     flex: 0 0 100%;
-    max-width: 16.67%;
+    max-width: 16.5%;
     margin-top: 30px;
     transition: all 0.1s;
+    margin-bottom: 20px;
 }
 
 .border-book {
@@ -99,11 +100,12 @@
 }
 
 .border-book:hover {
-    box-shadow: 0 0 15px 5px rgba(99, 99, 99, 0.15), 0 0 5px 1px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 15px 5px rgba(99, 99, 99, 0.308), 0 0 5px 1px rgba(0, 0, 0, 0.02);
 }
 
 .col-3-custom:hover {
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .title-book {
@@ -295,6 +297,10 @@ ul li {
     .max-min {
         max-width: 150px;
         min-width: 150px;
+    }
+
+    .border{
+        border: 0px solid white !important;
     }
 
     .right-cat {

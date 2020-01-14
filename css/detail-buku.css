@@ -122,10 +122,9 @@ ul li {
     border: none;
     color: white !important;
     font-weight: 300;
-    /* margin: 5px; */
     text-align: center;
     padding: 10px 12px 10px 12px !important;
-    width: 150px !important;
+    width: 130px !important;
     height: auto !important;
     box-shadow: none !important;
 }
@@ -144,7 +143,7 @@ ul li {
     cursor: pointer;
     text-align: center;
     padding: 10px 12px 10px 12px !important;
-    width: 150px !important;
+    width: 130px !important;
     height: auto !important;
     box-shadow: none !important;
 }
@@ -279,6 +278,11 @@ p {
 .bc {
     font-weight: bold;
     font-size: 12px;
+}
+
+hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .bc-item:hover {
