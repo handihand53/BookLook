@@ -43,7 +43,7 @@ $(window).load(function () {
       } else {
         $("#content").html("")
         $("main").addClass("bg-product")
-        
+
       }
 
       $(".cat-name").html(urlParams.kategori.toString());
@@ -192,4 +192,7 @@ $(window).load(function () {
     }
     return 0;
   }
+
+  $("#kategori-i").addClass("bottom-active")
+  $("#kategori-t").addClass("bottom-active border-active")
 });

@@ -252,9 +252,16 @@ function getB() {
     </div>`;
         $("#main-content").append(total);
       } else {
+        $("#kontent").html("")
+        var html = `
+                    <div id="main-content" class="mlr-auto col-12"></div>
+                    `
+        $("#kontent").html(html)
         $("#main-content").html(`
-                <div class="bg-blank"></div>
-                `);
+                        <div class="bg-blank"></div>
+                        <div class="center bold">Keranjang Kamu kosong.</div>
+                        <div class="mb-4 center">Waah keranjang kamu kosong nih, ayo <a class="alink" href="/user/"><u>isi</u></a> buat nambah koleksi buku kamu!</div>
+                    `);
       }
     },
     error: function (errMsg) {

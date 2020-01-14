@@ -34,10 +34,9 @@
 
 .bg-blank {
     background-image: url('../assets/bg/bucket-empty.png');
-    background-size: 280px 280px;
     background-position: center;
-    height: 100%;
-    min-height: 500px;
+    width: auto;
+    min-height: 300px;
     min-width: 100%;
     background-repeat: no-repeat;
 }
@@ -313,6 +312,10 @@ p {
 }
 
 @media screen and (min-width: 771px) {
+    .bg-blank {
+        background-size: 30%;
+    }
+
     .checkmark-head {
         top: 30px;
     }
@@ -365,23 +368,32 @@ p {
         width: 20px;
         text-overflow: ellipsis;
     }
-    .kanan{
+
+    .kanan {
         float: right;
     }
 }
 
 @media screen and (max-width: 770px) {
-    .width-img{
+    .bg-blank {
+        background-size: 100%;
+        min-height: 300px;
+    }
+
+    .width-img {
         margin-bottom: 12px;
         margin-top: 12px;
     }
-    .sub-list{
+
+    .sub-list {
         margin: 0px;
         margin-bottom: 10px;
     }
-    .border-bot{
+
+    .border-bot {
         margin-bottom: 12px;
     }
+
     .market-text {
         margin-left: 20px;
         font-size: 12px;

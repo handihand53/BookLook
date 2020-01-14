@@ -99,4 +99,10 @@ $(window).load(function () {
         });
     }
 
+    $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+    $("#logoBooklook").addClass("h")
+    $("#iconback").click(function () {
+        window.location.href = "/user/"
+    })
+
 });

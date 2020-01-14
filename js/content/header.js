@@ -2,13 +2,14 @@ let header = `
 <nav class="navbar navbar-expand-md navbar-dark bg-custom justify-content-between shadow-nav" >
 <!-- Toggler/collapsibe Button -->
 <div class="col-9-custom row mlr-auto" style="margin-top:0px">
-<button class="navbar-toggler no-border float-left" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-  <span class="navbar-toggler-icon" style="width: 25px;"></span>
-</button>  
+
 
 <!-- Logo -->
-  <a class="navbar-brand mrl-auto" href="/user/index.html"><img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top" "></a>
-
+  <div id="logo-head" class="navbar-brand mr-auto">
+    <div id="iconback" class="h-2"></div>
+    <a href="/user/index.html" id="logoBooklook">
+    <img src="../assets/logo/logo_white.png" alt="BookLook" height="27px" class="d-inline-block align-top" "></a>
+  </div>
   <!-- Navbar links -->
   <div class="collapse navbar-collapse " id="collapsibleNavbar">
     <ul class="navbar-nav mr-auto">
@@ -65,17 +66,8 @@ let header = `
   </span>
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler no-border cst-padding no-margin float-left" id="btn_profile">
-  <span class="notif-toko"></span>
-      <span class="dropdown"><img class="navbar-icon" src="../assets/logo/user.png" alt="">
-        <div class="dropdown-content" style="right: 0;">
-          <div>
-            <div class="arrow-up" style="margin-left: 130px;"></div>
-          </div>
-          <div class="box border-radius-7" id="profile-item-mobile">
-            <img src="../assets/else/loading.gif"  width="100%" alt=" Not Login Yet" style="padding: 35px;">
-          </div>
-        </div>
-      <span>
+      <span class="notif-toko"></span>
+      <a href="/akun.html"><span class="dropdown"><img class="navbar-icon" src="../assets/logo/user.png" alt=""><span></a>
   </button>
   </div>
 </nav>

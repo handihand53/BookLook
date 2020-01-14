@@ -60,11 +60,11 @@ function getBooks() {
             success: function (data) {
                 if (data.length != 0) {
                     var coverTag = `
-                <div class="border border-radius-7 hide-border">
-                    <div class="col-5-custom mb-3 mt-3 border-content">
+                <div class="mtb-20 hide-border">
+                    <div class="col-5-custom border-content">
                         <div>
                             <div class="float-left ml-3 content-title">` + arr + `</div>
-                            <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `">Lebih Banyak</a>
+                            <div class="float-right mr-3 content-link"><a href="/market/category.html?kategori=` + arr + `" style="color: #055dff!important;">Lebih Banyak</a>
                         </div>
                     </div>
                     <br>
@@ -114,7 +114,7 @@ $.ajax({
     success: function (data) {
         getBook(data)
     },
-    error: function (data){
+    error: function (data) {
         console.log(data)
     }
 });
@@ -193,11 +193,10 @@ function getBook(data) {
         }
     });
 
-    function klik() {
-        // $(".rb").click(function () {
-        //     getDataUser()
-        //     $(this).attr("data-key", readKey)
-        //     window.open("/user/readbook.html?file=" + $(this).attr("data-file") + "&id=" + $(this).attr("data-id") + "&key=" + readKey)
-        // })
-    }
+
 }
+
+$(document).ready(function () {
+    $("#beranda-i").addClass("bottom-active")
+    $("#beranda-t").addClass("bottom-active border-active")
+})

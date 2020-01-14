@@ -162,7 +162,7 @@ $(window).load(function () {
         $("#bookContent").append(btnPay)
       }
 
-      if(data.transaction.transferConfirm=="PENDING"){
+      if (data.transaction.transferConfirm == "PENDING") {
         $("#pay").css("cursor", "not-allowed")
         $("#pay").addClass("disable")
         $("#pay").attr("disabled", true)
@@ -174,6 +174,10 @@ $(window).load(function () {
     }
   });
 
-
+  $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Profile</span>`)
+  $("#logoBooklook").addClass("h")
+  $("#iconback").click(function () {
+    window.location.href = "/user/transaksi.html"
+  })
 
 });

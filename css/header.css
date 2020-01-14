@@ -548,9 +548,74 @@ a {
     .arrow-up-kategori {
         margin-left: 20px;
     }
+
+    .h-2{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 770px) {
+    #drop-shop {
+        display: none;
+    }
+
+    .bottom-active {
+        color: rgb(71, 144, 255) !important;
+    }
+
+    .bottom-navigation {
+        height: auto;
+        bottom: 0;
+        background-color: #ffffff;
+        box-shadow: 0 -2px 10px -3px rgba(0, 0, 0, 0.15);
+    }
+
+    .border-active {
+        border-bottom: rgb(71, 144, 255) 5px solid;
+    }
+
+    .ts {
+        font-size: 13px;
+        font-weight: 400;
+        color: #9b9b9b;
+    }
+
+    .name{
+        font-size: 14px;
+    }
+
+    .member{
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .profile-pict{
+        width: 100px;
+    }
+
+    .ls {
+        margin-top: 10px;
+        font-size: 20px;
+        color: #9b9b9b;
+    }
+
+    /* #btn_profile {
+        display: none;
+    } */
+
+    .mr-auto {
+        margin-right: auto;
+        margin-left: 10px;
+    }
+
+    button.navbar-toggler.no-border.float-left.collapsed {
+        display: none;
+    }
+
+    header {
+        /* position: static!important; */
+    }
+
     .notif-toko {
         background-color: red;
         width: 15px;

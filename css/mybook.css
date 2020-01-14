@@ -207,21 +207,21 @@ a:hover {
     text-overflow: ellipsis;
 }
 
-.disable{
+.disable {
     background-color: rgb(155, 155, 155);
     cursor: not-allowed;
     padding: 0px;
 }
 
-.disable:hover{
-    background-color: rgb(155, 155, 155);    
+.disable:hover {
+    background-color: rgb(155, 155, 155);
 }
 
-#icon{
+#icon {
     margin-top: 10px;
 }
 
-.prof{
+.prof {
     margin-top: 20px;
     font-weight: 600;
 }
@@ -305,6 +305,10 @@ p {
 }
 
 @media screen and (max-width: 770px) {
+    .border {
+        border: 0px solid white !important;
+    }
+
     .right-cat {
         margin-left: auto;
         margin-right: auto;

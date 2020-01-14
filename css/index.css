@@ -60,6 +60,9 @@ a:hover {
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .content-border {
@@ -115,6 +118,7 @@ a:hover {
     padding-right: 15px;
     padding-left: 15px;
     max-height: 352px;
+
 }
 
 .flex-container {
@@ -255,6 +259,9 @@ a:hover {
     min-height: 500px;
 }
 
+.akun {
+    background-color: #e9e9e9;
+}
 
 .author-main {
     color: rgb(255, 132, 0);
@@ -407,6 +414,12 @@ div.item:hover {
         min-width: 500px;
         margin-left: auto;
         margin-right: auto;
+
+    }
+
+    .mtb-20 {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .about {
@@ -420,16 +433,35 @@ div.item:hover {
 }
 
 @media screen and (max-width: 770px) {
-    button.navbar-toggler.no-border.float-left.collapsed{
-        display: none;
+    .akun-mob-nav {
+        font-weight: 500;
+        margin-top: 8px;
+        margin-bottom: 8px;
     }
 
-    header {
-        position: static!important;
+    .buku {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .bg-logout {
+        color: white;
+        background-color: gray;
+        padding: 10px;
+        width: 100%;
     }
 
     .hide-border {
         border: 0px solid white !important;
+    }
+
+    a {
+        color: black;
+    }
+
+    .ml-auto {
+        color: rgb(187, 187, 187);
+        margin-left: auto;
     }
 
     .h {
@@ -545,8 +577,12 @@ div.item:hover {
         font-weight: bold;
     }
 
+    .batas {
+        margin-top: 20px;
+    }
+
     .bg-index {
-        height: 400px;
+        height: 320px;
         background-size: 400%;
         background-position: top;
     }

@@ -79,10 +79,10 @@ $(window).load(function () {
         alert("Format File yang diperbolehkan : " + fileExtension.join(', '));
         return;
       }
-
+      // size maks upload book 50 mb
       fileName = file1.target.files[0].name;
       var reader = new FileReader();
-      var maxSize = 200 * 1024 * 1024;
+      var maxSize = 50 * 1024 * 1024;
       if (file1.target.files[0].size > maxSize) {
         alert("Ukuran File terlalu besar")
         fileName = ""
@@ -285,7 +285,7 @@ $(window).load(function () {
   $("#klikAdd").click(function () {
     var html = `
     <label class="tambah-buku-edit">Kategori lainnya</label><br>
-    <select name="categories"  class="tambah-buku-input kategori-lainnya">
+    <select name="categories"  class="form-control kategori-lainnya">
       <option value="" selected hidden disabled>Pilih</option>
       <option value=""></option>
 
@@ -366,4 +366,9 @@ $(window).load(function () {
     window.location.href = "/market/mybook_store.html"
   })
 
+  $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+  $("#logoBooklook").addClass("h")
+  $("#iconback").click(function () {
+    window.location.href = "/market/store.html"
+  })
 });

@@ -47,6 +47,9 @@
     font-size: 16px;
     font-weight: 600;
     color: rgb(0, 167, 228);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .col-3-custom {
@@ -243,7 +246,7 @@ ul li {
     color: white;
 }
 
-p{
+p {
     text-align: justify;
 }
 
@@ -270,6 +273,8 @@ p{
 
     .col-3-custom {
         min-width: 190px;
+        margin-bottom: 20px;
+
     }
 }
 
@@ -279,9 +284,13 @@ p{
         max-width: 100%;
     }
 
+    .border {
+        border: 0px solid white !important;
+    }
+
     .right-cat {
-        right: 0;
-        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .title {
@@ -302,6 +311,7 @@ p{
         padding-right: 15px;
         padding-left: 15px;
         flex: 0 0 50%;
-        max-width: 180px;
+        max-width: 162px;
+        margin-bottom: 20px;
     }
 }

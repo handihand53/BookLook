@@ -206,4 +206,10 @@ $(window).load(function () {
     }
     return 0;
   }
+
+  $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Profile</span>`)
+  $("#logoBooklook").addClass("h")
+  $("#iconback").click(function () {
+    window.location.href = "/user/user.html"
+  })
 });
