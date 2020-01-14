@@ -267,9 +267,12 @@ footer {
         max-width: 100%!important;
         text-align: center;
     }
+
     .col-md-6-custom {
         flex: 0 0 95%;
         max-width: 95%;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .col-md-3-custom {

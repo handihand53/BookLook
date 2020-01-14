@@ -85,7 +85,6 @@ $(window).load(function () {
       'Authorization': `Bearer ` + getCookie("token"),
     },
     success: function (data) {
-      console.log(data)
       var d = new Date(data.transaction.createdAt);
       var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
       $("#noDetailTransaksi").html(data.transaction.transactionCode)
@@ -112,47 +111,52 @@ $(window).load(function () {
         });
 
         var html = `
-                <div class="shadow-card p-3 mb-4">
-                <div class="bold">Toko : <a href="/market/market-page.html?id=` + data.transactionDetail[i].marketId + `" class="alink">` + x + `</a></div>
-                <div class="row">
-                  <div class="col-3-custom">
-                    <div class="content-border no-border border-radius-4">
-                      <img src="` + data.transactionDetail[i].product.productPhoto + `" alt="" class="width-img">
-                    </div>
+        <div class="shadow-card p-3 mb-4">
+              <div class="bold border-bottom">Toko : <a href="/market/market-page.html?id=` + data.transactionDetail[i].marketId + `"
+                  class="alink">` + x + `</a></div>
+              <div class="row">
+                <div class="col-3-custom">
+                  <div class="content-border no-border border-radius-4">
+                    <img src="` + data.transactionDetail[i].product.productPhoto + `" alt=""
+                      class="width-img">
                   </div>
-  
-                  <div class="col-9-custom">
-                    <div class="row border-bottom">
-                      <p class="col-md-6 title-text">Judul</p>
-                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.title + `">` + data.transactionDetail[i].product.title + `</p>
-                    </div>
-                    <div class="row border-bottom">
-                      <p class="col-md-6 title-text">Penulis</p>
-                      <p class="author-book col-md-6" title="` + data.transactionDetail[i].product.author + `">` + data.transactionDetail[i].product.author + `</p>
-                    </div>
-                    <div class="row border-bottom">
-                      <p class="col-md-6 title-text">ISBN</p>
-                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.isbn + `">` + data.transactionDetail[i].product.isbn + `</p>
-                    </div>
-                    <div class="row border-bottom">
-                      <p class="col-md-6 title-text">SKU</p>
-                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
-                    </div>
-                    <div class="row border-bottom">
-                      <p class="col-md-6 title-text">Jumlah halaman</p>
-                      <p class="title-book col-md-6" title="` + data.transactionDetail[i].product.pageTotal + `">` + data.transactionDetail[i].product.pageTotal + ` Halaman</p>
-                    </div>
-                    <div class="row">
-                      <p class="col-md-6 title-text">Harga</p>
-                      <p class="title-book col-md-6 blue-2" title="` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-          '$&,').replace(/\.00/g, '') + `">Rp.
-                        <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-          '$&,').replace(/\.00/g, '') + `</span></p>
-                    </div>
+                </div>
+
+                <div class="col-9-custom mt-3">
+                  <div class="row border-bottom-gray">
+                    <p class="col-6 list-i">Judul</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.title + `">` + data.transactionDetail[i].product.title + `</p>
+                  </div>
+                  <div class="row border-bottom-gray background-gray">
+                    <p class="col-6 list-i">Penulis Buku</p>
+                    <p class="list-i col-6 orange" title="` + data.transactionDetail[i].product.author + `">` + data.transactionDetail[i].product.author + `</p>
+                  </div>
+                  <div class="row border-bottom-gray">
+                    <p class="col-6 list-i">Penerbit</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.publisher + `">` + data.transactionDetail[i].product.author + `</p>
+                  </div>
+                  <div class="row border-bottom-gray background-gray">
+                    <p class="col-6 list-i">ISBN</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.isbn + `">` + data.transactionDetail[i].product.isbn + `</p>
+                  </div>
+                  <div class="row border-bottom-gray">
+                    <p class="col-6 list-i">SKU</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
+                  </div>
+                  <div class="row border-bottom-gray background-gray">
+                    <p class="col-6 list-i">Jumlah halaman</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.pageTotal + ` Halaman">` + data.transactionDetail[i].product.pageTotal + ` Halaman</p>
+                  </div>
+                  <div class="row border-bottom-gray">
+                    <p class="col-6 list-i">Harga</p>
+                    <p class="list-i col-6 blue-2" title="Rp. ` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+                    '$&,').replace(/\.00/g, '') + `">Rp.
+                      <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
+                      '$&,').replace(/\.00/g, '') + `</span></p>
                   </div>
                 </div>
               </div>
-                `
+            </div>`
         $("#bookContent").append(html)
       }
       if (data.transaction.transferConfirm != "SUCCESS") {

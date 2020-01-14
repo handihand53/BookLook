@@ -18,6 +18,10 @@
     color:rgb(155, 155, 155);
 }
 
+.form-control{
+    margin-bottom: 15px;
+}
+
 .red{
     color: red;
 }

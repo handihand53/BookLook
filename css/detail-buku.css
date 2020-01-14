@@ -290,11 +290,44 @@ hr {
     cursor: pointer;
 }
 
-.title-book {
-    font-size: 15px;
-    font-weight: 500;
+.author-clr {
+    color: orange;
 }
 
+.judul-utama {
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
+.background-gray {
+    background-color: #efefef;
+}
+
+.list-i{
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    border-bottom: 0.5px solid rgb(228, 228, 228);
+}
+
+.title-book {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
+.blue-3 {
+    font-size: 14px;
+    color: rgb(0, 153, 255);
+}
 
 .author-book {
     font-weight: 500;

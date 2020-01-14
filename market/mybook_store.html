@@ -60,45 +60,30 @@
       <!-- content -->
 
       <div class="col-md-9 mb-1 pl-3">
-        <div class="row pl-3">
-
-          <!--  -->
-
-
-          <!--  -->
-          <div class="title-content "> Buku</div>
-          <div class="mlr-auto row col-12 no-padding no-margin">
-            <div>
-              <input type="text" class="form-control-sm form-control" id="search">
-            </div>
-            <div class="btn-group ml-3" id="sort-btn">
-              <button class="btn btn-cst btn-sm dropdown-toggle" id="sort">
-                Urutkan
-              </button>
-              <div class="dropdown-menu" id="drop-sort" data-status="0">
-                <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
-                <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
-                <div class="dropdown-divider"></div>
-                <div class="dropdown-item sort-content" data-sort="hargaAsc">Harga <i class="fas fa-arrow-up ml-3"></i>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="title-content "> Buku</div>
+          </div>
+          <div class="mlr-auto">
+            <div class="row right-cat">
+              <div class="btn-group" id="sort-btn">
+                <input type="text" class="form-control-sm form-control" id="search">
+                <button class="btn btn-cst btn-sm dropdown-toggle ml-3" id="sort">
+                  Urutkan
+                </button>
+                <div class="dropdown-menu" id="drop-sort" data-status="0">
+                  <div class="dropdown-item sort-content" data-sort="judulAsc">A ke Z</div>
+                  <div class="dropdown-item sort-content" data-sort="judulDesc">Z ke A</div>
+                  <div class="dropdown-divider"></div>
+                  <div class="dropdown-item sort-content" data-sort="hargaAsc">Harga <i
+                      class="fas fa-arrow-up ml-3"></i>
+                  </div>
+                  <div class="dropdown-item sort-content" data-sort="hargaDesc">Harga <i
+                      class="fas fa-arrow-down ml-3"></i></div>
                 </div>
-                <div class="dropdown-item sort-content" data-sort="hargaDesc">Harga <i
-                    class="fas fa-arrow-down ml-3"></i></div>
               </div>
             </div>
           </div>
-
-          <!-- <div class="row right-cat"> -->
-          <!--  -->
-          <!-- <div>
-                  <input class="search-cat form-control form-control-sm" id="search" type="text"
-                    placeholder='Cari judul buku'>
-                </div> -->
-          <!--  -->
-
-          <!--  -->
-          <!-- </div> -->
-          <!--  -->
-
         </div>
         <!--  -->
         <div class="flex-row border border-radius-7 mt-3" id="product-content">

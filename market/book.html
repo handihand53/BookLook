@@ -38,13 +38,13 @@
         <div class="content-border no-border p-2">
           <div class="judul-utama p-2" id="title"></div>
           <hr>
-          <div class="row p-2">
+          <div class="row pl-2 pr-2">
             <div class="col-md-4">
               <img id="bookimg" alt="" class="width-img">
             </div>
             <div class="col-md-7 pl-4 pr-4 mt-2">
 
-              <div class="row border-bot">
+              <div class="row border-bot background-gray">
                 <div class="col-6 sub-list">
                   Author
                 </div>
@@ -60,7 +60,7 @@
                 </div>
               </div>
 
-              <div class="row border-bot">
+              <div class="row border-bot background-gray">
                 <div class="col-6 sub-list">
                   ISBN
                 </div>
@@ -76,7 +76,7 @@
                 </div>
               </div>
 
-              <div class="row border-bot">
+              <div class="row border-bot background-gray">
                 <div class="col-6 sub-list">
                   Jumlah Halaman
                 </div>
@@ -84,7 +84,7 @@
                 </div>
               </div>
 
-              <div class="row border-bot mb-3">
+              <div class="row border-bot mb-2">
                 <div class="col-6 sub-list">
                   Harga
                 </div>
@@ -92,8 +92,8 @@
                 </div>
               </div>
 
-              <button id="buy" class="btn-buy mlr-auto mb-2">Beli</button>
-              <button id="wishlist" class="btn-wishlist mlr-auto">Wishlist</button>
+              <button class="btn-buy mlr-auto mb-2 h buy">Beli</button>
+              <button class="btn-wishlist mlr-auto h wishlist">Wishlist</button>
 
             </div>
           </div>
@@ -104,15 +104,29 @@
           <p class="pl-3 deskripsi" id="deskripsi"></p>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="content-border col-12 no-border p-3 marg-mob  mlr-auto mt fit hide">
+          <div class="dijual">
+            Dijual oleh
+          </div>
 
-      <div class="content-border no-border p-3 marg-mob col-md-3 mlr-auto mt fit hide" >
-        <div class="dijual">
-          Dijual oleh
+          <div class="penjual" id="marketSeller">
+          </div>
         </div>
 
-        <div class="penjual" id="marketSeller">
+        <div class="content-border col-12 no-border p-3 marg-mob mt-3 mlr-auto mt fit no-margin" style="margin: 20px 0px 0px 0px!important;">
+          <div class="dijual">
+            Pembayaran bisa via
+          </div>
+
+          <img src="../assets/else/bca.png" alt="" class="bank">
+          <img src="../assets/else/bni.png" alt="" class="bank">
+          <img src="../assets/else/alfamart.png" alt="" class="bank">
+          <img src="../assets/else/indomaret.png" alt="" class="bank">
+          <img src="../assets/else/Logo OVO.png" alt="" class="bank">
         </div>
       </div>
+
     </div>
     <br>
 
@@ -132,8 +146,10 @@
     <br>
   </main>
 
-  <footer class="footer" id="footer">
+  <footer class="footer" id="footers">
+
   </footer>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/background_blur.js"></script>

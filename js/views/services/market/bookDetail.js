@@ -7,6 +7,51 @@ import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
     getDataUser()
 
+    $("#footers").html(`
+  <div class="main-footer widgets-dark typo-light h">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 mb-5">
+        <div class="bold f12 mb-2">BANTUAN</div>
+        <p class="f12" id="footer-masuk"><a href="/kebijakan-privasi.html" class="bold alink">Kebijakan &amp;
+            privasi</a></p>
+        <p class="f12" id="footer-daftar"><a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat &amp;
+            ketentuan</a></p>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="bold f12 mb-2">CUSTOMER CARE</div>
+        <p class="f12"><i class="fas fa-phone abu"></i> 082123456789</p>
+        <p class="f12"><i class="fas fa-envelope abu"></i> customer.care@booklook.com</p>
+      </div>
+      <div class="col-md-4">
+        <div class="bold f12 mb-2">TENTANG</div>
+        <p class="f12"><a class="alink" href="/user/">BookLook</a> - Situs Jual Beli Online di Indonesia BookLook
+          merupakan situs jual beli online di Indonesia yang memiliki ratusan buku digital. Baca buku online terasa
+          semakin mudah dan menyenangkan saat ini karena apapun yang Anda ingin baca pasti bisa ditemukan di
+          BookLook.<a href="/tentang.html" class="alink"> Lebih lanjut<span></span></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="copyright">
+  <div class="col-9 mlr-auto">
+    Copyright ©2019 BookLook toko buku online terlengkap. All right reserved
+  </div>
+</div>
+
+  <div class="bottom-navigation fixed hide2">
+    <div class="row col-12 no-padding no-margin">
+      <div class="col-6 center mt-2 btn-read">
+      Lihat
+      </div>
+      <a class="editlink col-6 btn-edit center mt-2">
+        Edit
+      </a>
+    </div>
+  </div>
+`)
+
     var readKey
     var id
 
@@ -20,8 +65,6 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-
-                console.log(data)
                 id = data.userId
                 readKey = data.readKey;
             },
@@ -89,7 +132,6 @@ $(window).load(function () {
         url: "http://127.0.0.1:8080/api/products/" + urlParams._i,
         dataType: 'json',
         async: false,
-        timeout: 600000,
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
@@ -108,55 +150,48 @@ $(window).load(function () {
                 }
 
                 var html = `
-                <div class="col-3-custom">
-                    <div class="content-border shadow-card no-border border-radius-4 max-min">
-                    <img src="` + data.product.productPhoto + `" alt="" class="width-img ">
-                    </div>
-                </div>
-                <div class="col-9-custom mt-4">
-                    <div class="row">
-                        <p class="title-book col-5">Judul Buku</p>
-                        <p class="title-book col-7" title="` + data.product.title + `">` + data.product.title + `</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">Penulis Buku</p>
-                        <p class="title-book col-7" title="` + data.product.author + `">` + data.product.author + `</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">Penerbit Buku</p>
-                        <p class="title-book col-7" title="` + data.product.publisher + `">` + data.product.publisher + `</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">ISBN Buku</p>
-                        <p class="title-book col-7" title="` + data.product.isbn + `">` + data.product.isbn + `</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">SKU Buku</p>
-                        <p class="title-book col-7" title="` + data.product.sku + `">` + data.product.sku + `</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">Total Halaman</p>
-                        <p class="title-book col-7" title="` + data.product.pageTotal + `">` + data.product.pageTotal + ` Halaman</p>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <p class="title-book col-5">Harga</p>
-                        <p class="title-book orange col-7" title="Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                    </div>
-                    <hr>
-                    <p class="deskripsi">Deskripsi</p>
-                    <p class="mb-4 desk" id="deskripsi">` + short + `</p>
-                    <br>
-                    <button class="btn-read">Lihat</button>
-                    <a href="edit_buku.html?_i=` + data.product.productId + `"><button class="btn-edit">Edit</button></a>
-                </div>
+                <p class="judul-utama mt-2 pb-2 col-12 border-bottom" title="` + data.product.title + `">` + data.product.title + `</p>
+
+            <div class="col-3-custom">
+              <div class="content-border shadow-card no-border border-radius-4 max-min">
+                <img src="` + data.product.productPhoto + `" alt=""
+                  class="width-img ">
+              </div>
+            </div>
+            <div class="col-9-custom mt-4">
+
+              <div class="row no-margin list-i background-gray p-3">
+                <p class="title-book col-5">Penulis Buku</p>
+                <p class="title-book author-clr col-7" title="` + data.product.author + `">` + data.product.author + `</p>
+              </div>
+              <div class="row no-margin list-i p-3">
+                <p class="title-book col-5">Penerbit Buku</p>
+                <p class="title-book col-7" title="` + data.product.publisher + `">` + data.product.publisher + `</p>
+              </div>
+              <div class="row no-margin list-i background-gray p-3">
+                <p class="title-book col-5">ISBN Buku</p>
+                <p class="title-book col-7" title="` + data.product.isbn + `">` + data.product.isbn + `</p>
+              </div>
+              <div class="row no-margin list-i p-3">
+                <p class="title-book col-5">SKU Buku</p>
+                <p class="title-book col-7" title="` + data.product.sku + `">` + data.product.sku + `</p>
+              </div>
+              <div class="row no-margin list-i background-gray p-3">
+                <p class="title-book col-5">Total Halaman</p>
+                <p class="title-book col-7" title="` + data.product.pageTotal + ` Halaman">` + data.product.pageTotal + ` Halaman</p>
+              </div>
+              <div class="row no-margin list-i p-3">
+                <p class="title-book col-5">Harga</p>
+                <p class="title-book blue-3 col-7" title="Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. ` + data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+              </div>
+              <p class="deskripsi mt-2 pl-1 ml-3">Deskripsi</p>
+              <p class="mb-4 desk ml-3 pl-1" id="deskripsi">` + short + `</p>
+
+            </div>
                 `
+                console.log(data)
                 $("#bookContent").html(html)
+                $(".editlink").attr("href", "/market/edit_buku.html?_i=" + data.product.productId)
                 bindReadMore()
             }
         },
@@ -203,8 +238,15 @@ $(window).load(function () {
             }
         });
     }
+
     $(".btn-read").click(function () {
         getDataUser()
         window.open("/market/readbook.html?file=" + res[res.length - 1] + "&id=" + id + "&key=" + readKey)
+    })
+
+    $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+    $("#logoBooklook").addClass("h")
+    $("#iconback").click(function () {
+        window.location.href = "/market/mybook_store.html"
     })
 });

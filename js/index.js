@@ -132,14 +132,19 @@ function getBook(data) {
             `
         $("#slider").append(body)
         var le = 0;
-        if (data.length > 17) {
-            le = 17
-        } else {
-            le = data.length
-        }
-        for (var i = 0; i < le; i++) {
 
-            if (i % 6 == 0 && i != 0) {
+        if (data.length % 6 != 0) {
+            le += data.length + (6 - data.length % 6)
+        }
+        console.log(le)
+        var i = 0
+
+        for (var j = 0; j < le; j++, i++) {
+            if (i % data.length == 0) {
+                i = 0
+            }
+            console.log(i)
+            if (j % 6 == 0 && j != 0) {
                 var body = `
                     <div class="carousel-item">
                         <div class="row col-12 slider-container">

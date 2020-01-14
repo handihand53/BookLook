@@ -5,26 +5,6 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/markets/block/check",
-        dataType: 'json',
-        async: false,
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            if (!data.success)
-                window.location.replace("/user/user.html")
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
-        }
-    });
-
-
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     $.ajax({
         type: "GET",
@@ -134,33 +114,45 @@ $(window).load(function () {
                 }
                 for (var i = data.transactionDetail.length - 1; i >= 0; i--) {
                     var html = `
+
                     <div class="col-12 plr-5">
-                        <div class="row shadow-card mb-3">
-                        <div class="col-3-custom">
-                            <div class="no-border border-radius-4">
-                            <img src="` + data.transactionDetail[i].product.productPhoto + `" alt="" class="width-img">
-                            </div>
+                        <div class="shadow-card mb-3 p-3">
+                        <div>
+                            <p class="judul-utama" title="` + data.transactionDetail[i].product.title + `">` + data.transactionDetail[i].product.title + `</p>
                         </div>
-                        <div class="col-9-custom plr-25">
-                            <div class="row border-bottom">
-                            <p class="col-md-6 title-text">Judul</p>
-                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.title + `</p>
+                        <hr>
+                        <div class="row">
+                            <div class="col-3-custom">
+                            <div class="no-border border-radius-4 mb-3">
+                                <img src="` + data.transactionDetail[i].product.productPhoto + `" alt=""
+                                class="width-img ">
+                            </div>
+                            </div>
+                            <div class="col-9-custom plr-25">
+                            <div class="row border-bottom background-gray">
+                                <p class="col-6 list-i">Penulis Buku</p>
+                                <p class="col-6 list-i orange" title="` + data.transactionDetail[i].product.author + `">` + data.transactionDetail[i].product.author + `</p>
                             </div>
                             <div class="row border-bottom">
-                            <p class="col-md-6 title-text">Penulis</p>
-                            <p class="author-book col-md-6 ">` + data.transactionDetail[i].product.author + `</p>
+                                <p class="col-6 list-i">Penerbit</p>
+                                <p class="col-6 list-i" title="` + data.transactionDetail[i].product.publisher + `">` + data.transactionDetail[i].product.publisher + `</p>
+                            </div>
+                            <div class="row border-bottom background-gray">
+                                <p class="col-6 list-i">ISBN</p>
+                                <p class="col-6 list-i" title="` + data.transactionDetail[i].product.isbn + `">` + data.transactionDetail[i].product.isbn + `</p>
                             </div>
                             <div class="row border-bottom">
-                            <p class="col-md-6 title-text">ISBN</p>
-                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.isbn + `</p>
+                                <p class="col-6 list-i">SKU</p>
+                                <p class="col-6 list-i" title="` + data.transactionDetail[i].product.sku + `">` + data.transactionDetail[i].product.sku + `</p>
+                            </div>
+                            <div class="row border-bottom background-gray">
+                                <p class="col-6 list-i">Jumlah Halaman</p>
+                                <p class="col-6 list-i" title="` + data.transactionDetail[i].product.pageTotal + `">` + data.transactionDetail[i].product.pageTotal + ` Halaman</p>
                             </div>
                             <div class="row border-bottom">
-                            <p class="col-md-6 title-text">SKU</p>
-                            <p class="title-book col-md-6">` + data.transactionDetail[i].product.sku + `</p>
+                                <p class="col-6 list-i">Harga</p>
+                                <p class="col-6 blue list-i" title="Rp. ` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</span></p>
                             </div>
-                            <div class="row border-bottom">
-                            <p class="col-md-6 title-text">Harga</p>
-                            <p class="title-book col-md-6 blue">Rp. <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</span></p>
                             </div>
                         </div>
                         </div>
@@ -231,4 +223,10 @@ $(window).load(function () {
             }
         });
     }
+
+    $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+    $("#logoBooklook").addClass("h")
+    $("#iconback").click(function () {
+        window.history.back();
+    })
 });

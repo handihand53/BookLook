@@ -5,23 +5,6 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/markets/block/check",
-        dataType: 'json',
-        async: false,
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            if (!data.success)
-                window.location.replace("/user/user.html")
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
-        }
-    });
 
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
@@ -100,8 +83,6 @@ $(window).load(function () {
         url: "http://127.0.0.1:8080/api/products/" + urlParams._i[0],
         dataType: 'json',
         success: function (data) {
-            console.log(data)
-
             $("#img").attr("src", data.product.productPhoto)
             $("#title").val(data.product.title)
             $("#author").val(data.product.author)
@@ -197,4 +178,10 @@ $(window).load(function () {
             }
         });
     }
+
+    $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+    $("#logoBooklook").addClass("h")
+    $("#iconback").click(function () {
+        window.history.back();
+    })
 });

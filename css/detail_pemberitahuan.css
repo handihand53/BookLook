@@ -14,16 +14,40 @@
     max-width: 115px;
 }
 
+.judul-utama {
+    font-size: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
+.list-i {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
+.background-gray {
+    background-color: #efefef;
+}
+
 #icon {
     color: #0072f5;
     font-size: 40px;
 }
 
-.prof{
+.prof {
     font-weight: 400;
 }
 
-.prof-ok{
+.prof-ok {
     font-weight: bold;
 }
 
@@ -220,6 +244,11 @@ ul li {
     font-size: 16px;
 }
 
+hr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .col-3-custom {
     position: relative;
     width: 100%;
@@ -227,7 +256,7 @@ ul li {
     padding-left: 15px;
     flex: 0 0 25%;
     max-width: 22%;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .border-bottom-gray {
@@ -405,7 +434,7 @@ p {
 }
 
 .shadow-card {
-    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.329);
+    box-shadow: 0 2px 10px 1px rgba(48, 48, 48, 0.11);
 }
 
 @media screen and (min-width: 770px) {

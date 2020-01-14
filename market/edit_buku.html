@@ -29,7 +29,7 @@
 
   <main class="content content-width content-height mb-5">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 h">
         <div class="row">
           <div class="mr-2">
             <img id="display" class="mb-3" alt="">
@@ -59,7 +59,7 @@
 
       <!-- content -->
       <div class="col-md-9">
-        <div class="bc">
+        <div class="bc h">
           <a href="mybook_store.html"><span class="bc-item">Produk</span></a> >
           <a id="detail-book"><span class="bc-item">Detail Buku</span></a> >
           <span class="bc-item">Edit Buku</span>
@@ -68,22 +68,21 @@
         <img src="" alt="" id="img" width="150px"><br>
 
         <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-        <input id="title" class="tambah-buku-input" disabled placeholder="Judul Buku" type="text"><br>
+        <input id="title" class="form-control" disabled placeholder="Judul Buku" type="text">
         <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-        <input id="author" class="tambah-buku-input" disabled placeholder="Penulis" type="text"><br>
+        <input id="author" class="form-control" disabled placeholder="Penulis" type="text">
         <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-        <input id="publisher" class="tambah-buku-input" disabled placeholder="Penerbit" type="text"><br>
+        <input id="publisher" class="form-control" disabled placeholder="Penerbit" type="text">
         <label class="tambah-buku-edit">SKU<span class="red">*</span></label><br>
-        <input id="skuMarket" class="tambah-buku-input" placeholder="SKU" disabled name="a"></input>
+        <input id="skuMarket" class="form-control" placeholder="SKU" disabled name="a"></input>
         <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
-        <input id="page" class="tambah-buku-input" placeholder="Jumlah Halaman" disabled name="a"></input>
-        <br>
+        <input id="page" class="form-control" placeholder="Jumlah Halaman" disabled name="a"></input>
         <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
-        <input id="isbn" class="tambah-buku-input" disabled placeholder="ISBN" type="text"><br>
+        <input id="isbn" class="form-control" disabled placeholder="ISBN" type="text">
         <label class="tambah-buku-edit">Harga<span class="red">*</span></label><br>
-        <input id="price" class="tambah-buku-input" required placeholder="Harga" type="text"><br>
-        <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-        <textarea id="description" class="tambah-buku-input" required placeholder="Deskripsi" type="text"
+        <input id="price" class="form-control" required placeholder="Harga" type="text">
+        <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label>
+        <textarea id="description" class="form-control" required placeholder="Deskripsi" type="text"
           rows="10"></textarea>
         <br>
         <label class="opsi">Opsi :</label><br>
@@ -119,5 +118,5 @@
   <script src="../js/views/services/market/editBook.js" type="module"></script>
   <script src="../js/deleteBuckets.js"></script>
 </body>
-
+`
 </html>

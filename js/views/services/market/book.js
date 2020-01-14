@@ -12,6 +12,51 @@ $(document).ready(function () {
   var urlParams = parseURLParams(urlString);
   var productId;
 
+  $("#footers").html(`
+  <div class="main-footer widgets-dark typo-light h">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 mb-5">
+        <div class="bold f12 mb-2">BANTUAN</div>
+        <p class="f12" id="footer-masuk"><a href="/kebijakan-privasi.html" class="bold alink">Kebijakan &amp;
+            privasi</a></p>
+        <p class="f12" id="footer-daftar"><a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat &amp;
+            ketentuan</a></p>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="bold f12 mb-2">CUSTOMER CARE</div>
+        <p class="f12"><i class="fas fa-phone abu"></i> 082123456789</p>
+        <p class="f12"><i class="fas fa-envelope abu"></i> customer.care@booklook.com</p>
+      </div>
+      <div class="col-md-4">
+        <div class="bold f12 mb-2">TENTANG</div>
+        <p class="f12"><a class="alink" href="/user/">BookLook</a> - Situs Jual Beli Online di Indonesia BookLook
+          merupakan situs jual beli online di Indonesia yang memiliki ratusan buku digital. Baca buku online terasa
+          semakin mudah dan menyenangkan saat ini karena apapun yang Anda ingin baca pasti bisa ditemukan di
+          BookLook.<a href="/tentang.html" class="alink"> Lebih lanjut<span></span></a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="copyright">
+  <div class="col-9 mlr-auto">
+    Copyright ©2019 BookLook toko buku online terlengkap. All right reserved
+  </div>
+</div>
+
+  <div class="bottom-navigation fixed hide2">
+    <div class="row col-12 no-padding no-margin" style="height: 40px;">
+      <div class="col-6 center btn-buy buy">
+        Beli
+      </div>
+      <div class="col-6 center btn-wishlist wishlist" style="height: 40px;">
+        Wishlist
+      </div>
+    </div>
+  </div>
+`)
+
   getBook()
   var transId = new Array();
   getTransaction()
@@ -84,7 +129,7 @@ $(document).ready(function () {
     })
   }
 
-  $("#buy").click(function () {
+  $(".buy").click(function () {
     var data = {
       "productId": productId
     }
@@ -123,7 +168,7 @@ $(document).ready(function () {
     });
   })
 
-  $("#wishlist").click(function () {
+  $(".wishlist").click(function () {
     var data = {
       "productId": productId
     }
@@ -180,10 +225,10 @@ $(document).ready(function () {
           var tot = 0;
           for (var i = 0; i < data.length; i++) {
             if (data[i].product.productId == productId) {
-              $("#buy").removeClass("btn-buy")
-              $("#buy").addClass("btn-already")
-              $("#buy").html("Sudah dikeranjang")
-              $("#buy").attr("disabled", true)
+              $(".buy").removeClass("btn-buy")
+              $(".buy").addClass("btn-already")
+              $(".buy").html("Sudah dikeranjang")
+              $(".buy").attr("disabled", true)
             }
             var html = `
               <li class="itm-keranjang">
@@ -253,14 +298,14 @@ $(document).ready(function () {
         'Authorization': `Bearer ` + getCookie("token"),
       },
       success: function (data) {
-        $("#wishlist-item").html("")
+        $(".wishlist-item").html("")
         if (data.length != 0) {
           for (let i = 0; i < data.length; i++) {
             if (data[i].product.productId == productId) {
-              $("#wishlist").removeClass("btn-wishlist")
-              $("#wishlist").addClass("btn-already")
-              $("#wishlist").html("Sudah diwishlist")
-              $("#wishlist").attr("disabled", true)
+              $(".wishlist").removeClass("btn-wishlist")
+              $(".wishlist").addClass("btn-already")
+              $(".wishlist").html("Sudah diwishlist")
+              $(".wishlist").attr("disabled", true)
             }
           }
         }
@@ -281,14 +326,14 @@ $(document).ready(function () {
         if (data.length != 0) {
           for (var i = 0; i < data.length; i++) {
             if (data[i].product.productId == urlParams._i.toString()) {
-              $("#buy").removeClass("btn-buy")
-              $("#buy").addClass("btn-already")
-              $("#buy").html("Sudah dibeli")
-              $("#buy").attr("disabled", true)
-              $("#wishlist").removeClass("btn-wishlist")
-              $("#wishlist").addClass("btn-already")
-              $("#wishlist").attr("disabled", true)
-              $("#wishlist").html("Sudah dibeli")
+              $(".buy").removeClass("btn-buy")
+              $(".buy").addClass("btn-already")
+              $(".buy").html("Sudah dibeli")
+              $(".buy").attr("disabled", true)
+              $(".wishlist").removeClass("btn-wishlist")
+              $(".wishlist").addClass("btn-already")
+              $(".wishlist").attr("disabled", true)
+              $(".wishlist").html("Sudah dibeli")
             }
           }
         }
@@ -329,17 +374,24 @@ $(document).ready(function () {
         success: function (data) {
           for (var i = 0; i < data.transactionDetail.length; i++) {
             if (data.transactionDetail[i].product.productId == urlParams._i) {
-              $("#buy").removeClass("btn-buy")
-              $("#buy").addClass("btn-already")
+              $(".buy").removeClass("btn-buy")
+              $(".buy").addClass("btn-already")
               if (data.transactionDetail[i].marketConfirm == "CONFIRMED")
-                $("#buy").html("Sudah dibeli")
+                $(".buy").html("Sudah dibeli")
               else
-                $("#buy").html("Sedang diproses")
-              $("#buy").attr("disabled", true)
+                $(".buy").html("Sedang diproses")
+              $(".buy").attr("disabled", true)
             }
           }
         }
       });
     }
   }
+
+  $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold"></span>`)
+  $("#logoBooklook").addClass("h")
+  $("#iconback").click(function () {
+    window.history.back();
+  })
+
 });
