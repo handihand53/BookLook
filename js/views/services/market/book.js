@@ -107,12 +107,18 @@ $(document).ready(function () {
         $("#modalInfo").click()
       },
       error: function (errMsg) {
-        if (errMsg.responseJSON.status) {
+        if (errMsg.status == "403") {
           $("#icon").html(`<img class="mb-4"src="../assets/else/not-login.png" alt="" width="100px">`)
           $("#modalMsgEdit").html("Untuk menambahkan item ini, kamu harus login dulu nih.")
           $("#btn-login").html("<a href='/login.html'><button class='mt-3 btn-buy'>Login</button></a>")
           $("#modalInfo").click()
+        } else if (errMsg.status == "400") {
+          $("#icon").html(`<i class="fas fa-times-circle f14 mb-2 mt-2" style="color: #ff3729; margin-botton: 20px;"></i>`)
+          $("#modalMsgEdit").html("Tidak bisa membeli buku dari toko sendiri !")
+          $("#btn-login").html(`<button class="modal-btn-ok"  data-dismiss="modal">Oke</button>`)
+          $("#modalInfo").click()
         }
+
       }
     });
   })
@@ -145,6 +151,11 @@ $(document).ready(function () {
           $("#modalMsgEdit").html("Untuk menambahkan item ini, kamu harus login dulu nih.")
           $("#btn-login").html("<a href='/login.html'><button class='mt-3 btn-buy'>Login</button></a>")
           $("#modalInfo").click()
+        } else if (errMsg.status == "400") {
+          $("#icon").html(`<i class="fas fa-times-circle f14 mb-2 mt-2" style="color: #ff3729; margin-botton: 20px;"></i>`)
+          $("#modalMsgEdit").html("Tidak bisa menambah buku ke wishlist dari toko sendiri !")
+          $("#btn-login").html(`<button class="modal-btn-ok"  data-dismiss="modal">Oke</button>`)
+          $("#modalInfo").click()
         }
       }
     });
@@ -162,6 +173,8 @@ $(document).ready(function () {
       success: function (data) {
         $("#keranjang").html("")
         if (data.length != 0) {
+          $("#notif-keranjang").html(data.length)
+          $("#notif-keranjang").css("display", "inline-block")
           $("#notif-bucket").html(data.length)
           $("#notif-bucket").css("display", "inline-block")
           var tot = 0;
@@ -210,6 +223,8 @@ $(document).ready(function () {
         } else {
           $("#notif-bucket").html("")
           $("#notif-bucket").css("display", "none")
+          $("#notif-keranjang").html("")
+          $("#notif-keranjang").css("display", "none")
           $("#keranjang").html(`
                 <div class="bg-blank-keranjang"></div>
                 <p class="p-1 keranjang bold center">Keranjang Anda kosong.</p>

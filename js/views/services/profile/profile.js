@@ -11,6 +11,7 @@ $(window).load(function () {
 
   getDataUser();
   var phnm
+
   function getDataUser() {
     $.ajax({
       type: "GET",
@@ -44,13 +45,13 @@ $(window).load(function () {
       evt.preventDefault();
     }
   });
-  
+
   document.getElementById("nomor-prof").addEventListener("input", function () {
     var s = $("#nomor-prof").val().toString()
-    if(s.length<9 || s.length>14){
+    if (s.length < 9 || s.length > 14) {
       $("#errPhone").html("Panjang nomor telepone adalah 10 - 14 angka")
       phnm = false
-    }else{
+    } else {
       phnm = true
       $("#errPhone").html("")
     }
@@ -102,7 +103,7 @@ $(window).load(function () {
       return
     }
 
-    if(phnm == false){
+    if (phnm == false) {
       $("#icon").html(`<i class="far fa-times-circle f14-red mt-2"></i>`)
       $("#modalMsgEdit").html(`Nomor telepon minimal 10 - 14 angka`);
       $("#editProf").click();
@@ -164,5 +165,11 @@ $(window).load(function () {
   //   if (e.which == 38 || e.which == 40)
   //     e.preventDefault();
   // });
+
+  $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Profile</span>`)
+  $("#logoBooklook").addClass("h")
+  $("#iconback").click(function () {
+    window.location.href = "/user/"
+  })
 
 });

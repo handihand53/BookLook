@@ -82,7 +82,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/background_blur.js"></script>
-    <script type="module" src="../js/index.js"></script>
     <script src="../js/deleteBuckets.js"></script>
     <script>
         $("#bt1").mouseover(function () {
@@ -103,6 +102,11 @@
         $("#bt2").mouseout(function () {
             $("#icon2").addClass("hide-arrow")
             $("#icon2").removeClass("show-arrow")
+        })
+
+        $(window).load(function () {
+            $("#ttg").addClass("bottom-active")
+            $("#ttg1").addClass("bottom-active border-active")
         })
     </script>
 </body>

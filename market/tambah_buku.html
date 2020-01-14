@@ -29,7 +29,7 @@
   <main class="content content-width content-height">
 
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 h">
         <div class="row">
           <div class="mr-2">
             <img id="display" class="mb-3" alt="">
@@ -76,29 +76,29 @@
           <label class="input-file" id="input2"><b>Unggah berkas</b></label>
           <p id="file-name" class="file-name"></p>
           <p id="fil" class="errMsg">File buku tidak boleh kosong</p>
-          <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 200mb</p>
+          <p id="photo-name" class="fileHint"><span class="red">*</span>Ukuran maksimal file buku 50mb</p>
 
           <label class="tambah-buku-edit">Judul<span class="red">*</span></label><br>
-          <input name="title" id="judulBuku" class="tambah-buku-input" required placeholder="Judul Buku"
+          <input name="title" id="judulBuku" class="form-control" required placeholder="Judul Buku"
             type="text"><br>
           <p id="judul" class="errMsg">Judul buku tidak boleh kosong</p>
 
           <label class="tambah-buku-edit">ISBN<span class="red">*</span></label><br>
-          <input name="isbn" id="isbnBuku" class="tambah-buku-input" required placeholder="ISBN" type="text"><br>
+          <input name="isbn" id="isbnBuku" class="form-control" required placeholder="ISBN" type="text"><br>
           <p id="isbnErr" class="errMsg">ISBN buku tidak boleh kosong</p>
 
           <label class="tambah-buku-edit">Penulis<span class="red">*</span></label><br>
-          <input name="author" id="penulisBuku" class="tambah-buku-input" required placeholder="Penulis"
+          <input name="author" id="penulisBuku" class="form-control" required placeholder="Penulis"
             type="text"><br>
           <p id="penulis" class="errMsg">Penulis buku tidak boleh kosong</p>
 
           <label class="tambah-buku-edit">Penerbit<span class="red">*</span></label><br>
-          <input name="publisher" id="penerbitBuku" class="tambah-buku-input" required placeholder="Penerbit"
+          <input name="publisher" id="penerbitBuku" class="form-control" required placeholder="Penerbit"
             type="text"><br>
           <p id="penerbit" class="errMsg">Penerbit buku tidak boleh kosong</p>
 
           <label class="tambah-buku-edit">Kategori 1<span class="red">*</span></label><br>
-          <select name="categories " id="kategoriBuku1" class="tambah-buku-input" required>
+          <select name="categories " id="kategoriBuku1" class="form-control" required>
 
           </select><br>
           <p id="kat" class="errMsg">Kategori buku tidak boleh kosong</p>
@@ -109,16 +109,16 @@
           <span id="klikAdd">Tambah kategori Lainnya</span>
           <br>
 
-          <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label><br>
-          <input name="page" id="jumlahHalaman" class="tambah-buku-input" required placeholder="Contoh : 120"
-            type="number" min="0"><br>
+          <label class="tambah-buku-edit">Jumlah Halaman<span class="red">*</span></label>
+          <input name="page" id="jumlahHalaman" class="form-control" required placeholder="Contoh : 120"
+            type="number" min="0">
           <p id="jmlHal" class="errMsg">Jumlah halaman tidak boleh kosong</p>
-          <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label><br>
-          <input name="price" id="hargaBuku" class="tambah-buku-input" required placeholder="Contoh : 120000"
-            type="number" min="0"><br>
+          <label class="tambah-buku-edit">Harga (Rp)<span class="red">*</span></label>
+          <input name="price" id="hargaBuku" class="form-control" required placeholder="Contoh : 120000"
+            type="number" min="0">
           <p id="price" class="errMsg">Harga buku tidak boleh kosong</p>
-          <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label><br>
-          <textarea name="description" id="deskripsiBuku" class="tambah-buku-input" required placeholder="Deskripsi"
+          <label class="tambah-buku-edit">Deskripsi<span class="red">*</span></label>
+          <textarea name="description" id="deskripsiBuku" class="form-control" required placeholder="Deskripsi"
             type="text" rows="3"></textarea>
           <p id="desc" class="errMsg">Deskripsi buku tidak boleh kosong</p>
           <p class="tambah-buku-edit"><span class="red">*</span> Judul, ISBN, Penulis, Penerbit, Kategori, SKU Tidak
@@ -140,7 +140,7 @@
               <div class="center modal-text">
                 <span class="modal-txt">Produk berhasil didaftarkan!</span><br>
                 <label class="prof-ok" data-dismiss="modal"><button class="modal-btn-ok">Oke</button></label>
-                <br>
+                
               </div>
             </div>
           </div>

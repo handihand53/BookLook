@@ -285,8 +285,12 @@ ul li {
 
 @media screen and (max-width: 770px) {
     .right-cat {
-        right: 0;
-        position: absolute;
+       
+    }
+
+    .border{
+        border: 0px solid white!important;
+        padding: -50px!important;
     }
 
     .max-min {

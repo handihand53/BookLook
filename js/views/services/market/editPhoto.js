@@ -80,7 +80,7 @@ $(window).load(function () {
         console.log(pict)
         fd.append('picture', pict, berkasName);
 
-       
+
 
         $.ajax({
             type: "PUT",
@@ -105,6 +105,7 @@ $(window).load(function () {
     })
 
     checkJmlBukuTerjual()
+
     function checkJmlBukuTerjual() {
         $.ajax({
             type: "GET",
@@ -128,4 +129,9 @@ $(window).load(function () {
         });
     }
 
+    $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
+    $("#logoBooklook").addClass("h")
+    $("#iconback").click(function () {
+        window.location.href = "/market/store.html"
+    })
 });

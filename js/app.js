@@ -158,6 +158,9 @@ $(document).ready(function () {
         if (data.length != 0) {
           $("#notif-bucket").html(data.length)
           $("#notif-bucket").css("display", "inline-block")
+         
+          $("#notif-keranjang").html(data.length)
+          $("#notif-keranjang").css("display", "inline-block")
           var tot = 0;
           for (var i = 0; i < data.length; i++) {
             var html = `
@@ -254,20 +257,6 @@ $(document).ready(function () {
   function logout() {
     deleteCookie()
     window.location.assign("/user/")
-    $.ajax({
-      type: "POST",
-      url: "http://127.0.0.1:8080/api/auth/signout",
-      headers: {
-        'Authorization': `Bearer ` + getCookie("token"),
-      },
-      success: function (data) {
-        console.log(data)
-
-      },
-      error: function (data) {
-        console.log(data)
-      }
-    });
   }
 
 

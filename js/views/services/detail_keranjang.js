@@ -40,6 +40,11 @@ $(window).load(function () {
             },
             success: function (data) {
                 if (data.length != 0) {
+                    var headUtama = `
+                    <div class="col-md-6-custom" id="book-confirm">
+                    </div>`
+                    $("#kontent").html(headUtama)
+
                     var head = `
                     <div class="content-border p-3 shadow-card no-border">
                         <label class="container-checkbox" style="margin-top: auto; margin-bottom: auto;">
@@ -136,14 +141,65 @@ $(window).load(function () {
                         $("#main-content").append(html)
                         tot += data[i].product.price;
                     }
+                    var hitungan = `
+                    <div class="col-md-3-custom">
+                    <!-- rincian -->
+                    <div class="content-border shadow-card no-border border-radius-4 p-2 fit-height">
+                        <div class="judul-utama">Rincian</div>
+                        <hr>
+                        <div class="row pr-2 pl-2 mb-2">
+                            <div class="col-6 sub-list no-margin">
+                                Total Belanja
+                            </div>
+                            <div class="col-6 sub-list blue-content right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Potongan Voucher
+                            </div>
+                            <div class="col-6 sub-list blue-content right no-margin">
+                                -
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Total Pembayaran
+                            </div>
+                            <div class="col-6 sub-list blue-content right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-border shadow-card no-border border-radius-4  p-2 fit-height mt-3">
+                        <div class="row pr-2 pl-2">
+                            <div class="col-6 sub-list no-margin">
+                                Jumlah
+                            </div>
+                            <div class="col-6 sub-list blue-content right no-margin">
+                                Rp. <span class="totPrice"></span>
+                            </div>
+                        </div>
+                        <button class="pay" id="pay">Bayar</button>
+                    </div>
+                    <!--  -->
+                </div>
+                    `
+                    $("#kontent").append(hitungan)
+
                     bindListener();
                 } else {
+                    $("#kontent").html("")
                     var html = `
-                    <div id="main-content"></div>
+                    <div id="main-content" class="mlr-auto col-12"></div>
                     `
-                    $("#book-confirm").html(html)
+                    $("#kontent").html(html)
                     $("#main-content").html(`
-                    <div class="bg-blank"></div>
+                        <div class="bg-blank"></div>
+                        <div class="center bold">Keranjang Kamu kosong.</div>
+                        <div class="mb-4 center">Waah keranjang kamu kosong nih, ayo <a class="alink" href="/user/"><u>isi</u></a> buat nambah koleksi buku kamu!</div>
                     `);
                 }
             },
@@ -322,4 +378,7 @@ $(window).load(function () {
     $(".check").each(function () {
         $(this).prop("checked", false);
     })
+
+    $("#keranjang-i").addClass("bottom-active")
+    $("#keranjang-t").addClass("bottom-active border-active")
 });
