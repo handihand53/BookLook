@@ -121,7 +121,7 @@ $.ajax({
 
 
 function getBook(data) {
-
+console.log(data)
     if (data.length != 0) {
         var body = `
             <div class="carousel-item active no-border-bottom">
@@ -135,8 +135,9 @@ function getBook(data) {
 
         if (data.length % 6 != 0) {
             le += data.length + (6 - data.length % 6)
+        }else{
+            le = data.length
         }
-        console.log(le)
         var i = 0
 
         for (var j = 0; j < le; j++, i++) {
