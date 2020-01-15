@@ -120,6 +120,8 @@ $(document).ready(function () {
             type: "POST",
             url: "http://127.0.0.1:8080/api/admin/add-admin",
             data: JSON.stringify(data),
+            dataType: 'json',
+            contentType: "application/json",
             headers: {
                 'Authorization': `Bearer ` + getCookie("token"),
             },

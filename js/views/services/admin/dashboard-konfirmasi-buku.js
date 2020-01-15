@@ -94,6 +94,7 @@ $(document).ready(function () {
                 accept()
                 decline()
                 lihatListener()
+                accListener()
             },
             error: function (errMsg) {
                 console.log(errMsg)
@@ -132,7 +133,7 @@ $(document).ready(function () {
         $(".btn-warn").click(function () {
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/decline",
+                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).attr("data-id") + "/decline",
                 async: false,
                 headers: {
                     'Authorization': `Bearer ` + getCookie("token"),
@@ -141,6 +142,9 @@ $(document).ready(function () {
                     $("#contentBody").html("")
                     getDataTable()
                     $('#confirmModal').modal('hide');
+                    accept()
+                    decline()
+                    accListener()
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
@@ -153,7 +157,7 @@ $(document).ready(function () {
         $(".btn-file").click(function () {
             $.ajax({
                 type: "POST",
-                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/confirm",
+                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).attr("data-id") + "/confirm",
                 async: false,
                 headers: {
                     'Authorization': `Bearer ` + getCookie("token"),
@@ -162,6 +166,8 @@ $(document).ready(function () {
                     $("#contentBody").html("")
                     getDataTable()
                     $('#confirmModal').modal('hide');
+                    accept()
+                    decline()
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
@@ -174,7 +180,7 @@ $(document).ready(function () {
         $(".look").click(function () {
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8080/api/products/" + $(this).data("id"),
+                url: "http://127.0.0.1:8080/api/products/" + $(this).attr("data-id"),
                 async: false,
                 headers: {
                     'Authorization': `Bearer ` + getCookie("token"),
