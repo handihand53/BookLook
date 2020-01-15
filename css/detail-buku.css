@@ -234,7 +234,8 @@ p {
 }
 
 #display {
-    width: 100px;
+    width: auto!important;
+    max-width: 80px;
 }
 
 .bg-black {
