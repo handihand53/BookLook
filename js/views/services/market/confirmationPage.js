@@ -44,7 +44,7 @@ $(window).load(function () {
                 <div class="content-border shadow-card no-border border-radius-4 mb-2">
                                 <div class="judul-utama p-2 row">
                                     <div class="bold col-md-9 tit">` + bookArr[i].product.title + `</div>
-                                    <a class="col-md-3 mt-2" href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue right link">` + bookArr[i].marketName + `</span></a>
+                                    
                                 </div>
                                 <hr>
                                 <div class="row">
@@ -106,6 +106,15 @@ $(window).load(function () {
                                                 Rp ` + bookArr[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `
                                             </div>
                                         </div>
+
+                                        <div class="row border-bot">
+                                            <div class="col-md-6 sub-list gray">
+                                                Toko Penjual
+                                            </div>
+                                            <div class="col-md-6 sub-list">
+                                            <a href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue link">` + bookArr[i].marketName + `</span></a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +155,7 @@ $(window).load(function () {
 
     $('#marketkuModal').on('hidden.bs.modal', function (e) {
         localStorage.removeItem('dataBook')
-        window.location.replace("/market/pay.html?i="+message)
+        window.location.replace("/market/pay.html?i=" + message)
     })
 
 })
