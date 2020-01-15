@@ -4,7 +4,7 @@ let footer = `
         <div class="row"> 
             
             <div class="col-md-4 mb-5">
-                <div class="bold f12 mb-2">Lain-lain</div>
+                <div class="bold f12 mb-2">LAIN-LAIN</div>
                 <p class="f12" id="footer-masuk"><a href="/login.html" class="bold alink">MASUK</a></p>
                 <p class="f12" id="footer-daftar">Belum punya akun ? <a href="/signup.html" class="bold alink">DAFTAR</a></p>
             </div>
