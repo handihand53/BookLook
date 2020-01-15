@@ -619,6 +619,10 @@ ol {
         width: 100px;
     }
 
+    th{
+        min-width: 150px;
+    }
+
     tr>td{
         font-size: 12px;
     }
