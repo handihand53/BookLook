@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List Toko | BookLook</title>
+    <!-- logo web -->
+    <link href="../assets/logo/bl.png" rel="icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- custom css  -->
+    <link rel="stylesheet" href="../css/admin-dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard-cst.css">
+    <link rel="stylesheet" href="../css/adminHeader.css">
+</head>
+
+<body>
+    <header id="header">
+
+    </header>
+
+    <main>
+        <div class="row" style="margin: 0px;">
+            <section class="col-2 side-bar" id="sidebar">
+                <!-- <span class="float-right">Semua waktu</span> -->
+            </section>
+            <section class="col-10" style="background-color: rgb(238, 238, 238); padding: 0px;">
+
+                <div class="col-10 mlr-auto">
+                    <h2 class="m-3 pb-2 bold border-bottom">
+                        Tambah Admin
+                    </h2>
+                    <label for="" class="form-text">Nama<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="text" id="nama" class="form-control">
+                    <span class="invalid-feedback" id="namaErr"></span>
+
+                    <label for="" class="form-text">Nama Pengguna<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="text" id="username" class="form-control">
+                    <span class="invalid-feedback" id="usernameErr"></span>
+
+                    <label for="" class="form-text">Email<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="text" id="email" class="form-control">
+                    <span class="invalid-feedback" id="emailErr"></span>
+
+                    <label for="" class="form-text">Kata Sandi<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="text" id="password1" class="form-control">
+                    <span class="invalid-feedback" id="passwordErr1"></span>
+
+                    <label for="" class="form-text">Konfirmasi Kata Sandi<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="text" id="password2" class="form-control">
+                    <span class="invalid-feedback" id="passwordErr2"></span>
+
+                    <label for="" class="form-text">Nomor Telepon<span class="red"
+                            style="font-size: 14px!important;">*</span></label>
+                    <input type="number" id="nomor" class="form-control">
+                    <span class="invalid-feedback" id="nomorErr"></span>
+
+                    <div class="float-right">
+                        <button class="btn-daftar" id="daftar">Daftar</button>
+                    </div>
+                </div>
+
+        </div>
+        </section>
+        </div>
+
+        <input type="button" id="modalInfo" data-toggle="modal" data-target="#showInfo" hidden>
+        <div class="modal fade" id="showInfo" tabindex="-1" role="dialog" aria-labelledby="showInfo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body center">
+                        <div id="icon"><i class="fas fa-check f14 mb-2 mt-2"></i></div>
+                        <div class="prof mb-2" id="modalMsgEdit ">Admin berhasil didaftarkan</div>
+                        <label class="prof-ok" data-dismiss="modal" id="ok"><button class="btn btn-primary">Oke</button></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-custom-admin" id="footer">
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="module" src="/js/views/services/admin/header-footer.js"></script>
+    <script type="module" src="/js/views/services/admin/sidebar.js"></script>
+    <script type="module" src="/js/views/services/admin/add-admin.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

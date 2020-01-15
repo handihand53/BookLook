@@ -13,6 +13,7 @@ $(document).ready(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
+            console.log(data)
         },
         error:function (err){
             window.location.assign("/admin_login.html");

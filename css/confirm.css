@@ -10,36 +10,36 @@
     height: 20px;
 }
 
-ul{
+ul {
     font-weight: 500;
 }
 
-.show{
+.show {
     visibility: visible;
     position: relative;
 }
 
-.hide{
+.hide {
     visibility: hidden;
     position: absolute;
 }
 
-ol li{
+ol li {
     font-size: 12px;
 }
 
-.bank{
+.bank {
     max-width: 50px;
     margin: 5px;
     margin-left: 10px;
 }
 
-.pad{
+.pad {
     padding: 15px;
     margin-bottom: none;
 }
 
-.keterangan{
+.keterangan {
     /* margin-top: 30px; */
 }
 
@@ -59,7 +59,7 @@ ol li{
     background-color: rgb(0, 98, 179);
 }
 
-.width-img{
+.width-img {
     max-width: 150px;
     max-height: 220px;
     margin: 10px;
@@ -74,7 +74,7 @@ ol li{
     margin-top: 17px;
 }
 
-.right{
+.right {
     text-align: right;
 }
 
@@ -108,7 +108,7 @@ ol li{
 }
 
 hr {
-    margin: 6px!important;
+    margin: 6px !important;
 }
 
 .flex-wrap {
@@ -159,7 +159,7 @@ footer {
 
 .blue {
     color: rgb(0, 204, 255);
-}   
+}
 
 .price-list {
     font-size: 18px;
@@ -172,46 +172,46 @@ footer {
     color: rgb(255, 174, 0);
 }
 
-.no-margin{
+.no-margin {
     margin: 0px !important;
 }
 
-.fit-height{
-    height:fit-content;
+.fit-height {
+    height: fit-content;
 }
 
-.gray{
+.gray {
     color: rgb(147, 147, 147);
 }
 
-.modal-container{
+.modal-container {
     height: 70px;
     background-image: url(../assets/else/checked.png);
     background-size: 70px 70px;
-    padding-top: 70px;  
+    padding-top: 70px;
     background-repeat: no-repeat;
     background-position: center;
     padding-bottom: 50px;
 }
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
-.link{
-    font-weight:400;
+.link {
+    font-weight: 400;
     font-weight: bold;
 }
 
-.link:hover{
+.link:hover {
     color: rgb(0, 115, 255);
 }
 
-.blue-2{
+.blue-2 {
     color: rgb(0, 115, 255);
 }
 
-.btn-bayar{
+.btn-bayar {
     width: 100%;
     border: none;
     padding: 7px;
@@ -220,7 +220,7 @@ footer {
     background: orange;
 }
 
-.btn-bayar:hover{
+.btn-bayar:hover {
     background: rgb(206, 134, 0);
 }
 
@@ -231,40 +231,50 @@ footer {
     margin-top: 17px;
 }
 
-.col-8-mob{
+.col-8-mob {
     flex: 0 0 58.333333%;
     max-width: 58.333333%;
 }
 
-.col-7-cust{
+.col-7-cust {
     flex: 0 0 58.333333%;
     max-width: 58.333333%;
+}
+
+.tit {
+    font-weight: bold;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
 }
 
 @media screen and (min-width: 772px) {
-    .right{
+    .right {
         float: right;
     }
 }
 
 @media screen and (max-width: 771px) {
-    .col-7-cust{
-        flex: 0 0 100%!important;
-        max-width: 100%!important;
+    .col-7-cust {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
     }
 
-    .col-8-mob{
+    .col-8-mob {
         flex: 0 0 66.666667%;
         max-width: 66.666667%;
     }
 
-    .width-img{
+    .width-img {
         margin-left: 32px;
     }
 
-    .col-5{
-        flex: 0 0 100%!important;
-        max-width: 100%!important;
+    .col-5 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
         text-align: center;
     }
 
@@ -286,7 +296,7 @@ footer {
         margin-bottom: 10px;
     }
 
-    .price-list{
+    .price-list {
         margin-top: 5px;
         margin-bottom: 10px;
     }
@@ -298,7 +308,7 @@ footer {
         margin-top: 7px;
     }
 
-    .mobile{
-        margin-left:3rem!important;
+    .mobile {
+        margin-left: 3rem !important;
     }
 }

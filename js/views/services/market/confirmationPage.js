@@ -43,8 +43,8 @@ $(window).load(function () {
                 var html = `
                 <div class="content-border shadow-card no-border border-radius-4 mb-2">
                                 <div class="judul-utama p-2 row">
-                                    <div class="bold col-9">` + bookArr[i].product.title + `</div>
-                                    <a class="col-md-3" href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue right link">` + bookArr[i].marketName + `</span></a>
+                                    <div class="bold col-md-9 tit">` + bookArr[i].product.title + `</div>
+                                    <a class="col-md-3 mt-2" href="/market/market-page.html?id=` + bookArr[i].marketId + `"><span class="blue right link">` + bookArr[i].marketName + `</span></a>
                                 </div>
                                 <hr>
                                 <div class="row">

@@ -47,7 +47,10 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token")
         },
         success: function (data) {
-            book = data
+            for(var i=0;i<data.length;i++){
+                if(data[i].productConfirm!="DECLINE")
+                book.push(data[i])
+            }
             listBook(book, str)
         },
         error: function (errMsg) {
@@ -163,6 +166,7 @@ $(window).load(function () {
                 $("#product-content").html("<div class='p-3'>Tidak ada buku dengan judul <b>" + str + "</b></div>");
             }
         } else {
+            $("#product-content").removeClass("border")
             $("#product-content").removeClass("flex-row")
             var html = `
             <div class="bg-products"></div>

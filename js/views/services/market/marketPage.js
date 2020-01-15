@@ -98,6 +98,12 @@ $(window).load(function () {
                 $("#product-items").html("<div class='p-3'>Tidak ada buku dengan judul <b>" + str + "</b></div>");
             }
         } else {
+            $("#product-items").removeClass("flex-row")
+            $("#product-items").removeClass("border")
+            $("#product-items").html(`<div class="bg-kosong"></div>
+                                      <div class="center txt">Tidak ada buku untuk di tampilkan</div>
+                                      <div class="center"><a href="/user/"><button class="btn-blue-utama">Halaman Utama</button></a></div>
+            `)
             //market belum punya buku
         }
 

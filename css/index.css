@@ -83,8 +83,6 @@ a:hover {
 .col-2-mob-4-desk {
     position: relative;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
 .content-width {
@@ -406,6 +404,8 @@ div.item:hover {
     .col-2-mob-4-desk {
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
     .col-5-custom {
@@ -555,7 +555,9 @@ div.item:hover {
 
     .col-2-mob-4-desk {
         flex: 0 0 50%;
-        max-width: 50%;
+        max-width: 128px !important;
+        padding-right: 10px;
+        padding-left: 10px;
     }
 
     .col-5-custom {

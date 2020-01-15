@@ -143,7 +143,7 @@ function getBook(data) {
             if (i % data.length == 0) {
                 i = 0
             }
-            console.log(i)
+
             if (j % 6 == 0 && j != 0) {
                 var body = `
                     <div class="carousel-item">

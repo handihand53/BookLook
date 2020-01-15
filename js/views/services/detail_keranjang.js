@@ -40,10 +40,14 @@ $(window).load(function () {
             },
             success: function (data) {
                 if (data.length != 0) {
+                    $(".notif-keranjang").html(data.length)
+                    $(".notif-keranjang").css("display", "block")
+                    $(".notif-bucket").html(data.length)
+                    $(".notif-bucket").css("display", "block")
                     var headUtama = `
                     <div class="col-md-6-custom" id="book-confirm">
                     </div>`
-                    $("#kontent").html(headUtama)
+                    $("#kontent").append(headUtama)
 
                     var head = `
                     <div class="content-border p-3 shadow-card no-border">
@@ -58,89 +62,111 @@ $(window).load(function () {
                     </div>
                     `
 
-                    $("#book-confirm").html(head)
+                    $("#book-confirm").append(head)
                     var tot = 0;
                     for (var i = 0; i < data.length; i++) {
+                        // var cat = ""
+                        // for (var j = 0; j < data[i].product.categories.length; j++) {
+                        //     if (j == 0)
+                        //         cat = data[i].product.categories[i].categoryName
+                        //     else {
+                        //         cat += ", " + data[i].product.categories[i].categoryName
+                        //     }
+                        // }
 
                         var html = `
-                        <div class="content-border shadow-card no-border border-radius-4 mb-2">
-                        <div class="judul-utama p-2">
-                            <label class="container-checkbox center">
-                                <input data-price="` + data[i].product.price + `" data-id="` + data[i].product.productId + `" type="checkbox" class="check"
-                                    style="position:absolute">
-                                <span style="margin-top: -4px;" class="checkmark"></span>
-                            </label>
-                            <span class="bold market-text" title="` + data[i].product.title + `">` + data[i].product.title + `</span>
-                            <a href="/market/market-page.html?id=` + data[i].marketId + `"><div
-                                    class="blue kanan link">` + data[i].marketName + `</div></a>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="` + data[i].product.productPhoto + `" alt="" class="width-img">
+                        <div class="content-border shadow-card no-border border-radius-4 mb-4">
+                            <div class="judul-utama pl-2 pt-2 pb-2">
+                                <label class="container-checkbox center">
+                                    <input data-price="` + data[i].product.price + `" data-id="` + data[i].product.productId + `"
+                                        type="checkbox" class="check" style="position:absolute">
+                                    <span class="checkmark top-2"></span>
+                                </label>
+                                <span class="bold market-text" title="` + data[i].product.title + `">` + data[i].product.title + `</span>
+                                <span><i data-id="` + data[i].product.productId + `" class="fa fa-trash float-right mt-1 fs-trash" aria-hidden="true"></i></span>
                             </div>
-                            <div class="col-7 no-padding mobile">
+                            <hr>
+                            <div class="row" style="margin: 0px!important; padding: 10px;">
+                                <div class="col-md-4">
+                                    <img src="` + data[i].product.productPhoto + `"
+                                        alt="" class="width-img">
+                                </div>
+                                <div class="col-md-8 no-padding mobile p-2" style="margin: 0px!important;">
 
-                                <div class="row border-bot">
-                                    <div class="col-md-6 sub-list gray-main">
-                                        Author
-                                    </div>
-                                    <div class="col-md-6 sub-list ">
+                                    <div class="row border-bot bg-gray no-margins">
+                                        <div class="col-6 sub-list ">
+                                            Author
+                                        </div>
+                                        <div class="col-6 orange sub-list ">
                                         ` + data[i].product.author + `
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="row border-bot">
-                                    <div class="col-md-6 sub-list gray-main">
-                                        Penerbit
-                                    </div>
-                                    <div class="col-md-6 sub-list ">
+                                    <div class="row border-bot no-margins">
+                                        <div class="col-6 sub-list ">
+                                            Penerbit
+                                        </div>
+                                        <div class="col-6 sub-list ">
                                         ` + data[i].product.publisher + `
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="row border-bot">
-                                    <div class="col-md-6 sub-list gray-main">
-                                        SKU
-                                    </div>
-                                    <div class="col-md-6 sub-list ">
-                                        ` + data[i].product.sku + `
-                                    </div>
-                                </div>
-
-                                <div class="row border-bot">
-                                    <div class="col-md-6 sub-list gray-main">
-                                        Jumlah Halaman
-                                    </div>
-                                    <div class="col-md-6 sub-list ">
-                                        ` + data[i].product.pageTotal + ` Halaman
-                                    </div>
-                                </div>
-
-                                <div class="row border-bot">
-                                    <div class="col-md-6 sub-list gray-main">
-                                        ISBN
-                                    </div>
-                                    <div class="col-md-6 sub-list ">
+                                    <div class="row border-bot bg-gray no-margins">
+                                        <div class="col-6 sub-list ">
+                                            ISBN
+                                        </div>
+                                        <div class="col-6 sub-list ">
                                         ` + data[i].product.isbn + `
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="row border-bot gray-main">
-                                    <div class="col-md-6 sub-list">
-                                        Harga
+                                    <div class="row border-bot no-margins">
+                                        <div class="col-6 sub-list ">
+                                            SKU
+                                        </div>
+                                        <div class="col-6 sub-list ">
+                                        ` + data[i].product.sku + `
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 price-list blue-2">
-                                        Rp ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `
+
+                                    <div class="row border-bot bg-gray no-margins">
+                                        <div class="col-6 sub-list ">
+                                            Jumlah Halaman
+                                        </div>
+                                        <div class="col-6 sub-list ">
+                                        ` + data[i].product.pageTotal + ` Halaman
+                                        </div>
+                                    </div>
+
+                                    <div class="row border-bot no-margins">
+                                        <div class="col-6 sub-list">
+                                            Harga
+                                        </div>
+                                        <div class="col-6 sub-list blue-2">
+                                            Rp ` + data[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `
+                                        </div>
+                                    </div>
+
+                                    <div class="row border-bot bg-gray  no-margins">
+                                        <div class="col-6 sub-list">
+                                            Toko Penjual
+                                        </div>
+
+                                        <div class="col-6 sub-list blue-2">
+                                            <a href="/market/market-page.html?id=` + data[i].marketId + `">
+                                                <div class="blue link">` + data[i].marketName + `</div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     `
                         $("#main-content").append(html)
                         tot += data[i].product.price;
+                        deletewish()
                     }
+
                     var hitungan = `
                     <div class="col-md-3-custom">
                     <!-- rincian -->
@@ -187,10 +213,15 @@ $(window).load(function () {
                     <!--  -->
                 </div>
                     `
+                    console.log("s")
                     $("#kontent").append(hitungan)
 
                     bindListener();
                 } else {
+                    $(".notif-keranjang").html(data.length)
+                    $(".notif-keranjang").css("display", "none")
+                    $(".notif-bucket").html(data.length)
+                    $(".notif-bucket").css("display", "none")
                     $("#kontent").html("")
                     var html = `
                     <div id="main-content" class="mlr-auto col-12"></div>
@@ -355,6 +386,36 @@ $(window).load(function () {
         products: []
     }
 
+
+    function deletewish() {
+        $(".fs-trash").click(function () {
+            var id = $(this).data(id);
+            var data = {
+                "productId": id.id
+            }
+            $.ajax({
+                type: "DELETE",
+                contentType: "application/json",
+                url: "http://127.0.0.1:8080/api/buckets/delete",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                cache: false,
+                timeout: 600000,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (msg) {
+                    $("#main-content").html("")
+                    getBuckets()
+                    refreshBuckets()
+                },
+                error: function (errMsg) {
+                    console.log(errMsg)
+                }
+            });
+        })
+    }
+
     $("#pay").click(function () {
         data_book = {
             products: []
@@ -374,11 +435,14 @@ $(window).load(function () {
         location.href = "/market/confirmation-page.html";
     })
 
-    $("#main-checkbox").prop("checked", false)
+    $("#main-checkbox").prop("checked", true)
+    var totalHarga=0
     $(".check").each(function () {
-        $(this).prop("checked", false);
+        totalHarga += parseInt($(this).attr("data-price"))
+        $(this).prop("checked", true);
     })
-
+    $(".totPrice").html(totalHarga.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
     $("#keranjang-i").addClass("bottom-active")
     $("#keranjang-t").addClass("bottom-active border-active")
+
 });

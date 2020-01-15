@@ -21,6 +21,7 @@ $(document).ready(function () {
         <li id="dash-category" class="p-3 li"><a href="dashboard_category.html" id="dash-category-link" class="list-color"><i class="fa fa-list-alt" aria-hidden="true"></i> Kategori</a></li>
         <li id="dash-konfirmasi" class="p-3 li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link" class="list-color"><i class="fa fa-envelope"
                     aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBuku"> </span></a></li>
+        <li id="dash-add" class="p-3 li"><a href="add_admin.html" id="dash-add-link" class="list-color"><i class="fas fa-plus"></i> Tambah Admin</a></li>
     </ul>
     <ul class="navbar-nav sidenav" id="mySidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -33,6 +34,8 @@ $(document).ready(function () {
         <li id="dash-category-mob" class="li"><a href="dashboard_category.html" id="dash-category-link-mob" class="list-color"><i class="fa fa-list-alt" aria-hidden="true"></i> Kategori</a></li>
         <li id="dash-konfirmasi-mob" class="li"><a href="dashboard_konfirmasi.html" id="dash-konfirmasi-link-mob" class="list-color"><i class="fa fa-envelope"
                     aria-hidden="true"></i> Konfirmasi Buku<span id="jmlBukuMob" class="notif"> </span></a></li>
+        <li id="dash-add-mob" class="li"><a href="add_admin.html" id="dash-add-link-mob" class="list-color"><i class="fas fa-plus"
+                    aria-hidden="true"></i> Tambah Admin</a></li>
     </ul>
     `;
     $("#sidebar").html(sidebar)

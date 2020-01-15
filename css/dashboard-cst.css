@@ -207,6 +207,84 @@ ol {
     padding-right: 0px;
 }
 
+.fs-12 {
+    font-size: 12px !important;
+}
+
+.mlr-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-text {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.prof{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.f14{
+    font-size: 50px;
+    color: rgb(85, 178, 255);
+}
+
+.btn-ok {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(85, 178, 255) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    margin-top: 10px;
+    right: 0;
+    font-weight: 500;
+}
+
+.btn-daftar {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(85, 178, 255) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    margin-top: 10px;
+    right: 0;
+    font-weight: 500;
+}
+
+.btn-warn {
+    font-family: 'Noto Sans', sans-serif;
+    background: rgb(255, 82, 82) !important;
+    font-size: 12px;
+    border: none;
+    color: white !important;
+    font-weight: 300;
+    /* margin: 5px; */
+    padding: 10px 12px 10px 12px !important;
+    width: 150px !important;
+    height: auto !important;
+    box-shadow: none !important;
+    font-weight: 500;
+}
+
+.btn-warn:decline {
+    background-color: rgb(204, 47, 47) !important;
+}
+
 .btn-file {
     font-family: 'Noto Sans', sans-serif;
     background: rgb(0, 144, 247) !important;
@@ -273,12 +351,12 @@ ol {
 
 .no-pad-left {
     padding-left: 0px !important;
-    padding-right: 5px !important;
+    padding-right: 0px !important;
 }
 
 .no-pad-right {
     padding-right: 0px !important;
-    padding-left: 5px !important;
+    padding-left: 0px !important;
 }
 
 .btn-gray:hover {
@@ -430,12 +508,12 @@ ol {
     font-weight: 500 !important;
 }
 
-.title-card{
-    font-size: 30px!important;
+.title-card {
+    font-size: 30px !important;
 }
 
-.red{
-    font-size: 30px!important;
+.red {
+    font-size: 30px !important;
 }
 
 .show {

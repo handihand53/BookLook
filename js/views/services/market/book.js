@@ -47,12 +47,12 @@ $(document).ready(function () {
 
   <div class="bottom-navigation fixed hide2">
     <div class="row col-12 no-padding no-margin" style="height: 40px;">
-      <div class="col-6 center btn-buy buy">
+      <button class="col-6 center btn-buy buy border-right">
         Beli
-      </div>
-      <div class="col-6 center btn-wishlist wishlist" style="height: 40px;">
+      </button>
+      <button class="col-6 center btn-wishlist wishlist" style="height: 40px;">
         Wishlist
-      </div>
+      </button>
     </div>
   </div>
 `)

@@ -76,6 +76,7 @@ $(document).ready(function () {
     },
     success: function (data) {
       if (data.marketId != null) {
+
         market = `
         <a href="/market/store.html"><p class="dropdown-item drop-active blue"><i class="fas fa-store"></i> Toko <span class="notif-toko-drop"></span></p></a>`;
       } else {

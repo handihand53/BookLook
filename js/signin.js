@@ -78,7 +78,6 @@ $(document).ready(function () {
                 url: "http://127.0.0.1:8080/api/auth/signin",
                 data: JSON.stringify(data),
                 dataType: 'json',
-                timeout: 600000,
                 success: function (data) {
                     console.log(data)
                     if (data.status == true) {

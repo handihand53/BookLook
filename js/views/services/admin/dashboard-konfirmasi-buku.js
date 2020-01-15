@@ -69,12 +69,12 @@ $(document).ready(function () {
                         let html = `
                     <tr>
                         <td>` + (i + 1) + `</td>
-                        <td class="text-table center" title="` + data[i].product.title + `">` + data[i].product.title + `</td>
-                        <td class="text-table center" title="` + tgl + `">` + tgl + `</td>
-                        <td class="text-table center" title="` + data[i].marketName + `"><a target="#" href=/market/market-page.html?id=` + data[i].marketId + `>` + data[i].marketName + `</a></td>
+                        <td class="text-table" title="` + data[i].product.title + `">` + data[i].product.title + `</td>
+                        <td class="text-table" title="` + tgl + `">` + tgl + `</td>
+                        <td class="text-table" title="` + data[i].marketName + `"><a target="#" href=/market/market-page.html?id=` + data[i].marketId + `>` + data[i].marketName + `</a></td>
                         <td class="text-table look center" data-id="` + data[i].product.productId + `">Lihat</td>
                         <td class="center no-pad-left"><button id="acc" class="btn-acc" data-name="` + data[i].product.title + `" data-id="` + data[i].product.productId + `" type="button"><i class="fas fa-check f14 mb-2 mt-2"></i></button></td>
-                        <td class="center no-pad-right"><button id="decline" class="btn-decline" data-id=` + data[i].product.productId + ` ><i class="fas fa-times"></i></button></td>
+                        <td class="center no-pad-right"><button id="decline" class="btn-decline" data-name="` + data[i].product.title + `" data-id=` + data[i].product.productId + ` ><i class="fas fa-times"></i></button></td>
                     </tr>
                     `
                         $("#contentBody").append(html)
@@ -92,6 +92,8 @@ $(document).ready(function () {
                     $("#jmlBuku").removeClass("notif")
                 }
                 accept()
+                decline()
+                lihatListener()
             },
             error: function (errMsg) {
                 console.log(errMsg)
@@ -103,63 +105,106 @@ $(document).ready(function () {
     function accept() {
         $(".btn-acc").click(function () {
             $("#bookName").html($(this).data("name"))
+            $("#msg").html(`Apakah anda yakin akan mengkonfirmasi buku <span id="bookName">` + $(this).data("name") + `</span>?`)
             $("#accProduct").attr("data-id", $(this).data("id"))
+            $("#accProduct").removeClass("btn-warn")
+            $("#accProduct").html("Konfirmasi")
+            $("#accProduct").addClass("btn-file")
+            accListener()
             $("#confirm").click()
         })
 
     }
-    $("#accProduct").click(function () {
-        $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/confirm",
-            async: false,
-            headers: {
-                'Authorization': `Bearer ` + getCookie("token"),
-            },
-            success: function (data) {
-                $("#contentBody").html("")
-                getDataTable()
-                $('#confirmModal').modal('hide');
-            },
-            error: function (errMsg) {
-                console.log(errMsg)
-            }
-        });
-    })
 
-    $(".look").click(function () {
-        $.ajax({
-            type: "GET",
-            url: "http://127.0.0.1:8080/api/products/" + $(this).data("id"),
-            async: false,
-            headers: {
-                'Authorization': `Bearer ` + getCookie("token"),
-            },
-            success: function (data) {
-                var res = data.product.productFile.split("/");
-                $("#img-book").attr("src", data.product.productPhoto)
-                $("#bookModal").html(data.product.title)
-                $("#penulis").html(data.product.author)
-                $("#penerbit").html(data.product.publisher)
-                $("#isbn").html(data.product.isbn)
-                $("#sku").html(data.product.sku)
-                $("#price").html(data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-                if (data.product.description.toString().length > 400) {
-                    long = data.product.description + `<span class="read-more" id="less-more"> Kurangi</span>`
-                    short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
-                } else {
-                    short = data.product.description
+    function decline() {
+        $(".btn-decline").click(function () {
+            $("#msg").html(`Apakah anda yakin akan menolak buku <span id="bookName">` + $(this).data("name") + `</span>?`)
+            $("#accProduct").attr("data-id", $(this).data("id"))
+            $("#accProduct").addClass("btn-warn")
+            $("#accProduct").removeClass("btn-file")
+            $("#accProduct").html("Tolak")
+            decListener()
+            $("#confirm").click()
+        })
+    }
+
+    function decListener() {
+        $(".btn-warn").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/decline",
+                async: false,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (data) {
+                    $("#contentBody").html("")
+                    getDataTable()
+                    $('#confirmModal').modal('hide');
+                },
+                error: function (errMsg) {
+                    console.log(errMsg)
                 }
-                $("#readBook").attr("data-file", res[res.length - 1])
-                $("#deskripsi").html(short)
-                $("#btn-modal").click()
-                bindReadMore()
-            },
-            error: function (errMsg) {
-                console.log(errMsg)
-            }
-        });
-    })
+            });
+        })
+    }
+
+    function accListener() {
+        $(".btn-file").click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:8080/api/admin/products/" + $(this).data("id") + "/confirm",
+                async: false,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (data) {
+                    $("#contentBody").html("")
+                    getDataTable()
+                    $('#confirmModal').modal('hide');
+                },
+                error: function (errMsg) {
+                    console.log(errMsg)
+                }
+            });
+        })
+    }
+
+    function lihatListener() {
+        $(".look").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:8080/api/products/" + $(this).data("id"),
+                async: false,
+                headers: {
+                    'Authorization': `Bearer ` + getCookie("token"),
+                },
+                success: function (data) {
+                    var res = data.product.productFile.split("/");
+                    $("#img-book").attr("src", data.product.productPhoto)
+                    $("#bookModal").html(data.product.title)
+                    $("#penulis").html(data.product.author)
+                    $("#penerbit").html(data.product.publisher)
+                    $("#isbn").html(data.product.isbn)
+                    $("#sku").html(data.product.sku)
+                    $("#price").html(data.product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
+                    if (data.product.description.toString().length > 400) {
+                        long = data.product.description + `<span class="read-more" id="less-more"> Kurangi</span>`
+                        short = data.product.description.substring(0, 400) + "..." + `<span class="read-more" id="read-more"> Lebih banyak</span>`
+                    } else {
+                        short = data.product.description
+                    }
+                    $("#readBook").attr("data-file", res[res.length - 1])
+                    $("#deskripsi").html(short)
+                    $("#btn-modal").click()
+                    bindReadMore()
+                },
+                error: function (errMsg) {
+                    console.log(errMsg)
+                }
+            });
+        })
+    }
 
     function bindReadMore() {
         $("#read-more").click(function () {

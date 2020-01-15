@@ -19,9 +19,6 @@ export default function checkTransaksi(){
             for(var i=0;i<data.length;i++){
                 if(data[i].transferConfirm=="PENDING")count++
             }
-        },
-        error: function(errMsg) {
-            console.log(errMsg); 
         }
     });
     return count;

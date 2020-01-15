@@ -13,7 +13,7 @@
     font-size: 14px;
 }
 
-.btn-outline-dark{
+.btn-outline-dark {
     margin-left: 5px;
     background-color: rgb(51, 51, 51);
     color: white;
@@ -134,7 +134,7 @@ a {
 
 .background-cst {
     background-color: white;
-    border-radius: 7px;
+    border-radius: 2px;
 }
 
 .red {
@@ -166,9 +166,25 @@ a {
     margin-right: auto;
 }
 
+.txt{
+    font-size: 30px;
+}
+
+.text-detail-cst{
+    color: gray;
+}
+
+.bold{
+    font-weight: bold;
+}
+
 .title-card {
     font-size: 20px;
     font-weight: 500;
+}
+
+.fs{
+    font-size: 60px;
 }
 
 .col-3-cst {
@@ -177,7 +193,7 @@ a {
     padding-right: 20px;
     max-width: 30%;
     min-width: 251px;
-    flex: 0 0 30%;
+    flex: 0 0 15%;
     justify-content: space-around;
 }
 
@@ -244,6 +260,16 @@ a {
 }
 
 @media screen and (max-width: 770px) {
+    .col-3-cst {
+        margin-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        max-width: 30%;
+        min-width: 180px;
+        flex: 0 0 30%;
+        justify-content: space-around;
+    }
+
     .m-3-custom {
         margin: 5px !important;
         max-width: 45%;
@@ -258,5 +284,15 @@ a {
         flex: 0 0 100%;
     }
 
+    .fs{
+        margin-left: 10px;
+    }
 
+    .text-detail-cst{
+        text-align: center;
+    }
+
+    .txt{
+        text-align: center;
+    }
 }
