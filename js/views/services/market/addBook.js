@@ -187,7 +187,7 @@ $(window).load(function () {
     } else
       $("#penerbit").removeClass("show");
 
-    if (kategoriBuku1 == null) {
+    if (kategoriBuku1 == null || kategoriBuku1== "") {
       stats = false;
       $("#kat").addClass("show");
     } else

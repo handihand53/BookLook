@@ -227,6 +227,17 @@ ol {
     font-weight: 500;
 }
 
+.sub-list {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 7px;
+    margin-top: 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: auto;
+}
+
 .fok-14 {
     font-size: 50px;
     color: rgb(85, 178, 255);
@@ -520,6 +531,10 @@ ol {
     display: block;
 }
 
+.border-bottom {
+    margin-bottom: 0px !important;
+}
+
 .alink:hover {
     text-decoration: underline !important;
 }
@@ -530,7 +545,20 @@ ol {
     margin-bottom: 15px;
 }
 
+.bg-gray {
+    background-color: #e9e9e9;
+}
+
 @media screen and (min-width: 771px) {
+    .f12 {
+        font-size: 12px;
+    }
+
+    .sub-list{
+        margin-top: 7px;
+        padding-bottom: 7px;
+    }
+
     .border-cst {
         border-right: 0.5px solid rgb(194, 194, 194);
     }
@@ -587,6 +615,13 @@ ol {
 }
 
 @media screen and (max-width: 770px) {
+    .img-book{
+        width: 100px;
+    }
+
+    tr>td{
+        font-size: 12px;
+    }
 
     .mlr-auto {
         margin-left: auto !important;
