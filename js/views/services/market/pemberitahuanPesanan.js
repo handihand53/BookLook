@@ -60,8 +60,24 @@ $(window).load(function () {
         },
         success: function (data) {
             var tot = 0;
-            for (var i = data.length - 1; i >= 0; i--) {
+
+
+            for (var i = 0; i < data.length; i++) {
                 dataArray.push(data[i])
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json",
+                    url: "http://127.0.0.1:8080/api/transactions/market/show/" + data[i].transactionCode,
+                    dataType: 'json',
+                    async: false,
+                    headers: {
+                        'Authorization': `Bearer ` + getCookie("token"),
+                    },
+                    success: function (data) {
+                        if (data.transactionDetail[0].marketConfirm == "CONFIRMED")
+                            dataArray[i].transferConfirm = "SUCCESS"
+                    }
+                });
             }
 
             dataArray.sort(function (a, b) {

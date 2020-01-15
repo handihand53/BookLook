@@ -5,6 +5,7 @@ import {
 } from '../../../cookies.js'
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
+    var marketId
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     $.ajax({
         type: "GET",
@@ -16,6 +17,7 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
+            marketId = data.marketId
             if (data.marketId != null) {
                 $("#loading").css("visibility", "hidden");
                 $("#marketName").html(data.marketName)
@@ -101,19 +103,23 @@ $(window).load(function () {
                     }
                 });
                 $("#namaPemesan").html(username)
-                $("#status").html(data.transaction.transferConfirm)
+                
                 $("#price").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-                if (data.transaction.transferConfirm == "SUCCESS") {
-                    $("#proses").attr("disabled", true)
-                    $("#proses").removeClass("btn-proses")
-                    $("#proses").addClass("btn-finish")
-                    $("#proses").html("Selesai")
-                    $("#status").css("color", "rgb(0, 157, 0)")
-                } else {
-                    $("#status").css("color", "#fc2803")
-                }
                 for (var i = data.transactionDetail.length - 1; i >= 0; i--) {
-                    var html = `
+                    if (data.transactionDetail[i].marketId == marketId) {
+
+                        if (data.transactionDetail[i].marketConfirm == "CONFIRMED") {
+                            $("#proses").attr("disabled", true)
+                            $("#proses").removeClass("btn-proses")
+                            $("#proses").addClass("btn-finish")
+                            $("#proses").html("Selesai")
+                            $("#status").css("color", "rgb(0, 157, 0)")
+                            $("#status").html(data.transactionDetail[i].marketConfirm)
+                        } else {
+                            $("#status").css("color", "#fc2803")
+                        }
+
+                        var html = `
 
                     <div class="col-12 plr-5">
                         <div class="shadow-card mb-3 p-3">
@@ -158,7 +164,9 @@ $(window).load(function () {
                         </div>
                     </div>
                     `;
-                    $("#content").append(html)
+                        $("#content").append(html)
+                    }
+
                 }
             },
             error: function (errMsg) {

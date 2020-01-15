@@ -95,6 +95,7 @@ $(window).load(function () {
       else color = "pembayaran-unsuccess"
       $("#statusPembayaran").addClass(color)
       $("#totalTransaksi").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
+      console.log(data)
       for (var i = 0; i < data.transactionDetail.length; i++) {
         var nama
 
@@ -109,11 +110,18 @@ $(window).load(function () {
           },
           error: function (errMsg) {}
         });
+        var stats
+
+        if (data.transactionDetail[i].marketConfirm == "CONFIRMED") {
+          stats = `<i class="fas fa-check" style="color: green;"></i>`
+        } else {
+          stats = `<i class="fas fa-times" style="color: red;"></i>`
+        }
 
         var html = `
         <div class="shadow-card p-3 mb-4">
-              <div class="bold border-bottom">Toko : <a href="/market/market-page.html?id=` + data.transactionDetail[i].marketId + `"
-                  class="alink">` + x + `</a></div>
+              <div class="bold border-bottom"><span>` + stats + `</span> Toko : <a href="/market/market-page.html?id=` + data.transactionDetail[i].marketId + `"
+                  class="alink"> ` + x + `</a></div>
               <div class="row">
                 <div class="col-3-custom">
                   <div class="content-border no-border border-radius-4">
@@ -125,7 +133,7 @@ $(window).load(function () {
                 <div class="col-9-custom mt-3">
                   <div class="row border-bottom-gray">
                     <p class="col-6 list-i">Judul</p>
-                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.title + `">` + data.transactionDetail[i].product.title + `</p>
+                    <p class="list-i col-6" title="` + data.transactionDetail[i].product.title + `"> ` + data.transactionDetail[i].product.title + `</p>
                   </div>
                   <div class="row border-bottom-gray background-gray">
                     <p class="col-6 list-i">Penulis Buku</p>
@@ -150,9 +158,9 @@ $(window).load(function () {
                   <div class="row border-bottom-gray">
                     <p class="col-6 list-i">Harga</p>
                     <p class="list-i col-6 blue-2" title="Rp. ` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-                    '$&,').replace(/\.00/g, '') + `">Rp.
+          '$&,').replace(/\.00/g, '') + `">Rp.
                       <span>` + data.transactionDetail[i].product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g,
-                      '$&,').replace(/\.00/g, '') + `</span></p>
+          '$&,').replace(/\.00/g, '') + `</span></p>
                   </div>
                 </div>
               </div>

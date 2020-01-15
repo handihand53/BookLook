@@ -99,11 +99,10 @@ $(window).load(function () {
     var html;
     $("#content").html("")
     if (str == "" || str == undefined) {
-      console.log(data)
       for (let i = 0; i < data.length; i++) {
         html = `
         <div class="mlr-auto-mob">
-          <a href="book.html?_i=fbf64352-3c19-4ee3-ab65-3a31cea00512">
+          <a href="book.html?_i=` + data[i].productId + `">
             <div class="row no-margin border">
               <div class="img-book">
                 <img src="` + data[i].productPhoto + `" alt=""
