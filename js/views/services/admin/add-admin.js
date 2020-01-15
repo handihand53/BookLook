@@ -124,7 +124,7 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
+                $("#modalInfo").click()
             },
             error: function (err) {
                 console.log(err)
