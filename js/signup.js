@@ -133,6 +133,9 @@ $(document).ready(function () {
             cek = false;
         } else if (phoneNumber.match(numRegex)) {
             cek = false;
+        } else if(phoneNumber.length<10 || phoneNumber.length>14){
+            $("#login-fail").append(`<li>No telepon harus terdiri dari 10 - 14 karakter</li>`)
+            cek = false;
         }
 
         if (!validate()) {
