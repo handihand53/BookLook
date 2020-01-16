@@ -96,9 +96,6 @@ function getBooks() {
                         $("#" + arr).append(html)
                     }
                 }
-            },
-            error: function (errMsg) {
-                console.log(errMsg);
             }
         });
     });
@@ -113,15 +110,11 @@ $.ajax({
     url: "http://127.0.0.1:8080/api/products/dashboard/header/18",
     success: function (data) {
         getBook(data)
-    },
-    error: function (data) {
-        console.log(data)
     }
 });
 
 
 function getBook(data) {
-console.log(data)
     if (data.length != 0) {
         var body = `
             <div class="carousel-item active no-border-bottom">
@@ -193,9 +186,6 @@ console.log(data)
         },
         success: function (data) {
 
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
         }
     });
 

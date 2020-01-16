@@ -18,7 +18,6 @@ function getDataUser() {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
             $("#nama").html(data.name)
             if (data.userPhoto == null)
                 $("#img").attr("src", `/assets/else/signature.png`)
@@ -62,9 +61,6 @@ function getBook() {
         },
         success: function (data) {
             $("#jml-buku").html(data.length)
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
         }
     });
 }

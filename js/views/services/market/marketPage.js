@@ -50,7 +50,6 @@ $(window).load(function () {
     function listBook(data, str) {
         f = false
         if (data.length != 0) {
-            console.log(data)
             $("#product-items").html("")
             if (str == "" || str == undefined) {
 

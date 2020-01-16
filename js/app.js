@@ -24,8 +24,6 @@ $(document).ready(function () {
     success: function (data) {
       $("#name").html(data.name.substring(0, 7))
       headerSuccess();
-      $("#footer-masuk").html(`<a href="/kebijakan-privasi.html" class="bold alink">Kebijakan & privasi</a>`)
-      $("#footer-daftar").html(`<a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat & ketentuan</a>`)
       if (checkTransaksi() != 0) {
         $(".notif-toko").html(checkTransaksi())
         $(".notif-toko").css("display", "inline-block")

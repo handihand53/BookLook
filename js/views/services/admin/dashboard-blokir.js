@@ -46,7 +46,6 @@ $(document).ready(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
             if (data.length != 0) {
                 for (var i = 0; i < data.length; i++) {
                     var d = new Date(data[i].user.createdAt);

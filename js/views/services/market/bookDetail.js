@@ -189,7 +189,6 @@ $(window).load(function () {
 
             </div>
                 `
-                console.log(data)
                 $("#bookContent").html(html)
                 $(".editlink").attr("href", "/market/edit_buku.html?_i=" + data.product.productId)
                 bindReadMore()

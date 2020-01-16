@@ -15,7 +15,6 @@ $(window).load(function () {
                     </div>
                 </a>
                 `
-                console.log(kat)
                 $("#kategori2").append(kat)
             });
         }

@@ -17,7 +17,6 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
             if (data.marketId != null) {
                 $("#loading").css("visibility", "hidden");
                 if (data.marketPhoto == null)
