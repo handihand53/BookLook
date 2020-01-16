@@ -179,6 +179,12 @@ $(window).load(function () {
         });
     }
 
+    document.getElementById("price").addEventListener("keypress", function (evt) {
+        if (evt.which != 8 && evt.which != 0 && evt.which < 48 || evt.which > 57) {
+          evt.preventDefault();
+        }
+      });
+
     $("#iconback").html(`<i class="fas fa-chevron-left mt-1 ml-auto"></i> <span class="bold">Toko</span>`)
     $("#logoBooklook").addClass("h")
     $("#iconback").click(function () {

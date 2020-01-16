@@ -5,6 +5,7 @@ import {
 } from '../../../cookies.js';
 
 $(document).ready(function () {
+    var book = new Array()
 
     var readKey
     var id
@@ -54,19 +55,31 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                if (data.length == 0)
-                    $("#jmlBuku").html("")
-                else
-                    $("#jmlBuku").html(data.length)
-                if (data.length != 0) {
-                    $("#jmlBukuMob").addClass("notif")
-                    $("#jmlBuku").addClass("notif")
-                    $("#jmlBukuMob").html(data.length)
-                    $("#jmlBuku").html(data.length)
-                    for (var i = 0; i < data.length; i++) {
-                        var d = new Date(data[i].product.createdAt);
-                        var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
-                        let html = `
+                book = data
+                addBook(book)
+            },
+            error: function (errMsg) {
+                console.log(errMsg)
+            }
+        });
+    }
+
+    function addBook(data) {
+        $("#contentBody").html("")
+        if (data.length == 0)
+            $("#jmlBuku").html("")
+        else
+            $("#jmlBuku").html(data.length)
+
+        if (data.length != 0) {
+            $("#jmlBukuMob").addClass("notif")
+            $("#jmlBuku").addClass("notif")
+            $("#jmlBukuMob").html(data.length)
+            $("#jmlBuku").html(data.length)
+            for (var i = 0; i < data.length; i++) {
+                var d = new Date(data[i].product.createdAt);
+                var tgl = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear();
+                let html = `
                     <tr>
                         <td>` + (i + 1) + `</td>
                         <td class="text-table" title="` + data[i].product.title + `">` + data[i].product.title + `</td>
@@ -77,41 +90,37 @@ $(document).ready(function () {
                         <td class="center no-pad-right"><button id="decline" class="btn-decline" data-name="` + data[i].product.title + `" data-id=` + data[i].product.productId + ` ><i class="fas fa-times"></i></button></td>
                     </tr>
                     `
-                        $("#contentBody").append(html)
-                    }
-                } else {
-                    var html = `
+                $("#contentBody").append(html)
+            }
+        } else {
+            var html = `
                     <tr>
                         <td colspan="6" class="center txt">Belum ada permintaan buku baru</td>
                     </tr>
                     `
-                    $("#contentBody").append(html)
-                    $("#jmlBukuMob").html()
-                    $("#jmlBuku").html()
-                    $("#jmlBukuMob").removeClass("notif")
-                    $("#jmlBuku").removeClass("notif")
-                }
-                accept()
-                decline()
-                lihatListener()
-                accListener()
-            },
-            error: function (errMsg) {
-                console.log(errMsg)
-            }
-        });
+            $("#contentBody").append(html)
+            $("#jmlBukuMob").html()
+            $("#jmlBuku").html()
+            $("#jmlBukuMob").removeClass("notif")
+            $("#jmlBuku").removeClass("notif")
+        }
+        accept()
+        decline()
+        lihatListener()
+        accListener()
     }
+
     accept()
+    decListener()
 
     function accept() {
         $(".btn-acc").click(function () {
             $("#bookName").html($(this).data("name"))
-            $("#msg").html(`Apakah anda yakin akan mengkonfirmasi buku <span id="bookName">` + $(this).data("name") + `</span>?`)
-            $("#accProduct").attr("data-id", $(this).data("id"))
-            $("#accProduct").removeClass("btn-warn")
+            $("#msg").html(`Apakah anda yakin akan mengkonfirmasi buku <span id="bookName">` + $(this).attr("data-name") + `</span>?`)
+            $("#accProduct").attr("data-id", $(this).attr("data-id"))
             $("#accProduct").html("Konfirmasi")
-            $("#accProduct").addClass("btn-file")
-            accListener()
+            $("#decProduct").css("display", "none")
+            $("#accProduct").css("display", "block")
             $("#confirm").click()
         })
 
@@ -119,18 +128,17 @@ $(document).ready(function () {
 
     function decline() {
         $(".btn-decline").click(function () {
-            $("#msg").html(`Apakah anda yakin akan menolak buku <span id="bookName">` + $(this).data("name") + `</span>?`)
-            $("#accProduct").attr("data-id", $(this).data("id"))
-            $("#accProduct").addClass("btn-warn")
-            $("#accProduct").removeClass("btn-file")
-            $("#accProduct").html("Tolak")
-            decListener()
+            $("#msg").html(`Apakah anda yakin akan menolak buku <span id="bookName">` + $(this).attr("data-name") + `</span>?`)
+            $("#decProduct").attr("data-id", $(this).attr("data-id"))
+            $("#decProduct").css("display", "block")
+            $("#accProduct").css("display", "none")
+            $("#decProduct").html("Tolak")
             $("#confirm").click()
         })
     }
 
     function decListener() {
-        $(".btn-warn").click(function () {
+        $("#decProduct").click(function () {
             $.ajax({
                 type: "POST",
                 url: "http://127.0.0.1:8080/api/admin/products/" + $(this).attr("data-id") + "/decline",
@@ -142,9 +150,6 @@ $(document).ready(function () {
                     $("#contentBody").html("")
                     getDataTable()
                     $('#confirmModal').modal('hide');
-                    accept()
-                    decline()
-                    accListener()
                 },
                 error: function (errMsg) {
                     console.log(errMsg)
@@ -154,7 +159,7 @@ $(document).ready(function () {
     }
 
     function accListener() {
-        $(".btn-file").click(function () {
+        $("#accProduct").click(function () {
             $.ajax({
                 type: "POST",
                 url: "http://127.0.0.1:8080/api/admin/products/" + $(this).attr("data-id") + "/confirm",
@@ -166,11 +171,6 @@ $(document).ready(function () {
                     $("#contentBody").html("")
                     getDataTable()
                     $('#confirmModal').modal('hide');
-                    accept()
-                    decline()
-                },
-                error: function (errMsg) {
-                    console.log(errMsg)
                 }
             });
         })
@@ -230,6 +230,150 @@ $(document).ready(function () {
         getDataAdmin()
         window.open("/admin/readbook.html?file=" + $(this).attr("data-file") + "&id=" + id + "&key=" + readKey)
     })
+
+    function judulAsc(a, b) {
+        var nameA = a.product.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.product.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function judulDesc(a, b) {
+        var nameA = a.product.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.product.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA > nameB) {
+            return -1;
+        }
+
+        if (nameA < nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function tanggalAsc(a, b) {
+        var nameA = a.product.createdAt.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.product.createdAt.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function tanggalDesc(a, b) {
+        var nameA = a.product.createdAt.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.product.createdAt.toUpperCase(); // ignore upper and lowercase
+        if (nameA > nameB) {
+            return -1;
+        }
+
+        if (nameA < nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function tokoAsc(a, b) {
+        var nameA = a.marketName.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.marketName.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    function tokoDesc(a, b) {
+        var nameA = a.marketName.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.marketName.toUpperCase(); // ignore upper and lowercase
+        if (nameA > nameB) {
+            return -1;
+        }
+
+        if (nameA < nameB) {
+            return 1;
+        }
+
+        return 0;
+    }
+
+    sortJudul()
+
+    function sortJudul() {
+        $("#judul").click(function () {
+            $("#tanggal").html(`Tanggal`)
+            $("#toko").html(`Toko`)
+            if ($(this).attr("data-set") == "0") {
+                $(this).attr("data-set", "1")
+                $(this).html(`Judul Buku <i class="fas fa-sort-up"></i>`)
+                book.sort(judulAsc);
+                addBook(book)
+            } else {
+                $(this).attr("data-set", "0")
+                $(this).html(`Judul Buku <i class="fas fa-sort-down"></i>`)
+                book.sort(judulDesc);
+                addBook(book)
+            }
+        })
+    }
+
+    sortTanggal()
+
+    function sortTanggal() {
+        $("#tanggal").click(function () {
+            $("#judul").html(`Judul Buku`)
+            $("#toko").html(`Toko`)
+            if ($(this).attr("data-set") == "0") {
+                $(this).attr("data-set", "1")
+                $(this).html(`Tanggal <i class="fas fa-sort-up"></i>`)
+                book.sort(tanggalAsc);
+                addBook(book)
+            } else {
+                $(this).attr("data-set", "0")
+                $(this).html(`Tanggal <i class="fas fa-sort-down"></i>`)
+                book.sort(tanggalDesc);
+                addBook(book);
+            }
+        })
+    }
+
+    sortToko()
+
+    function sortToko() {
+        $("#toko").click(function () {
+            $("#tanggal").html(`Tanggal`)
+            $("#judul").html(`Judul`)
+            if ($(this).attr("data-set") == "0") {
+                $(this).attr("data-set", "1")
+                $(this).html(`Status <i class="fas fa-sort-up"></i>`)
+                book.sort(tokoAsc);
+                addBook(book)
+            } else {
+                $(this).attr("data-set", "0")
+                $(this).html(`Status <i class="fas fa-sort-down"></i>`)
+                book.sort(tokoDesc);
+                addBook(book);
+            }
+        })
+    }
 
     $("#dash-konfirmasi").addClass("li-active")
     $("#dash-konfirmasi-link").addClass("link-list")

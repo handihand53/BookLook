@@ -96,7 +96,7 @@ $(window).load(function () {
             }
             fileName = file2.target.files[0].name;
 
-            var maxSize = 200 * 1024 * 1024;
+            var maxSize = 50 * 1024 * 1024;
             if (file2.target.files[0].size > maxSize) {
                 alert("Ukuran File terlalu besar")
                 $("#file-name").html("")
@@ -122,15 +122,13 @@ $(window).load(function () {
         }
 
         var berkasName = dateTime + berkas.name
-
         var fd = new FormData();
-        fd.append('book', berkas, berkasName);
-        fd.append('productId', urlParams._i[0])
+        fd.append('book', berkas, berkasName.toString());
+        fd.append('productId', urlParams._i.toString())
 
         $.ajax({
             type: "PUT",
             url: "http://127.0.0.1:8080/api/products/edit/book",
-            timeout: 600000,
             data: fd,
             processData: false,
             contentType: false,

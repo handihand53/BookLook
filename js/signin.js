@@ -79,7 +79,6 @@ $(document).ready(function () {
                 data: JSON.stringify(data),
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data)
                     if (data.status == true) {
                         var token = data.result;
                         setCookie("token", token, 1);

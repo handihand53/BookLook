@@ -128,41 +128,42 @@ function getBook(data) {
 
         if (data.length % 6 != 0) {
             le += data.length + (6 - data.length % 6)
-        }else{
+        } else {
             le = data.length
         }
         var i = 0
 
-        for (var j = 0; j < le; j++, i++) {
-            if (i % data.length == 0) {
-                i = 0
-            }
+        for (var j = 0; j < le; j++) {
+                if (i % data.length == 0) {
+                    i = 0
+                }
 
-            if (j % 6 == 0 && j != 0) {
-                var body = `
-                    <div class="carousel-item">
-                        <div class="row col-12 slider-container">
+                if (j % 6 == 0 && j != 0) {
+                    var body = `
+                        <div class="carousel-item">
+                            <div class="row col-12 slider-container">
+                            </div>
+                        <br>
                         </div>
-                    <br>
-                    </div>
-                    `
-                $("#slider").append(body)
-            }
+                        `
+                    $("#slider").append(body)
+                }
 
-            var content = `
-            <div class="col-2-mob-4-desk">
-                <a href="/market/book.html?_i=` + data[i].productId + `">
-                    <div class="content-border select shadow-card max-min no-border border-radius-4">
-                        <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                        <div class="p-1">
-                        <p class="title no-margin no-padding">` + data[i].title + `</p>
-                        <p class="author-main">` + data[i].author + `</p>
+                var content = `
+                <div class="col-2-mob-4-desk">
+                    <a href="/market/book.html?_i=` + data[i].productId + `">
+                        <div class="content-border select shadow-card max-min no-border border-radius-4">
+                            <img src="` + data[i].productPhoto + `" alt="" class="width-img">
+                            <div class="p-1">
+                            <p class="title no-margin no-padding">` + data[i].title + `</p>
+                            <p class="author-main">` + data[i].author + `</p>
+                            </div>
                         </div>
-                    </div>
-                <a>
-            </div>
-            `
-            $(".slider-container:last").append(content)
+                    <a>
+                </div>
+                `
+                $(".slider-container:last").append(content)
+                i++
         }
     } else {
         var body = `

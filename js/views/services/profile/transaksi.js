@@ -96,11 +96,9 @@ $(window).load(function () {
       //   window.location.replace("/404.html")
     }
   });
-  console.log(dataArray)
 
   function addToTable(data) {
     $("#tableBody").html("")
-    console.log(data.length)
     for (var i = 0; i < data.length; i++) {
 
       var d = new Date(data[i].createdAt);

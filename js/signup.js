@@ -31,11 +31,9 @@ $(document).ready(function () {
         var email = $("#email").val();
 
         if (validateEmail(email)) {
-            console.log("valid");
             return true;
         } else {
             $("#login-fail").append('Format Email salah')
-            console.log("invalid")
         }
         return false;
     }
@@ -158,7 +156,6 @@ $(document).ready(function () {
                 dataType: 'json',
                 async: false,
                 success: function (msg) {
-                    console.log(msg)
                     login();
                 },
                 error: function (errMsg) {
@@ -175,7 +172,6 @@ $(document).ready(function () {
             "password": password
         };
 
-        console.log(JSON.stringify(dataIn));
         $.ajax({
             type: "POST",
             contentType: "application/json",

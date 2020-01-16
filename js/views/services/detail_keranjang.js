@@ -213,7 +213,6 @@ $(window).load(function () {
                     <!--  -->
                 </div>
                     `
-                    console.log("s")
                     $("#kontent").append(hitungan)
 
                     bindListener();

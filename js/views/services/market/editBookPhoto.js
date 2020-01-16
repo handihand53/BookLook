@@ -6,24 +6,6 @@ import {
 import checkTransaksi from '../../../notifMarket.js';
 $(window).load(function () {
 
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://127.0.0.1:8080/api/markets/block/check",
-        dataType: 'json',
-        async: false,
-        headers: {
-            'Authorization': `Bearer ` + getCookie("token"),
-        },
-        success: function (data) {
-            if (!data.success)
-                window.location.replace("/user/user.html")
-        },
-        error: function (errMsg) {
-            console.log(errMsg)
-        }
-    });
-
     if (checkTransaksi() != 0) $("#pemberitahuan").html(checkTransaksi())
     var urlString = window.location.href;
     var urlParams = parseURLParams(urlString);
@@ -178,7 +160,6 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
                 $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
                 $("#modalMsgEdit").html(`Perubahan foto berhasil disimpan`);
                 $("#editProf").click();

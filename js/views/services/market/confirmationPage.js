@@ -143,7 +143,6 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
                 message = data.message
                 $("#modalBayar").click()
             },

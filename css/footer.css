@@ -16,6 +16,12 @@ footer .main-footer {
     font-size: 10px;
 }
 
+.bank {
+    max-width: 50px;
+    margin: 5px;
+    margin-left: 10px;
+}
+
 .alink {
     color: rgb(46, 133, 255);
     font-weight: bold;

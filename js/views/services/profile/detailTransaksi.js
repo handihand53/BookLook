@@ -95,7 +95,6 @@ $(window).load(function () {
       else color = "pembayaran-unsuccess"
       $("#statusPembayaran").addClass(color)
       $("#totalTransaksi").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
-      console.log(data)
       for (var i = 0; i < data.transactionDetail.length; i++) {
         var nama
 

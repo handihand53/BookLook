@@ -103,7 +103,7 @@ $(window).load(function () {
                     }
                 });
                 $("#namaPemesan").html(username)
-                
+
                 $("#price").html(data.transaction.checkout.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, ''))
                 for (var i = data.transactionDetail.length - 1; i >= 0; i--) {
                     if (data.transactionDetail[i].marketId == marketId) {
@@ -117,6 +117,7 @@ $(window).load(function () {
                             $("#status").html(data.transactionDetail[i].marketConfirm)
                         } else {
                             $("#status").css("color", "#fc2803")
+                            $("#status").html(data.transactionDetail[i].marketConfirm)
                         }
 
                         var html = `

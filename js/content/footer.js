@@ -3,19 +3,27 @@ let footer = `
     <div class="container">
         <div class="row"> 
             
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 <div class="bold f12 mb-2">LAIN-LAIN</div>
                 <p class="f12" ><a href="/kebijakan-privasi.html" class="bold alink">Kebijakan Privasi</a></p>
                 <p class="f12" ><a href="/syarat-dan-ketentuan.html" class="bold alink">Syarat & ketentuan</a></p>
             </div>
-            <div class="col-md-4 mb-5">
+            <div class="col-md-3 mb-5">
                 <div class="bold f12 mb-2">CUSTOMER CARE</div>
                 <p class="f12"><i class="fas fa-phone abu"></i> 082123456789</p>
                 <p class="f12"><i class="fas fa-envelope abu"></i> customer.care@booklook.com</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="bold f12 mb-2">TENTANG</div>
                 <p class="f12"><a class="alink" href="/user/">BookLook</a> - Situs Jual Beli Online di Indonesia BookLook merupakan situs jual beli online di Indonesia yang memiliki ratusan buku digital. Baca buku online terasa semakin mudah dan menyenangkan saat ini karena apapun yang Anda ingin baca pasti bisa ditemukan di BookLook.<a href="/tentang.html" class="alink"> Lebih lanjut<span></span></a></p>
+            </div>
+            <div class="col-md-3">
+                <div class="bold f12 mb-2">PEMBAYARAN VIA</div>
+                <img src="../assets/else/bca.png" alt="" class="bank">
+                <img src="../assets/else/bni.png" alt="" class="bank">
+                <img src="../assets/else/alfamart.png" alt="" class="bank">
+                <img src="../assets/else/indomaret.png" alt="" class="bank">
+                <img src="../assets/else/Logo OVO.png" alt="" class="bank">
             </div>
         </div>
     </div>

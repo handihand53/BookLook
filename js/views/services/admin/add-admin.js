@@ -12,13 +12,13 @@ $(document).ready(function () {
         headers: {
             'Authorization': `Bearer ` + getCookie("token"),
         },
-        success: function (data) {
-            console.log(data)
-        },
+        success: function (data) {},
         error: function (err) {
             window.location.assign("/admin_login.html");
         }
     });
+
+    var stats = false;
 
 
     $("#daftar").click(function () {
@@ -115,7 +115,6 @@ $(document).ready(function () {
             "username": username
         };
 
-        console.log(data)
         $.ajax({
             type: "POST",
             url: "http://127.0.0.1:8080/api/admin/add-admin",
@@ -126,10 +125,17 @@ $(document).ready(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
+                $("#modalMsgEdit").html("Admin berhasil didaftarkan")
+                $("#icon").html(`<i class="fas fa-check fok-14 mb-2 mt-2"></i>`)
                 $("#modalInfo").click()
+                stats = true;
             },
-            error: function (err) {
-                console.log(err)
+            error: function (data) {
+                if (data.status == "400") {
+                    $("#modalMsgEdit").html(data.responseJSON.message)
+                    $("#icon").html(`<i class="far fa-times-circle fok-14 mb-2 mt-2" style="color: red;"></i>`)
+                    $("#modalInfo").click()
+                }
             }
         });
     })
@@ -156,6 +162,8 @@ $(document).ready(function () {
     $("#dash-add-mob").addClass("li-active")
     $("#dash-add-link-mob").addClass("link-list")
     $("#ok").click(function () {
-        location.reload();
+        if (stats == true) {
+            location.reload();
+        }
     })
 })

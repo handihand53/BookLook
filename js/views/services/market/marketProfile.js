@@ -63,7 +63,7 @@ $(window).load(function () {
             },
             success: function (data) {
                 $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
-                $("#modalMsgEdit").html(data.message)
+                $("#modalMsgEdit").html("Market berhasil diupdate")
                 $("#editProf").click();
             },
             error: function (errMsg) {

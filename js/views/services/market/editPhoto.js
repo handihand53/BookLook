@@ -17,7 +17,6 @@ $(window).load(function () {
             'Authorization': `Bearer ` + getCookie("token"),
         },
         success: function (data) {
-            console.log(data)
             if (data.marketId != null) {
                 $("#loading").css("visibility", "hidden");
                 $("#marketName").html(data.marketName)
@@ -56,9 +55,8 @@ $(window).load(function () {
                 var fileContent = reader.result;
                 $('#img-display').attr('src', fileContent);
             }
-            console.log(fileName)
+            
             if (fileName == "") {
-                console.log("kosong")
             }
         }
     });
@@ -77,7 +75,6 @@ $(window).load(function () {
         var dateTime = date + '' + time;
         var berkasName = dateTime + pict.name
         var fd = new FormData();
-        console.log(pict)
         fd.append('picture', pict, berkasName);
 
 
@@ -93,7 +90,6 @@ $(window).load(function () {
                 'Authorization': `Bearer ` + getCookie("token"),
             },
             success: function (data) {
-                console.log(data)
                 $("#icon").html(`<i class="fas fa-check f14 mb-2 mt-2"></i>`)
                 $("#modalMsgEdit").html(`Perubahan foto berhasil disimpan`);
                 $("#editProf").click();

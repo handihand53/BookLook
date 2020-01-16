@@ -32,11 +32,11 @@
                         <table class="table table-hover">
                             <thead>
                                 <th scope="col">No</th>
-                                <th scope="col" class="center">Judul Buku</th>
-                                <th scope="col" class="center">Tanggal</th>
-                                <th scope="col" class="center">Toko</th>
+                                <th scope="col" id="judul" data-set="0" class="">Judul Buku</th>
+                                <th scope="col" id="tanggal" data-set="0" class="">Tanggal</th>
+                                <th scope="col" id="toko" data-set="0" class="">Toko</th>
                                 <th class="center" scope="col">Detail</th>
-                                <th colspan="2" scope="col" class="center">Aksi</th>
+                                <th colspan="2" scope="col" class="">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="contentBody">
@@ -124,7 +124,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn-gray" data-dismiss="modal">Batal</button>
-                        <button type="button" id="accProduct" class="">Konfirmasi</button>
+                        <button type="button" id="accProduct" class="btn-file">Konfirmasi</button>
+                        <button type="button" id="decProduct" class="btn-warn">Konfirmasi</button>
                     </div>
                 </div>
             </div>

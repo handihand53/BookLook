@@ -130,19 +130,28 @@ $(window).load(function () {
         if (str.toLowerCase() == data[i].title.substring(0, str.length).toLowerCase()) {
           f = true;
           html = `
-              <div class="col-3-custom">
-                <a href="book.html?_i=` + data[i].productId + `">
-                  <div class="content-border border-book no-border max-min border-radius-4">
-                    <img src="` + data[i].productPhoto + `" alt="" class="width-img">
-                    <div class="p-2">
-                      <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
-                      <p class="author-book">` + data[i].author + `</p>
-                      <p class="price-store">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
-                    </div>
-                  </div>
-                </a>
+        <div class="mlr-auto-mob">
+          <a href="book.html?_i=` + data[i].productId + `">
+            <div class="row no-margin border">
+              <div class="img-book">
+                <img src="` + data[i].productPhoto + `" alt=""
+                  class="width-img">
               </div>
-              `;
+              <div class="width-desc">
+                <div class="p-2 width-desc">
+                  <div class="">
+                    <p class="title-book" title="` + data[i].title + `">` + data[i].title + `</p>
+                    <p class="author-book" title="` + data[i].author + `">` + data[i].author + `</p>
+                    <p class="price-store" title="Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `">Rp. ` + data[i].price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,').replace(/\.00/g, '') + `</p>
+                  </div>
+                  <p class="desk">Deskripsi </p>
+                  <p class="truncate-overflow" title="` + data[i].description + `">` + data[i].description + `</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        `;
           $("#content").append(html);
         }
       }

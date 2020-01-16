@@ -51,16 +51,3 @@ var book = urlParams.file
 
 var fullPath = url + id + "/" + key + "/" + book + "#toolbar=0"
 $("#iframe").attr("src", fullPath)
-
-$.ajax({
-    type: "GET",
-    contentType: "application/json",
-    url: fullPath,
-    dataType: 'json',
-    success: function (data) {
-        console.log(data)
-    },
-    error: function (errMsg) {
-        console.log(errMsg)
-    }
-});
