@@ -181,14 +181,6 @@ $(window).load(function () {
                                 Rp. <span class="totPrice"></span>
                             </div>
                         </div>
-                        <div class="row pr-2 pl-2">
-                            <div class="col-6 sub-list no-margin">
-                                Potongan Voucher
-                            </div>
-                            <div class="col-6 sub-list blue-content right no-margin">
-                                -
-                            </div>
-                        </div>
                         <hr>
                         <div class="row pr-2 pl-2">
                             <div class="col-6 sub-list no-margin">
